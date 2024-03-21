@@ -1,0 +1,21 @@
+@import "./reset";
+@import "vars/globals.var";
+// themes
+@import "themes/dark";
+@import "themes/light";
+
+.page-header {
+	margin-top: 50px;
+	margin-left: 100px;
+
+	font-size: 50px;
+}
+
+.app {
+	font: var(--font-m);
+
+	background: var(--bg-color);
+	color: var(--primary-color);
+
+	min-height: 100vh;
+}
