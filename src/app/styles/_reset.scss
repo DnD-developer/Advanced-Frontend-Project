@@ -1,9 +1,13 @@
-@import "../../../node_modules/normalize.css/normalize.css";
+@import "~normalize.css/normalize.css";
 
 li {
 	list-style: none;
 }
 
-a:visited {
-	color: inherit;
+* {
+	box-sizing: border-box;
+}
+
+a{
+	text-decoration: none;
 }

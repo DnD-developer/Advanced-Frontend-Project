@@ -1,19 +1,20 @@
-//noinspection CssUnusedSymbol
-.links-list {
+.Header {
 	display: flex;
 	align-items: center;
+	justify-content: right;
 
-	width: 100px;
+	width: 100%;
+	height: var(--navbar-height);
 
-	margin: 0 auto;
 
-	padding: 50px 10px;
+	padding: 10px 50px;
+
+	background-color: var(--inverted-bg-color);
 }
+
 
 .link {
 	margin-left: 20px;
-
-	font-size: 30px;
 
 	&:first-child {
 		margin-left: 0;
