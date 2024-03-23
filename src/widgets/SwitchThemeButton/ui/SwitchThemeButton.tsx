@@ -1,10 +1,10 @@
 import styles from "./SwitchThemeButton.module.scss"
 
-type SwithThemeButtonProps = {
+type SwitchThemeButtonProps = {
 	onClick: () => void
 }
 
-export const SwithThemeButton = ({ onClick }: SwithThemeButtonProps) => {
+export const SwitchThemeButton = ({ onClick }: SwitchThemeButtonProps) => {
 	const onCliCkHandler = () => {
 		onClick()
 	}

@@ -1,3 +1,4 @@
+//noinspection CssUnusedSymbol
 .links-list {
 	display: flex;
 	align-items: center;
@@ -15,6 +16,6 @@
 	font-size: 30px;
 
 	&:first-child {
-		margin-left: 0px;
+		margin-left: 0;
 	}
 }

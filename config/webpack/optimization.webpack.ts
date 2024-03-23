@@ -1,11 +1,11 @@
 import CssMinimizerPlugin from "css-minimizer-webpack-plugin"
 import { buildOptions } from "./types/config"
 
-export function optimizationWebpack(option: buildOptions) {
+export function optimizationWebpack({isDev}: buildOptions) {
 	const cssMinimizer = new CssMinimizerPlugin()
 
 	return {
-		minimize: !option.isDev,
+		minimize: !isDev,
 		minimizer: [cssMinimizer]
 	}
 }

@@ -14,7 +14,7 @@ export function configWebpack(options: buildOptions): webpack.Configuration {
 		devtool: isDev ? "inline-source-map" : undefined,
 		optimization: optimizationWebpack(options),
 		devServer: isDev ? devServerWebpack(options) : undefined,
-		resolve: resolversWebpack(),
+		resolve: resolversWebpack(options),
 		output: {
 			path: paths.build,
 			filename: "[name].[contenthash].bundle.js",

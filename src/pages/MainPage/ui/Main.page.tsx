@@ -1,4 +1,4 @@
-import { Hello } from "../../components/Hello/Hello"
+import { Hello } from "@widgets/Hello"
 
 const MainPage = () => (
 	<div>

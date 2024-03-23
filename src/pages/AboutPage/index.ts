@@ -1,0 +1,1 @@
+export {AboutLazyPage as AboutPage} from "./ui/AboutLazy.page"

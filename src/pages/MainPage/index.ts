@@ -1,0 +1,1 @@
+export {MainLazyPage as MainPage} from "./ui/MainLazy.page"
