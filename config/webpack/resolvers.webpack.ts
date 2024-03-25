@@ -1,18 +1,18 @@
 import webpack from "webpack"
 import { buildOptions } from "./types/config"
 
-export function resolversWebpack({ alias, paths }: buildOptions): webpack.ResolveOptions {
+export function resolversWebpack({ aliases, paths }: buildOptions): webpack.ResolveOptions {
+	const aliasesObject: (typeof aliases)[0] = {}
+
+	aliases.forEach(alias => {
+		const [[key, value]] = Object.entries(alias)
+
+		aliasesObject[`@${key}`] = value
+	})
+
 	return {
-		alias: {
-			"@": alias.src,
-			"@app": alias.app,
-			"@pages": alias.pages,
-			"@widgets": alias.widgets,
-			"@features": alias.features,
-			"@entities": alias.entities,
-			"@shared": alias.shared
-		},
-		mainFiles: ['index'],
+		alias: aliasesObject,
+		mainFiles: ["index"],
 		modules: [paths.src, "node_modules"],
 		extensions: [".tsx", ".ts", ".js", ".jsx"]
 	}

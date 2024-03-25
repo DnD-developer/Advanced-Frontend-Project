@@ -12,15 +12,18 @@ export default (env: buildEnv) => {
 			build: path.resolve(__dirname, "build"),
 			src: path.resolve(__dirname, "src")
 		},
-		alias: {
-			src: path.resolve(__dirname, "src"),
-			app: path.resolve(__dirname, "src", "app"),
-			pages: path.resolve(__dirname, "src", "pages"),
-			widgets: path.resolve(__dirname, "src", "widgets"),
-			features: path.resolve(__dirname, "src", "features"),
-			entities: path.resolve(__dirname, "src", "entities"),
-			shared: path.resolve(__dirname, "src", "shared")
-		},
+		aliases: [
+			{ src: path.resolve(__dirname, "src") },
+			{ app: path.resolve(__dirname, "src", "app") },
+			{ widgets: path.resolve(__dirname, "src", "widgets") },
+			{ features: path.resolve(__dirname, "src", "features") },
+			{ pages: path.resolve(__dirname, "src", "pages") },
+			{ entities: path.resolve(__dirname, "src", "entities") },
+			{ ui: path.resolve(__dirname, "src", "shared", "ui") },
+			{ assets: path.resolve(__dirname, "src", "shared", "assets") },
+			{ lib: path.resolve(__dirname, "src", "shared", "lib") },
+			{ config: path.resolve(__dirname, "src", "shared", "config") }
+		],
 		mode: env.mode,
 		isDev: env.mode === "development",
 		port: env.port

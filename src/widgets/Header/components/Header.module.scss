@@ -4,7 +4,7 @@
 	justify-content: right;
 
 	width: 100%;
-	height: var(--navbar-height);
+	height: var(--header-height);
 
 
 	padding: 10px 50px;
@@ -12,6 +12,10 @@
 	background-color: var(--inverted-bg-color);
 }
 
+.link-list {
+	display: flex;
+	align-items: center;
+}
 
 .link {
 	margin-left: 20px;

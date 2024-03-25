@@ -11,13 +11,16 @@
 		"esModuleInterop": true,
 		"baseUrl": ".",
 		"paths": {
-			"@/*": ["./src/*"],
-			"@app/*":  ["./src/app/*"],
+			"@src/*": ["./src/*"],
+			"@app/*": ["./src/app/*"],
 			"@pages/*": ["./src/pages/*"],
 			"@widgets/*": ["./src/widgets/*"],
 			"@features/*": ["./src/features/*"],
 			"@entities/*": ["./src/entities/*"],
-			"@shared/*":["./src/shared/*"]
+			"@ui/*": ["./src/shared/ui/*"],
+			"@lib/*": ["./src/shared/lib/*"],
+			"@assets/*": ["./src/shared/assets/*"],
+			"@config/*": ["./src/shared/config/*"]
 		},
 		"plugins": [
 			{

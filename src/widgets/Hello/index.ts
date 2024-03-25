@@ -1,1 +1,1 @@
-export {Hello} from "./ui/Hello"
+export { Hello } from "./components/Hello"

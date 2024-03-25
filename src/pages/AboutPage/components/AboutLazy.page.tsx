@@ -1,4 +1,4 @@
-import delayForDemo from "@shared/helpers/delayForDemo"
+import delayForDemo from "@lib/helpers/delayForDemo"
 import { FC, lazy } from "react"
 
 const LazyPage = lazy(async () => delayForDemo(await import("./About.page")))

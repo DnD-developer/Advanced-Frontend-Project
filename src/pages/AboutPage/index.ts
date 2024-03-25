@@ -1,1 +1,1 @@
-export {AboutLazyPage as AboutPage} from "./ui/AboutLazy.page"
+export { AboutLazyPage as AboutPage } from "./components/AboutLazy.page"
