@@ -20,7 +20,8 @@
 			"@ui/*": ["./src/shared/ui/*"],
 			"@lib/*": ["./src/shared/lib/*"],
 			"@assets/*": ["./src/shared/assets/*"],
-			"@config/*": ["./src/shared/config/*"]
+			"@config/*": ["./src/shared/config/*"],
+			"@public/*": ["./public"]
 		},
 		"plugins": [
 			{

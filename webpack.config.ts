@@ -22,7 +22,8 @@ export default (env: buildEnv) => {
 			{ ui: path.resolve(__dirname, "src", "shared", "ui") },
 			{ assets: path.resolve(__dirname, "src", "shared", "assets") },
 			{ lib: path.resolve(__dirname, "src", "shared", "lib") },
-			{ config: path.resolve(__dirname, "src", "shared", "config") }
+			{ config: path.resolve(__dirname, "src", "shared", "config") },
+			{ public: path.resolve(__dirname, "public") }
 		],
 		mode: env.mode,
 		isDev: env.mode === "development",

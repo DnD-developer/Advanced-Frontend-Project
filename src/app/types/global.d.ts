@@ -28,3 +28,5 @@ declare module "*.png"
 declare module "*.gif"
 declare module "*.txt"
 declare module "*.svg?url"
+declare module "*.json"
+declare var __IS_DEV__: boolean

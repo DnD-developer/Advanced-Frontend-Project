@@ -1,6 +1,7 @@
 import { ClassNames } from "@lib/helpers/ClassNames"
 import { Button, ButtonTheme } from "@ui/Button"
 import { FC, PropsWithChildren, useState } from "react"
+import { useTranslation } from "react-i18next"
 import styles from "./SideBar.module.scss"
 
 interface SideBarProps extends PropsWithChildren {
@@ -12,6 +13,7 @@ export const SideBar: FC<SideBarProps> = props => {
 	const [collapsed, setCollapsed] = useState(false)
 
 	const collapsedHandler = () => setCollapsed(prev => !prev)
+	const { t } = useTranslation()
 
 	return (
 		<div
@@ -20,7 +22,7 @@ export const SideBar: FC<SideBarProps> = props => {
 				theme={ButtonTheme.OUTLINE}
 				className={styles.toggleButton}
 				onClick={collapsedHandler}>
-				Toggle
+				{t("toggle")}
 			</Button>
 			<div className={styles.switchers}>{children}</div>
 		</div>

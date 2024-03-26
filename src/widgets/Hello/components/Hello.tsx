@@ -1,3 +1,6 @@
+import { FC, PropsWithChildren } from "react"
 import styles from "./Hello.module.scss"
 
-export const Hello = () => <p className={styles.testClass}>Call me Bobo Kitty Fuck, bitch</p>
+export const Hello: FC<PropsWithChildren> = ({ children }) => (
+	<p className={styles.testClass}>{children}</p>
+)

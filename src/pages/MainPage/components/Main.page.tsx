@@ -1,9 +1,14 @@
 import { Hello } from "@widgets/Hello"
+import { useTranslation } from "react-i18next"
 
-const MainPage = () => (
-	<div>
-		<h1 className="page-header">Main Page</h1>
-		<Hello />
-	</div>
-)
+const MainPage = () => {
+	const { t } = useTranslation("mainPage")
+
+	return (
+		<div>
+			<h1 className="page-header">{t("pageTitle")}</h1>
+			<Hello>{t("helloContent")}</Hello>
+		</div>
+	)
+}
 export default MainPage

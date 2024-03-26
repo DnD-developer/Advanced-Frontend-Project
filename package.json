@@ -36,9 +36,13 @@
 		"webpack-dev-server": "^5.0.3"
 	},
 	"dependencies": {
+		"i18next": "^23.10.1",
+		"i18next-browser-languagedetector": "^7.2.0",
+		"i18next-http-backend": "^2.5.0",
 		"normalize.css": "^8.0.1",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
+		"react-i18next": "^14.1.0",
 		"react-router": "^6.22.3",
 		"react-router-dom": "^6.22.3"
 	}
