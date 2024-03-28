@@ -1,7 +1,7 @@
-export const Loader = () => {
-	return (
-		<p>
-			<i>Loading...</i>
-		</p>
-	)
-}
+import { type FC } from "react"
+
+export const Loader: FC = () => (
+	<p>
+		<i>Loading...</i>
+	</p>
+)

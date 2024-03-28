@@ -1,7 +1,7 @@
 import CssMinimizerPlugin from "css-minimizer-webpack-plugin"
-import { buildOptions } from "./types/config"
+import { type buildOptions } from "./types/config"
 
-export function optimizationWebpack({isDev}: buildOptions) {
+export function optimizationWebpack({ isDev }: buildOptions): any {
 	const cssMinimizer = new CssMinimizerPlugin()
 
 	return {

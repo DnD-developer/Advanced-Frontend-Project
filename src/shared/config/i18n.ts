@@ -16,3 +16,4 @@ i18n.use(Backend)
 		}
 	})
 	.then(() => {})
+	.catch(() => {})

@@ -1,5 +1,5 @@
-import webpack from "webpack"
-import { buildOptions } from "./types/config"
+import type webpack from "webpack"
+import { type buildOptions } from "./types/config"
 
 export function resolversWebpack({ aliases, paths }: buildOptions): webpack.ResolveOptions {
 	const aliasesObject: (typeof aliases)[0] = {}

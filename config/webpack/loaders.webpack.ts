@@ -1,11 +1,21 @@
 import MiniCssExtractPlugin from "mini-css-extract-plugin"
-import webpack from "webpack"
-import { buildOptions } from "./types/config"
+import ReactRefreshTypeScript from "react-refresh-typescript"
+import type webpack from "webpack"
+import { type buildOptions } from "./types/config"
 
 export function loadersWebpack({ isDev }: buildOptions): webpack.RuleSetRule[] {
 	const tsLoader = {
 		test: /\.tsx?$/,
-		use: "ts-loader",
+		use: [
+			{
+				loader: "ts-loader",
+				options: {
+					getCustomTransformers: {
+						before: [isDev && ReactRefreshTypeScript()].filter(Boolean)
+					}
+				}
+			}
+		],
 		exclude: /node_modules/
 	}
 
@@ -27,7 +37,7 @@ export function loadersWebpack({ isDev }: buildOptions): webpack.RuleSetRule[] {
 		]
 	}
 
-	const outPathCallback = (url: string, context: string) => {
+	const outPathCallback = (url: string, context: string): string => {
 		if (/images?/.test(context)) {
 			return `assets/images/${url}`
 		}

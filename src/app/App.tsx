@@ -6,11 +6,11 @@ import { Header } from "@widgets/Header"
 import { SideBar } from "@widgets/SideBar"
 import { SwitchLangButton } from "@widgets/SwitchLangButton/components/SwitchLangButton"
 import { SwitchThemeButton } from "@widgets/SwitchThemeButton"
-import { Suspense } from "react"
+import { type FC, Suspense } from "react"
 import styles from "./App.module.scss"
 import { AppRouter } from "./providers/RouterProvider"
 
-function App() {
+const App: FC = () => {
 	const { theme } = useTheme()
 	return (
 		<div className={ClassNames("app", {}, [theme])}>

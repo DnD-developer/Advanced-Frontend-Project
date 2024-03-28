@@ -1,18 +1,18 @@
 export type buildMode = "production" | "development"
 
-export interface buildPaths {
+export type buildPaths = {
 	entry: string
 	build: string
 	html: string
 	src: string
 }
-type aliases = Record<string, string>[]
-export interface buildEnv {
+type aliases = Array<Record<string, string>>
+export type buildEnv = {
 	mode: buildMode
 	port: buildOptions["port"]
 }
 
-export interface buildOptions {
+export type buildOptions = {
 	mode: buildMode
 	paths: buildPaths
 	port: number

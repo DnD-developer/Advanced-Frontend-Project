@@ -1,16 +1,16 @@
-import { routesPath } from "@config/pagesPathsNames"
-import { ClassNames } from "@lib/helpers/ClassNames"
-import { AppLink, AppLinkTheme } from "@ui/AppLink"
-import { FC, PropsWithChildren } from "react"
-import { useTranslation } from "react-i18next"
-import styles from "./Header.module.scss"
+import {routesPath} from '@config/pagesPathsNames';
+import {ClassNames} from '@lib/helpers/ClassNames';
+import {AppLink, AppLinkTheme} from '@ui/AppLink';
+import {type FC, type PropsWithChildren} from 'react';
+import {useTranslation} from 'react-i18next';
+import styles from './Header.module.scss';
 
-interface HeaderProps extends PropsWithChildren {
-	classNames?: string
-}
+type HeaderProps = {
+	classNames?: string;
+} & PropsWithChildren;
 export const Header: FC<HeaderProps> = props => {
-	const { classNames, children } = props
-	const { t } = useTranslation()
+	const {classNames, children} = props;
+	const {t} = useTranslation();
 
 	return (
 		<div className={ClassNames(styles.Header, {}, [classNames])}>
@@ -19,7 +19,8 @@ export const Header: FC<HeaderProps> = props => {
 				{Object.entries(routesPath).map(([name, path]) => (
 					<li
 						key={path}
-						className={styles.link}>
+						className={styles.link}
+					>
 						<AppLink
 							name={t(name)}
 							to={path}
@@ -29,5 +30,5 @@ export const Header: FC<HeaderProps> = props => {
 				))}
 			</ul>
 		</div>
-	)
-}
+	);
+};

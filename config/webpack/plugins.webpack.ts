@@ -1,7 +1,14 @@
+import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin"
+import ESLintWebpackPlugin from "eslint-webpack-plugin"
 import HtmlWebpackPlugin from "html-webpack-plugin"
 import MiniCssExtractPlugin from "mini-css-extract-plugin"
-import { DefinePlugin, ProgressPlugin, WebpackPluginInstance } from "webpack"
-import { buildOptions } from "./types/config"
+import {
+	DefinePlugin,
+	HotModuleReplacementPlugin,
+	ProgressPlugin,
+	type WebpackPluginInstance
+} from "webpack"
+import { type buildOptions } from "./types/config"
 
 export function pluginsWebpack({ paths, isDev }: buildOptions): WebpackPluginInstance[] {
 	return [
@@ -13,6 +20,11 @@ export function pluginsWebpack({ paths, isDev }: buildOptions): WebpackPluginIns
 		}),
 		new DefinePlugin({
 			__IS_DEV__: JSON.stringify(isDev)
+		}),
+		new HotModuleReplacementPlugin(),
+		new ReactRefreshWebpackPlugin(),
+		new ESLintWebpackPlugin({
+			extensions: ["ts", "tsx"]
 		})
 	]
 }

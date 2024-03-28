@@ -1,10 +1,11 @@
-// noinspection JSUnusedGlobalSymbols
+// Noinspection JSUnusedGlobalSymbols
 
 import path from "node:path"
+import type webpack from "webpack"
 import { configWebpack } from "./config/webpack/config.webpack"
-import { buildEnv, buildOptions } from "./config/webpack/types/config"
+import { type buildEnv, type buildOptions } from "./config/webpack/types/config"
 
-export default (env: buildEnv) => {
+export default (env: buildEnv): webpack.Configuration => {
 	const options: buildOptions = {
 		paths: {
 			html: path.resolve(__dirname, "public", "index.html"),

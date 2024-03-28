@@ -1,15 +1,15 @@
-import { createContext } from "react"
+import {createContext} from 'react';
 
 export enum THEMES {
-	DARK = "dark",
-	LIGHT = "light"
+	DARK = 'dark',
+	LIGHT = 'light',
 }
 
 export type ThemeContextProps = {
-	theme?: THEMES
-	setTheme?: (theme: THEMES) => void
-}
+	theme?: THEMES;
+	setTheme?: (theme: THEMES) => void;
+};
 
-export const ThemeContext = createContext<ThemeContextProps>({})
+export const ThemeContext = createContext<ThemeContextProps>({});
 
-export const LOCAL_STORAGE_THEME_KEY = "theme"
+export const LOCAL_STORAGE_THEME_KEY = 'theme';
