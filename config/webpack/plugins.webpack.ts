@@ -2,6 +2,7 @@ import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin"
 import ESLintWebpackPlugin from "eslint-webpack-plugin"
 import HtmlWebpackPlugin from "html-webpack-plugin"
 import MiniCssExtractPlugin from "mini-css-extract-plugin"
+import StylelintWebpackPlugin from "stylelint-webpack-plugin"
 import {
 	DefinePlugin,
 	HotModuleReplacementPlugin,
@@ -25,6 +26,10 @@ export function pluginsWebpack({ paths, isDev }: buildOptions): WebpackPluginIns
 		new ReactRefreshWebpackPlugin(),
 		new ESLintWebpackPlugin({
 			extensions: ["ts", "tsx"]
+		}),
+		new StylelintWebpackPlugin({
+			files: ["src/**/*.scss"],
+			fix: true
 		})
 	]
 }

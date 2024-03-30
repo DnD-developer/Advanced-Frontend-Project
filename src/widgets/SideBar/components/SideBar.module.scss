@@ -1,32 +1,30 @@
 .SideBar {
 	position: relative;
-
-	width: var(--sideBar-width);
+	width: var(--side-bar-width);
 	height: calc(100vh - var(--header-height));
 
-	background-color: var(--inverted-bg-color);
 	transition: width 0.3s;
+
+	background-color: var(--inverted-bg-color);
 }
 
 .collapsed {
-	width: var(--sideBar-width-collapsed);
+	width: var(--side-bar-width-collapsed);
 }
 
 .toggle-button {
 	display: block;
-	max-width: 150px;
 	width: 100%;
+	max-width: 150px;
 	height: 50px;
 	margin: 20px auto 0;
 }
 
 .switchers {
+	display: flex;
 	position: absolute;
 	bottom: 20px;
-
-	width: 100%;
-
-	display: flex;
-	justify-content: center;
 	align-items: center;
+	justify-content: center;
+	width: 100%;
 }

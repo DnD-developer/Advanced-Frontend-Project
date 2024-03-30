@@ -1,10 +1,13 @@
 .Button {
-	background: none;
 	border: none;
 	outline: none;
-	cursor: pointer;
-	font-size: 20px;
+
+	background: none;
+
 	color: var(--inverted-color);
+	font-size: 20px;
+
+	cursor: pointer;
 }
 
 .clear {

@@ -14,7 +14,7 @@
 		"@typescript-eslint/strict-boolean-expressions": "off",
 		"@typescript-eslint/consistent-type-definitions": ["error", "type"],
 		"react/react-in-jsx-scope": "off",
-        "@typescript-eslint/naming-convention": "off"
+		"@typescript-eslint/naming-convention": "off"
 	},
 	"globals": {
 		"__IS_DEV__": true
