@@ -1,9 +1,15 @@
 export enum PagesNames {
 	MAIN = "Main",
-	ABOUT = "About"
+	ABOUT = "About",
+	NOT_FOUND = "Not Found"
 }
-
-export const routesPath: Record<PagesNames, string> = {
-	[PagesNames.MAIN]: "/",
-	[PagesNames.ABOUT]: "/about"
+type PagesInfo = {
+	name: PagesNames
+	path: string
+	inHeader: boolean
 }
+export const routesPath: PagesInfo[] = [
+	{ name: PagesNames.MAIN, path: "/", inHeader: true },
+	{ name: PagesNames.ABOUT, path: "/about", inHeader: true },
+	{ name: PagesNames.NOT_FOUND, path: "*", inHeader: false }
+]

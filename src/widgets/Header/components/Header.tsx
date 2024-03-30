@@ -12,22 +12,26 @@ export const Header: FC<HeaderProps> = props => {
 	const { classNames, children } = props
 	const { t } = useTranslation()
 
+	console.log(routesPath)
+
 	return (
 		<div className={classNamesHelp(styles.Header, {}, [classNames])}>
 			{children}
 			<ul className={styles.linkList}>
-				{Object.entries(routesPath).map(([name, path]) => (
-					<li
-						key={path}
-						className={styles.link}
-					>
-						<AppLink
-							name={t(name)}
-							to={path}
-							theme={AppLinkTheme.INVERTED}
-						/>
-					</li>
-				))}
+				{routesPath
+					.filter(({ inHeader }) => inHeader)
+					.map(({ name, path }) => (
+						<li
+							key={path}
+							className={styles.link}
+						>
+							<AppLink
+								name={t(name)}
+								to={path}
+								theme={AppLinkTheme.INVERTED}
+							/>
+						</li>
+					))}
 			</ul>
 		</div>
 	)
