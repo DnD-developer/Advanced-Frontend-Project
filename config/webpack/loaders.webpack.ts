@@ -19,6 +19,17 @@ export function loadersWebpack({ isDev }: buildOptions): webpack.RuleSetRule[] {
 		exclude: /node_modules/
 	}
 
+	const babelLoader = {
+		test: /\.m?[jt]sx?$/,
+		exclude: /node_modules/,
+		use: {
+			loader: "babel-loader",
+			options: {
+				presets: ["@babel/preset-env"]
+			}
+		}
+	}
+
 	const sassLoader = {
 		test: /\.s?[ac]ss$/i,
 		use: [

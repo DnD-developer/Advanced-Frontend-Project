@@ -1,7 +1,7 @@
 import "@app/styles/index.style.scss"
 
 import { useTheme } from "@app/providers/ThemeContext"
-import { ClassNames } from "@lib/helpers/ClassNames"
+import { classNamesHelp } from "@lib/helpers/classNamesHelp"
 import { Header } from "@widgets/Header"
 import { SideBar } from "@widgets/SideBar"
 import { SwitchLangButton } from "@widgets/SwitchLangButton/components/SwitchLangButton"
@@ -13,7 +13,7 @@ import { AppRouter } from "./providers/RouterProvider"
 const App: FC = () => {
 	const { theme } = useTheme()
 	return (
-		<div className={ClassNames("app", {}, [theme])}>
+		<div className={classNamesHelp("app", {}, [theme])}>
 			<Suspense>
 				<Header />
 				<div className="page-container">

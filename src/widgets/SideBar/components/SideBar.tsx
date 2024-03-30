@@ -1,4 +1,4 @@
-import { ClassNames } from "@lib/helpers/ClassNames"
+import { classNamesHelp } from "@lib/helpers/classNamesHelp"
 import { Button, ButtonTheme } from "@ui/Button"
 import { type FC, type PropsWithChildren, useState } from "react"
 import { useTranslation } from "react-i18next"
@@ -20,7 +20,9 @@ export const SideBar: FC<SideBarProps> = props => {
 
 	return (
 		<div
-			className={ClassNames(styles.SideBar, { [styles.collapsed]: collapsed }, [classNames])}
+			className={classNamesHelp(styles.SideBar, { [styles.collapsed]: collapsed }, [
+				classNames
+			])}
 		>
 			<Button
 				theme={ButtonTheme.OUTLINE}

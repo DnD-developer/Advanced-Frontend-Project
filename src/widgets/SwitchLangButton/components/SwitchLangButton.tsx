@@ -1,4 +1,4 @@
-import { ClassNames } from "@lib/helpers/ClassNames"
+import { classNamesHelp } from "@lib/helpers/classNamesHelp"
 import { Button } from "@ui/Button"
 import { type FC } from "react"
 import { useTranslation } from "react-i18next"
@@ -22,7 +22,7 @@ export const SwitchLangButton: FC<SwitchLangButtonProps> = props => {
 	return (
 		<Button
 			onClick={switchLanguageHandler}
-			className={ClassNames(styles.SwitchLangButton, {}, [classNames])}
+			className={classNamesHelp(styles.SwitchLangButton, {}, [classNames])}
 		>
 			{t("translation:lang")}
 		</Button>
