@@ -1,5 +1,5 @@
 import { routesPath } from "@config/pagesPathsNames"
-import { classNamesHelp } from "@lib/helpers/classNamesHelp"
+import { classNamesHelp } from "@lib/helpers/classNamesHelp/classNamesHelp"
 import { AppLink, AppLinkTheme } from "@ui/AppLink"
 import { type FC, type PropsWithChildren } from "react"
 import { useTranslation } from "react-i18next"
@@ -11,8 +11,6 @@ type HeaderProps = {
 export const Header: FC<HeaderProps> = props => {
 	const { classNames, children } = props
 	const { t } = useTranslation()
-
-	console.log(routesPath)
 
 	return (
 		<div className={classNamesHelp(styles.Header, {}, [classNames])}>

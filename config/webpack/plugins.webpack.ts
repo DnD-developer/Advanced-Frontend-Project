@@ -9,6 +9,7 @@ import {
 	ProgressPlugin,
 	type WebpackPluginInstance
 } from "webpack"
+import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer"
 import { type buildOptions } from "./types/config"
 
 export function pluginsWebpack({ paths, isDev }: buildOptions): WebpackPluginInstance[] {
@@ -23,13 +24,18 @@ export function pluginsWebpack({ paths, isDev }: buildOptions): WebpackPluginIns
 			__IS_DEV__: JSON.stringify(isDev)
 		}),
 		new HotModuleReplacementPlugin(),
-		new ReactRefreshWebpackPlugin(),
+		new ReactRefreshWebpackPlugin({
+			overlay: false
+		}),
 		new ESLintWebpackPlugin({
 			extensions: ["ts", "tsx"]
 		}),
 		new StylelintWebpackPlugin({
 			files: ["src/**/*.scss"],
 			fix: true
+		}),
+		new BundleAnalyzerPlugin({
+			openAnalyzer: false
 		})
 	]
 }

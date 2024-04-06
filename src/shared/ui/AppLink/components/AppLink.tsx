@@ -1,4 +1,4 @@
-import { classNamesHelp } from "@lib/helpers/classNamesHelp"
+import { classNamesHelp } from "@lib/helpers/classNamesHelp/classNamesHelp"
 import { type FC } from "react"
 import { Link, type LinkProps } from "react-router-dom"
 import styles from "./AppLink.module.scss"

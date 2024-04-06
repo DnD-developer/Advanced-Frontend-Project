@@ -1,4 +1,5 @@
 import CssMinimizerPlugin from "css-minimizer-webpack-plugin"
+import TerserPlugin from "terser-webpack-plugin"
 import { type buildOptions } from "./types/config"
 
 export function optimizationWebpack({ isDev }: buildOptions): any {
@@ -6,6 +7,11 @@ export function optimizationWebpack({ isDev }: buildOptions): any {
 
 	return {
 		minimize: !isDev,
-		minimizer: [cssMinimizer]
+		minimizer: [
+			cssMinimizer,
+			new TerserPlugin({
+				extractComments: false
+			})
+		]
 	}
 }

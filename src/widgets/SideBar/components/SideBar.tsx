@@ -1,4 +1,4 @@
-import { classNamesHelp } from "@lib/helpers/classNamesHelp"
+import { classNamesHelp } from "@lib/helpers/classNamesHelp/classNamesHelp"
 import { Button, ButtonTheme } from "@ui/Button"
 import { type FC, type PropsWithChildren, useState } from "react"
 import { useTranslation } from "react-i18next"
@@ -20,11 +20,13 @@ export const SideBar: FC<SideBarProps> = props => {
 
 	return (
 		<div
+			data-testid="sidebar-widgets"
 			className={classNamesHelp(styles.SideBar, { [styles.collapsed]: collapsed }, [
 				classNames
 			])}
 		>
 			<Button
+				data-testid="sidebar-collapsed-btn"
 				theme={ButtonTheme.OUTLINE}
 				className={styles.toggleButton}
 				onClick={collapsedHandler}

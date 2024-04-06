@@ -1,4 +1,5 @@
 {
+	"extends": "./tsconfig.paths.json",
 	"compilerOptions": {
 		"outDir": "./build/",
 		"skipLibCheck": true,
@@ -10,20 +11,8 @@
 		"moduleResolution": "node",
 		"allowSyntheticDefaultImports": true,
 		"esModuleInterop": true,
-		"baseUrl": ".",
-		"paths": {
-			"@src/*": ["./src/*"],
-			"@app/*": ["./src/app/*"],
-			"@pages/*": ["./src/pages/*"],
-			"@widgets/*": ["./src/widgets/*"],
-			"@features/*": ["./src/features/*"],
-			"@entities/*": ["./src/entities/*"],
-			"@ui/*": ["./src/shared/ui/*"],
-			"@lib/*": ["./src/shared/lib/*"],
-			"@assets/*": ["./src/shared/assets/*"],
-			"@config/*": ["./src/shared/config/*"],
-			"@public/*": ["./public"]
-		},
+		"types": ["node", "@types/jest", "@testing-library/jest-dom"],
+		"resolveJsonModule": true,
 		"plugins": [
 			{
 				"name": "typescript-plugin-css-modules",

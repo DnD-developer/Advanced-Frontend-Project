@@ -3,5 +3,7 @@
 	"Main": "Main",
 	"lang": "EN",
 	"loading": "Loading",
-	"toggle": "Toggle"
+	"reloadButton": "Reload Page",
+	"toggle": "Toggle",
+	"unexpectedErrorTitle": "An unexpected error occurred"
 }

@@ -1,4 +1,4 @@
-import { classNamesHelp } from "@lib/helpers/classNamesHelp"
+import { classNamesHelp } from "@lib/helpers/classNamesHelp/classNamesHelp"
 import { Button } from "@ui/Button"
 import { type FC } from "react"
 import { useTranslation } from "react-i18next"
@@ -15,8 +15,8 @@ export const SwitchLangButton: FC<SwitchLangButtonProps> = props => {
 		i18n: { changeLanguage, language }
 	} = useTranslation()
 
-	const switchLanguageHandler = (): void => {
-		void changeLanguage(language === "ru" ? "en" : "ru")
+	const switchLanguageHandler = async (): Promise<void> => {
+		await changeLanguage(language === "ru" ? "en" : "ru")
 	}
 
 	return (

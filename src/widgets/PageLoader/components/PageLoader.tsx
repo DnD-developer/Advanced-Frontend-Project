@@ -1,4 +1,4 @@
-import { classNamesHelp } from "@lib/helpers/classNamesHelp"
+import { classNamesHelp } from "@lib/helpers/classNamesHelp/classNamesHelp"
 import { Loader } from "@ui/Loader"
 import { type FC } from "react"
 import styles from "./PageLoader.module.scss"

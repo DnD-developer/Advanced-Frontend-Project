@@ -1,4 +1,4 @@
-import { classNamesHelp } from "@lib/helpers/classNamesHelp"
+import { classNamesHelp } from "@lib/helpers/classNamesHelp/classNamesHelp"
 import { type FC } from "react"
 import { useTranslation } from "react-i18next"
 import styles from "./NotFountPage.module.scss"

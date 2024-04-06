@@ -108,5 +108,5 @@ export function loadersWebpack({ isDev }: buildOptions): webpack.RuleSetRule[] {
 		use: ["@svgr/webpack"]
 	}
 
-	return [tsLoader, sassLoader, fileLoader, svgrLoaderComponent, svgrLoaderIcon]
+	return [babelLoader, tsLoader, sassLoader, fileLoader, svgrLoaderComponent, svgrLoaderIcon]
 }

@@ -1,9 +1,25 @@
-// Noinspection JSUnusedGlobalSymbols
-
 import path from "node:path"
 import type webpack from "webpack"
 import { configWebpack } from "./config/webpack/config.webpack"
 import { type buildEnv, type buildOptions } from "./config/webpack/types/config"
+import { compilerOptions } from "./tsconfig.paths.json"
+
+type pathTsconfigType = Record<string, string[]>
+type pathAliasType = Record<string, string>
+
+const resolveTsconfigPathAlias = (): pathAliasType[] => {
+	const { paths } = compilerOptions
+	const aliases: pathAliasType[] = []
+
+	Object.entries(paths as pathTsconfigType).forEach(([keyA, pathA]) => {
+		const alias = keyA.replace("@", "").replace("/*", "")
+		const pathAlias = pathA[0].replace("*", "")
+
+		aliases.push({ [alias]: path.resolve(__dirname, pathAlias) })
+	})
+
+	return aliases
+}
 
 export default (env: buildEnv): webpack.Configuration => {
 	const options: buildOptions = {
@@ -13,19 +29,7 @@ export default (env: buildEnv): webpack.Configuration => {
 			build: path.resolve(__dirname, "build"),
 			src: path.resolve(__dirname, "src")
 		},
-		aliases: [
-			{ src: path.resolve(__dirname, "src") },
-			{ app: path.resolve(__dirname, "src", "app") },
-			{ widgets: path.resolve(__dirname, "src", "widgets") },
-			{ features: path.resolve(__dirname, "src", "features") },
-			{ pages: path.resolve(__dirname, "src", "pages") },
-			{ entities: path.resolve(__dirname, "src", "entities") },
-			{ ui: path.resolve(__dirname, "src", "shared", "ui") },
-			{ assets: path.resolve(__dirname, "src", "shared", "assets") },
-			{ lib: path.resolve(__dirname, "src", "shared", "lib") },
-			{ config: path.resolve(__dirname, "src", "shared", "config") },
-			{ public: path.resolve(__dirname, "public") }
-		],
+		aliases: resolveTsconfigPathAlias(),
 		mode: env.mode,
 		isDev: env.mode === "development",
 		port: env.port

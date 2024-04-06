@@ -1,12 +1,12 @@
 // Noinspection JSUnusedGlobalSymbols
 
-declare module "*.css" {
+declare module "*.module.css" {
 	type IClassNames = Record<string, string>
 	const classNames: IClassNames
 	export = classNames
 }
 
-declare module "*.scss" {
+declare module "*module.scss" {
 	type IClassNames = Record<string, string>
 	const classNames: IClassNames
 	export = classNames
@@ -17,7 +17,8 @@ declare module "*.svg" {
 	const SVG: React.FC<React.SVGProps<SVGSVGElement>>
 	export default SVG
 }
-
+declare module "*.css"
+declare module "*.css"
 declare module "*.jpg"
 declare module "*.jpeg"
 declare module "*.png"
