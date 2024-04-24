@@ -1,5 +1,5 @@
 name: Lint
-run-name: branch ${{ github.ref_name }} commit ${{ github.workflow_sha }} runner ${{ github.actor }}
+run-name: Workflow ${{ github.workflow }} Branch ${{ github.ref_name }}  runner ${{ github.actor }}
 on:
     workflow_dispatch:
     pull_request:
@@ -8,6 +8,9 @@ on:
     push:
         branches:
             - dev
+        paths-ignore:
+            - ".github/**"
+            - "README.md"
 jobs:
     prepare:
         name: Prepare
@@ -16,7 +19,7 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v4.1.2
               with:
-                  node-version: 20
+                  node-version: 20.x
             - name: Setup Yarn
               uses: threeal/setup-yarn-action@v2.0.0
               with:
@@ -31,13 +34,13 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v4.1.2
               with:
-                  node-version: 20
+                  node-version: 20.x
             - name: Setup Yarn
               uses: threeal/setup-yarn-action@v2.0.0
               with:
                   version: latest
-            - name: Lint style
-              run: yarn lint:style
+            - name: Lint TS
+              run: yarn lint:ts
     lintStyle:
         name: Lint Style
         runs-on: ubuntu-latest
@@ -48,7 +51,7 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v4.1.2
               with:
-                  node-version: 20
+                  node-version: 20.x
             - name: Setup Yarn
               uses: threeal/setup-yarn-action@v2.0.0
               with:

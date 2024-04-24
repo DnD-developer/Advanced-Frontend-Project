@@ -1,0 +1,65 @@
+name: Ui Test
+run-name: Workflow ${{ github.workflow }} Branch ${{ github.ref_name }}  runner ${{ github.actor }}
+on:
+    workflow_dispatch:
+    pull_request:
+        branches:
+            - master
+    push:
+        branches:
+            - dev
+        paths-ignore:
+            - ".github/**"
+            - "README.md"
+jobs:
+    prepare:
+        name: Prepare
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4.1.2
+              with:
+                  node-version: 20.x
+            - name: Setup Yarn
+              uses: threeal/setup-yarn-action@v2.0.0
+              with:
+                  version: latest
+    buildStorybook:
+        name: Build Storybook
+        runs-on: ubuntu-latest
+        needs: prepare
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4.1.2
+              with:
+                  node-version: 20.x
+            - name: Setup Yarn
+              uses: threeal/setup-yarn-action@v2.0.0
+              with:
+                  version: latest
+            - name: build
+              run: yarn storybook:build
+            - name: upload storybook build
+              uses: actions/upload-artifact@v4
+              with:
+                  name: storybook-static
+                  path: ./storybook-static
+    testLoki:
+        name: Ui Test
+        runs-on: ubuntu-latest
+        needs: [prepare, buildStorybook]
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4.1.2
+              with:
+                  node-version: 20.x
+            - name: Setup Yarn
+              uses: threeal/setup-yarn-action@v2.0.0
+              with:
+                  version: latest
+            - name: Download storybook builds
+              uses: actions/download-artifact@v4
+              with:
+                  name: storybook-static
+            - name: test
+              run: yarn test:ui:ci
