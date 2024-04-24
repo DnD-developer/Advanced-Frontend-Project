@@ -32,3 +32,10 @@ export const Clear: TypeStory = {
 		theme: ButtonTheme.CLEAR
 	}
 }
+
+export const PrimaryOutline: TypeStory = {
+	args: {
+		children: "Text",
+		theme: ButtonTheme.PRIMARYOUTLINE
+	}
+}

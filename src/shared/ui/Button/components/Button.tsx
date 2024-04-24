@@ -10,7 +10,8 @@ type ButtonProps = {
 export enum ButtonTheme {
 	CLEAR = "clear",
 	OUTLINE = "outline",
-	PRIMARY = "primary"
+	PRIMARY = "primary",
+	PRIMARYOUTLINE = "primary-outline"
 }
 export const Button: FC<ButtonProps> = props => {
 	const { theme, children, className, ...otherProps } = props

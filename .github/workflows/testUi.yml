@@ -28,4 +28,6 @@ jobs:
               with:
                   version: latest
             - name: Run Chromatic
-              run: yarn test:ui:ci
+              uses: chromaui/action@latest
+              with:
+                  projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
