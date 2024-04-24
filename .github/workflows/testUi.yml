@@ -5,12 +5,6 @@ on:
     pull_request:
         branches:
             - master
-    push:
-        branches:
-            - dev
-        paths-ignore:
-            - ".github/**"
-            - "README.md"
 jobs:
     prepare:
         name: Prepare
