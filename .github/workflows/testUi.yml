@@ -27,7 +27,8 @@ jobs:
               uses: threeal/setup-yarn-action@v2.0.0
               with:
                   version: latest
-            - name: build storybook
-              run: yarn storybook:build
-            - name: test
-              run: yarn test:ui:ci
+            - name: Run Chromatic
+              uses: chromaui/action@latest
+              with:
+                  projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+                  zip: true
