@@ -22,6 +22,8 @@ npm-debug.log*
 *diagnostics.json
 chromatic.log
 
+storybook-static
+
 #yarn
 yarn-debug.log*
 yarn-error.log*
