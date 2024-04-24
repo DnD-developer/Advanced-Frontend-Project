@@ -1,5 +1,5 @@
 name: Lint
-run-name: Workflow ${{ github.workflow }} Branch ${{ github.ref_name }}  runner ${{ github.actor }}
+run-name: Workflow ${{ github.workflow }}; Branch ${{ github.ref_name }}; Runner ${{ github.actor }}
 on:
     workflow_dispatch:
     pull_request:
