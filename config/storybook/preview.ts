@@ -15,13 +15,7 @@ const preview: Preview = {
 	},
 	parameters: {
 		layout: "fullscreen",
-		i18n,
-		controls: {
-			matchers: {
-				color: /(background|color)$/i,
-				date: /Date$/i
-			}
-		}
+		i18n
 	},
 	decorators: [
 		StyleDecorator,

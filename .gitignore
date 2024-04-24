@@ -19,6 +19,8 @@
 npm-debug.log*
 
 *storybook.log
+*diagnostics.json
+chromatic.log
 
 #yarn
 yarn-debug.log*
