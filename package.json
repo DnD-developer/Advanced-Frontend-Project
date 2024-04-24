@@ -4,7 +4,7 @@
 	"version": "1.0.0",
 	"description": "Education Project of Advanced Frontend tech",
 	"main": "index.ts",
-	"repository": "https://github.com/DnD-developer/Advanced-Frontend-Project.git",
+	"repository": "https://github.com/DnD-developer/Advanced-Frontend-Project",
 	"scripts": {
 		"build:start": "webpack serve --env port=8081 mode=development",
 		"build:dev": "webpack --env mode=development",
