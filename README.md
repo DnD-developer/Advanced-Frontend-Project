@@ -1,6 +1,6 @@
 # AdvancedFrontendProject
 
-![Build](https://github.com/DnD-developer/Advanced-Frontend-Project/actions/workflows/build.yml/badge.svg?branch=feature-1)
+![Build](https://github.com/DnD-developer/Advanced-Frontend-Project/actions/workflows/build.yml/badge.svg?branch=dev)
 
 ![Lint](https://github.com/DnD-developer/Advanced-Frontend-Project/actions/workflows/lint.yml/badge.svg?branch=dev)
 

@@ -19,7 +19,7 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v4.1.2
               with:
-                  node-version: 20.x
+                  node-version: 20.x.x
             - name: Setup Yarn
               uses: threeal/setup-yarn-action@v2.0.0
               with:
@@ -34,7 +34,7 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v4.1.2
               with:
-                  node-version: 20.x
+                  node-version: 20.x.x
             - name: Setup Yarn
               uses: threeal/setup-yarn-action@v2.0.0
               with:
@@ -51,7 +51,7 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v4.1.2
               with:
-                  node-version: 20.x
+                  node-version: 20.x.x
             - name: Setup Yarn
               uses: threeal/setup-yarn-action@v2.0.0
               with:
