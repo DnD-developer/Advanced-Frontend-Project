@@ -1,35 +1,16 @@
-import path from "node:path"
-import type webpack from "webpack"
+// noinspection ES6PreferShortImport
+
+import { type Configuration } from "webpack"
 import { configWebpack } from "./config/webpack/config.webpack"
 import { type buildEnv, type buildOptions } from "./config/webpack/types/config"
+import { aliasesFromTsConfig } from "./config/webpack/webpackHelpers/aliasesFromTsConfig.webpack"
+import { mainPathsWebpack } from "./config/webpack/webpackHelpers/mainPaths.webpack"
 import { compilerOptions } from "./tsconfig.paths.json"
 
-type pathTsconfigType = Record<string, string[]>
-type pathAliasType = Record<string, string>
-
-const resolveTsconfigPathAlias = (): pathAliasType[] => {
-	const { paths } = compilerOptions
-	const aliases: pathAliasType[] = []
-
-	Object.entries(paths as pathTsconfigType).forEach(([keyA, pathA]) => {
-		const alias = keyA.replace("@", "").replace("/*", "")
-		const pathAlias = pathA[0].replace("*", "")
-
-		aliases.push({ [alias]: path.resolve(__dirname, pathAlias) })
-	})
-
-	return aliases
-}
-
-export default (env: buildEnv): webpack.Configuration => {
+export default (env: buildEnv): Configuration => {
 	const options: buildOptions = {
-		paths: {
-			html: path.resolve(__dirname, "public", "index.html"),
-			entry: path.resolve(__dirname, "src", "index.tsx"),
-			build: path.resolve(__dirname, "build"),
-			src: path.resolve(__dirname, "src")
-		},
-		aliases: resolveTsconfigPathAlias(),
+		paths: mainPathsWebpack(__dirname),
+		aliases: aliasesFromTsConfig(compilerOptions, __dirname),
 		mode: env.mode,
 		isDev: env.mode === "development",
 		port: env.port

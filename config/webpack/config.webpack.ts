@@ -1,4 +1,4 @@
-import type webpack from "webpack"
+import type { Configuration } from "webpack"
 import { devServerWebpack } from "./devServer.webpack"
 import { loadersWebpack } from "./loaders.webpack"
 import { optimizationWebpack } from "./optimization.webpack"
@@ -6,7 +6,7 @@ import { pluginsWebpack } from "./plugins.webpack"
 import { resolversWebpack } from "./resolvers.webpack"
 import { type buildOptions } from "./types/config"
 
-export function configWebpack(options: buildOptions): webpack.Configuration {
+export function configWebpack(options: buildOptions): Configuration {
 	const { mode, paths, isDev } = options
 	return {
 		mode,

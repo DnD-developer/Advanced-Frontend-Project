@@ -1,13 +1,13 @@
-import {type FC} from 'react';
-import {useTranslation} from 'react-i18next';
+import { type FC } from "react"
+import { useTranslation } from "react-i18next"
 
 const AboutPage: FC = () => {
-	const {t} = useTranslation('aboutPage');
+	const { t } = useTranslation("aboutPage")
 	return (
 		<div>
-			<h1 className="page-header">{t('pageTitle')}</h1>
+			<h1 className="page-header">{t("pageTitle")}</h1>
 		</div>
-	);
-};
+	)
+}
 
-export default AboutPage;
+export default AboutPage

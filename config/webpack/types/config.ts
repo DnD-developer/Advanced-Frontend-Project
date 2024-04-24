@@ -6,16 +6,16 @@ export type buildPaths = {
 	html: string
 	src: string
 }
-type aliases = Array<Record<string, string>>
+
 export type buildEnv = {
 	mode: buildMode
 	port: buildOptions["port"]
 }
 
 export type buildOptions = {
-	mode: buildMode
-	paths: buildPaths
-	port: number
-	aliases: aliases
-	isDev: boolean
+	mode?: buildMode
+	paths?: buildPaths
+	port?: number
+	aliases?: Record<string, string>
+	isDev?: boolean
 }

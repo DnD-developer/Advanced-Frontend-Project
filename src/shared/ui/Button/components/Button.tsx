@@ -9,7 +9,8 @@ type ButtonProps = {
 // Noinspection JSUnusedGlobalSymbols
 export enum ButtonTheme {
 	CLEAR = "clear",
-	OUTLINE = "outline"
+	OUTLINE = "outline",
+	PRIMARY = "primary"
 }
 export const Button: FC<ButtonProps> = props => {
 	const { theme, children, className, ...otherProps } = props

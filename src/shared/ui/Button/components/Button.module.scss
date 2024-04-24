@@ -4,7 +4,7 @@
 
 	background: none;
 
-	color: var(--inverted-color);
+	color: var(--primary-color);
 	font-size: 20px;
 
 	cursor: pointer;
@@ -17,5 +17,13 @@
 .outline {
 	padding: 10px;
 
-	border: 3px solid var(--inverted-color);
+	border: 3px solid var(--primary-color);
+}
+
+.primary {
+	padding: 10px;
+
+	background-color: var(--primary-color);
+
+	color: var(--inverted-color);
 }

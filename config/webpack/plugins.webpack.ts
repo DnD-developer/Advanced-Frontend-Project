@@ -1,4 +1,3 @@
-import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin"
 import ESLintWebpackPlugin from "eslint-webpack-plugin"
 import HtmlWebpackPlugin from "html-webpack-plugin"
 import MiniCssExtractPlugin from "mini-css-extract-plugin"
@@ -24,9 +23,6 @@ export function pluginsWebpack({ paths, isDev }: buildOptions): WebpackPluginIns
 			__IS_DEV__: JSON.stringify(isDev)
 		}),
 		new HotModuleReplacementPlugin(),
-		new ReactRefreshWebpackPlugin({
-			overlay: false
-		}),
 		new ESLintWebpackPlugin({
 			extensions: ["ts", "tsx"]
 		}),

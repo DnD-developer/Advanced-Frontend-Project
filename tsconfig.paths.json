@@ -10,9 +10,17 @@
 			"@entities/*": ["./src/entities/*"],
 			"@ui/*": ["./src/shared/ui/*"],
 			"@lib/*": ["./src/shared/lib/*"],
+			"@helpers/*": ["./src/shared/lib/helpers/*"],
+			"@decorators/*": ["./src/shared/lib/decorators/*"],
 			"@assets/*": ["./src/shared/assets/*"],
 			"@config/*": ["./src/shared/config/*"],
-			"@public/*": ["./public"]
+			"@providers/*": ["./src/app/providers/*"],
+			"@styles/*": ["./src/app/styles/*"],
+			"@public/*": ["./public/*"],
+			"@_storybook/*": ["./config/storybook/*"],
+			"@_jest/*": ["./config/jest/*"],
+			"@_webpack/*": ["./config/webpack/*"],
+			"@/*": ["./*"]
 		}
 	}
 }

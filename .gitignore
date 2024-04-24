@@ -14,7 +14,19 @@
 .env.test.local
 .env.production.local
 .idea
+.loki
 
 npm-debug.log*
+
+*storybook.log
+
+#yarn
 yarn-debug.log*
 yarn-error.log*
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
