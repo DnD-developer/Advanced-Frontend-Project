@@ -5,6 +5,21 @@ on:
     pull_request:
         branches:
             - master
+    push:
+        branches:
+            - dev
+        paths-ignore:
+            - .github/**/*
+            - ./**/*.json
+            - .stylelintrc.js
+            - .stylelintignore
+            - .eslintignore
+            - .gitignore
+            - .prettierignore
+            - README.md
+            - yarn.lock
+            - config/**/*
+            - webpack.config.ts
 jobs:
     prepare:
         name: Prepare
