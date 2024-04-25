@@ -23,4 +23,22 @@ describe("Test Ui Button", () => {
 
 		expect(screen.getByTestId("button-ui")).toHaveClass("clear")
 	})
+
+	test("Theme Primary", () => {
+		render(<Button theme={ButtonTheme.PRIMARY} />)
+
+		expect(screen.getByTestId("button-ui")).toHaveClass("primary")
+	})
+
+	test("Theme Clear", () => {
+		render(<Button theme={ButtonTheme.BACKGROUND} />)
+
+		expect(screen.getByTestId("button-ui")).toHaveClass("background")
+	})
+
+	test("Theme Clear", () => {
+		render(<Button theme={ButtonTheme.INVERTEDBACKGROUND} />)
+
+		expect(screen.getByTestId("button-ui")).toHaveClass("inverted-background")
+	})
 })

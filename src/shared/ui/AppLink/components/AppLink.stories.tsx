@@ -1,11 +1,12 @@
 import { CenterDecorator } from "@decorators/storybook/Center.decorator"
+import { SimpleBgDecorator } from "@decorators/storybook/SimpleBg.decorator"
 import { type Meta, type StoryObj } from "@storybook/react"
 import { AppLink, AppLinkTheme } from "./AppLink"
 
 const meta: Meta<typeof AppLink> = {
 	title: "shared/AppLink",
 	component: AppLink,
-	decorators: [CenterDecorator]
+	decorators: [SimpleBgDecorator, CenterDecorator]
 }
 
 export default meta
@@ -15,7 +16,7 @@ type TypeStory = StoryObj<typeof AppLink>
 export const Primary: TypeStory = {
 	args: {
 		to: "/",
-		name: "Link",
+		children: "Link",
 		theme: AppLinkTheme.PRIMARY
 	}
 }
@@ -23,7 +24,7 @@ export const Primary: TypeStory = {
 export const Inverted: TypeStory = {
 	args: {
 		to: "/",
-		name: "Link",
+		children: "Link",
 		theme: AppLinkTheme.INVERTED
 	}
 }

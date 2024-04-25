@@ -19,6 +19,18 @@
 	font: var(--font-m);
 }
 
+.simple-bg {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 30%;
+	height: 30% !important;
+
+	border-radius: 30px;
+
+	background-color: #989ba0 !important;
+}
+
 .page-container {
 	display: flex;
 }
@@ -27,10 +39,6 @@
 	flex-grow: 1;
 	height: calc(100vh - var(--header-height));
 	padding: 20px;
-}
-
-.switch-right-button {
-	margin-left: 20px;
 }
 
 .full-height {

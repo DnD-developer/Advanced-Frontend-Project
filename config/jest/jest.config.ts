@@ -15,12 +15,11 @@ const config: JestConfigWithTsJest = {
 	modulePaths: [compilerOptions.baseUrl],
 	testMatch: ["<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)"],
 	moduleNameMapper: {
-		// eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+		"\\.svg$": "<rootDir>/config/jest/mocks/jestSvg.mock.tsx",
+		"\\.(s?css|less)$": "identity-obj-proxy",
 		...pathsToModuleNameMapper(compilerOptions.paths, {
 			prefix: "<rootDir>/"
-		}),
-		"\\.(svg)$": "<rootDir>/mocks/jestSvg-mock.tsx",
-		"\\.(s?css|less)$": "identity-obj-proxy"
+		})
 	}
 }
 

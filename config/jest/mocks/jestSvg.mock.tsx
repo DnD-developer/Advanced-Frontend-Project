@@ -1,5 +1,5 @@
 import { type FC } from "react"
 
-export const MockSvg: FC = () => {
-	return <div />
-}
+const MockSvg: FC = () => <div> {"Иконка"} </div>
+
+export default MockSvg

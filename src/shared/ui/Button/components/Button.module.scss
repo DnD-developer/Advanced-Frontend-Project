@@ -27,3 +27,19 @@
 
 	color: var(--inverted-color);
 }
+
+.background {
+	padding: 10px;
+
+	background-color: var(--bg-color);
+
+	color: var(--primary-color);
+}
+
+.inverted-background {
+	padding: 10px;
+
+	background-color: var(--inverted-bg-color);
+
+	color: var(--inverted-color);
+}

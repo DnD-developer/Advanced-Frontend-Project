@@ -4,8 +4,6 @@ import { Link, type LinkProps } from "react-router-dom"
 import styles from "./AppLink.module.scss"
 
 type AppLinkProps = {
-	classNames?: string
-	name: string
 	theme?: AppLinkTheme
 } & LinkProps
 
@@ -15,15 +13,15 @@ export enum AppLinkTheme {
 }
 
 export const AppLink: FC<AppLinkProps> = props => {
-	const { classNames, to, name, theme, ...otherProps } = props
+	const { className, to, theme, children, ...otherProps } = props
 
 	return (
 		<Link
 			to={to}
-			className={classNamesHelp(styles.AppLink, {}, [classNames, styles[theme]])}
+			className={classNamesHelp(styles.AppLink, {}, [className, styles[theme]])}
 			{...otherProps}
 		>
-			{name}
+			{children}
 		</Link>
 	)
 }

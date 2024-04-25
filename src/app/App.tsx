@@ -20,7 +20,7 @@ const App: FC = () => {
 					<div className="page-container">
 						<SideBar>
 							<SwitchThemeButton />
-							<SwitchLangButton classNames="switch-right-button" />
+							<SwitchLangButton />
 						</SideBar>
 						<AppRouter />
 					</div>

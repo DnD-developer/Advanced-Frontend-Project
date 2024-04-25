@@ -6,11 +6,12 @@ type ButtonProps = {
 	theme?: ButtonTheme
 } & ButtonHTMLAttributes<HTMLButtonElement>
 
-// Noinspection JSUnusedGlobalSymbols
 export enum ButtonTheme {
 	CLEAR = "clear",
 	OUTLINE = "outline",
-	PRIMARY = "primary"
+	PRIMARY = "primary",
+	BACKGROUND = "background",
+	INVERTEDBACKGROUND = "inverted-background"
 }
 export const Button: FC<ButtonProps> = props => {
 	const { theme, children, className, ...otherProps } = props
