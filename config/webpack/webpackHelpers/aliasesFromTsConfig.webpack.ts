@@ -1,10 +1,11 @@
 import path from "node:path"
+import { CompilerOptions } from "typescript"
 
 type aliasTsconfigType = Record<string, string[]>
 type aliasWebpackConfigType = Record<string, string>
 
 export const aliasesFromTsConfig = (
-	compilerOptions: any,
+	compilerOptions: CompilerOptions,
 	dirname: string
 ): aliasWebpackConfigType => {
 	const { paths } = compilerOptions

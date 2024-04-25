@@ -5,8 +5,7 @@ const { useThemeParameters, initializeThemeState, pluckThemeFromContext } = Deco
 
 export const ThemeDecorator = ({
 	themes,
-	defaultTheme,
-	...rest
+	defaultTheme
 }: ClassNameStrategyConfiguration): Decorator => {
 	initializeThemeState(Object.keys(themes), defaultTheme)
 

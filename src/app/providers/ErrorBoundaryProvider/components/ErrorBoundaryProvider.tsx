@@ -1,5 +1,5 @@
 import { ErrorPage } from "@widgets/ErrorPage"
-import React, { type ErrorInfo, type PropsWithChildren, Suspense } from "react"
+import React, { type PropsWithChildren, Suspense } from "react"
 
 type ErrorBoundaryStateProps = {
 	hasError: boolean
@@ -19,7 +19,7 @@ export class ErrorBoundaryProvider extends React.Component<
 		}
 	}
 
-	componentDidCatch(error: Error, errorInfo: ErrorInfo): void {
+	componentDidCatch(error: Error): void {
 		if (error) {
 			// eslint-disable-next-line no-console
 			console.error(error)
