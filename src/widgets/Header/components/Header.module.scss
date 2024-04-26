@@ -8,3 +8,16 @@
 
 	background-color: var(--inverted-bg-color);
 }
+
+.links {
+	display: flex;
+	align-items: center;
+}
+
+.link {
+	margin-right: 20px;
+
+	&:first-child {
+		margin-right: 0;
+	}
+}

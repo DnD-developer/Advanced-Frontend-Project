@@ -1,12 +1,12 @@
 import { CenterDecorator } from "@decorators/storybook/Center.decorator"
-import { SimpleBgDecorator } from "@decorators/storybook/SimpleBg.decorator"
+import { InvertedBgDecorator } from "@decorators/storybook/InvertedBgDecorator"
 import { type Meta, type StoryObj } from "@storybook/react"
 import { SwitchThemeButton } from "./SwitchThemeButton"
 
 const meta: Meta<typeof SwitchThemeButton> = {
 	title: "widgets/SwitchThemeButton",
 	component: SwitchThemeButton,
-	decorators: [SimpleBgDecorator, CenterDecorator]
+	decorators: [CenterDecorator]
 }
 
 export default meta
@@ -14,5 +14,6 @@ export default meta
 type TypeStory = StoryObj<typeof SwitchThemeButton>
 
 export const Default: TypeStory = {
-	args: {}
+	args: {},
+	decorators: [InvertedBgDecorator]
 }

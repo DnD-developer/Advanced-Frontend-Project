@@ -1,3 +1,4 @@
+import { ThemesProvider } from "@providers/ThemeContext"
 import { type ClassNameStrategyConfiguration, DecoratorHelpers } from "@storybook/addon-themes"
 import { type Decorator } from "@storybook/react"
 
@@ -9,17 +10,18 @@ export const ThemeDecorator = ({
 }: ClassNameStrategyConfiguration): Decorator => {
 	initializeThemeState(Object.keys(themes), defaultTheme)
 
-	return (StoryFn, context) => {
+	return function ThemeDecoratorCallBack(StoryFn, context) {
 		const selectedTheme = pluckThemeFromContext(context)
-
 		const { themeOverride } = useThemeParameters()
 
 		const selected = themeOverride || selectedTheme || defaultTheme
 
 		return (
-			<div className={`app ${selected}`}>
-				<StoryFn />
-			</div>
+			<ThemesProvider>
+				<div className={`app ${selected}`}>
+					<StoryFn />
+				</div>
+			</ThemesProvider>
 		)
 	}
 }

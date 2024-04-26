@@ -1,4 +1,4 @@
-import { SimpleBgDecorator } from "@decorators/storybook/SimpleBg.decorator"
+import { InvertedBgDecorator } from "@decorators/storybook/InvertedBgDecorator"
 import { CenterDecorator } from "@lib/decorators/storybook/Center.decorator"
 import { type Meta, type StoryObj } from "@storybook/react"
 import { Button, ButtonTheme } from "./Button"
@@ -6,7 +6,7 @@ import { Button, ButtonTheme } from "./Button"
 const meta: Meta<typeof Button> = {
 	title: "shared/Button",
 	component: Button,
-	decorators: [SimpleBgDecorator, CenterDecorator]
+	decorators: [CenterDecorator]
 }
 
 export default meta
@@ -20,11 +20,27 @@ export const Primary: TypeStory = {
 	}
 }
 
+export const InvertedPrimary: TypeStory = {
+	args: {
+		children: "Text",
+		theme: ButtonTheme.INVERTEDPRIMARY
+	},
+	decorators: [InvertedBgDecorator]
+}
+
 export const Outline: TypeStory = {
 	args: {
 		children: "Text",
 		theme: ButtonTheme.OUTLINE
 	}
+}
+
+export const InvertedOutline: TypeStory = {
+	args: {
+		children: "Text",
+		theme: ButtonTheme.INVERTEDOUTLINE
+	},
+	decorators: [InvertedBgDecorator]
 }
 
 export const Clear: TypeStory = {
@@ -33,11 +49,21 @@ export const Clear: TypeStory = {
 		theme: ButtonTheme.CLEAR
 	}
 }
+
+export const InvertedClear: TypeStory = {
+	args: {
+		children: "Text",
+		theme: ButtonTheme.INVERTEDClEAR
+	},
+	decorators: [InvertedBgDecorator]
+}
+
 export const Background: TypeStory = {
 	args: {
 		children: "Text",
 		theme: ButtonTheme.BACKGROUND
-	}
+	},
+	decorators: [InvertedBgDecorator]
 }
 export const InvertedBackground: TypeStory = {
 	args: {

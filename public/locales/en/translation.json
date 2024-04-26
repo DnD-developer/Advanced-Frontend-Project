@@ -1,9 +1,11 @@
 {
 	"About": "About",
+	"Login": "Login",
 	"Main": "Main",
 	"lang": "EN",
 	"loading": "Loading",
 	"reloadButton": "Reload Page",
+	"textModal": "Login in Application",
 	"toggle": "Toggle",
 	"unexpectedErrorTitle": "An unexpected error occurred"
 }

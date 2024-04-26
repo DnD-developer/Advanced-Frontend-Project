@@ -2,25 +2,40 @@
 	border: none;
 	outline: none;
 
-	background: none;
-
-	color: var(--primary-color);
 	font-size: 20px;
 
 	cursor: pointer;
 }
 
-.clear {
+
+.inverted-clear,.clear {
 	background: none;
+
+	color: var(--primary-color);
 }
 
-.outline {
+.inverted-clear {
+	color: var(--inverted-color);
+}
+
+.outline,
+.inverted-outline {
 	padding: 10px;
 
 	border: 3px solid var(--primary-color);
+
+	background: none;
+
+	color: var(--primary-color);
 }
 
-.primary {
+.inverted-outline {
+	border-color: var(--inverted-color);
+
+	color: var(--inverted-color);
+}
+
+.primary,.inverted-primary {
 	padding: 10px;
 
 	background-color: var(--primary-color);
@@ -28,7 +43,13 @@
 	color: var(--inverted-color);
 }
 
-.background {
+.inverted-primary {
+	background-color: var(--inverted-color);
+
+	color: var(--primary-color);
+}
+
+.background,.inverted-background {
 	padding: 10px;
 
 	background-color: var(--bg-color);
@@ -37,8 +58,6 @@
 }
 
 .inverted-background {
-	padding: 10px;
-
 	background-color: var(--inverted-bg-color);
 
 	color: var(--inverted-color);

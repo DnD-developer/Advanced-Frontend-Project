@@ -1,0 +1,46 @@
+.Modal {
+	position: fixed;
+	z-index: var(--z-index-modal);
+
+	transition: opacity 0.4s;
+
+	opacity: 0;
+
+	pointer-events: none;
+	inset: 0;
+}
+
+.content {
+	max-width: 500px;
+	padding: 20px;
+
+	transform: scale(0.3);
+
+	transition: transform 0.3s;
+
+	border-radius: 20px;
+
+	background-color: var(--bg-color);
+
+	color: var(--primary-color);
+}
+
+.overlay {
+	display: flex;
+	position: absolute;
+	align-items: center;
+	justify-content: center;
+	inset: 0;
+
+	background-color: var(--overlay);
+}
+
+.Modal.isOpen {
+	opacity: 1;
+
+	pointer-events: all;
+
+	.content {
+		transform: scale(1);
+	}
+}

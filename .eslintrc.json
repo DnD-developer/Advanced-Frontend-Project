@@ -9,6 +9,7 @@
 		"eslint:recommended",
 		"plugin:@typescript-eslint/recommended",
 		"plugin:react/recommended",
+		"plugin:react-hooks/recommended",
 		"plugin:react/jsx-runtime",
 		"plugin:i18next/recommended",
 		"plugin:jest-dom/recommended",
@@ -19,8 +20,9 @@
 		"ecmaVersion": "latest",
 		"sourceType": "module"
 	},
-	"plugins": ["i18next", "react", "jest-dom", "@typescript-eslint"],
+	"plugins": ["i18next", "react", "jest-dom", "@typescript-eslint", "react-hooks"],
 	"rules": {
+		"react-hooks/exhaustive-deps": "error",
 		"@typescript-eslint/prefer-nullish-coalescing": "off",
 		"@typescript-eslint/strict-boolean-expressions": "off",
 		"@typescript-eslint/consistent-type-definitions": ["error", "type"],

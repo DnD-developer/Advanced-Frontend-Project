@@ -1,4 +1,3 @@
-import "@styles/index.style.scss"
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { ErrorBoundaryProvider } from "@providers/ErrorBoundaryProvider"
 import { AppRouter } from "@providers/RouterProvider"
@@ -17,6 +16,7 @@ const App: FC = () => {
 			<ErrorBoundaryProvider>
 				<Suspense>
 					<Header />
+
 					<div className="page-container">
 						<SideBar>
 							<SwitchThemeButton />

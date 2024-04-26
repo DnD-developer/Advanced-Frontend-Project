@@ -8,8 +8,11 @@ type ButtonProps = {
 
 export enum ButtonTheme {
 	CLEAR = "clear",
+	INVERTEDClEAR = "inverted-clear",
 	OUTLINE = "outline",
+	INVERTEDOUTLINE = "inverted-outline",
 	PRIMARY = "primary",
+	INVERTEDPRIMARY = "inverted-primary",
 	BACKGROUND = "background",
 	INVERTEDBACKGROUND = "inverted-background"
 }
