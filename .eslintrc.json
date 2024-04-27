@@ -10,6 +10,7 @@
 		"plugin:@typescript-eslint/recommended",
 		"plugin:react/recommended",
 		"plugin:react-hooks/recommended",
+		"plugin:react-redux/recommended",
 		"plugin:react/jsx-runtime",
 		"plugin:i18next/recommended",
 		"plugin:jest-dom/recommended",
@@ -20,7 +21,7 @@
 		"ecmaVersion": "latest",
 		"sourceType": "module"
 	},
-	"plugins": ["i18next", "react", "jest-dom", "@typescript-eslint", "react-hooks"],
+	"plugins": ["i18next", "react", "jest-dom", "@typescript-eslint", "react-hooks", "react-redux"],
 	"rules": {
 		"react-hooks/exhaustive-deps": "error",
 		"@typescript-eslint/prefer-nullish-coalescing": "off",
@@ -36,7 +37,7 @@
 				"mode": "jsx-only",
 				"makrupOnly": true,
 				"jsx-attributes": {
-					"exclude": ["data-testid", "className", "classNames"]
+					"exclude": ["data-testid", "className", "classNames", "style"]
 				}
 			}
 		]

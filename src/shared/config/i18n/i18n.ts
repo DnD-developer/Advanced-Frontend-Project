@@ -9,7 +9,7 @@ i18n.use(Backend)
 		fallbackLng: "en",
 		lng: "en",
 		load: "currentOnly",
-		debug: __IS_DEV__,
+		debug: false,
 
 		backend: {
 			loadPath: "/locales/{{lng}}/{{ns}}.json"

@@ -1,9 +1,13 @@
 import { useContext } from "react"
-import { LOCAL_STORAGE_THEME_KEY, ThemeContext, THEMES } from "../ThemeContext"
+import {
+	LOCAL_STORAGE_THEME_KEY,
+	ThemeProviderContext,
+	THEMES
+} from "../context/ThemeProvider.context"
 
 type useThemeType = { theme: THEMES; switchTheme: () => void }
 export function useTheme(): useThemeType {
-	const { theme, setTheme } = useContext(ThemeContext)
+	const { theme, setTheme } = useContext(ThemeProviderContext)
 
 	const switchTheme = (): void => {
 		const newTheme = theme === THEMES.DARK ? THEMES.LIGHT : THEMES.DARK

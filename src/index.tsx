@@ -1,5 +1,6 @@
 import App from "@app/App"
-import { ThemesProvider } from "@app/providers/ThemeContext"
+import { StoreProvider } from "@providers/StoreProvider"
+import { ThemesProvider } from "@providers/ThemeProvider"
 import { StrictMode } from "react"
 import { createRoot } from "react-dom/client"
 import { BrowserRouter } from "react-router-dom"
@@ -12,11 +13,13 @@ const root = createRoot(domRoot)
 
 const RootComponent = (
 	<StrictMode>
-		<BrowserRouter>
-			<ThemesProvider>
-				<App />
-			</ThemesProvider>
-		</BrowserRouter>
+		<StoreProvider>
+			<BrowserRouter>
+				<ThemesProvider>
+					<App />
+				</ThemesProvider>
+			</BrowserRouter>
+		</StoreProvider>
 	</StrictMode>
 )
 

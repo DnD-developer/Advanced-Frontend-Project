@@ -1,9 +1,10 @@
 import { PageLoader } from "@widgets/PageLoader"
 import { type FC, Suspense } from "react"
-import { Route, Routes } from "react-router-dom"
-import { routerProviderConfig } from "../config/RouterProvider.config"
+import { Route } from "react-router"
+import { Routes } from "react-router-dom"
+import { routerProviderConfig } from "../config/routerProvider.config"
 
-export const AppRouter: FC = () => (
+export const RouterProvider: FC = () => (
 	<Suspense fallback={<PageLoader />}>
 		<Routes>
 			{Object.values(routerProviderConfig).map(({ path, element }) => (

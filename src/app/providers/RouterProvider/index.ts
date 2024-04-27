@@ -1,1 +1,1 @@
-export { AppRouter } from "./components/AppRouter"
+export { RouterProvider } from "./components/RouterProvider"

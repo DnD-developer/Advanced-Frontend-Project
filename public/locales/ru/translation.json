@@ -2,6 +2,8 @@
 	"About": "О нас",
 	"Login": "Войти",
 	"Main": "Главная",
+	"decrement": "Уменьшить",
+	"increment": "увеличить",
 	"lang": "RU",
 	"loading": "Загрузка",
 	"reloadButton": "Перезагрузить страницу",

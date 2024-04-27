@@ -2,6 +2,8 @@
 	"About": "About",
 	"Login": "Login",
 	"Main": "Main",
+	"decrement": "decrement",
+	"increment": "increment",
 	"lang": "EN",
 	"loading": "Loading",
 	"reloadButton": "Reload Page",

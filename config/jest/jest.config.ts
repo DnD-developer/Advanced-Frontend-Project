@@ -20,6 +20,9 @@ const config: JestConfigWithTsJest = {
 		...pathsToModuleNameMapper(compilerOptions.paths, {
 			prefix: "<rootDir>/"
 		})
+	},
+	globals: {
+		__IS_DEV__: true
 	}
 }
 

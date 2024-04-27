@@ -5,11 +5,11 @@ export enum THEMES {
 	LIGHT = "light"
 }
 
-export type ThemeContextProps = {
+export type ThemeProviderProps = {
 	theme?: THEMES
 	setTheme?: (theme: THEMES) => void
 }
 
-export const ThemeContext = createContext<ThemeContextProps>({})
+export const ThemeProviderContext = createContext<ThemeProviderProps>({})
 
 export const LOCAL_STORAGE_THEME_KEY = "theme"

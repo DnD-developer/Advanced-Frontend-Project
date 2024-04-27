@@ -1,3 +1,4 @@
+import { Counter } from "@entities/Counter"
 import { Hello } from "@widgets/Hello"
 import { type FC } from "react"
 import { useTranslation } from "react-i18next"
@@ -9,6 +10,7 @@ const MainPage: FC = () => {
 		<div>
 			<h1 className="page-header">{t("pageTitle")}</h1>
 			<Hello>{t("mainPage:helloContent")}</Hello>
+			<Counter />
 		</div>
 	)
 }

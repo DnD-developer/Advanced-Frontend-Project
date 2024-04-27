@@ -44,8 +44,10 @@
 		"@storybook/react-webpack5": "^8.0.8",
 		"@storybook/test": "^8.0.8",
 		"@svgr/webpack": "^8.1.0",
+		"@testing-library/dom": "^10.0.0",
 		"@testing-library/jest-dom": "^6.4.2",
 		"@testing-library/react": "^14.2.2",
+		"@testing-library/user-event": "^14.5.2",
 		"@types/jest": "^29.5.12",
 		"@types/node": "^20.11.28",
 		"@types/react": "^18.2.79",
@@ -72,6 +74,7 @@
 		"eslint-plugin-promise": "^6.0.0",
 		"eslint-plugin-react": "^7.34.1",
 		"eslint-plugin-react-hooks": "^4.6.1",
+		"eslint-plugin-react-redux": "^4.1.0",
 		"eslint-plugin-storybook": "^0.8.0",
 		"eslint-webpack-plugin": "^4.1.0",
 		"file-loader": "^6.2.0",
@@ -108,6 +111,7 @@
 		"webpack-dev-server": "^5.0.3"
 	},
 	"dependencies": {
+		"@reduxjs/toolkit": "^2.2.3",
 		"i18next": "^23.10.1",
 		"i18next-browser-languagedetector": "^7.2.0",
 		"i18next-http-backend": "^2.5.0",
@@ -115,6 +119,7 @@
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"react-i18next": "^14.1.0",
+		"react-redux": "^9.1.1",
 		"react-router": "^6.22.3",
 		"react-router-dom": "^6.22.3"
 	},

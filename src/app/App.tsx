@@ -1,7 +1,7 @@
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { ErrorBoundaryProvider } from "@providers/ErrorBoundaryProvider"
-import { AppRouter } from "@providers/RouterProvider"
-import { useTheme } from "@providers/ThemeContext"
+import { RouterProvider } from "@providers/RouterProvider"
+import { useTheme } from "@providers/ThemeProvider"
 import { Header } from "@widgets/Header"
 import { SideBar } from "@widgets/SideBar"
 import { SwitchLangButton } from "@widgets/SwitchLangButton/components/SwitchLangButton"
@@ -16,13 +16,12 @@ const App: FC = () => {
 			<ErrorBoundaryProvider>
 				<Suspense>
 					<Header />
-
 					<div className="page-container">
 						<SideBar>
 							<SwitchThemeButton />
 							<SwitchLangButton />
 						</SideBar>
-						<AppRouter />
+						<RouterProvider />
 					</div>
 				</Suspense>
 			</ErrorBoundaryProvider>

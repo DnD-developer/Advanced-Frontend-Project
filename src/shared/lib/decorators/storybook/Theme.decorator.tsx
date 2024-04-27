@@ -1,6 +1,6 @@
-import { ThemesProvider } from "@providers/ThemeContext"
 import { type ClassNameStrategyConfiguration, DecoratorHelpers } from "@storybook/addon-themes"
 import { type Decorator } from "@storybook/react"
+import { ThemesProvider } from "src/app/providers/ThemeProvider"
 
 const { useThemeParameters, initializeThemeState, pluckThemeFromContext } = DecoratorHelpers
 

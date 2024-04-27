@@ -3,15 +3,16 @@ import { fireEvent, screen } from "@testing-library/react"
 import { SideBar } from "./SideBar"
 
 describe("Test Widget Sidebar", () => {
-	test("Render correctly", () => {
-		renderDecorator(<SideBar />)
+	beforeEach(() => renderDecorator(<SideBar />))
 
-		expect(screen.getByTestId("sidebar-widgets")).toBeInTheDocument()
+	test("Render correctly", () => {
+		const SideBarScreen = screen.getByTestId("sidebar-widgets")
+
+		expect(SideBarScreen).toBeInTheDocument()
+		expect(SideBarScreen).toHaveClass("collapsed")
 	})
 
 	test("Collapsed", () => {
-		renderDecorator(<SideBar />)
-
 		const btn = screen.getByTestId("sidebar-collapsed-btn")
 
 		fireEvent.click(btn)
@@ -20,8 +21,6 @@ describe("Test Widget Sidebar", () => {
 	})
 
 	test("UnCollapsed", () => {
-		renderDecorator(<SideBar />)
-
 		const btn = screen.getByTestId("sidebar-collapsed-btn")
 
 		fireEvent.click(btn)
