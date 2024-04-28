@@ -1,3 +1,2 @@
-yarn run lint:ts:fix
-yarn run lint:style:fix
-yarn run lint:prettier
+yarn run lint:ts
+yarn run lint:style
