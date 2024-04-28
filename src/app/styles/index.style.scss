@@ -19,6 +19,7 @@
 	font: var(--font-m);
 }
 
+.stories-container,
 .simple-bg {
 	display: flex;
 	align-items: center;
@@ -26,6 +27,10 @@
 	width: 500px;
 	height: 500px !important;
 
+	padding: 20px;
+}
+
+.simple-bg {
 	border-radius: 30px;
 
 	background-color: var(--inverted-bg-color) !important;

@@ -1,2 +1,2 @@
 export { createReduxStore } from "./store"
-export { mainStoreMap } from "./storeTypes/mainStore.map"
+export { mainStateMap } from "./storeTypes/mainState.map"

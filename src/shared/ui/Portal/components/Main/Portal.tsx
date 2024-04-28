@@ -1,7 +1,7 @@
 import { ReactNode, ReactPortal } from "react"
 import { createPortal } from "react-dom"
 
-type PortalProps = {
+export type PortalProps = {
 	children: ReactNode
 	element?: HTMLElement
 }

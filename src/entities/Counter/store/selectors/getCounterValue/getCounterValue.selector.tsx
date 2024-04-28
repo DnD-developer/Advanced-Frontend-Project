@@ -1,8 +1,8 @@
 import { createSelector } from "@reduxjs/toolkit"
-import { CounterStoreMap } from "../../storeTypes/CounterStore.map"
+import { counterStateMap } from "../../storeTypes/counterState.map"
 import { getCounterSelector } from "../getCounter/getCounter.selector"
 
 export const getCounterValueSelector = createSelector(
 	getCounterSelector,
-	(state: CounterStoreMap) => state.value
+	(state: counterStateMap) => state.value
 )

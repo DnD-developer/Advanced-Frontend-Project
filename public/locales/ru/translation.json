@@ -1,13 +1,15 @@
 {
 	"About": "О нас",
-	"Login": "Войти",
-	"Main": "Главная",
 	"decrement": "Уменьшить",
 	"increment": "Увеличить",
 	"lang": "RU",
 	"loading": "Загрузка",
+	"login": "Войти",
+	"main": "Главная",
+	"password": "Пароль",
 	"reloadButton": "Перезагрузить страницу",
 	"textModal": "Войдите в Приложение",
 	"toggle": "Переключить",
-	"unexpectedErrorTitle": "Произошла непредвиденная ошибка"
+	"unexpectedErrorTitle": "Произошла непредвиденная ошибка",
+	"userName": "Имя пользователя"
 }

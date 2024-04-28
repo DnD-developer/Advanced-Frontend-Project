@@ -1,3 +1,3 @@
-import { mainStoreMap } from "@app/store"
+import { mainStateMap } from "@app/store"
 
-export const getCounterSelector = (state: mainStoreMap) => state.counter
+export const getCounterSelector = (state: mainStateMap) => state.counter

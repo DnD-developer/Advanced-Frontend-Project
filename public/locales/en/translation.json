@@ -1,13 +1,15 @@
 {
 	"About": "About",
-	"Login": "Login",
-	"Main": "Main",
 	"decrement": "decrement",
 	"increment": "increment",
 	"lang": "EN",
 	"loading": "Loading",
+	"login": "Login",
+	"main": "Main",
+	"password": "Password",
 	"reloadButton": "Reload Page",
 	"textModal": "Login in Application",
 	"toggle": "Toggle",
-	"unexpectedErrorTitle": "An unexpected error occurred"
+	"unexpectedErrorTitle": "An unexpected error occurred",
+	"userName": "User Name"
 }

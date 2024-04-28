@@ -17,7 +17,7 @@ export enum ButtonTheme {
 	INVERTEDBACKGROUND = "inverted-background"
 }
 export const Button: FC<ButtonProps> = props => {
-	const { theme, children, className, ...otherProps } = props
+	const { theme = ButtonTheme.PRIMARY, children, className, ...otherProps } = props
 
 	return (
 		<button

@@ -1,0 +1,48 @@
+.Input {
+	display: block;
+
+	width: 100%;
+
+	padding: 5px 15px;
+
+	border: none;
+
+	outline: none;
+
+	background: none;
+
+	font: var(--font-l);
+}
+
+.label {
+	width: 100%;
+
+	color: var(--primary-color);
+
+	font: var(--font-l);
+
+	.Input {
+		margin-top: 10px;
+	}
+}
+
+.label-inverted {
+	color: var(--inverted-color);
+}
+
+.outline,
+.outline-inverted {
+	border: 2px solid var(--primary-color);
+
+	border-radius: 7px;
+
+	color: var(--primary-color);
+	caret-color: var(--primary-color);
+}
+
+.outline-inverted {
+	border-color: var(--inverted-color);
+
+	color: var(--inverted-color);
+	caret-color: var(--inverted-color);
+}

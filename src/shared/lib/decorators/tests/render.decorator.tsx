@@ -1,4 +1,4 @@
-import { mainStoreMap } from "@app/store"
+import { mainStateMap } from "@app/store"
 import { i18nTest } from "@config/i18n/i18nForTest"
 import { StoreProvider } from "@providers/StoreProvider"
 import { render, RenderResult } from "@testing-library/react"
@@ -8,14 +8,14 @@ import { MemoryRouter } from "react-router"
 
 type optionsType = {
 	route?: string
-	initialState?: Partial<mainStoreMap>
+	initialState?: Partial<mainStateMap>
 }
 
 export const renderDecorator = (component: ReactNode, options: optionsType = {}): RenderResult => {
 	const { initialState = {}, route = "/" } = options
 
 	return render(
-		<StoreProvider initialState={initialState as mainStoreMap}>
+		<StoreProvider initialState={initialState as mainStateMap}>
 			<MemoryRouter initialEntries={[route]}>
 				<Suspense>
 					<I18nextProvider i18n={i18nTest}>{component}</I18nextProvider>

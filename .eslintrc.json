@@ -9,8 +9,8 @@
 		"eslint:recommended",
 		"plugin:@typescript-eslint/recommended",
 		"plugin:react/recommended",
-		"plugin:react-hooks/recommended",
 		"plugin:react-redux/recommended",
+		"plugin:react-hooks/recommended",
 		"plugin:react/jsx-runtime",
 		"plugin:i18next/recommended",
 		"plugin:jest-dom/recommended",
@@ -37,7 +37,7 @@
 				"mode": "jsx-only",
 				"makrupOnly": true,
 				"jsx-attributes": {
-					"exclude": ["data-testid", "className", "classNames", "style"]
+					"exclude": ["data-testid", "className", "classNames", "style", "type"]
 				}
 			}
 		]

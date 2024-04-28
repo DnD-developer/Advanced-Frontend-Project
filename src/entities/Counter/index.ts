@@ -1,4 +1,4 @@
 export { Counter } from "./components/Main/Counter"
-export { CounterStoreMap } from "./store/storeTypes/CounterStore.map"
-export { CounterReducer } from "./store/slices/CounterSlice/Counter.slice"
-export { CounterActions } from "./store/slices/CounterSlice/Counter.slice"
+export { counterStateMap } from "./store/storeTypes/counterState.map"
+export { counterReducer } from "./store/slices/counterSlice/counter.slice"
+export { counterActions } from "./store/slices/counterSlice/counter.slice"

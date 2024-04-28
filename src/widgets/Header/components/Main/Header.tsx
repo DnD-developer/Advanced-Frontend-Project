@@ -1,6 +1,6 @@
+import { LoginModal } from "@features/AuthByUserName"
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { Button, ButtonTheme } from "@ui/Button"
-import { Modal } from "@ui/Modal"
 import { Portal } from "@ui/Portal"
 import { type FC, type PropsWithChildren, useCallback, useState } from "react"
 import { useTranslation } from "react-i18next"
@@ -16,8 +16,11 @@ export const Header: FC<HeaderProps> = props => {
 
 	const [isAuthModal, setIsAuthModal] = useState(false)
 
-	const loginModalHandler = useCallback(() => {
-		setIsAuthModal(prev => !prev)
+	const loginModalShow = useCallback(() => {
+		setIsAuthModal(true)
+	}, [])
+	const loginModalClose = useCallback(() => {
+		setIsAuthModal(false)
 	}, [])
 
 	return (
@@ -27,18 +30,17 @@ export const Header: FC<HeaderProps> = props => {
 			<div className={styles.links}>
 				<Button
 					theme={ButtonTheme.INVERTEDClEAR}
-					onClick={loginModalHandler}
+					onClick={loginModalShow}
 				>
-					{t("translation:Login")}
+					{t("translation:login")}
 				</Button>
 			</div>
 			<Portal>
-				<Modal
+				<LoginModal
+					onClose={loginModalClose}
 					isOpen={isAuthModal}
-					onClose={loginModalHandler}
-				>
-					{t("translation:textModal")}
-				</Modal>
+					lazy
+				/>
 			</Portal>
 		</div>
 	)

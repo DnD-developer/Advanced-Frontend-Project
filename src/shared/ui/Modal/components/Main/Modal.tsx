@@ -1,18 +1,20 @@
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
-import { FC, MouseEvent, PropsWithChildren, useCallback, useEffect } from "react"
+import { FC, MouseEvent, PropsWithChildren, useCallback, useEffect, useState } from "react"
 import styles from "./Modal.module.scss"
 
-type ModalProps = {
+export type ModalProps = {
 	classNames?: string
 	isOpen?: boolean
 	onClose?: () => void
+	lazy?: boolean
 } & PropsWithChildren
 
 export const Modal: FC<ModalProps> = props => {
-	const { classNames, children, isOpen, onClose } = props
+	const { classNames, children, isOpen, onClose, lazy = false } = props
 
 	const onCloseHandler = useCallback(() => {
 		onClose()
+		setIsMounted(false)
 	}, [onClose])
 
 	const onKeyDown = useCallback(
@@ -28,13 +30,20 @@ export const Modal: FC<ModalProps> = props => {
 		event.stopPropagation()
 	}
 
+	const [isMounted, setIsMounted] = useState(false)
+
 	useEffect(() => {
 		if (isOpen) {
 			window.addEventListener("keydown", onKeyDown)
+			setIsMounted(true)
 		}
 
 		return () => window.removeEventListener("keydown", onKeyDown)
 	}, [isOpen, onKeyDown])
+
+	if (lazy && !isMounted) {
+		return null
+	}
 
 	return (
 		<div className={classNamesHelp(styles.Modal, { [styles.isOpen]: isOpen }, [classNames])}>

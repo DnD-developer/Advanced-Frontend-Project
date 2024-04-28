@@ -1,10 +1,10 @@
 import { createReduxStore } from "@store/store"
-import { mainStoreMap } from "@store/storeTypes/mainStore.map"
+import { mainStateMap } from "@store/storeTypes/mainState.map"
 import { FC, PropsWithChildren } from "react"
 import { Provider } from "react-redux"
 
 type StoreProviderProps = {
-	initialState?: mainStoreMap
+	initialState?: mainStateMap
 } & PropsWithChildren
 
 export const StoreProvider: FC<StoreProviderProps> = props => {
