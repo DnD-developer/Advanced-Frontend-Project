@@ -1,5 +1,5 @@
+import { CenterDecorator } from "@decorators/storybook/Center.decorator"
 import { InvertedBgDecorator } from "@decorators/storybook/InvertedBgDecorator"
-import { CenterDecorator } from "@lib/decorators/storybook/Center.decorator"
 import { type Meta, type StoryObj } from "@storybook/react"
 import { Button, ButtonTheme } from "./Button"
 

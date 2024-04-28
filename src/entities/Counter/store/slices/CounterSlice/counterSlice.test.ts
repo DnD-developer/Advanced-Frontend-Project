@@ -1,4 +1,4 @@
-import { counterStoreMap } from "../storeTypes/counterStore.map"
+import { counterStoreMap } from "../../storeTypes/counterStore.map"
 import { counterActions, counterReducer } from "./counter.slice"
 
 describe("counterSliceTest", () => {

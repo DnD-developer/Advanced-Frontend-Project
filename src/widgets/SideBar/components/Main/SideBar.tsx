@@ -3,8 +3,8 @@ import ArrowRight from "@assets/icons/arrow-right.svg"
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { Button, ButtonTheme } from "@ui/Button"
 import { Children, type FC, type PropsWithChildren, useState } from "react"
+import { NavLinks } from "../NavLinks/NavLinks"
 import styles from "./SideBar.module.scss"
-import { NavLinks } from "./ui/NavLinks/NavLinks"
 
 type SideBarProps = {
 	classNames?: string

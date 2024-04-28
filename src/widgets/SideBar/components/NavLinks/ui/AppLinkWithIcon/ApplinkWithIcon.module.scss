@@ -1,20 +1,3 @@
-.link-list {
-	display: flex;
-	flex-direction: column;
-	align-items: start;
-	justify-content: center;
-}
-
-.link-item {
-	width: 100%;
-	margin-top: 20px;
-	padding: 10px;
-
-	&:first-child {
-		margin-top: 0;
-	}
-}
-
 .link {
 	display: flex;
 	align-items: center;

@@ -1,1 +1,1 @@
-export { Button, ButtonTheme } from "./components/Button"
+export { Button, ButtonTheme } from "./components/Main/Button"

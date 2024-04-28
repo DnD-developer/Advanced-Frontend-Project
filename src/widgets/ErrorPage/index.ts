@@ -1,1 +1,1 @@
-export { ErrorPage } from "./components/ErrorPage"
+export { ErrorPage } from "./components/Main/ErrorPage"

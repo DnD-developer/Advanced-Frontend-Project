@@ -1,9 +1,9 @@
 import { routesPath } from "@config/pagesPathsNames"
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
-import { AppLink, AppLinkTheme } from "@ui/AppLink"
+import { AppLinkTheme } from "@ui/AppLink"
 import { FC, HTMLAttributes } from "react"
-import { useTranslation } from "react-i18next"
 import styles from "./NavLinks.module.scss"
+import { AppLinkWithIcon } from "./ui/AppLinkWithIcon/AppLinkWithIcon"
 
 type NavLinksProps = {
 	classNames?: string
@@ -12,7 +12,6 @@ type NavLinksProps = {
 
 export const NavLinks: FC<NavLinksProps> = props => {
 	const { classNames, collapsed } = props
-	const { t } = useTranslation()
 
 	return (
 		<ul className={classNamesHelp(styles.linkList, {}, [classNames])}>
@@ -23,21 +22,13 @@ export const NavLinks: FC<NavLinksProps> = props => {
 						key={path}
 						className={styles.linkItem}
 					>
-						<AppLink
-							to={path}
+						<AppLinkWithIcon
+							path={path}
 							theme={AppLinkTheme.INVERTED}
-						>
-							<div className={styles.link}>
-								<Icon
-									className={
-										collapsed ? styles.linkIconCollapsed : styles.linkIcon
-									}
-								/>
-								{collapsed ?
-									<></>
-								:	t(name)}
-							</div>
-						</AppLink>
+							collapsed={collapsed}
+							Icon={Icon}
+							name={name}
+						/>
 					</li>
 				))}
 		</ul>

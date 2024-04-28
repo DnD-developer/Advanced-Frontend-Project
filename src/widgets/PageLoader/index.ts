@@ -1,1 +1,1 @@
-export { PageLoader } from "./components/PageLoader"
+export { PageLoader } from "./components/Main/PageLoader"

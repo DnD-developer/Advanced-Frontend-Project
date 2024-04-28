@@ -52,4 +52,10 @@
 	.switcher-margin {
 		margin-left: 0;
 	}
+
+	:global {
+		.switch-right-button {
+			margin-left: 0;
+		}
+	}
 }

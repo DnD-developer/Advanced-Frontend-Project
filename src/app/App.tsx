@@ -4,7 +4,7 @@ import { RouterProvider } from "@providers/RouterProvider"
 import { useTheme } from "@providers/ThemeProvider"
 import { Header } from "@widgets/Header"
 import { SideBar } from "@widgets/SideBar"
-import { SwitchLangButton } from "@widgets/SwitchLangButton/components/SwitchLangButton"
+import { SwitchLangButton } from "@widgets/SwitchLangButton/components/Main/SwitchLangButton"
 import { SwitchThemeButton } from "@widgets/SwitchThemeButton"
 import { type FC, Suspense } from "react"
 

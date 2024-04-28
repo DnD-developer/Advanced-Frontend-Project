@@ -1,1 +1,1 @@
-export { Hello } from "./components/Hello"
+export { Hello } from "./components/Main/Hello"

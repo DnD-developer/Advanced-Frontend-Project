@@ -1,4 +1,4 @@
-import { classNamesHelp } from "@lib/helpers/classNamesHelp/classNamesHelp"
+import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { type ButtonHTMLAttributes, type FC } from "react"
 import styles from "./Button.module.scss"
 
