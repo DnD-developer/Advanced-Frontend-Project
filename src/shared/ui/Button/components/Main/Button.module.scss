@@ -7,8 +7,8 @@
 	cursor: pointer;
 }
 
-
-.inverted-clear,.clear {
+.inverted-clear,
+.clear {
 	background: none;
 
 	color: var(--primary-color);
@@ -35,7 +35,8 @@
 	color: var(--inverted-color);
 }
 
-.primary,.inverted-primary {
+.primary,
+.inverted-primary {
 	padding: 10px;
 
 	background-color: var(--primary-color);
@@ -49,7 +50,8 @@
 	color: var(--primary-color);
 }
 
-.background,.inverted-background {
+.background,
+.inverted-background {
 	padding: 10px;
 
 	background-color: var(--bg-color);
