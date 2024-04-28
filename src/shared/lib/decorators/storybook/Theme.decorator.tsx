@@ -1,6 +1,6 @@
+import { ThemesProvider } from "@providers/ThemeProvider"
 import { type ClassNameStrategyConfiguration, DecoratorHelpers } from "@storybook/addon-themes"
 import { type Decorator } from "@storybook/react"
-import { ThemesProvider } from "src/app/providers/ThemeProvider"
 
 const { useThemeParameters, initializeThemeState, pluckThemeFromContext } = DecoratorHelpers
 
@@ -14,7 +14,7 @@ export const ThemeDecorator = ({
 		const selectedTheme = pluckThemeFromContext(context)
 		const { themeOverride } = useThemeParameters()
 
-		const selected = themeOverride || selectedTheme || defaultTheme
+		const selected = themes[themeOverride] || themes[selectedTheme] || themes[defaultTheme]
 
 		return (
 			<ThemesProvider>

@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { counterStoreMap } from "../storeMaps/counterStore.map"
+import { counterStoreMap } from "../storeTypes/counterStore.map"
 
 const initialState: counterStoreMap = {
 	value: 0

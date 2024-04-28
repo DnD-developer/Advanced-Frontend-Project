@@ -1,5 +1,5 @@
 import { createReduxStore } from "@store/store"
-import { mainStoreMap } from "@store/storeMaps/mainStore.map"
+import { mainStoreMap } from "@store/storeTypes/mainStore.map"
 import { FC, PropsWithChildren } from "react"
 import { Provider } from "react-redux"
 

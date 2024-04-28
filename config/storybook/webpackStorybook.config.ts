@@ -6,7 +6,7 @@ import { mainPathsWebpack } from "@_webpack/webpackHelpers/mainPaths.webpack"
 import { sassLoader } from "@_webpack/webpackLoaders/sassLoader.webpack"
 import { svgrLoaders } from "@_webpack/webpackLoaders/svgrLoaders.webpack"
 import path from "node:path"
-import { type Configuration, type RuleSetRule } from "webpack"
+import { type Configuration, DefinePlugin, type RuleSetRule } from "webpack"
 
 export const webpackStorybookConfig = (config: Configuration): Configuration => {
 	const baseUrl = path.resolve(__dirname, "..", "..")
@@ -22,6 +22,14 @@ export const webpackStorybookConfig = (config: Configuration): Configuration => 
 			...config.resolve,
 			...resolversWebpack(options)
 		}
+	}
+
+	if (config.plugins) {
+		config.plugins.push(
+			new DefinePlugin({
+				__IS_DEV__: JSON.stringify(options.isDev)
+			})
+		)
 	}
 
 	if (config.module) {

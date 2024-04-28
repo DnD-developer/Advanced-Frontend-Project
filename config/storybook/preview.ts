@@ -21,8 +21,8 @@ const preview: Preview = {
 		StyleDecorator,
 		ThemeDecorator({
 			themes: {
-				[THEMES.DARK]: `app ${THEMES.DARK}`,
-				[THEMES.LIGHT]: `app ${THEMES.LIGHT}`
+				Dark: THEMES.DARK,
+				Light: THEMES.LIGHT
 			},
 			defaultTheme: THEMES.DARK
 		}),
