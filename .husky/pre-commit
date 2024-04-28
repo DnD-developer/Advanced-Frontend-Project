@@ -1,0 +1,3 @@
+yarn lint:prettier
+yarn run lint:style:fix
+yarn run lint:prettier

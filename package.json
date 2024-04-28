@@ -21,7 +21,8 @@
 		"test:unit": "jest --config ./config/jest/jest.config.ts",
 		"test:ui": "chromatic --t chpt_4330b52d5d14286",
 		"storybook:start": "storybook dev -c config/storybook --no-open -p 6006 ",
-		"storybook:build": "storybook build -ci -c config/storybook"
+		"storybook:build": "storybook build -ci -c config/storybook",
+		"prepare": "husky"
 	},
 	"author": {
 		"name": "Salim Cat"
@@ -80,6 +81,7 @@
 		"eslint-webpack-plugin": "^4.1.0",
 		"file-loader": "^6.2.0",
 		"html-webpack-plugin": "^5.6.0",
+		"husky": "^9.0.11",
 		"identity-obj-proxy": "^3.0.0",
 		"jest": "^29.7.0",
 		"jest-environment-jsdom": "^29.7.0",

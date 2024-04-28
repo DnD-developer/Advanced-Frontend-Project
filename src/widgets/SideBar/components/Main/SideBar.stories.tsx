@@ -1,6 +1,6 @@
 import { type Meta, type StoryObj } from "@storybook/react"
-import { SwitchLangButton } from "../../../SwitchLangButton/components/Main/SwitchLangButton"
-import { SwitchThemeButton } from "../../../SwitchThemeButton"
+import { SwitchLangButton } from "@widgets/SwitchLangButton/components/Main/SwitchLangButton"
+import { SwitchThemeButton } from "@widgets/SwitchThemeButton"
 import { SideBar } from "./SideBar"
 
 const meta: Meta<typeof SideBar> = {

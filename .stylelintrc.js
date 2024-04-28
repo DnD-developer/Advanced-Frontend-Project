@@ -10,6 +10,12 @@ module.exports = {
 	rules: {
 		"order/properties-order": [sortOrderSmacss({ emptyLineBefore: "always" })],
 		"selector-class-pattern": null,
-		"declaration-empty-line-before": null
+		"declaration-empty-line-before": null,
+		"selector-pseudo-class-no-unknown": [
+			true,
+			{
+				ignorePseudoClasses: ["global"]
+			}
+		]
 	}
 }
