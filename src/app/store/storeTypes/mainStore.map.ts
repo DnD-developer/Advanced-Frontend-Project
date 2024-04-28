@@ -1,5 +1,5 @@
-import { counterStoreMap } from "@entities/Counter"
+import { CounterStoreMap } from "@entities/Counter"
 
 export type mainStoreMap = {
-	counter: counterStoreMap
+	counter: CounterStoreMap
 }

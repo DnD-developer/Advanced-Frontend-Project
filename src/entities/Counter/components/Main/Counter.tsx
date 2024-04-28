@@ -3,12 +3,12 @@ import { FC } from "react"
 import { useTranslation } from "react-i18next"
 import { useDispatch, useSelector } from "react-redux"
 import { getCounterValueSelector } from "../../store/selectors/getCounterValue/getCounterValue.selector"
-import { counterActions } from "../../store/slices/CounterSlice/counter.slice"
+import { CounterActions } from "../../store/slices/CounterSlice/Counter.slice"
 
 export const Counter: FC = () => {
 	const dispatch = useDispatch()
 	const counterValue = useSelector(getCounterValueSelector)
-	const { decrement, increment } = counterActions
+	const { decrement, increment } = CounterActions
 
 	const onIncrementHandler = () => dispatch(increment())
 	const onDecrementHandler = () => dispatch(decrement())
