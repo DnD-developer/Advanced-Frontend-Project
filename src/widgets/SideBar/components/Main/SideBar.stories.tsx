@@ -15,12 +15,8 @@ type TypeStory = StoryObj<typeof SideBar>
 
 export const Default: TypeStory = {
 	args: {
-		children: (
-			<>
-				<SwitchThemeButton />
-				<SwitchLangButton classNames="switch-right-button" />
-			</>
-		),
+		SwitchLang: <SwitchLangButton />,
+		SwitchTheme: <SwitchThemeButton />,
 		classNames: "full-height"
 	}
 }

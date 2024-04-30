@@ -4,25 +4,34 @@ import styles from "./Button.module.scss"
 
 type ButtonProps = {
 	theme?: ButtonTheme
+	inverted?: boolean
+	disabled?: boolean
 } & ButtonHTMLAttributes<HTMLButtonElement>
 
 export enum ButtonTheme {
 	CLEAR = "clear",
-	INVERTEDClEAR = "inverted-clear",
 	OUTLINE = "outline",
-	INVERTEDOUTLINE = "inverted-outline",
 	PRIMARY = "primary",
-	INVERTEDPRIMARY = "inverted-primary",
-	BACKGROUND = "background",
-	INVERTEDBACKGROUND = "inverted-background"
+	BACKGROUND = "background"
 }
 export const Button: FC<ButtonProps> = props => {
-	const { theme = ButtonTheme.PRIMARY, children, className, ...otherProps } = props
+	const {
+		theme = ButtonTheme.PRIMARY,
+		children,
+		className,
+		disabled = false,
+		inverted = false,
+		...otherProps
+	} = props
 
 	return (
 		<button
 			data-testid="button-ui"
-			className={classNamesHelp(styles.Button, {}, [className, styles[theme]])}
+			className={classNamesHelp(
+				styles.Button,
+				{ [styles.disabled]: disabled, [styles.inverted]: inverted },
+				[className, styles[theme]]
+			)}
 			{...otherProps}
 		>
 			{children}

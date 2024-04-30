@@ -5,6 +5,7 @@
 
 .page-header {
 	margin-top: 50px;
+	margin-bottom: 50px;
 	margin-left: 100px;
 
 	font-size: 50px;
@@ -20,7 +21,7 @@
 }
 
 .stories-container,
-.simple-bg {
+.inverted-bg {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -30,14 +31,10 @@
 	padding: 20px;
 }
 
-.simple-bg {
+.inverted-bg {
 	border-radius: 30px;
 
 	background-color: var(--inverted-bg-color) !important;
-}
-
-.switch-right-button {
-	margin-left: 20px;
 }
 
 .page-container {

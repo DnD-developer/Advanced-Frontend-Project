@@ -1,7 +1,7 @@
 import { type Decorator } from "@storybook/react"
 
 export const InvertedBgDecorator: Decorator = Story => (
-	<div className="simple-bg">
+	<div className="inverted-bg">
 		<Story />
 	</div>
 )

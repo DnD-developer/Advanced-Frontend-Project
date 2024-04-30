@@ -1,1 +1,1 @@
-export { AppLink, AppLinkTheme } from "./components/Main/AppLink"
+export { AppLink, AppLinkTheme, AppLinkProps } from "./components/Main/AppLink"

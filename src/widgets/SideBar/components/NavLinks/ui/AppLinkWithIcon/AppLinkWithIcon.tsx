@@ -1,26 +1,25 @@
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
-import { AppLink, AppLinkTheme } from "@ui/AppLink"
+import { AppLink, AppLinkProps } from "@ui/AppLink"
 import { FC, SVGProps } from "react"
 import { useTranslation } from "react-i18next"
 import styles from "./ApplinkWithIcon.module.scss"
 
 type AppLinkWithIconProps = {
 	classNames?: string
-	path: string
-	theme: AppLinkTheme
 	collapsed: boolean
-	Icon: FC<SVGProps<SVGSVGElement>>
 	name: string
-}
+	Icon: FC<SVGProps<SVGSVGElement>>
+} & Omit<AppLinkProps, "className">
 export const AppLinkWithIcon: FC<AppLinkWithIconProps> = props => {
-	const { classNames, collapsed, path, theme, Icon, name } = props
+	const { classNames, collapsed, to, theme, Icon, name, inverted } = props
 
 	const { t } = useTranslation()
 
 	return (
 		<AppLink
-			to={path}
+			to={to}
 			theme={theme}
+			inverted={inverted}
 			className={classNamesHelp("", {}, [classNames])}
 		>
 			<div className={styles.link}>

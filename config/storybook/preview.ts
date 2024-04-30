@@ -24,7 +24,7 @@ const preview: Preview = {
 				Dark: THEMES.DARK,
 				Light: THEMES.LIGHT
 			},
-			defaultTheme: THEMES.DARK
+			defaultTheme: "Dark"
 		}),
 		RouterDecorator
 	]

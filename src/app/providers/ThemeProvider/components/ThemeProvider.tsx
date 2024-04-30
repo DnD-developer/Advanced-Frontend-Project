@@ -1,9 +1,6 @@
+import { LOCAL_STORAGE_THEME_KEY } from "@constants/localStorage.constant"
 import { type FC, type PropsWithChildren, useMemo, useState } from "react"
-import {
-	LOCAL_STORAGE_THEME_KEY,
-	ThemeProviderContext,
-	THEMES
-} from "../context/ThemeProvider.context"
+import { ThemeProviderContext, THEMES } from "../context/ThemeProvider.context"
 
 const defaultTheme: THEMES = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as THEMES
 

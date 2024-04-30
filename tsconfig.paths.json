@@ -10,6 +10,7 @@
 			"@entities/*": ["./src/entities/*"],
 			"@ui/*": ["./src/shared/ui/*"],
 			"@lib/*": ["./src/shared/lib/*"],
+			"@constants/*": ["./src/shared/constants/*"],
 			"@helpers/*": ["./src/shared/lib/helpers/*"],
 			"@decorators/*": ["./src/shared/lib/decorators/*"],
 			"@assets/*": ["./src/shared/assets/*"],

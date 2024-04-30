@@ -1506,6 +1506,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/runtime@npm:^7.22.15":
+  version: 7.24.5
+  resolution: "@babel/runtime@npm:7.24.5"
+  dependencies:
+    regenerator-runtime: "npm:^0.14.0"
+  checksum: 10c0/05730e43e8ba6550eae9fd4fb5e7d9d3cb91140379425abcb2a1ff9cebad518a280d82c4c4b0f57ada26a863106ac54a748d90c775790c0e2cd0ddd85ccdf346
+  languageName: node
+  linkType: hard
+
 "@babel/template@npm:^7.22.15, @babel/template@npm:^7.24.0, @babel/template@npm:^7.3.3":
   version: 7.24.0
   resolution: "@babel/template@npm:7.24.0"
@@ -4897,6 +4906,7 @@ __metadata:
     "@types/webpack-bundle-analyzer": "npm:^4.7.0"
     "@typescript-eslint/eslint-plugin": "npm:^7.7.1"
     "@typescript-eslint/parser": "npm:^7.7.1"
+    axios: "npm:^1.6.8"
     babel-loader: "npm:^9.1.3"
     chromatic: "npm:^11.3.0"
     css-loader: "npm:^6.10.0"
@@ -4922,6 +4932,7 @@ __metadata:
     i18next: "npm:^23.10.1"
     i18next-browser-languagedetector: "npm:^7.2.0"
     i18next-http-backend: "npm:^2.5.0"
+    i18next-localstorage-backend: "npm:^4.2.0"
     identity-obj-proxy: "npm:^3.0.0"
     jest: "npm:^29.7.0"
     jest-environment-jsdom: "npm:^29.7.0"
@@ -5367,6 +5378,17 @@ __metadata:
   dependencies:
     possible-typed-array-names: "npm:^1.0.0"
   checksum: 10c0/d07226ef4f87daa01bd0fe80f8f310982e345f372926da2e5296aecc25c41cab440916bbaa4c5e1034b453af3392f67df5961124e4b586df1e99793a1374bdb2
+  languageName: node
+  linkType: hard
+
+"axios@npm:^1.6.8":
+  version: 1.6.8
+  resolution: "axios@npm:1.6.8"
+  dependencies:
+    follow-redirects: "npm:^1.15.6"
+    form-data: "npm:^4.0.0"
+    proxy-from-env: "npm:^1.1.0"
+  checksum: 10c0/0f22da6f490335479a89878bc7d5a1419484fbb437b564a80c34888fc36759ae4f56ea28d55a191695e5ed327f0bad56e7ff60fb6770c14d1be6501505d47ab9
   languageName: node
   linkType: hard
 
@@ -8605,7 +8627,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"follow-redirects@npm:^1.0.0":
+"follow-redirects@npm:^1.0.0, follow-redirects@npm:^1.15.6":
   version: 1.15.6
   resolution: "follow-redirects@npm:1.15.6"
   peerDependenciesMeta:
@@ -9519,6 +9541,15 @@ __metadata:
   dependencies:
     cross-fetch: "npm:4.0.0"
   checksum: 10c0/8063619a1c5b26aa10f4d35685f18179cbc5022624b40e55447aaae467fc4942e6e2949fabe460632de02e70709cdf987900d64d238e2a250af78fa732d1d962
+  languageName: node
+  linkType: hard
+
+"i18next-localstorage-backend@npm:^4.2.0":
+  version: 4.2.0
+  resolution: "i18next-localstorage-backend@npm:4.2.0"
+  dependencies:
+    "@babel/runtime": "npm:^7.22.15"
+  checksum: 10c0/b19b4c8b23f8b84cf4e7ba90086fdb60c75b211431e2ee9df07aee77f8f622470b87ee0c1ede19ebe07fee2dc697065f02f6d662d31ae047e6e77186ab31bbee
   languageName: node
   linkType: hard
 
@@ -13335,6 +13366,13 @@ __metadata:
     forwarded: "npm:0.2.0"
     ipaddr.js: "npm:1.9.1"
   checksum: 10c0/c3eed999781a35f7fd935f398b6d8920b6fb00bbc14287bc6de78128ccc1a02c89b95b56742bf7cf0362cc333c61d138532049c7dedc7a328ef13343eff81210
+  languageName: node
+  linkType: hard
+
+"proxy-from-env@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "proxy-from-env@npm:1.1.0"
+  checksum: 10c0/fe7dd8b1bdbbbea18d1459107729c3e4a2243ca870d26d34c2c1bcd3e4425b7bcc5112362df2d93cc7fb9746f6142b5e272fd1cc5c86ddf8580175186f6ad42b
   languageName: node
   linkType: hard
 

@@ -1,4 +1,5 @@
 :root {
+	// fonts
 	--font-family-main: consolas, "Times New Roman", serif;
 	--font-size-m: 16px;
 	--font-line-m: 24px;
@@ -12,6 +13,14 @@
 	--header-height: 100px;
 	--side-bar-width: 400px;
 	--side-bar-width-collapsed: 150px;
+
+	// overlay
 	--overlay: rgb(0 0 0 / 50%);
+
+	// z-index
 	--z-index-modal: 100;
+
+	// red-color
+	--red: #f81515;
+	--red-dark: #af0e0e;
 }

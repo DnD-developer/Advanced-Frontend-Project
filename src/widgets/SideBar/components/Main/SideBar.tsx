@@ -2,15 +2,17 @@ import ArrowLeft from "@assets/icons/arrow-left.svg"
 import ArrowRight from "@assets/icons/arrow-right.svg"
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { Button, ButtonTheme } from "@ui/Button"
-import { Children, type FC, type PropsWithChildren, useState } from "react"
+import { type FC, type PropsWithChildren, ReactNode, useState } from "react"
 import { NavLinks } from "../NavLinks/NavLinks"
 import styles from "./SideBar.module.scss"
 
 type SideBarProps = {
 	classNames?: string
+	SwitchLang?: ReactNode
+	SwitchTheme?: ReactNode
 } & PropsWithChildren
 export const SideBar: FC<SideBarProps> = props => {
-	const { classNames, children } = props
+	const { classNames, children, SwitchTheme, SwitchLang } = props
 
 	const [collapsed, setCollapsed] = useState(true)
 
@@ -28,7 +30,8 @@ export const SideBar: FC<SideBarProps> = props => {
 			<NavLinks collapsed={collapsed} />
 			<Button
 				data-testid="sidebar-collapsed-btn"
-				theme={ButtonTheme.INVERTEDBACKGROUND}
+				theme={ButtonTheme.BACKGROUND}
+				inverted={true}
 				className={styles.toggleButton}
 				onClick={collapsedHandler}
 			>
@@ -36,17 +39,14 @@ export const SideBar: FC<SideBarProps> = props => {
 					<ArrowRight />
 				:	<ArrowLeft />}
 			</Button>
+			{children}
 			<div
 				className={classNamesHelp(styles.switchers, {
 					[styles.switchersColumn]: collapsed
 				})}
 			>
-				{Children.map(children, (child, index) => {
-					if (index !== 0) {
-						return <div className={styles.switcherMargin}>{child}</div>
-					}
-					return child
-				})}
+				{SwitchTheme}
+				<div className={styles.switcherMargin}>{SwitchLang}</div>
 			</div>
 		</div>
 	)

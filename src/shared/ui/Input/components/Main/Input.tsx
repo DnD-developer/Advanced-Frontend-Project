@@ -1,10 +1,11 @@
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
-import { ChangeEvent, InputHTMLAttributes, memo, useEffect, useRef } from "react"
+import { ChangeEvent, InputHTMLAttributes, memo, useCallback, useEffect, useRef } from "react"
 import styles from "./Input.module.scss"
 
 type InputProps = {
 	classNames?: string
 	theme?: InputTheme
+	inverted?: boolean
 	value?: string
 	onChange?: (value: string) => void
 	autoFocus?: boolean
@@ -14,8 +15,7 @@ type InputProps = {
 } & Omit<InputHTMLAttributes<HTMLInputElement>, "value" | "onChange" | "className" | "type">
 
 export enum InputTheme {
-	OUTLINE = "outline",
-	OUTLINEINVERTED = "outline-inverted"
+	OUTLINE = "outline"
 }
 
 export const Input = memo((props: InputProps) => {
@@ -24,10 +24,11 @@ export const Input = memo((props: InputProps) => {
 		theme = InputTheme.OUTLINE,
 		value,
 		onChange,
-		autoFocus,
+		autoFocus = false,
 		label = "",
 		classNamesLabel,
-		type = "text"
+		type = "text",
+		inverted = false
 	} = props
 
 	const inputRef = useRef<HTMLInputElement>(null)
@@ -38,17 +39,23 @@ export const Input = memo((props: InputProps) => {
 		}
 	}, [autoFocus])
 
-	const onChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
-		const { value } = event.target
+	const onChangeHandler = useCallback(
+		(event: ChangeEvent<HTMLInputElement>) => {
+			const { value } = event.target
 
-		onChange?.(value)
-	}
+			onChange?.(value)
+		},
+		[onChange]
+	)
 
-	const InputElement = () => (
+	const inputElement = () => (
 		<input
 			ref={inputRef}
 			type={type}
-			className={classNamesHelp(styles.Input, {}, [classNames, styles[theme]])}
+			className={classNamesHelp(styles.Input, { [styles.inverted]: inverted }, [
+				classNames,
+				styles[theme]
+			])}
 			value={value}
 			onChange={onChangeHandler}
 		/>
@@ -60,16 +67,16 @@ export const Input = memo((props: InputProps) => {
 				className={classNamesHelp(
 					styles.label,
 					{
-						[styles.labelInverted]: theme === InputTheme.OUTLINEINVERTED
+						[styles.inverted]: inverted
 					},
 					[classNamesLabel]
 				)}
 			>
 				{label}
-				<InputElement />
+				{inputElement()}
 			</label>
 		)
 	}
 
-	return <InputElement />
+	return inputElement()
 })

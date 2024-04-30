@@ -19,19 +19,18 @@
 
 	color: var(--primary-color);
 
-	font: var(--font-l);
+	font: var(--font-m);
 
 	.Input {
-		margin-top: 10px;
+		margin-top: 5px;
 	}
 }
 
-.label-inverted {
+.label.inverted {
 	color: var(--inverted-color);
 }
 
-.outline,
-.outline-inverted {
+.outline {
 	border: 2px solid var(--primary-color);
 
 	border-radius: 7px;
@@ -40,7 +39,7 @@
 	caret-color: var(--primary-color);
 }
 
-.outline-inverted {
+.outline.inverted {
 	border-color: var(--inverted-color);
 
 	color: var(--inverted-color);

@@ -31,7 +31,7 @@ export function pluginsWebpack({ paths, isDev }: buildOptions): WebpackPluginIns
 		})
 	]
 
-	if (isDev) {
+	if (!isDev) {
 		plugins.push(
 			new BundleAnalyzerPlugin({
 				openAnalyzer: false

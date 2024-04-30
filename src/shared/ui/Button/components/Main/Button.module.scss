@@ -7,19 +7,23 @@
 	cursor: pointer;
 }
 
-.inverted-clear,
+.disabled {
+	opacity: 0.5;
+
+	pointer-events: none;
+}
+
 .clear {
 	background: none;
 
 	color: var(--primary-color);
 }
 
-.inverted-clear {
+.inverted.clear {
 	color: var(--inverted-color);
 }
 
-.outline,
-.inverted-outline {
+.outline {
 	padding: 10px;
 
 	border: 3px solid var(--primary-color);
@@ -29,14 +33,13 @@
 	color: var(--primary-color);
 }
 
-.inverted-outline {
+.inverted.outline {
 	border-color: var(--inverted-color);
 
 	color: var(--inverted-color);
 }
 
-.primary,
-.inverted-primary {
+.primary {
 	padding: 10px;
 
 	background-color: var(--primary-color);
@@ -44,14 +47,13 @@
 	color: var(--inverted-color);
 }
 
-.inverted-primary {
+.inverted.primary {
 	background-color: var(--inverted-color);
 
 	color: var(--primary-color);
 }
 
-.background,
-.inverted-background {
+.background {
 	padding: 10px;
 
 	background-color: var(--bg-color);
@@ -59,7 +61,7 @@
 	color: var(--primary-color);
 }
 
-.inverted-background {
+.inverted.background {
 	background-color: var(--inverted-bg-color);
 
 	color: var(--inverted-color);

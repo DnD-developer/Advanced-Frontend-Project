@@ -1,3 +1,4 @@
+import { userActions } from "@entities/User"
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { ErrorBoundaryProvider } from "@providers/ErrorBoundaryProvider"
 import { RouterProvider } from "@providers/RouterProvider"
@@ -7,9 +8,15 @@ import { SideBar } from "@widgets/SideBar"
 import { SwitchLangButton } from "@widgets/SwitchLangButton/components/Main/SwitchLangButton"
 import { SwitchThemeButton } from "@widgets/SwitchThemeButton"
 import { type FC, Suspense } from "react"
+import { useDispatch } from "react-redux"
 
 const App: FC = () => {
 	const { theme } = useTheme()
+
+	const dispatch = useDispatch()
+
+	const { initAuthData } = userActions
+	dispatch(initAuthData())
 
 	return (
 		<div className={classNamesHelp("app", {}, [theme])}>
@@ -17,10 +24,10 @@ const App: FC = () => {
 				<Suspense>
 					<Header />
 					<div className="page-container">
-						<SideBar>
-							<SwitchThemeButton />
-							<SwitchLangButton />
-						</SideBar>
+						<SideBar
+							SwitchLang={<SwitchLangButton />}
+							SwitchTheme={<SwitchThemeButton />}
+						/>
 						<RouterProvider />
 					</div>
 				</Suspense>

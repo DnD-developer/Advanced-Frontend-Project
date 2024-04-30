@@ -4,7 +4,7 @@ import { type Meta, type StoryObj } from "@storybook/react"
 import { AppLink, AppLinkTheme } from "./AppLink"
 
 const meta: Meta<typeof AppLink> = {
-	title: "shared/AppLink",
+	title: "shared/AppLink/Primary",
 	component: AppLink,
 	decorators: [CenterDecorator]
 }
@@ -21,11 +21,11 @@ export const Primary: TypeStory = {
 	}
 }
 
-export const Inverted: TypeStory = {
+export const PrimaryInverted: TypeStory = {
 	args: {
 		to: "/",
 		children: "Link",
-		theme: AppLinkTheme.INVERTED
+		inverted: true
 	},
 	decorators: [InvertedBgDecorator]
 }

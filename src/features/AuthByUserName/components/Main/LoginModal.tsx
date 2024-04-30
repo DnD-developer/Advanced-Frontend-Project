@@ -7,7 +7,7 @@ type LoginModalProps = {
 } & ModalProps
 
 export const LoginModal: FC<LoginModalProps> = props => {
-	const { classNames, onClose, isOpen, lazy } = props
+	const { classNames, onClose, isOpen, lazy = false } = props
 
 	return (
 		<Modal
@@ -16,7 +16,7 @@ export const LoginModal: FC<LoginModalProps> = props => {
 			classNames={classNames}
 			lazy={lazy}
 		>
-			<LoginForm />
+			<LoginForm isVisible={isOpen} />
 		</Modal>
 	)
 }

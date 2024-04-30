@@ -1,9 +1,11 @@
+import { getUserAuthDataSelector, userActions } from "@entities/User"
 import { LoginModal } from "@features/AuthByUserName"
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { Button, ButtonTheme } from "@ui/Button"
 import { Portal } from "@ui/Portal"
 import { type FC, type PropsWithChildren, useCallback, useState } from "react"
 import { useTranslation } from "react-i18next"
+import { useDispatch, useSelector } from "react-redux"
 import styles from "./Header.module.scss"
 
 type HeaderProps = {
@@ -16,6 +18,10 @@ export const Header: FC<HeaderProps> = props => {
 
 	const [isAuthModal, setIsAuthModal] = useState(false)
 
+	const authData = useSelector(getUserAuthDataSelector)
+	const dispatch = useDispatch()
+	const { logOut } = userActions
+
 	const loginModalShow = useCallback(() => {
 		setIsAuthModal(true)
 	}, [])
@@ -23,13 +29,35 @@ export const Header: FC<HeaderProps> = props => {
 		setIsAuthModal(false)
 	}, [])
 
+	const logOutHandler = useCallback(() => {
+		loginModalClose()
+		dispatch(logOut())
+	}, [dispatch, logOut, loginModalClose])
+
+	if (authData) {
+		return (
+			<div className={classNamesHelp(styles.Header, {}, [classNames])}>
+				{children}
+				<div className={styles.links}>
+					<Button
+						theme={ButtonTheme.CLEAR}
+						inverted
+						onClick={logOutHandler}
+					>
+						{t("translation:logout")}
+					</Button>
+				</div>
+			</div>
+		)
+	}
+
 	return (
 		<div className={classNamesHelp(styles.Header, {}, [classNames])}>
 			{children}
-
 			<div className={styles.links}>
 				<Button
-					theme={ButtonTheme.INVERTEDClEAR}
+					theme={ButtonTheme.CLEAR}
+					inverted
 					onClick={loginModalShow}
 				>
 					{t("translation:login")}

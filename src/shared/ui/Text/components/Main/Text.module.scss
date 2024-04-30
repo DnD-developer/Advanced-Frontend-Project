@@ -1,0 +1,36 @@
+.TextWrapper {
+	width: 100%;
+
+	text-align: left;
+}
+
+.title {
+	color: inherit;
+
+	font: var(--font-l);
+}
+
+.text {
+	margin-top: 5px;
+
+	color: inherit;
+	font: var(--font-m);
+}
+
+.primary {
+	color: var(--primary-color);
+}
+
+.primary.inverted {
+	color: var(--inverted-color);
+}
+
+.error {
+	.title {
+		color: var(--red);
+	}
+
+	.text {
+		color: var(--red-dark);
+	}
+}

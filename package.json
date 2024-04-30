@@ -21,8 +21,7 @@
 		"test:unit": "jest --config ./config/jest/jest.config.ts",
 		"test:ui": "chromatic --t chpt_4330b52d5d14286",
 		"storybook:start": "storybook dev -c config/storybook --no-open -p 6006 ",
-		"storybook:build": "storybook build -ci -c config/storybook",
-		"prepare": "husky"
+		"storybook:build": "storybook build -ci -c config/storybook"
 	},
 	"author": {
 		"name": "Salim Cat"
@@ -116,9 +115,11 @@
 	},
 	"dependencies": {
 		"@reduxjs/toolkit": "^2.2.3",
+		"axios": "^1.6.8",
 		"i18next": "^23.10.1",
 		"i18next-browser-languagedetector": "^7.2.0",
 		"i18next-http-backend": "^2.5.0",
+		"i18next-localstorage-backend": "^4.2.0",
 		"normalize.css": "^8.0.1",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",

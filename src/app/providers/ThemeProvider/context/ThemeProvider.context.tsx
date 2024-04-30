@@ -11,5 +11,3 @@ export type ThemeProviderProps = {
 }
 
 export const ThemeProviderContext = createContext<ThemeProviderProps>({})
-
-export const LOCAL_STORAGE_THEME_KEY = "theme"

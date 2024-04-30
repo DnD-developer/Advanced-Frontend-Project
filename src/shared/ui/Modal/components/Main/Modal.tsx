@@ -14,7 +14,6 @@ export const Modal: FC<ModalProps> = props => {
 
 	const onCloseHandler = useCallback(() => {
 		onClose()
-		setIsMounted(false)
 	}, [onClose])
 
 	const onKeyDown = useCallback(

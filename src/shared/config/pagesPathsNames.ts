@@ -3,8 +3,8 @@ import About from "@assets/icons/list.svg"
 import { FC, SVGProps } from "react"
 
 export enum PagesNames {
-	MAIN = "Main",
-	ABOUT = "About",
+	MAIN = "main",
+	ABOUT = "about",
 	NOT_FOUND = "Not Found"
 }
 type PagesInfo = {

@@ -1,3 +1,4 @@
+import { StoreDecorator } from "@decorators/storybook/Store.Decorator"
 import { type Meta, type StoryObj } from "@storybook/react"
 import { Header } from "./Header"
 
@@ -11,6 +12,18 @@ export default meta
 
 type TypeStory = StoryObj<typeof Header>
 
-export const Default: TypeStory = {
-	args: {}
+export const WithOutLogin: TypeStory = {
+	args: {},
+	decorators: [StoreDecorator({})]
+}
+
+export const WithLogin: TypeStory = {
+	args: {},
+	decorators: [
+		StoreDecorator({
+			user: {
+				authData: { userName: "admin", id: "1" }
+			}
+		})
+	]
 }
