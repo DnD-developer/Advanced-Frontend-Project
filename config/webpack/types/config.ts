@@ -10,6 +10,7 @@ export type buildPaths = {
 export type buildEnv = {
 	mode: buildMode
 	port: buildOptions["port"]
+	isAnalyze: "true" | "false"
 }
 
 export type buildOptions = {
@@ -18,4 +19,5 @@ export type buildOptions = {
 	port?: number
 	aliases?: Record<string, string>
 	isDev?: boolean
+	isAnalyze?: boolean
 }

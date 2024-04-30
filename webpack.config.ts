@@ -13,6 +13,7 @@ export default (env: buildEnv): Configuration => {
 		aliases: aliasesFromTsConfig(compilerOptions, __dirname),
 		mode: env.mode,
 		isDev: env.mode === "development",
+		isAnalyze: env.isAnalyze === "true",
 		port: env.port
 	}
 
