@@ -1,1 +1,1 @@
-export { SwitchThemeButton } from "./components/Main/SwitchThemeButton"
+export { SwitchThemeButton } from "./components/export/SwitchThemeButton"

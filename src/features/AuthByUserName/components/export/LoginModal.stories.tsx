@@ -37,7 +37,7 @@ export const ErrorNoUser: TypeStory = {
 	},
 	decorators: [
 		StoreDecorator({
-			loginForm: { error: { noUser: true }, data: { userName: "adsfa", password: "adsf" } }
+			loginForm: { error: { noUser: true }, data: { userName: "adm", password: "123" } }
 		})
 	]
 }

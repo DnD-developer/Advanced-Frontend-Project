@@ -18,4 +18,10 @@ describe("getLoginFormPasswordSelectorTest", () => {
 		}
 		expect(getLoginFormPasswordSelector(state as mainStateMap)).toBe("")
 	})
+
+	test("Without state", () => {
+		const state: Partial<mainStateMap> = {}
+
+		expect(getLoginFormPasswordSelector(state as mainStateMap)).toBe("")
+	})
 })

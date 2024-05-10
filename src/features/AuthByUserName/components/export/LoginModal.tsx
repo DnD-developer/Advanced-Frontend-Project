@@ -1,12 +1,13 @@
+import { Loader } from "@ui/Loader"
 import { Modal, ModalProps } from "@ui/Modal"
-import { FC } from "react"
-import { LoginForm } from "../LoginForm/LoginForm"
+import { memo, Suspense } from "react"
+import { LoginForm } from "../LoginForm/LoginForm.async"
 
 type LoginModalProps = {
 	classNames?: string
 } & ModalProps
 
-export const LoginModal: FC<LoginModalProps> = props => {
+export const LoginModal = memo<LoginModalProps>(props => {
 	const { classNames, onClose, isOpen, lazy = false } = props
 
 	return (
@@ -16,7 +17,7 @@ export const LoginModal: FC<LoginModalProps> = props => {
 			classNames={classNames}
 			lazy={lazy}
 		>
-			<LoginForm isVisible={isOpen} />
+			<Suspense fallback={<Loader />}>{isOpen && <LoginForm />}</Suspense>
 		</Modal>
 	)
-}
+})

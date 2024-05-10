@@ -19,5 +19,5 @@ i18n.use(detector)
 			]
 		}
 	})
-	.then(() => {})
-	.catch(() => {})
+	.then()
+	.catch()

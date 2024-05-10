@@ -2,7 +2,7 @@ import { mainStateMap } from "@app/store"
 import { getLoginFormDataSelector } from "./getLoginFormData.selector"
 
 describe("getLoginFormDataSelectorTest", () => {
-	test("Getting loginFormData from mainStat", () => {
+	test("Getting loginFormData from mainState", () => {
 		const state: Partial<mainStateMap> = {
 			loginForm: {
 				isLoading: true,
@@ -20,5 +20,10 @@ describe("getLoginFormDataSelectorTest", () => {
 			userName: "",
 			password: ""
 		})
+	})
+
+	test("WithOut State", () => {
+		const state: Partial<mainStateMap> = {}
+		expect(getLoginFormDataSelector(state as mainStateMap)).toEqual(undefined)
 	})
 })

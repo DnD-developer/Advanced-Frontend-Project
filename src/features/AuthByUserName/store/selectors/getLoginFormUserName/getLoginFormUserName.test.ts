@@ -18,4 +18,10 @@ describe("getLoginFormUserNameSelectorTest", () => {
 		}
 		expect(getLoginFormUserNameSelector(state as mainStateMap)).toBe("")
 	})
+
+	test("Without State", () => {
+		const state: Partial<mainStateMap> = {}
+
+		expect(getLoginFormUserNameSelector(state as mainStateMap)).toBe("")
+	})
 })

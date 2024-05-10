@@ -1,7 +1,4 @@
-import { userStateMap } from "@entities/User"
-import { loginFormStateMap } from "@features/AuthByUserName"
+import { mainStateAsyncMap } from "./mainStateAsync.map"
+import { mainStateStaticMap } from "./mainStateStatic.map"
 
-export type mainStateMap = {
-	user: userStateMap
-	loginForm: loginFormStateMap
-}
+export type mainStateMap = mainStateAsyncMap & mainStateStaticMap

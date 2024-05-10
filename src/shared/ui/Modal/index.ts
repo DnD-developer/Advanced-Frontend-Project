@@ -1,1 +1,1 @@
-export { Modal, ModalProps } from "./components/Main/Modal"
+export { Modal, ModalProps } from "./components/export/Modal"

@@ -1,2 +1,2 @@
-export { Input } from "./components/Main/Input"
+export { Input } from "./components/export/Input"
 export { useInput } from "./hooks/useInput/useInput"

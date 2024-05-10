@@ -16,15 +16,16 @@ export const loginByUserNameThunk = createAsyncThunk<
 			loginByUserNameData
 		)
 
-		if (!response.data) {
+		if (response.status === 403) {
 			return thunkAPI.rejectWithValue({ noUser: true })
 		}
 
 		const { setAuthData } = userActions
 		const { resetForm } = loginFormActions
 
-		thunkAPI.dispatch(setAuthData(response.data))
 		thunkAPI.dispatch(resetForm())
+		thunkAPI.dispatch(setAuthData(response.data))
+		return response.data
 	} catch (error) {
 		return thunkAPI.rejectWithValue({ otherError: error.message })
 	}

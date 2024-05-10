@@ -18,4 +18,10 @@ describe("getLoginFormIsLoadingSelectorTest", () => {
 		}
 		expect(getLoginFormIsLoadingSelector(state as mainStateMap)).toBe(true)
 	})
+
+	test("Without State", () => {
+		const state: Partial<mainStateMap> = {}
+
+		expect(getLoginFormIsLoadingSelector(state as mainStateMap)).toBe(false)
+	})
 })

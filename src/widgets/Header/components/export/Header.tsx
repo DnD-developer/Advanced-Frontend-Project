@@ -3,7 +3,7 @@ import { LoginModal } from "@features/AuthByUserName"
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { Button, ButtonTheme } from "@ui/Button"
 import { Portal } from "@ui/Portal"
-import { type FC, type PropsWithChildren, useCallback, useState } from "react"
+import { memo, type PropsWithChildren, useCallback, useState } from "react"
 import { useTranslation } from "react-i18next"
 import { useDispatch, useSelector } from "react-redux"
 import styles from "./Header.module.scss"
@@ -11,7 +11,7 @@ import styles from "./Header.module.scss"
 type HeaderProps = {
 	classNames?: string
 } & PropsWithChildren
-export const Header: FC<HeaderProps> = props => {
+export const Header = memo<HeaderProps>(props => {
 	const { classNames, children } = props
 
 	const { t } = useTranslation()
@@ -72,4 +72,4 @@ export const Header: FC<HeaderProps> = props => {
 			</Portal>
 		</div>
 	)
-}
+})

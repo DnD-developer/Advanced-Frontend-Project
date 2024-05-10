@@ -4,11 +4,13 @@
 		"es2021": true,
 		"jest": true
 	},
+	"root": true,
 	"parser": "@typescript-eslint/parser",
 	"extends": [
 		"eslint:recommended",
-		"plugin:@typescript-eslint/recommended",
 		"plugin:react/recommended",
+		"plugin:@typescript-eslint/strict",
+		"plugin:@typescript-eslint/stylistic",
 		"plugin:react-redux/recommended",
 		"plugin:react-hooks/recommended",
 		"plugin:react/jsx-runtime",
@@ -31,6 +33,7 @@
 		"react/display-name": "off",
 		"@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
 		"no-console": ["warn"],
+		"react/prop-types": "off",
 		"i18next/no-literal-string": [
 			"error",
 			{
@@ -43,7 +46,8 @@
 		]
 	},
 	"globals": {
-		"__IS_DEV__": true
+		"__IS_DEV__": true,
+		"__IS_ANALYZE__": true
 	},
 	"settings": {
 		"react": {

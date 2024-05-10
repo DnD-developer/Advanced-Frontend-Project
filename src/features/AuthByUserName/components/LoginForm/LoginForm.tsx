@@ -1,35 +1,43 @@
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
+import { useAsyncReducer } from "@lib/hooks/useAsyncReducer.hook"
+import { ReducersMapObject } from "@reduxjs/toolkit"
+import { mainStateAsyncMap } from "@store/storeTypes/mainStateAsync.map"
 import { Button, ButtonTheme } from "@ui/Button"
 import { Input } from "@ui/Input"
 import { Text } from "@ui/Text"
-import { TextTheme } from "@ui/Text/components/Main/Text"
-import { FormEvent, memo, useCallback, useEffect } from "react"
+import { TextTheme } from "@ui/Text/components/export/Text"
+import { FormEvent, memo, useCallback } from "react"
 import { useTranslation } from "react-i18next"
 import { useDispatch, useSelector } from "react-redux"
 import { getLoginFormErrorSelector } from "../../store/selectors/getLoginFormError/getLoginFormError.selector"
 import { getLoginFormIsLoadingSelector } from "../../store/selectors/getLoginFormIsLoading/getLoginFormIsLoading.selector"
 import { getLoginFormPasswordSelector } from "../../store/selectors/getLoginFormPassword/getLoginFormPassword.selector"
 import { getLoginFormUserNameSelector } from "../../store/selectors/getLoginFormUserName/getLoginFormUserName.selector"
-import { loginFormActions } from "../../store/slices/loginForm.slice"
+import { loginFormActions, loginFormReducer } from "../../store/slices/loginForm.slice"
 import { loginByUserNameThunk } from "../../store/thunks/loginByUserName/loginByUserName.thunk"
 import styles from "./LoginForm.module.scss"
 
-type LoginFormProps = {
+export type LoginFormProps = {
 	classNames?: string
-	isVisible?: boolean
 }
-export const LoginForm = memo((props: LoginFormProps) => {
-	const { classNames, isVisible = false } = props
+
+const asyncReducers: ReducersMapObject<mainStateAsyncMap> = {
+	loginForm: loginFormReducer
+}
+const LoginForm = memo<LoginFormProps>(props => {
+	const { classNames } = props
 
 	const { t } = useTranslation()
 
 	const dispatch = useDispatch()
-	const { setUserName, setPassword, resetForm } = loginFormActions
+	const { setUserName, setPassword } = loginFormActions
 
 	const userName = useSelector(getLoginFormUserNameSelector)
 	const password = useSelector(getLoginFormPasswordSelector)
 	const isLoading = useSelector(getLoginFormIsLoadingSelector)
 	const error = useSelector(getLoginFormErrorSelector)
+
+	useAsyncReducer(asyncReducers)
 
 	const errorText =
 		error?.noUser ? t("translation:errorTextNoUser") : t("translation:errorTextOtherError")
@@ -57,12 +65,6 @@ export const LoginForm = memo((props: LoginFormProps) => {
 		[dispatch, password, userName]
 	)
 
-	useEffect(() => {
-		if (!isVisible) {
-			dispatch(resetForm())
-		}
-	}, [dispatch, isVisible, resetForm])
-
 	return (
 		<form
 			onSubmit={onLogin}
@@ -80,7 +82,7 @@ export const LoginForm = memo((props: LoginFormProps) => {
 			<Input
 				classNamesLabel={styles.label}
 				label={t("translation:userName")}
-				autoFocus={isVisible}
+				autoFocus
 				onChange={onChangeUserName}
 				value={userName}
 			/>
@@ -101,3 +103,5 @@ export const LoginForm = memo((props: LoginFormProps) => {
 		</form>
 	)
 })
+
+export default LoginForm

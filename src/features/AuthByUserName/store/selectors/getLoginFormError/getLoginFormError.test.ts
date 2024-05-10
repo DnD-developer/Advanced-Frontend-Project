@@ -21,4 +21,10 @@ describe("getLoginFormErrorSelectorTest", () => {
 			otherError: ""
 		})
 	})
+
+	test("WithOut State", () => {
+		const state: Partial<mainStateMap> = {}
+
+		expect(getLoginFormErrorSelector(state as mainStateMap)).toEqual(undefined)
+	})
 })

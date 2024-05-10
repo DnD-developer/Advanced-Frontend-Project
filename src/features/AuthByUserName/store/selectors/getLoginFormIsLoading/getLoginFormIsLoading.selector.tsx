@@ -4,5 +4,5 @@ import { getLoginFormSelector } from "../getLoginForm/getLoginForm.selector"
 
 export const getLoginFormIsLoadingSelector = createSelector(
 	getLoginFormSelector,
-	(state: loginFormStateMap) => state.isLoading
+	(state: loginFormStateMap) => state?.isLoading || false
 )

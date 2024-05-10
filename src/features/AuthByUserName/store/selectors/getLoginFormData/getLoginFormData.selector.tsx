@@ -4,5 +4,5 @@ import { getLoginFormSelector } from "../getLoginForm/getLoginForm.selector"
 
 export const getLoginFormDataSelector = createSelector(
 	getLoginFormSelector,
-	(state: loginFormStateMap) => state.data
+	(state: loginFormStateMap) => state?.data
 )

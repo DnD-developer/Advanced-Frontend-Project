@@ -18,7 +18,7 @@ export enum InputTheme {
 	OUTLINE = "outline"
 }
 
-export const Input = memo((props: InputProps) => {
+export const Input = memo<InputProps>(props => {
 	const {
 		classNames,
 		theme = InputTheme.OUTLINE,

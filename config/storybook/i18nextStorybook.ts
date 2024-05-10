@@ -30,7 +30,7 @@ i18n.use(initReactI18next)
 		supportedLngs,
 		resources
 	})
-	.then(() => {})
-	.catch(() => {})
+	.then()
+	.catch()
 
 export default i18n
