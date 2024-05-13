@@ -1,4 +1,4 @@
-import { userActions, userData } from "@entities/User"
+import { userActions, userDataType } from "@entities/User"
 import { TestAsyncThunk } from "@mocks/TestAsyncThunk"
 import { thunkConfigType, thunkExtraType } from "@store/storeTypes/thunks.type"
 import { expect } from "@storybook/test"
@@ -17,7 +17,11 @@ const mockedPost = mockedExtra.api.post
 const { setAuthData } = userActions
 const { resetForm } = loginFormActions
 
-let thunk: TestAsyncThunk<userData, loginByUserNameDataType, thunkConfigType<loginByUserNameError>>
+let thunk: TestAsyncThunk<
+	userDataType,
+	loginByUserNameDataType,
+	thunkConfigType<loginByUserNameError>
+>
 
 describe("loginByUserNameThunkTest", () => {
 	beforeEach(() => {

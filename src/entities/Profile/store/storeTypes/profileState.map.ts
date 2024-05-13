@@ -1,8 +1,8 @@
-import { profileData } from "./profileData.type"
+import { profileDataType } from "./profileData.type"
 
 export type profileStateMap = {
-	data?: profileData
-	isLoading?: boolean
+	data?: profileDataType
+	isLoading: boolean
 	error?: string
 	readOnly: boolean
 }

@@ -1,5 +1,5 @@
-import { profileStateMap } from "@entities/Profile"
 import { loginFormStateMap } from "@features/AuthByUserName"
+import { profileStateMap } from "src/entities/Profile"
 
 export type mainStateAsyncMap = {
 	loginForm?: loginFormStateMap

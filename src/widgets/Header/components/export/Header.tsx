@@ -33,35 +33,30 @@ export const Header = memo<HeaderProps>(props => {
 		dispatch(logOut())
 	}, [dispatch, logOut])
 
-	if (authData) {
-		return (
-			<div className={classNamesHelp(styles.Header, {}, [classNames])}>
-				{children}
-				<div className={styles.links}>
-					<Button
-						theme={ButtonTheme.CLEAR}
-						inverted
-						onClick={logOutHandler}
-					>
-						{t("translation:logout")}
-					</Button>
-				</div>
-			</div>
-		)
-	}
+	const btnLogin = (
+		<Button
+			theme={ButtonTheme.CLEAR}
+			inverted
+			onClick={loginModalShow}
+		>
+			{t("translation:login")}
+		</Button>
+	)
+
+	const btnLogOut = (
+		<Button
+			theme={ButtonTheme.CLEAR}
+			inverted
+			onClick={logOutHandler}
+		>
+			{t("translation:logout")}
+		</Button>
+	)
 
 	return (
 		<div className={classNamesHelp(styles.Header, {}, [classNames])}>
 			{children}
-			<div className={styles.links}>
-				<Button
-					theme={ButtonTheme.CLEAR}
-					inverted
-					onClick={loginModalShow}
-				>
-					{t("translation:login")}
-				</Button>
-			</div>
+			<div className={styles.links}>{authData ? btnLogOut : btnLogin}</div>
 			<Portal>
 				<LoginModal
 					onClose={loginModalClose}

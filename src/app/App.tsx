@@ -1,37 +1,34 @@
 import { userActions } from "@entities/User"
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
-import { ErrorBoundaryProvider } from "@providers/ErrorBoundaryProvider"
+import { useAppDispatch } from "@hooks/useAppDispatch.hook"
 import { RouterProvider } from "@providers/RouterProvider"
 import { useTheme } from "@providers/ThemeProvider"
 import { Header } from "@widgets/Header"
 import { SideBar } from "@widgets/SideBar"
 import { SwitchLangButton } from "@widgets/SwitchLangButton/components/export/SwitchLangButton"
 import { SwitchThemeButton } from "@widgets/SwitchThemeButton"
-import { type FC, Suspense } from "react"
-import { useDispatch } from "react-redux"
+import { type FC, useEffect } from "react"
 
 const App: FC = () => {
 	const { theme } = useTheme()
 
-	const dispatch = useDispatch()
-
+	const dispatch = useAppDispatch()
 	const { initAuthData } = userActions
-	dispatch(initAuthData())
+
+	useEffect(() => {
+		dispatch(initAuthData())
+	}, [dispatch, initAuthData])
 
 	return (
 		<div className={classNamesHelp("app", {}, [theme])}>
-			<ErrorBoundaryProvider>
-				<Suspense>
-					<Header />
-					<div className="page-container">
-						<SideBar
-							SwitchLang={<SwitchLangButton />}
-							SwitchTheme={<SwitchThemeButton />}
-						/>
-						<RouterProvider />
-					</div>
-				</Suspense>
-			</ErrorBoundaryProvider>
+			<Header />
+			<div className="page-container">
+				<SideBar
+					SwitchLang={<SwitchLangButton />}
+					SwitchTheme={<SwitchThemeButton />}
+				/>
+				<RouterProvider />
+			</div>
 		</div>
 	)
 }

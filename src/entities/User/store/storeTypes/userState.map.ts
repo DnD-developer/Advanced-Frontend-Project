@@ -1,5 +1,5 @@
-import { userData } from "./userData.type"
+import { userDataType } from "./userData.type"
 
 export type userStateMap = {
-	authData?: userData
+	authData?: userDataType
 }

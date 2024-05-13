@@ -1,12 +1,12 @@
 import { Country, Currency } from "@constants/common.constant"
 
-export type profileData = {
-	first: string
-	lastname: string
-	age: 22
+export type profileDataType = {
+	firstName: string
+	lastName: string
+	age: number
 	currency: Currency
 	country: Country
 	city: string
-	username: string
+	userName: string
 	avatar: string
 }

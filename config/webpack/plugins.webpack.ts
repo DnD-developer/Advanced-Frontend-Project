@@ -35,7 +35,8 @@ export function pluginsWebpack({
 		new StylelintWebpackPlugin({
 			files: ["src/**/*.scss"],
 			fix: true
-		})
+		}),
+		new HotModuleReplacementPlugin()
 	]
 
 	if (isAnalyze) {
@@ -44,8 +45,6 @@ export function pluginsWebpack({
 				openAnalyzer: false
 			})
 		)
-
-		plugins.push(new HotModuleReplacementPlugin())
 	}
 	return plugins
 }
