@@ -4,6 +4,7 @@ import { mainStateMap } from "@store/storeTypes/mainState.map"
 import { mainStateAsyncMap } from "@store/storeTypes/mainStateAsync.map"
 import { FC, PropsWithChildren } from "react"
 import { Provider } from "react-redux"
+import { useNavigate } from "react-router-dom"
 
 type StoreProviderProps = {
 	initialState?: mainStateMap
@@ -13,7 +14,9 @@ type StoreProviderProps = {
 export const StoreProvider: FC<StoreProviderProps> = props => {
 	const { children, initialState, asyncReducers } = props
 
-	const store = createReduxStore(initialState, asyncReducers)
+	const navigate = useNavigate()
+
+	const store = createReduxStore(initialState, asyncReducers, navigate)
 
 	return <Provider store={store}>{children}</Provider>
 }

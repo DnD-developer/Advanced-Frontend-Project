@@ -1,4 +1,4 @@
-import { storeAppType } from "@store/storeTypes/storeApp.type"
+import { appStoreType } from "@store/storeTypes/appStoreType"
 import { useStore } from "react-redux"
 
-export const useAppStore = useStore.withTypes<storeAppType>()
+export const useAppStore = useStore.withTypes<appStoreType>()

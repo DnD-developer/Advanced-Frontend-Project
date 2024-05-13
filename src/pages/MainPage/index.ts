@@ -1,1 +1,1 @@
-export { MainLazyPage as MainPage } from "./components/Main/MainLazy.page"
+export { MainPage } from "./components/export/MainAsync.page"

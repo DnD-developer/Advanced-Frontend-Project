@@ -14,7 +14,8 @@ export const webpackStorybookConfig = (config: Configuration): Configuration => 
 	const options: buildOptions = {
 		paths: mainPathsWebpack(baseUrl),
 		aliases: aliasesFromTsConfig(compilerOptions, baseUrl),
-		isDev: true
+		isDev: true,
+		baseUrl: ""
 	}
 
 	if (config.resolve) {
@@ -27,7 +28,8 @@ export const webpackStorybookConfig = (config: Configuration): Configuration => 
 	if (config.plugins) {
 		config.plugins.push(
 			new DefinePlugin({
-				__IS_DEV__: JSON.stringify(options.isDev)
+				__IS_DEV__: JSON.stringify(options.isDev),
+				__BASE_URL__: JSON.stringify(options.baseUrl)
 			})
 		)
 	}

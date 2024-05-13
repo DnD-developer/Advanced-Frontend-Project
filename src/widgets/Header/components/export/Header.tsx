@@ -30,9 +30,8 @@ export const Header = memo<HeaderProps>(props => {
 	}, [])
 
 	const logOutHandler = useCallback(() => {
-		loginModalClose()
 		dispatch(logOut())
-	}, [dispatch, logOut, loginModalClose])
+	}, [dispatch, logOut])
 
 	if (authData) {
 		return (

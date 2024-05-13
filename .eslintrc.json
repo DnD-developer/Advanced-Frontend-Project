@@ -47,7 +47,8 @@
 	},
 	"globals": {
 		"__IS_DEV__": true,
-		"__IS_ANALYZE__": true
+		"__IS_ANALYZE__": true,
+		"__BASE_URL__": true
 	},
 	"settings": {
 		"react": {

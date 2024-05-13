@@ -1,6 +1,6 @@
 import { routesPath } from "@config/pagesPathsNames"
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
-import { FC, HTMLAttributes } from "react"
+import { HTMLAttributes, memo } from "react"
 import styles from "./NavLinks.module.scss"
 import { AppLinkWithIcon } from "./ui/AppLinkWithIcon/AppLinkWithIcon"
 
@@ -9,7 +9,7 @@ type NavLinksProps = {
 	collapsed: boolean
 } & HTMLAttributes<HTMLUListElement>
 
-export const NavLinks: FC<NavLinksProps> = props => {
+export const NavLinks = memo<NavLinksProps>(props => {
 	const { classNames, collapsed } = props
 
 	return (
@@ -32,4 +32,4 @@ export const NavLinks: FC<NavLinksProps> = props => {
 				))}
 		</ul>
 	)
-}
+})

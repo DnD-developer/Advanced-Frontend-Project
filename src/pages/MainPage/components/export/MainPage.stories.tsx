@@ -1,6 +1,6 @@
 import { PageDecorator } from "@decorators/storybook/Page.decorator"
 import { type Meta, type StoryObj } from "@storybook/react"
-import MainPage from "./Main.page"
+import { MainPage } from "./MainAsync.page"
 
 const meta: Meta<typeof MainPage> = {
 	title: "pages/MainPage",

@@ -1,6 +1,6 @@
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { AppLink, AppLinkProps } from "@ui/AppLink"
-import { FC, SVGProps } from "react"
+import { FC, memo, SVGProps } from "react"
 import { useTranslation } from "react-i18next"
 import styles from "./ApplinkWithIcon.module.scss"
 
@@ -10,7 +10,7 @@ type AppLinkWithIconProps = {
 	name: string
 	Icon: FC<SVGProps<SVGSVGElement>>
 } & Omit<AppLinkProps, "className">
-export const AppLinkWithIcon: FC<AppLinkWithIconProps> = props => {
+export const AppLinkWithIcon = memo<AppLinkWithIconProps>(props => {
 	const { classNames, collapsed, to, theme, Icon, name, inverted } = props
 
 	const { t } = useTranslation()
@@ -30,4 +30,4 @@ export const AppLinkWithIcon: FC<AppLinkWithIconProps> = props => {
 			</div>
 		</AppLink>
 	)
-}
+})

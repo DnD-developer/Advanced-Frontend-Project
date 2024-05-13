@@ -1,12 +1,12 @@
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
-import { type FC, type HtmlHTMLAttributes } from "react"
+import { type HtmlHTMLAttributes, memo } from "react"
 import styles from "./Loader.module.scss"
 
 type LoaderProps = {
 	classNames?: string
 } & HtmlHTMLAttributes<HTMLDivElement>
 
-export const Loader: FC<LoaderProps> = props => {
+export const Loader = memo<LoaderProps>(props => {
 	const { classNames, ...otherProps } = props
 
 	return (
@@ -19,4 +19,4 @@ export const Loader: FC<LoaderProps> = props => {
 			</div>
 		</div>
 	)
-}
+})

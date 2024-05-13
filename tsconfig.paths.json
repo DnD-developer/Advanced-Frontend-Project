@@ -2,27 +2,33 @@
 	"compilerOptions": {
 		"baseUrl": ".",
 		"paths": {
-			"@src/*": ["./src/*"],
-			"@app/*": ["./src/app/*"],
-			"@pages/*": ["./src/pages/*"],
-			"@widgets/*": ["./src/widgets/*"],
-			"@features/*": ["./src/features/*"],
-			"@entities/*": ["./src/entities/*"],
-			"@ui/*": ["./src/shared/ui/*"],
-			"@lib/*": ["./src/shared/lib/*"],
-			"@constants/*": ["./src/shared/constants/*"],
-			"@helpers/*": ["./src/shared/lib/helpers/*"],
-			"@decorators/*": ["./src/shared/lib/decorators/*"],
-			"@assets/*": ["./src/shared/assets/*"],
-			"@config/*": ["./src/shared/config/*"],
-			"@providers/*": ["./src/app/providers/*"],
-			"@store/*": ["./src/app/store/*"],
-			"@styles/*": ["./src/app/styles/*"],
+			"@/*": ["./*"],
 			"@public/*": ["./public/*"],
 			"@_storybook/*": ["./config/storybook/*"],
 			"@_jest/*": ["./config/jest/*"],
 			"@_webpack/*": ["./config/webpack/*"],
-			"@/*": ["./*"]
+			"@src/*": ["./src/*"],
+
+			"@app/*": ["./src/app/*"],
+			"@providers/*": ["./src/app/providers/*"],
+			"@store/*": ["./src/app/store/*"],
+			"@styles/*": ["./src/app/styles/*"],
+
+			"@pages/*": ["./src/pages/*"],
+			"@widgets/*": ["./src/widgets/*"],
+			"@features/*": ["./src/features/*"],
+			"@entities/*": ["./src/entities/*"],
+
+			"@ui/*": ["./src/shared/ui/*"],
+			"@constants/*": ["./src/shared/constants/*"],
+			"@api/*": ["./src/shared/api/*"],
+			"@assets/*": ["./src/shared/assets/*"],
+			"@config/*": ["./src/shared/config/*"],
+
+			"@decorators/*": ["./src/shared/lib/decorators/*"],
+			"@helpers/*": ["./src/shared/lib/helpers/*"],
+			"@mocks/*": ["./src/shared/lib/mocks/*"],
+			"@hooks/*": ["./src/shared/lib/hooks/*"]
 		}
 	}
 }

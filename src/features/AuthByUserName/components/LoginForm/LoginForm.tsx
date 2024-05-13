@@ -1,14 +1,13 @@
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
-import { useAsyncReducer } from "@lib/hooks/useAsyncReducer.hook"
-import { ReducersMapObject } from "@reduxjs/toolkit"
-import { mainStateAsyncMap } from "@store/storeTypes/mainStateAsync.map"
+import { useAppDispatch } from "@hooks/useAppDispatch.hook"
+import { asyncReducersList, useAsyncReducer } from "@hooks/useAsyncReducer.hook"
 import { Button, ButtonTheme } from "@ui/Button"
 import { Input } from "@ui/Input"
 import { Text } from "@ui/Text"
 import { TextTheme } from "@ui/Text/components/export/Text"
 import { FormEvent, memo, useCallback } from "react"
 import { useTranslation } from "react-i18next"
-import { useDispatch, useSelector } from "react-redux"
+import { useSelector } from "react-redux"
 import { getLoginFormErrorSelector } from "../../store/selectors/getLoginFormError/getLoginFormError.selector"
 import { getLoginFormIsLoadingSelector } from "../../store/selectors/getLoginFormIsLoading/getLoginFormIsLoading.selector"
 import { getLoginFormPasswordSelector } from "../../store/selectors/getLoginFormPassword/getLoginFormPassword.selector"
@@ -19,17 +18,18 @@ import styles from "./LoginForm.module.scss"
 
 export type LoginFormProps = {
 	classNames?: string
+	onSuccess?: () => void
 }
 
-const asyncReducers: ReducersMapObject<mainStateAsyncMap> = {
+const asyncReducers: asyncReducersList = {
 	loginForm: loginFormReducer
 }
 const LoginForm = memo<LoginFormProps>(props => {
-	const { classNames } = props
+	const { classNames, onSuccess } = props
 
 	const { t } = useTranslation()
 
-	const dispatch = useDispatch()
+	const dispatch = useAppDispatch()
 	const { setUserName, setPassword } = loginFormActions
 
 	const userName = useSelector(getLoginFormUserNameSelector)
@@ -57,12 +57,16 @@ const LoginForm = memo<LoginFormProps>(props => {
 	)
 
 	const onLogin = useCallback(
-		(event: FormEvent<HTMLFormElement>) => {
+		async (event: FormEvent<HTMLFormElement>) => {
 			event.preventDefault()
 
-			dispatch(loginByUserNameThunk({ userName, password }))
+			const result = await dispatch(loginByUserNameThunk({ userName, password }))
+
+			if (result.meta.requestStatus === "fulfilled") {
+				onSuccess?.()
+			}
 		},
-		[dispatch, password, userName]
+		[dispatch, onSuccess, password, userName]
 	)
 
 	return (

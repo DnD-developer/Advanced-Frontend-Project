@@ -1,6 +1,6 @@
 import { PageDecorator } from "@decorators/storybook/Page.decorator"
 import { type Meta, type StoryObj } from "@storybook/react"
-import AboutPage from "./About.page"
+import { AboutPage } from "./AboutAsync.page"
 
 const meta: Meta<typeof AboutPage> = {
 	title: "pages/AboutPage",

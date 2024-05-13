@@ -1,4 +1,4 @@
-import { mainStateMap } from "@app/store"
+import { mainStateMap } from "@store/storeTypes/mainState.map"
 import { getLoginFormPasswordSelector } from "./getLoginFormPassword.selector"
 
 describe("getLoginFormPasswordSelectorTest", () => {

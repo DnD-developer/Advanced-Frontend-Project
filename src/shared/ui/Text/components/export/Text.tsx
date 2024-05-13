@@ -1,5 +1,5 @@
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
-import { FC } from "react"
+import { memo } from "react"
 import styles from "./Text.module.scss"
 
 type TextProps = {
@@ -16,7 +16,7 @@ export enum TextTheme {
 	PRIMARY = "primary",
 	ERROR = "error"
 }
-export const Text: FC<TextProps> = props => {
+export const Text = memo<TextProps>(props => {
 	const {
 		classNames,
 		theme = TextTheme.PRIMARY,
@@ -42,4 +42,4 @@ export const Text: FC<TextProps> = props => {
 			:	null}
 		</div>
 	)
-}
+})

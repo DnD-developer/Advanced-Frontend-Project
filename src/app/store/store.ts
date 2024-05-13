@@ -1,14 +1,42 @@
+import { $api } from "@api/instanceAxios.api"
 import { userReducer } from "@entities/User"
-import { configureStore, ReducersMapObject } from "@reduxjs/toolkit"
-import { createReducerManager } from "./reducerManager"
+import { configureStore, ReducersMapObject, UnknownAction } from "@reduxjs/toolkit"
+import { NavigateFunction } from "react-router-dom"
+import { createReducerManager, reducerManagerType } from "./reducerManager"
+import { appStoreType } from "./storeTypes/appStoreType"
 import { mainStateMap } from "./storeTypes/mainState.map"
 import { mainStateAsyncMap } from "./storeTypes/mainStateAsync.map"
 import { mainStateStaticMap } from "./storeTypes/mainStateStatic.map"
-import { storeAppType } from "./storeTypes/storeApp.type"
+import { thunkExtraType } from "./storeTypes/thunks.type"
+
+export const storeCreator = (
+	reducerManager: reducerManagerType,
+	initialState: mainStateMap,
+	navigateFunction: NavigateFunction
+) => {
+	const apiService: thunkExtraType = {
+		api: $api,
+		navigate: navigateFunction
+	}
+
+	return configureStore<mainStateMap, UnknownAction>({
+		reducer: reducerManager.reduce,
+		devTools: __IS_DEV__,
+		preloadedState: initialState,
+		middleware: getDefaultMiddleware => {
+			return getDefaultMiddleware({
+				thunk: {
+					extraArgument: apiService
+				}
+			})
+		}
+	})
+}
 
 export function createReduxStore(
 	initialState?: mainStateMap,
-	asyncReducers?: ReducersMapObject<mainStateAsyncMap>
+	asyncReducers?: ReducersMapObject<mainStateAsyncMap>,
+	navigate?: NavigateFunction
 ) {
 	const staticReducer: ReducersMapObject<mainStateStaticMap> = {
 		user: userReducer
@@ -21,13 +49,9 @@ export function createReduxStore(
 
 	const reducerManager = createReducerManager(rootReducer)
 
-	const store = configureStore<mainStateMap>({
-		reducer: reducerManager.reduce,
-		devTools: __IS_DEV__,
-		preloadedState: initialState
-	})
+	const store = storeCreator(reducerManager, initialState, navigate)
 
-	const appStore: storeAppType = { ...store, reducerManager: reducerManager }
+	const appStore: appStoreType = { ...store, reducerManager: reducerManager }
 
 	return appStore
 }

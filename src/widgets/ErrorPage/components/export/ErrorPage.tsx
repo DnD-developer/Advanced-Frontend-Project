@@ -1,13 +1,13 @@
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { Button, ButtonTheme } from "@ui/Button"
-import { type FC } from "react"
+import { memo } from "react"
 import { useTranslation } from "react-i18next"
 import styles from "./ErrorPage.module.scss"
 
 type ErrorPageProps = {
 	classNames?: string
 }
-export const ErrorPage: FC<ErrorPageProps> = props => {
+export const ErrorPage = memo<ErrorPageProps>(props => {
 	const { classNames } = props
 	const { t } = useTranslation()
 
@@ -27,4 +27,4 @@ export const ErrorPage: FC<ErrorPageProps> = props => {
 			</Button>
 		</div>
 	)
-}
+})

@@ -14,7 +14,8 @@ export default (env: buildEnv): Configuration => {
 		mode: env.mode,
 		isDev: env.mode === "development",
 		isAnalyze: env.isAnalyze === "true",
-		port: env.port
+		port: env.port,
+		baseUrl: env.baseUrl || "http://localhost:8000"
 	}
 
 	return configWebpack(options)

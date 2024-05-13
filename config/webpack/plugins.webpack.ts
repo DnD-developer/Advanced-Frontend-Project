@@ -11,7 +11,12 @@ import {
 import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer"
 import { type buildOptions } from "./types/config"
 
-export function pluginsWebpack({ paths, isDev, isAnalyze }: buildOptions): WebpackPluginInstance[] {
+export function pluginsWebpack({
+	paths,
+	isDev,
+	isAnalyze,
+	baseUrl
+}: buildOptions): WebpackPluginInstance[] {
 	const plugins = [
 		new HtmlWebpackPlugin({ template: paths.html }),
 		new ProgressPlugin({ percentBy: null }),
@@ -21,7 +26,8 @@ export function pluginsWebpack({ paths, isDev, isAnalyze }: buildOptions): Webpa
 		}),
 		new DefinePlugin({
 			__IS_DEV__: JSON.stringify(isDev),
-			__IS_ANALYZE__: JSON.stringify(isAnalyze)
+			__IS_ANALYZE__: JSON.stringify(isAnalyze),
+			__BASE_URL__: JSON.stringify(baseUrl)
 		}),
 		new ESLintWebpackPlugin({
 			extensions: ["ts", "tsx"]

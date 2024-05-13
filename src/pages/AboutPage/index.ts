@@ -1,1 +1,1 @@
-export { AboutLazyPage as AboutPage } from "./components/Main/AboutLazy.page"
+export { AboutPage } from "./components/export/AboutAsync.page"

@@ -1,1 +1,1 @@
-export { NotFoundPage } from "./components/Main/NotFound.page"
+export { NotFoundPage } from "./components/export/NotFound.page"

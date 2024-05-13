@@ -3,7 +3,7 @@ import i18n from "i18next"
 import Backend from "i18next-http-backend"
 import { initReactI18next } from "react-i18next"
 
-const ns = ["translation", "mainPage", "aboutPage", "notFoundPage"]
+const ns = ["translation", "mainPage", "aboutPage", "notFoundPage", "profilePage"]
 
 const supportedLngs = ["en", "ru"]
 

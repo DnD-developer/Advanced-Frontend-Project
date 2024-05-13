@@ -11,13 +11,13 @@ const domRoot = document.getElementById("root")
 const root = createRoot(domRoot)
 
 const RootComponent = (
-	<StoreProvider>
-		<BrowserRouter>
+	<BrowserRouter>
+		<StoreProvider>
 			<ThemesProvider>
 				<App />
 			</ThemesProvider>
-		</BrowserRouter>
-	</StoreProvider>
+		</StoreProvider>
+	</BrowserRouter>
 )
 
 root.render(RootComponent)

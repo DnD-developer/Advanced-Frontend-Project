@@ -1,5 +1,5 @@
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
-import { type ButtonHTMLAttributes, type FC } from "react"
+import { type ButtonHTMLAttributes, memo } from "react"
 import styles from "./Button.module.scss"
 
 type ButtonProps = {
@@ -14,7 +14,7 @@ export enum ButtonTheme {
 	PRIMARY = "primary",
 	BACKGROUND = "background"
 }
-export const Button: FC<ButtonProps> = props => {
+export const Button = memo<ButtonProps>(props => {
 	const {
 		theme = ButtonTheme.PRIMARY,
 		children,
@@ -37,4 +37,4 @@ export const Button: FC<ButtonProps> = props => {
 			{children}
 		</button>
 	)
-}
+})

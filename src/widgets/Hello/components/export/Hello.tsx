@@ -1,6 +1,6 @@
-import { type FC, type PropsWithChildren } from "react"
+import { memo, type PropsWithChildren } from "react"
 import styles from "./Hello.module.scss"
 
-export const Hello: FC<PropsWithChildren> = ({ children }) => (
+export const Hello = memo<PropsWithChildren>(({ children }) => (
 	<p className={styles.testClass}>{children}</p>
-)
+))

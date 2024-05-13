@@ -1,14 +1,16 @@
 import { Reducer, ReducersMapObject } from "@reduxjs/toolkit"
 import { mainStateAsyncKeys, mainStateAsyncMap } from "@store/storeTypes/mainStateAsync.map"
 import { useEffect } from "react"
-import { useDispatch } from "react-redux"
+import { useAppDispatch } from "./useAppDispatch.hook"
 import { useAppStore } from "./useAppStore.hook"
 
 type asyncReducersTupleType = [key: mainStateAsyncKeys, value: Reducer]
 
-export const useAsyncReducer = (asyncReducers: ReducersMapObject<mainStateAsyncMap>) => {
+export type asyncReducersList = ReducersMapObject<mainStateAsyncMap>
+
+export const useAsyncReducer = (asyncReducers: asyncReducersList) => {
 	const storeApp = useAppStore()
-	const dispatch = useDispatch()
+	const dispatch = useAppDispatch()
 
 	useEffect(() => {
 		Object.entries(asyncReducers).forEach(([key, value]: asyncReducersTupleType) => {

@@ -28,3 +28,4 @@ declare module "*.svg?url"
 declare module "*.json"
 declare let __IS_DEV__: boolean
 declare let __IS_ANALYZE__: boolean
+declare let __BASE_URL__: string
