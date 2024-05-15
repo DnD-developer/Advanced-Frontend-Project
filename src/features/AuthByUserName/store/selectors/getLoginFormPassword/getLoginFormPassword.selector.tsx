@@ -4,5 +4,5 @@ import { getLoginFormDataSelector } from "../getLoginFormData/getLoginFormData.s
 
 export const getLoginFormPasswordSelector = createSelector(
 	getLoginFormDataSelector,
-	(state: loginByUserNameDataType) => state?.password || ""
+	(state?: loginByUserNameDataType) => state?.password || ""
 )

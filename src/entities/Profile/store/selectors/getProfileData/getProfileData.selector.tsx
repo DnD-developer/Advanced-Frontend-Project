@@ -4,5 +4,5 @@ import { getProfileSelector } from "../getProfile/getProfile.selector"
 
 export const getProfileDataSelector = createSelector(
 	getProfileSelector,
-	(state: profileStateMap) => state?.data
+	(state?: profileStateMap) => state?.data
 )

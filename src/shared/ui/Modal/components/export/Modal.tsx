@@ -13,7 +13,7 @@ export const Modal: FC<ModalProps> = props => {
 	const { classNames, children, isOpen, onClose, lazy = false } = props
 
 	const onCloseHandler = useCallback(() => {
-		onClose()
+		onClose?.()
 	}, [onClose])
 
 	const onKeyDown = useCallback(

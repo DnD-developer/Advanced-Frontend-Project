@@ -10,7 +10,7 @@ import "@config/i18n/i18n"
 
 const domRoot = document.getElementById("root")
 
-const root = createRoot(domRoot)
+const root = createRoot(domRoot || document.body)
 
 const RootComponent = (
 	<BrowserRouter>

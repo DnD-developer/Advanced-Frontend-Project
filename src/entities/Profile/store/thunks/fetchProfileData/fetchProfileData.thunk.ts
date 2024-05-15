@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
-import { thunkConfigType } from "@store/storeTypes/thunks.type"
+import { errorResponseType, thunkConfigType } from "@store/storeTypes/thunks.type"
 import { profileDataType } from "../../storeTypes/profileData.type"
 
 export const fetchProfileDataThunk = createAsyncThunk<
@@ -13,6 +13,8 @@ export const fetchProfileDataThunk = createAsyncThunk<
 
 		return response.data
 	} catch (error) {
-		return rejectWithValue(error.message)
+		const errorCustom = error as errorResponseType
+
+		return rejectWithValue(errorCustom?.message || "")
 	}
 })

@@ -34,14 +34,18 @@ export const webpackStorybookConfig = (config: Configuration): Configuration => 
 		)
 	}
 
-	if (config.module) {
-		config.module.rules = config.module.rules.map((rule: RuleSetRule): RuleSetRule => {
-			if (rule.test && (rule.test as string).toString().includes("svg")) {
-				return { ...rule, exclude: /\.svg$/i }
-			}
+	if (config.module?.rules) {
+		config.module.rules = config.module.rules.map(
+			(rule: false | "" | 0 | "..." | RuleSetRule | null | undefined) => {
+				if (rule && rule !== "...") {
+					if (rule.test && (rule.test as string).toString().includes("svg")) {
+						return { ...rule, exclude: /\.svg$/i }
+					}
+				}
 
-			return rule
-		})
+				return rule
+			}
+		)
 
 		config.module.rules = [...config.module.rules, ...svgrLoaders()]
 		config.module.rules = [...config.module.rules, sassLoader(options)]

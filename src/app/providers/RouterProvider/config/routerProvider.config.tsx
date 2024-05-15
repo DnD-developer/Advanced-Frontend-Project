@@ -5,7 +5,7 @@ import { NotFoundPage } from "@pages/NotFountPage"
 import { ProfilePage } from "@pages/ProfilePage"
 import { type RouteProps } from "react-router"
 
-const findPath = (name: PagesNames) => routesPath.find(route => route.name === name).path
+const findPath = (name: PagesNames) => routesPath.find(route => route.name === name)?.path
 
 export const routerProviderConfig: Record<PagesNames, RouteProps> = {
 	[PagesNames.MAIN]: { path: findPath(PagesNames.MAIN), element: <MainPage /> },

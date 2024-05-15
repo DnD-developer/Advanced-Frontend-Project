@@ -21,13 +21,15 @@ export const NavLinks = memo<NavLinksProps>(props => {
 						key={path}
 						className={styles.linkItem}
 					>
-						<AppLinkWithIcon
-							to={path}
-							inverted={true}
-							collapsed={collapsed}
-							Icon={Icon}
-							name={name}
-						/>
+						{Icon ?
+							<AppLinkWithIcon
+								to={path}
+								inverted={true}
+								collapsed={collapsed}
+								Icon={Icon}
+								name={name}
+							/>
+						:	<></>}
 					</li>
 				))}
 		</ul>

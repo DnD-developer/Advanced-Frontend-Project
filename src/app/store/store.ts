@@ -1,6 +1,6 @@
 import { $api } from "@api/instanceAxios.api"
 import { userReducer } from "@entities/User"
-import { configureStore, ReducersMapObject, UnknownAction } from "@reduxjs/toolkit"
+import { configureStore, Reducer, ReducersMapObject } from "@reduxjs/toolkit"
 import { NavigateFunction } from "react-router-dom"
 import { createReducerManager, reducerManagerType } from "./reducerManager"
 import { appStoreType } from "./storeTypes/appStoreType"
@@ -10,26 +10,25 @@ import { mainStateStaticMap } from "./storeTypes/mainStateStatic.map"
 import { thunkExtraType } from "./storeTypes/thunks.type"
 
 export const storeCreator = (
-	reducerManager: reducerManagerType,
-	initialState: mainStateMap,
-	navigateFunction: NavigateFunction
+	{ reduce }: reducerManagerType,
+	initialState?: mainStateMap,
+	navigateFunction?: NavigateFunction
 ) => {
 	const apiService: thunkExtraType = {
 		api: $api,
 		navigate: navigateFunction
 	}
 
-	return configureStore<mainStateMap, UnknownAction>({
-		reducer: reducerManager.reduce,
+	return configureStore({
+		reducer: reduce as Reducer<mainStateMap>,
 		devTools: __IS_DEV__,
 		preloadedState: initialState,
-		middleware: getDefaultMiddleware => {
-			return getDefaultMiddleware({
+		middleware: getDefaultMiddleware =>
+			getDefaultMiddleware({
 				thunk: {
 					extraArgument: apiService
 				}
 			})
-		}
 	})
 }
 

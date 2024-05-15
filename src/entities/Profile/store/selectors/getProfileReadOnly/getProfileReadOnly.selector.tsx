@@ -4,5 +4,5 @@ import { getProfileSelector } from "../getProfile/getProfile.selector"
 
 export const getProfileReadOnlySelector = createSelector(
 	getProfileSelector,
-	(state: profileStateMap) => state.readOnly
+	(state?: profileStateMap) => state?.readOnly
 )

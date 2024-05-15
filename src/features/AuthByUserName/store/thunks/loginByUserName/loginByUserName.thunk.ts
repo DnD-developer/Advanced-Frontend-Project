@@ -1,6 +1,6 @@
 import { userActions, userDataType } from "@entities/User"
 import { createAsyncThunk } from "@reduxjs/toolkit"
-import { thunkConfigType } from "@store/storeTypes/thunks.type"
+import { errorResponseType, thunkConfigType } from "@store/storeTypes/thunks.type"
 import { loginFormActions } from "../../slices/loginForm.slice"
 import { loginByUserNameDataType } from "../../storeTypes/loginByUserNameData.type"
 import { loginByUserNameError } from "../../storeTypes/loginByUserNameError.type"
@@ -22,9 +22,11 @@ export const loginByUserNameThunk = createAsyncThunk<
 
 		return response.data
 	} catch (error) {
-		if (error?.response?.status === 403) {
+		const errorCustom = error as errorResponseType
+
+		if (errorCustom?.response?.status === 403) {
 			return rejectWithValue({ noUser: true })
 		}
-		return rejectWithValue({ otherError: error.message })
+		return rejectWithValue({ otherError: errorCustom?.message })
 	}
 })

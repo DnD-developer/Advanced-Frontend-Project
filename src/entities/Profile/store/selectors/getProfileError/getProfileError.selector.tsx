@@ -4,5 +4,5 @@ import { getProfileSelector } from "../getProfile/getProfile.selector"
 
 export const getProfileErrorSelector = createSelector(
 	getProfileSelector,
-	(state: profileStateMap) => state?.error || ""
+	(state?: profileStateMap) => state?.error || ""
 )

@@ -14,7 +14,11 @@ const userSlice = createSlice({
 			state.authData = action.payload
 		},
 		initAuthData: (state: userStateMap) => {
-			state.authData = JSON.parse(localStorage.getItem(USER_TOKEN))
+			const userToken = localStorage.getItem(USER_TOKEN)
+
+			if (userToken) {
+				state.authData = JSON.parse(userToken)
+			}
 		},
 		logOut: (state: userStateMap) => {
 			localStorage.removeItem(USER_TOKEN)

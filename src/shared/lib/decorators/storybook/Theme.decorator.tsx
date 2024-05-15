@@ -14,7 +14,8 @@ export const ThemeDecorator = ({
 		const selectedTheme = pluckThemeFromContext(context)
 		const { themeOverride } = useThemeParameters()
 
-		const selected = themes[themeOverride] || themes[selectedTheme] || themes[defaultTheme]
+		const selected =
+			themes[themeOverride || ""] || themes[selectedTheme] || themes[defaultTheme]
 
 		return (
 			<ThemesProvider>

@@ -1,10 +1,10 @@
-import { Action, combineReducers, Reducer, ReducersMapObject } from "@reduxjs/toolkit"
+import { combineReducers, Reducer, ReducersMapObject, UnknownAction } from "@reduxjs/toolkit"
 import { mainStateMap } from "./storeTypes/mainState.map"
 import { mainStateAsyncKeys } from "./storeTypes/mainStateAsync.map"
 
 export type reducerManagerType = {
 	getReducerMap: () => ReducersMapObject<mainStateMap>
-	reduce: (state: mainStateMap, action: Action) => mainStateMap
+	reduce: (tate: mainStateMap, action: UnknownAction) => mainStateMap
 	add: (key: mainStateAsyncKeys, reducer: Reducer) => void
 	remove: (key: mainStateAsyncKeys, reducer: Reducer) => void
 }
@@ -20,16 +20,19 @@ export function createReducerManager(
 
 	return {
 		getReducerMap: () => reducers,
-		reduce: (state: mainStateMap, action: Action) => {
+
+		reduce: (state: mainStateMap, action: UnknownAction) => {
 			if (keysToRemove.length > 0) {
 				state = { ...state }
-				for (const key of keysToRemove) {
+				keysToRemove.forEach(key => {
 					// eslint-disable-next-line @typescript-eslint/no-dynamic-delete
 					delete state[key]
-				}
+				})
 				keysToRemove = []
 			}
 
+			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+			// @ts-expect-error
 			return combinedReducer(state, action)
 		},
 

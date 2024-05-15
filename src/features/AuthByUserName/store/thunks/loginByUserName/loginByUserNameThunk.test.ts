@@ -1,18 +1,11 @@
 import { userActions, userDataType } from "@entities/User"
 import { TestAsyncThunk } from "@mocks/TestAsyncThunk"
-import { thunkConfigType, thunkExtraType } from "@store/storeTypes/thunks.type"
+import { thunkConfigType } from "@store/storeTypes/thunks.type"
 import { expect } from "@storybook/test"
 import { loginFormActions } from "../../slices/loginForm.slice"
 import { loginByUserNameDataType } from "../../storeTypes/loginByUserNameData.type"
 import { loginByUserNameError } from "../../storeTypes/loginByUserNameError.type"
 import { loginByUserNameThunk } from "./loginByUserName.thunk"
-
-const mockedExtra = {
-	api: {
-		post: jest.fn()
-	}
-}
-const mockedPost = mockedExtra.api.post
 
 const { setAuthData } = userActions
 const { resetForm } = loginFormActions
@@ -23,13 +16,22 @@ let thunk: TestAsyncThunk<
 	thunkConfigType<loginByUserNameError>
 >
 
+let userValue: userDataType
+
+let mockedPost: (typeof TestAsyncThunk<
+	userDataType,
+	loginByUserNameDataType,
+	thunkConfigType<loginByUserNameError>
+>)["prototype"]["api"]["post"]
+
 describe("loginByUserNameThunkTest", () => {
 	beforeEach(() => {
-		thunk = new TestAsyncThunk(loginByUserNameThunk, mockedExtra as unknown as thunkExtraType)
+		thunk = new TestAsyncThunk(loginByUserNameThunk)
+		mockedPost = thunk.api.post
 	})
 
 	test("Getting AuthData Fulfilled", async () => {
-		const userValue = { id: "1", userName: "adminTest" }
+		userValue = { id: "1", userName: "adminTest" }
 
 		mockedPost.mockReturnValue(Promise.resolve({ data: userValue }))
 
@@ -51,7 +53,7 @@ describe("loginByUserNameThunkTest", () => {
 		await expect(mockedPost).toHaveBeenCalled()
 		await expect(result.meta.requestStatus).toBe("rejected")
 		await expect(thunk.dispatch).toBeCalledTimes(2)
-		await expect(thunk.dispatch).not.toHaveBeenCalledWith(setAuthData())
+		await expect(thunk.dispatch).not.toHaveBeenCalledWith(setAuthData(userValue))
 		await expect(thunk.dispatch).not.toBeCalledWith(resetForm())
 		await expect(result.payload).toEqual({ noUser: true })
 	})
@@ -66,7 +68,7 @@ describe("loginByUserNameThunkTest", () => {
 		await expect(mockedPost).toHaveBeenCalled()
 		await expect(result.meta.requestStatus).toBe("rejected")
 		await expect(thunk.dispatch).toBeCalledTimes(2)
-		await expect(thunk.dispatch).not.toHaveBeenCalledWith(setAuthData())
+		await expect(thunk.dispatch).not.toHaveBeenCalledWith(setAuthData(userValue))
 		await expect(thunk.dispatch).not.toBeCalledWith(resetForm())
 		await expect(result.payload).toEqual({ otherError: errorText })
 	})

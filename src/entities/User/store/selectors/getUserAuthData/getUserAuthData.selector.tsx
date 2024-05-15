@@ -4,5 +4,5 @@ import { getUserSelector } from "../getUser/getUser.selector"
 
 export const getUserAuthDataSelector = createSelector(
 	getUserSelector,
-	(state: userStateMap) => state.authData
+	(state: userStateMap) => state?.authData
 )

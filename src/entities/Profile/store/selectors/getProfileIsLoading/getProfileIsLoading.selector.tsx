@@ -4,5 +4,5 @@ import { getProfileSelector } from "../getProfile/getProfile.selector"
 
 export const getProfileIsLoadingSelector = createSelector(
 	getProfileSelector,
-	(state: profileStateMap) => state.isLoading
+	(state?: profileStateMap) => state?.isLoading
 )

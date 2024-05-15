@@ -9,9 +9,9 @@ export function useTheme(): useThemeType {
 
 	const switchTheme = (): void => {
 		const newTheme = theme === THEMES.DARK ? THEMES.LIGHT : THEMES.DARK
-		setTheme(newTheme)
+		setTheme?.(newTheme)
 		localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme)
 	}
 
-	return { theme, switchTheme }
+	return { theme: theme || THEMES.DARK, switchTheme }
 }

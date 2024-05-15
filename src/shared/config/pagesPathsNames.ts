@@ -9,13 +9,15 @@ export enum PagesNames {
 	PROFILE = "profile",
 	NOT_FOUND = "notFound"
 }
-type PagesInfo = {
+
+type pagesInfo = {
 	name: PagesNames
-	Icon?: FC<SVGProps<SVGSVGElement>>
 	path: string
 	inHeader: boolean
+	Icon?: FC<SVGProps<SVGSVGElement>>
 }
-export const routesPath: PagesInfo[] = [
+
+export const routesPath: pagesInfo[] = [
 	{ name: PagesNames.MAIN, path: "/", inHeader: true, Icon: Home },
 	{ name: PagesNames.ABOUT, path: "/about", inHeader: true, Icon: About },
 	{ name: PagesNames.PROFILE, path: "/profile", inHeader: true, Icon: Profile },
