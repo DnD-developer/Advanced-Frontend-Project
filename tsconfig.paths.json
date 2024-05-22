@@ -9,26 +9,26 @@
 			"@_webpack/*": ["./config/webpack/*"],
 			"@src/*": ["./src/*"],
 
-			"@app/*": ["./src/app/*"],
-			"@providers/*": ["./src/app/providers/*"],
-			"@store/*": ["./src/app/store/*"],
-			"@styles/*": ["./src/app/styles/*"],
+			"@app/*": ["./src/1_FSD_app/*"],
+			"@providers/*": ["./src/1_FSD_app/providers/*"],
+			"@store/*": ["./src/1_FSD_app/store/*"],
+			"@styles/*": ["./src/1_FSD_app/styles/*"],
 
-			"@pages/*": ["./src/pages/*"],
-			"@widgets/*": ["./src/widgets/*"],
-			"@features/*": ["./src/features/*"],
-			"@entities/*": ["./src/entities/*"],
+			"@pages/*": ["./src/2_FSD_pages/*"],
+			"@widgets/*": ["./src/3_FSD_widgets/*"],
+			"@features/*": ["./src/4_FSD_features/*"],
+			"@entities/*": ["./src/5_FSD_entities/*"],
 
-			"@ui/*": ["./src/shared/ui/*"],
-			"@constants/*": ["./src/shared/constants/*"],
-			"@api/*": ["./src/shared/api/*"],
-			"@assets/*": ["./src/shared/assets/*"],
-			"@config/*": ["./src/shared/config/*"],
+			"@ui/*": ["./src/6_FSD_shared/ui/*"],
+			"@constants/*": ["./src/6_FSD_shared/constants/*"],
+			"@api/*": ["./src/6_FSD_shared/api/*"],
+			"@assets/*": ["./src/6_FSD_shared/assets/*"],
+			"@config/*": ["./src/6_FSD_shared/config/*"],
 
-			"@decorators/*": ["./src/shared/lib/decorators/*"],
-			"@helpers/*": ["./src/shared/lib/helpers/*"],
-			"@mocks/*": ["./src/shared/lib/mocks/*"],
-			"@hooks/*": ["./src/shared/lib/hooks/*"]
+			"@decorators/*": ["./src/6_FSD_shared/lib/decorators/*"],
+			"@helpers/*": ["./src/6_FSD_shared/lib/helpers/*"],
+			"@mocks/*": ["./src/6_FSD_shared/lib/mocks/*"],
+			"@hooks/*": ["./src/6_FSD_shared/lib/hooks/*"]
 		}
 	}
 }

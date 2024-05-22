@@ -1,7 +1,14 @@
 {
-	"edit": "Редактировать",
+	"errorDataProfileCard": "Произошла ошибка",
+	"errorWithLoadData": "Произошла ошибка при загрузке данных",
 	"pageTitle": "Страница Профиля",
 	"privateData": "Личные Данные",
+	"yourAge": "Ваш возраст",
+	"yourAvatar": "Ваш Аватар",
+	"yourCity": "Ваш город",
+	"yourCountry": "Ваша Страна",
+	"yourCurrency": "Ваша Валюта",
 	"yourLastName": "Ваша Фамилия",
-	"yourName": "Ваше Имя"
+	"yourName": "Ваше Имя",
+	"yourUserName": "Ваш Никнейм"
 }

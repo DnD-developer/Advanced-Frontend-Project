@@ -1,0 +1,25 @@
+.Select {
+	display: block;
+	width: 150px;
+
+	color: var(--primary-color);
+}
+
+.outline {
+	border: 1px solid var(--primary-color);
+	border-radius: 5px;
+
+	background: none;
+}
+
+.label {
+	display: block;
+
+	width: 150px;
+
+	color: var(--primary-color);
+
+	.Select {
+		width: 100%;
+	}
+}

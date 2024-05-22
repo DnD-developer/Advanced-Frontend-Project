@@ -1,5 +1,4 @@
 import App from "@app/App"
-import { ErrorBoundaryProvider } from "@providers/ErrorBoundaryProvider"
 import { StoreProvider } from "@providers/StoreProvider"
 import { ThemesProvider } from "@providers/ThemeProvider"
 import { Suspense } from "react"
@@ -14,15 +13,13 @@ const root = createRoot(domRoot || document.body)
 
 const RootComponent = (
 	<BrowserRouter>
-		<ErrorBoundaryProvider>
-			<StoreProvider>
-				<Suspense>
-					<ThemesProvider>
-						<App />
-					</ThemesProvider>
-				</Suspense>
-			</StoreProvider>
-		</ErrorBoundaryProvider>
+		<StoreProvider>
+			<Suspense>
+				<ThemesProvider>
+					<App />
+				</ThemesProvider>
+			</Suspense>
+		</StoreProvider>
 	</BrowserRouter>
 )
 

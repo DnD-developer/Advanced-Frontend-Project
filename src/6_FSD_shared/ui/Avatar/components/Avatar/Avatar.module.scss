@@ -1,0 +1,22 @@
+.Avatar {
+	display: block;
+}
+
+.small {
+	width: var(--small-img);
+	height: var(--small-img);
+}
+
+.middle {
+	width: var(--middle-img);
+	height: var(--middle-img);
+}
+
+.large {
+	width: var(--large-img);
+	height: var(--large-img);
+}
+
+.circle {
+	border-radius: 50%;
+}

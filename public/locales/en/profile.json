@@ -1,7 +1,14 @@
 {
-	"edit": "Edit",
+	"errorDataProfileCard": "Error",
+	"errorWithLoadData": "error with load data",
 	"pageTitle": "Profile Page",
 	"privateData": "Private Data",
+	"yourAge": "Your Age",
+	"yourAvatar": "Your Avatar",
+	"yourCity": "Your City",
+	"yourCountry": "Your Country",
+	"yourCurrency": "Your Currency",
 	"yourLastName": "Your Lastname",
-	"yourName": "Your Name"
+	"yourName": "Your Name",
+	"yourUserName": "Your Username"
 }

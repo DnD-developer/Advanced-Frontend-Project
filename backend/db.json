@@ -27,12 +27,12 @@
 	],
 	"profile": {
 		"firstName": "Lucifer",
-		"lastName": "MorningStar",
-		"age": 26,
-		"currency": "RUB",
-		"country": "Russia",
+		"lastName": "Morningstar",
+		"age": 25,
+		"currency": "EUR",
+		"country": "Belarus",
 		"city": "Fryazino",
 		"userName": "Lucifer",
-		"avatar": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fhazbinhotel.fandom.com%2Fru%2Fwiki%2F%25D0%259B%25D1%258E%25D1%2586%25D0%25B8%25D1%2584%25D0%25B5%25D1%2580_%25D0%259C%25D0%25BE%25D1%2580%25D0%25BD%25D0%25B8%25D0%25BD%25D0%25B3%25D1%2581%25D1%2582%25D0%25B0%25D1%2580&psig=AOvVaw3CC9ypAVORtE0Jjnu7yG8O&ust=1715720042802000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCKDfxLHBi4YDFQAAAAAdAAAAABAE"
+		"avatar": "https://i.pinimg.com/originals/12/c1/89/12c18951b3c92d42da004267d309e711.jpg"
 	}
 }

@@ -1,0 +1,65 @@
+.TextWrapper {
+	width: 100%;
+
+	text-align: left;
+}
+
+.title {
+	color: inherit;
+}
+
+.text {
+	margin-top: 5px;
+
+	color: inherit;
+}
+
+.left {
+	text-align: left;
+}
+
+.center {
+	text-align: center;
+}
+
+.right {
+	text-align: right;
+}
+
+.primary {
+	color: var(--primary-color);
+}
+
+.primary.inverted {
+	color: var(--inverted-color);
+}
+
+.error {
+	.title {
+		color: var(--red);
+	}
+
+	.text {
+		color: var(--red-dark);
+	}
+}
+
+.normal {
+	.title {
+		font: var(--font-l);
+	}
+
+	.text {
+		font: var(--font-m);
+	}
+}
+
+.big {
+	.title {
+		font: var(--font-xl);
+	}
+
+	.text {
+		font: var(--font-l);
+	}
+}
