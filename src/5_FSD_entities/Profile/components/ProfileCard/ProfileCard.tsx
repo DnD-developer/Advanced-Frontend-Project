@@ -5,14 +5,20 @@ import { Loader } from "@ui/Loader"
 import { Text, TextAlign, TextSize, TextTheme } from "@ui/Text"
 import { memo, ReactNode, useMemo } from "react"
 import { useTranslation } from "react-i18next"
+import { mappingErrors } from "../../models/services/mappingErrors"
 import { profileDataType } from "../../models/store/storeTypes/profileData.type"
-import { profileStateMap } from "../../models/store/storeTypes/profileState.map"
+import {
+	profileStateMap,
+	ServerErrors,
+	ValidateErrors
+} from "../../models/store/storeTypes/profileState.map"
 import styles from "./ProfileCard.module.scss"
 
 type ProfileCardCustomProps = {
 	classNames?: string
 	isLoading?: boolean
 	readOnly?: boolean
+	labelError?: string
 	editButton?: ReactNode
 	saveButton?: ReactNode
 	cancelButton?: ReactNode
@@ -39,7 +45,7 @@ export const ProfileCard = memo<ProfileCardProps>(props => {
 		selectCountry,
 		selectCurrency,
 		data,
-		error,
+		errors,
 		isLoading,
 		readOnly,
 		onChangeUserName,
@@ -52,9 +58,11 @@ export const ProfileCard = memo<ProfileCardProps>(props => {
 
 	const { t } = useTranslation("profile")
 
+	const { errorsValidate, isServerErrors } = useMemo(() => mappingErrors(errors), [errors])
+
 	const modsOpacityZero = useMemo<Mods>(() => {
-		return { [styles.opacityZero]: error || isLoading ? true : false }
-	}, [error, isLoading])
+		return { [styles.opacityZero]: isServerErrors || isLoading ? true : false }
+	}, [isServerErrors, isLoading])
 
 	const modsReadOnly = useMemo<Mods>(() => {
 		return { [styles.readOny]: !readOnly }
@@ -79,13 +87,13 @@ export const ProfileCard = memo<ProfileCardProps>(props => {
 				</div>
 			:	null}
 
-			{error ?
+			{isServerErrors ?
 				<div className={styles.container}>
 					<Text
 						size={TextSize.BIG}
 						align={TextAlign.CENTER}
-						title={t("profile:errorDataProfileCard")}
-						text={t("profile:errorWithLoadData")}
+						title={t(ServerErrors.SERVER_NOT_FOUND)}
+						text={t("profile:errorServerText")}
 						theme={TextTheme.ERROR}
 					/>
 
@@ -101,48 +109,72 @@ export const ProfileCard = memo<ProfileCardProps>(props => {
 					/>
 				:	<Input
 						value={data?.avatar || ""}
-						label={t("profile:yourAvatar")}
+						label={
+							errorsValidate.AVATAR_ERROR ?
+								t(ValidateErrors.AVATAR_ERROR)
+							:	t("profile:yourAvatar")
+						}
 						classNamesLabel={classNamesHelp(styles.input, modsOpacityZero)}
 						onChange={onChangeAvatar}
 						readOnly={readOnly}
+						error={errorsValidate.AVATAR_ERROR}
 					/>
 				}
 			</div>
 
 			<Input
 				value={data?.userName || ""}
-				label={t("profile:yourUserName")}
+				label={
+					errorsValidate.USERNAME_ERROR ?
+						t(ValidateErrors.USERNAME_ERROR)
+					:	t("profile:yourUserName")
+				}
 				classNamesLabel={classNamesHelp(styles.input, modsOpacityZero)}
 				onChange={onChangeUserName}
 				readOnly={readOnly}
+				error={errorsValidate.USERNAME_ERROR}
 			/>
 			<Input
 				value={data?.firstName || ""}
-				label={t("profile:yourName")}
+				label={
+					errorsValidate.FIRST_NAME ? t(ValidateErrors.FIRST_NAME) : t("profile:yourName")
+				}
 				classNamesLabel={classNamesHelp(styles.input, modsOpacityZero)}
 				onChange={onChangeFirstName}
 				readOnly={readOnly}
+				error={errorsValidate.FIRST_NAME}
 			/>
 			<Input
 				value={data?.lastName || ""}
 				classNamesLabel={classNamesHelp(styles.input, modsOpacityZero)}
-				label={t("profile:yourLastName")}
+				label={
+					errorsValidate.LAST_NAME ?
+						t(ValidateErrors.LAST_NAME)
+					:	t("profile:yourLastName")
+				}
 				onChange={onChangeLastName}
 				readOnly={readOnly}
+				error={errorsValidate.LAST_NAME}
 			/>
 			<Input
 				value={data?.age || ""}
 				classNamesLabel={classNamesHelp(styles.input, modsOpacityZero)}
-				label={t("profile:yourAge")}
+				label={
+					errorsValidate.AGE_ERROR ? t(ValidateErrors.AGE_ERROR) : t("profile:yourAge")
+				}
 				onChange={onChangeAge}
 				readOnly={readOnly}
+				error={errorsValidate.AGE_ERROR}
 			/>
 			<Input
 				value={data?.city || ""}
 				classNamesLabel={classNamesHelp(styles.input, modsOpacityZero)}
-				label={t("profile:yourCity")}
+				label={
+					errorsValidate.CITY_ERROR ? t(ValidateErrors.CITY_ERROR) : t("profile:yourCity")
+				}
 				onChange={onChangeCity}
 				readOnly={readOnly}
+				error={errorsValidate.CITY_ERROR}
 			/>
 			<div className={classNamesHelp(styles.selects, modsOpacityZero)}>
 				{selectCurrency}

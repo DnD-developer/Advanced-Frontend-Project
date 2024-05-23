@@ -34,7 +34,7 @@ export const EditableProfileCard = memo<EditableProfileCardProps>(props => {
 
 	const formData = useSelector(getEditableProfileCardFormDataSelector)
 	const isLoading = useSelector(getEditableProfileCardIsLoadingSelector)
-	const error = useSelector(getEditableProfileCardErrorSelector)
+	const errors = useSelector(getEditableProfileCardErrorSelector)
 	const readOnly = useSelector(getEditableProfileCardReadOnlySelector)
 
 	const dispatch = useAppDispatch()
@@ -124,7 +124,7 @@ export const EditableProfileCard = memo<EditableProfileCardProps>(props => {
 				/>
 			}
 			isLoading={isLoading}
-			error={error}
+			errors={errors}
 			readOnly={readOnly}
 			data={formData}
 			onChangeUserName={onChangeUserNameHandler}

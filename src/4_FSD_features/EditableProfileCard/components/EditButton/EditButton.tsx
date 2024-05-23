@@ -1,7 +1,8 @@
+import { mappingErrors } from "@entities/Profile"
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { useAppDispatch } from "@hooks/useAppDispatch.hook"
 import { Button, ButtonTheme } from "@ui/Button"
-import { memo, useCallback } from "react"
+import { memo, useCallback, useMemo } from "react"
 import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
 import { getEditableProfileCardErrorSelector } from "../../models/store/selectors/getEditableProfileCardError/getEditableProfileCardError.selector"
@@ -19,8 +20,10 @@ export const EditButton = memo<EditButtonProps>(props => {
 	const { setReadOnly } = editableProfileActions
 	const dispatch = useAppDispatch()
 
-	const error = useSelector(getEditableProfileCardErrorSelector)
+	const errors = useSelector(getEditableProfileCardErrorSelector)
 	const isLoading = useSelector(getEditableProfileCardIsLoadingSelector)
+
+	const { isServerErrors } = useMemo(() => mappingErrors(errors), [errors])
 
 	const setReadonlyHandler = useCallback(() => {
 		dispatch(setReadOnly(false))
@@ -31,7 +34,7 @@ export const EditButton = memo<EditButtonProps>(props => {
 			className={classNamesHelp(styles.EditButton, {}, [classNames])}
 			theme={ButtonTheme.OUTLINE}
 			onClick={setReadonlyHandler}
-			disabled={error || isLoading ? true : false}
+			disabled={isServerErrors || isLoading ? true : false}
 		>
 			{t("translation:edit")}
 		</Button>

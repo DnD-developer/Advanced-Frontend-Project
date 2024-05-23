@@ -4,5 +4,5 @@ import { getEditableProfileCardSelector } from "../getEditableProfileCard/getEdi
 
 export const getEditableProfileCardErrorSelector = createSelector(
 	getEditableProfileCardSelector,
-	(state?: editableProfileStateMap) => state?.error || ""
+	(state?: editableProfileStateMap) => state?.errors
 )

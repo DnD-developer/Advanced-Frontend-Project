@@ -14,6 +14,7 @@ type InputCustomProps = {
 	classNames?: string
 	theme?: InputTheme
 	inverted?: boolean
+	error?: boolean
 	value?: string | number
 	onChange?: (value: string) => void
 	autoFocus?: boolean
@@ -35,6 +36,7 @@ export const Input = memo<InputProps>(props => {
 		classNames,
 		theme = InputTheme.OUTLINE,
 		value,
+		error,
 		onChange,
 		autoFocus = false,
 		label = "",
@@ -62,8 +64,8 @@ export const Input = memo<InputProps>(props => {
 	)
 
 	const mods = useMemo<Mods>(() => {
-		return { [styles.inverted]: inverted, [styles.readOnly]: readOnly }
-	}, [inverted, readOnly])
+		return { [styles.inverted]: inverted, [styles.readOnly]: readOnly, [styles.error]: error }
+	}, [error, inverted, readOnly])
 
 	const inputElement = () => (
 		<input
@@ -78,15 +80,7 @@ export const Input = memo<InputProps>(props => {
 
 	if (label) {
 		return (
-			<label
-				className={classNamesHelp(
-					styles.label,
-					{
-						[styles.inverted]: inverted
-					},
-					[classNamesLabel]
-				)}
-			>
+			<label className={classNamesHelp(styles.label, mods, [classNamesLabel])}>
 				{label}
 				{inputElement()}
 			</label>

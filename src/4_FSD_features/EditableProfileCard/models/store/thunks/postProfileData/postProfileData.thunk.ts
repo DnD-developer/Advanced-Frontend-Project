@@ -1,22 +1,28 @@
-import { profileDataType } from "@entities/Profile"
+import { profileDataType, profileStateMap, ServerErrors } from "@entities/Profile"
+import { validateErrors } from "@entities/Profile/models/services/validateErrors"
 import { createAsyncThunk } from "@reduxjs/toolkit"
-import { errorResponseType, thunkConfigType } from "@store/storeTypes/thunks.type"
+import { thunkConfigType } from "@store/storeTypes/thunks.type"
 import { getEditableProfileCardFormDataSelector } from "../../selectors/getEditableProfileCardFormData/getEditableProfileCardFormData.selector"
 
 export const postProfileDataThunk = createAsyncThunk<
 	profileDataType,
 	undefined,
-	thunkConfigType<string>
+	thunkConfigType<profileStateMap["errors"]>
 >("profile/postProfileData", async (_, thunkAPI) => {
 	const { extra, rejectWithValue, getState } = thunkAPI
 	try {
 		const formData = getEditableProfileCardFormDataSelector(getState())
+
+		const errors = validateErrors(formData)
+
+		if (errors.length > 0) {
+			return rejectWithValue(errors)
+		}
+
 		const response = await extra.api.put<profileDataType>("/profile", formData)
 
 		return response.data
-	} catch (error) {
-		const errorCustom = error as errorResponseType
-
-		return rejectWithValue(errorCustom?.message || "")
+	} catch {
+		return rejectWithValue([ServerErrors.SERVER_NOT_FOUND])
 	}
 })

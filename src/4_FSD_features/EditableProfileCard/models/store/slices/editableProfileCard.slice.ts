@@ -1,4 +1,4 @@
-import { profileDataType } from "@entities/Profile"
+import { mappingErrors, profileDataType } from "@entities/Profile"
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 import { editableProfileStateMap } from "../storeTypes/editableProfileState.map"
 import { fetchProfileDataThunk } from "../thunks/fetchProfileData/fetchProfileData.thunk"
@@ -9,7 +9,7 @@ const initialState: editableProfileStateMap = {
 	data: undefined,
 	formData: undefined,
 	readOnly: true,
-	error: undefined
+	errors: undefined
 }
 
 const editableProfileCardSlice = createSlice({
@@ -22,6 +22,7 @@ const editableProfileCardSlice = createSlice({
 		resetForm(state: editableProfileStateMap) {
 			state.formData = state.data
 			state.readOnly = true
+			state.errors = undefined
 		},
 		updateForm(state: editableProfileStateMap, action: PayloadAction<profileDataType>) {
 			state.formData = {
@@ -34,34 +35,37 @@ const editableProfileCardSlice = createSlice({
 		builder
 			.addCase(fetchProfileDataThunk.pending, state => {
 				state.isLoading = true
-				state.error = undefined
+				state.errors = undefined
 			})
 			.addCase(fetchProfileDataThunk.fulfilled, (state, action) => {
 				state.isLoading = false
-				state.error = undefined
+				state.errors = undefined
 				state.data = action.payload
 				state.formData = action.payload
 			})
 			.addCase(fetchProfileDataThunk.rejected, (state, action) => {
 				state.isLoading = false
-				state.error = action.payload
+				state.errors = action.payload
 			})
 			.addCase(postProfileDataThunk.pending, state => {
 				state.isLoading = true
-				state.error = undefined
+				state.errors = undefined
 				state.readOnly = true
 			})
 			.addCase(postProfileDataThunk.fulfilled, (state, action) => {
 				state.isLoading = false
-				state.error = undefined
+				state.errors = undefined
 				state.data = action.payload
 				state.formData = state.data
 				state.readOnly = true
 			})
 			.addCase(postProfileDataThunk.rejected, (state, action) => {
 				state.isLoading = false
-				state.error = action.payload
-				state.readOnly = true
+				state.errors = action.payload
+
+				const { isServerErrors } = mappingErrors(action.payload)
+
+				state.readOnly = isServerErrors
 			})
 	}
 })

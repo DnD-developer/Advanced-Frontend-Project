@@ -1,38 +1,38 @@
 {
-	"posts": [
-		{
-			"id": "1",
-			"title": "json-server",
-			"userId": 1
-		},
-		{
-			"id": "2",
-			"title": "json-server",
-			"userId": 2
-		}
-	],
-	"comments": [
-		{
-			"id": "1",
-			"body": "some comment",
-			"postId": 1
-		}
-	],
-	"users": [
-		{
-			"id": "1",
-			"userName": "admin",
-			"password": "123"
-		}
-	],
-	"profile": {
-		"firstName": "Lucifer",
-		"lastName": "Morningstar",
-		"age": 25,
-		"currency": "EUR",
-		"country": "Belarus",
-		"city": "Fryazino",
-		"userName": "Lucifer",
-		"avatar": "https://i.pinimg.com/originals/12/c1/89/12c18951b3c92d42da004267d309e711.jpg"
-	}
+  "posts": [
+    {
+      "id": "1",
+      "title": "json-server",
+      "userId": 1
+    },
+    {
+      "id": "2",
+      "title": "json-server",
+      "userId": 2
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "userName": "admin",
+      "password": "123"
+    }
+  ],
+  "profile": {
+    "firstName": "Lucifer",
+    "lastName": "Morningstar",
+    "age": 25,
+    "currency": "EUR",
+    "country": "Belarus",
+    "city": "Fryazino",
+    "userName": "Lucifer",
+    "avatar": "https://i.pinimg.com/originals/f0/f8/fe/f0f8fe0e76824fd544a9154b995fb01d.jpg"
+  }
 }
