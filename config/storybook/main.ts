@@ -31,3 +31,5 @@ const config: StorybookConfig = {
 	webpackFinal: async config => webpackStorybookConfig(config)
 }
 export default config
+
+config

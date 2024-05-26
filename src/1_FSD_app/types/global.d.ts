@@ -29,3 +29,4 @@ declare module "*.json"
 declare let __IS_DEV__: boolean
 declare let __IS_ANALYZE__: boolean
 declare let __BASE_URL__: string
+declare let __PROJECT__: "frontend" | "storybook" | "jest"

@@ -1,3 +1,4 @@
+import preview from "@_storybook/preview"
 import { CenterDecorator } from "@decorators/storybook/Center.decorator"
 import { StoreDecorator } from "@decorators/storybook/Store.Decorator"
 import { type Meta, type StoryObj } from "@storybook/react"
@@ -7,6 +8,14 @@ import { LoginModal } from "./LoginModal"
 const meta: Meta<typeof LoginModal> = {
 	title: "features/LoginModal",
 	component: LoginModal,
+	args: {
+		isOpen: true
+	},
+	parameters: {
+		controls: {
+			exclude: [...(preview.parameters?.controls?.exclude || []), "isOpen", "onClose", "lazy"]
+		}
+	},
 	decorators: [CenterDecorator]
 }
 
@@ -15,16 +24,10 @@ export default meta
 type TypeStory = StoryObj<typeof LoginModal>
 
 export const Default: TypeStory = {
-	args: {
-		isOpen: true
-	},
 	decorators: [StoreDecorator({}, { loginForm: loginFormReducer })]
 }
 
 export const Loading: TypeStory = {
-	args: {
-		isOpen: true
-	},
 	decorators: [
 		StoreDecorator(
 			{
@@ -36,9 +39,6 @@ export const Loading: TypeStory = {
 }
 
 export const ErrorNoUser: TypeStory = {
-	args: {
-		isOpen: true
-	},
 	decorators: [
 		StoreDecorator(
 			{
@@ -50,9 +50,6 @@ export const ErrorNoUser: TypeStory = {
 }
 
 export const ErrorOtherError: TypeStory = {
-	args: {
-		isOpen: true
-	},
 	decorators: [
 		StoreDecorator(
 			{

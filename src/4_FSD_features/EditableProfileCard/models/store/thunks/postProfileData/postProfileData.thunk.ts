@@ -1,5 +1,5 @@
 import { profileDataType, profileStateMap, ServerErrors } from "@entities/Profile"
-import { validateErrors } from "@entities/Profile/models/services/validateErrors"
+import { validateErrors } from "@entities/Profile/models/services/validateErrors/validateErrors"
 import { createAsyncThunk } from "@reduxjs/toolkit"
 import { thunkConfigType } from "@store/storeTypes/thunks.type"
 import { getEditableProfileCardFormDataSelector } from "../../selectors/getEditableProfileCardFormData/getEditableProfileCardFormData.selector"
@@ -17,6 +17,10 @@ export const postProfileDataThunk = createAsyncThunk<
 
 		if (errors.length > 0) {
 			return rejectWithValue(errors)
+		}
+
+		if (__PROJECT__ === "storybook") {
+			return formData || {}
 		}
 
 		const response = await extra.api.put<profileDataType>("/profile", formData)

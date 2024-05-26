@@ -1,5 +1,4 @@
 import { CenterDecorator } from "@decorators/storybook/Center.decorator"
-import { ContainerDecorator } from "@decorators/storybook/Container.decorator"
 import { InvertedBgDecorator } from "@decorators/storybook/InvertedBg.decorator"
 import { type Meta, type StoryObj } from "@storybook/react"
 import { Text, TextAlign, TextSize, TextTheme } from "./Text"
@@ -7,14 +6,6 @@ import { Text, TextAlign, TextSize, TextTheme } from "./Text"
 const meta: Meta<typeof Text> = {
 	title: "shared/Text",
 	component: Text,
-	decorators: [InvertedBgDecorator, ContainerDecorator, CenterDecorator]
-}
-
-export default meta
-
-type TypeStory = StoryObj<typeof Text>
-
-export const Default: TypeStory = {
 	argTypes: {
 		size: {
 			options: [TextSize.NORMAL, TextSize.BIG],
@@ -29,6 +20,14 @@ export const Default: TypeStory = {
 			control: "radio"
 		}
 	},
+	decorators: [InvertedBgDecorator, CenterDecorator]
+}
+
+export default meta
+
+type TypeStory = StoryObj<typeof Text>
+
+export const Default: TypeStory = {
 	args: {
 		theme: TextTheme.PRIMARY,
 		align: TextAlign.LEFT,
@@ -40,20 +39,6 @@ export const Default: TypeStory = {
 }
 
 export const OnlyTitle: TypeStory = {
-	argTypes: {
-		size: {
-			options: [TextSize.NORMAL, TextSize.BIG],
-			control: "radio"
-		},
-		align: {
-			options: [TextAlign.LEFT, TextAlign.CENTER, TextAlign.RIGHT],
-			control: "radio"
-		},
-		theme: {
-			options: [TextTheme.ERROR, TextTheme.PRIMARY],
-			control: "radio"
-		}
-	},
 	args: {
 		theme: TextTheme.PRIMARY,
 		align: TextAlign.LEFT,
@@ -64,20 +49,6 @@ export const OnlyTitle: TypeStory = {
 }
 
 export const OnlyText: TypeStory = {
-	argTypes: {
-		size: {
-			options: [TextSize.NORMAL, TextSize.BIG],
-			control: "radio"
-		},
-		align: {
-			options: [TextAlign.LEFT, TextAlign.CENTER, TextAlign.RIGHT],
-			control: "radio"
-		},
-		theme: {
-			options: [TextTheme.ERROR, TextTheme.PRIMARY],
-			control: "radio"
-		}
-	},
 	args: {
 		theme: TextTheme.PRIMARY,
 		align: TextAlign.LEFT,

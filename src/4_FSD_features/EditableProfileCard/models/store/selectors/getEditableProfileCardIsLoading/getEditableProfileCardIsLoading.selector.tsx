@@ -4,5 +4,5 @@ import { getEditableProfileCardSelector } from "../getEditableProfileCard/getEdi
 
 export const getEditableProfileCardIsLoadingSelector = createSelector(
 	getEditableProfileCardSelector,
-	(state?: editableProfileStateMap) => state?.isLoading
+	(state?: editableProfileStateMap) => state?.isLoading || false
 )

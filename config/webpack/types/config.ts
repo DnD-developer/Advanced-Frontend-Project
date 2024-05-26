@@ -21,5 +21,6 @@ export type buildOptions = {
 	aliases: Record<string, string>
 	isDev: boolean
 	isAnalyze?: boolean
+	project?: "frontend" | "storybook" | "jest"
 	baseUrl: string
 }

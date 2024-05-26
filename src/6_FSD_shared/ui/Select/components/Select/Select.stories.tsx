@@ -6,6 +6,12 @@ const meta: Meta<typeof Select> = {
 	title: "shared/Select",
 	component: Select,
 	decorators: [CenterDecorator],
+	argTypes: {
+		theme: {
+			options: [SelectTheme.OUTLINE],
+			control: "radio"
+		}
+	},
 	parameters: {
 		controls: {
 			exclude: ["options"]
@@ -18,12 +24,6 @@ export default meta
 type TypeStory = StoryObj<typeof Select>
 
 export const Default: TypeStory = {
-	argTypes: {
-		theme: {
-			options: [SelectTheme.OUTLINE],
-			control: "radio"
-		}
-	},
 	args: {
 		options: [
 			{ value: "1", content: "1" },
@@ -34,12 +34,6 @@ export const Default: TypeStory = {
 }
 
 export const WithLabel: TypeStory = {
-	argTypes: {
-		theme: {
-			options: [SelectTheme.OUTLINE],
-			control: "radio"
-		}
-	},
 	args: {
 		label: "Your Label",
 		options: [

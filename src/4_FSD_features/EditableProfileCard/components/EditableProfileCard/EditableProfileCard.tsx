@@ -7,8 +7,8 @@ import { memo, useCallback, useEffect } from "react"
 import { useSelector } from "react-redux"
 import { getEditableProfileCardErrorSelector } from "../../models/store/selectors/getEditableProfileCardError/getEditableProfileCardError.selector"
 import { getEditableProfileCardFormDataSelector } from "../../models/store/selectors/getEditableProfileCardFormData/getEditableProfileCardFormData.selector"
-import { getEditableProfileCardIsLoadingSelector } from "../../models/store/selectors/getEditableProfileCardIsLoading/getProfileIsLoading.selector"
-import { getEditableProfileCardReadOnlySelector } from "../../models/store/selectors/getEditableProfileCardReadOnly/getProfileReadOnly.selector"
+import { getEditableProfileCardIsLoadingSelector } from "../../models/store/selectors/getEditableProfileCardIsLoading/getEditableProfileCardIsLoading.selector"
+import { getEditableProfileCardReadOnlySelector } from "../../models/store/selectors/getEditableProfileCardReadOnly/geEditableProfileCardReadOnly.selector"
 import {
 	editableProfileActions,
 	editableProfileCardReducer
@@ -40,7 +40,9 @@ export const EditableProfileCard = memo<EditableProfileCardProps>(props => {
 	const dispatch = useAppDispatch()
 
 	useEffect(() => {
-		dispatch(fetchProfileDataThunk())
+		if (__PROJECT__ !== "storybook") {
+			dispatch(fetchProfileDataThunk())
+		}
 	}, [dispatch])
 
 	const { updateForm } = editableProfileActions

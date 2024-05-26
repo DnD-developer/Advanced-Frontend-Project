@@ -15,7 +15,8 @@ export function pluginsWebpack({
 	paths,
 	isDev,
 	isAnalyze,
-	baseUrl
+	baseUrl,
+	project
 }: buildOptions): WebpackPluginInstance[] {
 	const plugins = [
 		new HtmlWebpackPlugin({ template: paths.html }),
@@ -27,7 +28,8 @@ export function pluginsWebpack({
 		new DefinePlugin({
 			__IS_DEV__: JSON.stringify(isDev),
 			__IS_ANALYZE__: JSON.stringify(isAnalyze),
-			__BASE_URL__: JSON.stringify(baseUrl)
+			__BASE_URL__: JSON.stringify(baseUrl),
+			__PROJECT__: JSON.stringify(project)
 		}),
 		new ESLintWebpackPlugin({
 			extensions: ["ts", "tsx"]

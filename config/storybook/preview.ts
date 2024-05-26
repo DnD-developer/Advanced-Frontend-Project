@@ -15,6 +15,9 @@ const preview: Preview = {
 	},
 	parameters: {
 		layout: "fullscreen",
+		controls: {
+			exclude: ["className", "classNames"]
+		},
 		i18n
 	},
 	decorators: [

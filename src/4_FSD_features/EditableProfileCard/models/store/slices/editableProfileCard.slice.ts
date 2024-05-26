@@ -56,7 +56,7 @@ const editableProfileCardSlice = createSlice({
 				state.isLoading = false
 				state.errors = undefined
 				state.data = action.payload
-				state.formData = state.data
+				state.formData = action.payload
 				state.readOnly = true
 			})
 			.addCase(postProfileDataThunk.rejected, (state, action) => {

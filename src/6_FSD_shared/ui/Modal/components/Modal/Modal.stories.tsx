@@ -1,3 +1,4 @@
+import preview from "@_storybook/preview"
 import { CenterDecorator } from "@decorators/storybook/Center.decorator"
 import { type Meta, type StoryObj } from "@storybook/react"
 import { Modal } from "./Modal"
@@ -5,7 +6,12 @@ import { Modal } from "./Modal"
 const meta: Meta<typeof Modal> = {
 	title: "shared/Modal",
 	component: Modal,
-	decorators: [CenterDecorator]
+	decorators: [CenterDecorator],
+	parameters: {
+		controls: {
+			exclude: [...(preview.parameters?.controls?.exclude || []), "onClose"]
+		}
+	}
 }
 
 export default meta

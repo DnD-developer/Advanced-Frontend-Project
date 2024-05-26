@@ -30,7 +30,9 @@ export const Header = memo<HeaderProps>(props => {
 	}, [])
 
 	const logOutHandler = useCallback(() => {
-		dispatch(logOut())
+		if (__PROJECT__ !== "storybook") {
+			dispatch(logOut())
+		}
 	}, [dispatch, logOut])
 
 	const btnLogin = (

@@ -1,8 +1,10 @@
 import { type Decorator } from "@storybook/react"
 
-export const InvertedBgDecorator: Decorator = (Story, parametres) => {
-	const { args } = parametres
-	const inverted = args?.inverted || false
+export const InvertedBgDecorator: Decorator = (Story, parameters) => {
+	const { args, tags } = parameters
+	const inverted =
+		(args?.inverted && !tags.includes("background")) ||
+		(!args?.inverted && tags.includes("background"))
 
 	if (inverted) {
 		return (
@@ -12,5 +14,9 @@ export const InvertedBgDecorator: Decorator = (Story, parametres) => {
 		)
 	}
 
-	return <Story />
+	return (
+		<div className="stories-container">
+			<Story />
+		</div>
+	)
 }

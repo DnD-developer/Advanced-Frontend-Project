@@ -6,7 +6,7 @@ import { SwitchLangButton } from "./SwitchLangButton"
 const meta: Meta<typeof SwitchLangButton> = {
 	title: "features/SwitchLangButton",
 	component: SwitchLangButton,
-	decorators: [CenterDecorator]
+	decorators: [InvertedBgDecorator, CenterDecorator]
 }
 
 export default meta
@@ -15,5 +15,5 @@ type TypeStory = StoryObj<typeof SwitchLangButton>
 
 export const Default: TypeStory = {
 	args: {},
-	decorators: [InvertedBgDecorator]
+	tags: ["background"]
 }

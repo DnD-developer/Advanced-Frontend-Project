@@ -2,50 +2,39 @@ import { CenterDecorator } from "@decorators/storybook/Center.decorator"
 import { ContainerDecorator } from "@decorators/storybook/Container.decorator"
 import { InvertedBgDecorator } from "@decorators/storybook/InvertedBg.decorator"
 import { type Meta, type StoryObj } from "@storybook/react"
-import { Input, InputTheme } from "../Input"
+import { Input, InputTheme } from "./Input"
 
 const meta: Meta<typeof Input> = {
-	title: "shared/Input/Outline",
+	title: "shared/Input",
 	component: Input,
-	decorators: [CenterDecorator]
+	argTypes: {
+		theme: {
+			options: [InputTheme.OUTLINE],
+			control: "radio"
+		}
+	},
+	decorators: [InvertedBgDecorator, CenterDecorator]
 }
 
 export default meta
 
 type TypeStory = StoryObj<typeof Input>
 
-export const Outline: TypeStory = {
+export const Default: TypeStory = {
 	args: {
 		value: "userName",
-		theme: InputTheme.OUTLINE
+		theme: InputTheme.OUTLINE,
+		inverted: false
 	},
 	decorators: [ContainerDecorator]
 }
 
-export const OutlineInverted: TypeStory = {
-	args: {
-		value: "userName",
-		theme: InputTheme.OUTLINE,
-		inverted: true
-	},
-	decorators: [InvertedBgDecorator]
-}
-
-export const OutlineWithLabel: TypeStory = {
-	args: {
-		value: "userName",
-		theme: InputTheme.OUTLINE,
-		label: "User Name"
-	},
-	decorators: [ContainerDecorator]
-}
-
-export const OutlineWithLabelInverted: TypeStory = {
+export const WithLabel: TypeStory = {
 	args: {
 		value: "userName",
 		theme: InputTheme.OUTLINE,
 		label: "User Name",
-		inverted: true
+		inverted: false
 	},
-	decorators: [InvertedBgDecorator]
+	decorators: [ContainerDecorator]
 }

@@ -1,6 +1,6 @@
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { Button, ButtonTheme } from "@ui/Button"
-import { memo } from "react"
+import { memo, useCallback } from "react"
 import { useTranslation } from "react-i18next"
 import styles from "./ErrorPage.module.scss"
 
@@ -11,9 +11,11 @@ export const ErrorPage = memo<ErrorPageProps>(props => {
 	const { classNames } = props
 	const { t } = useTranslation()
 
-	const onLoad = (): void => {
-		location.reload()
-	}
+	const onLoad = useCallback(() => {
+		if (__PROJECT__ !== "storybook") {
+			location.reload()
+		}
+	}, [])
 
 	return (
 		<div className={classNamesHelp(styles.ErrorPage, {}, [classNames])}>

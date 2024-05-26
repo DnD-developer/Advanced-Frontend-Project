@@ -6,7 +6,7 @@ import { SwitchThemeButton } from "./SwitchThemeButton"
 const meta: Meta<typeof SwitchThemeButton> = {
 	title: "features/SwitchThemeButton",
 	component: SwitchThemeButton,
-	decorators: [CenterDecorator]
+	decorators: [InvertedBgDecorator, CenterDecorator]
 }
 
 export default meta
@@ -15,5 +15,5 @@ type TypeStory = StoryObj<typeof SwitchThemeButton>
 
 export const Default: TypeStory = {
 	args: {},
-	decorators: [InvertedBgDecorator]
+	tags: ["background"]
 }

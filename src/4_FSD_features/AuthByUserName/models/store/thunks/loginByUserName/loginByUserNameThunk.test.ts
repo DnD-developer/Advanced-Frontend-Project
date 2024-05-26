@@ -1,7 +1,7 @@
 import { userActions, userDataType } from "@entities/User"
+import { beforeEach, describe, expect, test } from "@jest/globals"
 import { AsyncThunkMock } from "@mocks/AsyncThunk.mock"
 import { thunkConfigType } from "@store/storeTypes/thunks.type"
-import { expect } from "@storybook/test"
 import { loginFormActions } from "../../slices/loginForm.slice"
 import { loginByUserNameDataType } from "../../storeTypes/loginByUserNameData.type"
 import { loginByUserNameError } from "../../storeTypes/loginByUserNameError.type"
@@ -30,46 +30,46 @@ describe("loginByUserNameThunkTest", () => {
 		mockedPost = thunk.api.post
 	})
 
-	test("Getting AuthData Fulfilled", async () => {
+	test("getting authData fullFilled", async () => {
 		userValue = { id: "1", userName: "adminTest" }
 
 		mockedPost.mockReturnValue(Promise.resolve({ data: userValue }))
 
 		const result = await thunk.callThunk({ userName: "adminTest", password: "123" })
 
-		await expect(mockedPost).toHaveBeenCalled()
-		await expect(result.meta.requestStatus).toBe("fulfilled")
-		await expect(thunk.dispatch).toBeCalledTimes(4)
-		await expect(thunk.dispatch).toBeCalledWith(setAuthData(userValue))
-		await expect(thunk.dispatch).toBeCalledWith(resetForm())
-		await expect(result.payload).toEqual(userValue)
+		expect(mockedPost).toHaveBeenCalled()
+		expect(result.meta.requestStatus).toBe("fulfilled")
+		expect(thunk.dispatch).toBeCalledTimes(4)
+		expect(thunk.dispatch).toBeCalledWith(setAuthData(userValue))
+		expect(thunk.dispatch).toBeCalledWith(resetForm())
+		expect(result.payload).toEqual(userValue)
 	})
 
-	test("Getting AuthData Rejected noUser", async () => {
+	test("getting authData rejected noUser", async () => {
 		mockedPost.mockReturnValue(Promise.reject({ response: { status: 403 } }))
 
 		const result = await thunk.callThunk({ userName: "adminTest", password: "password" })
 
-		await expect(mockedPost).toHaveBeenCalled()
-		await expect(result.meta.requestStatus).toBe("rejected")
-		await expect(thunk.dispatch).toBeCalledTimes(2)
-		await expect(thunk.dispatch).not.toHaveBeenCalledWith(setAuthData(userValue))
-		await expect(thunk.dispatch).not.toBeCalledWith(resetForm())
-		await expect(result.payload).toEqual({ noUser: true })
+		expect(mockedPost).toBeCalled()
+		expect(result.meta.requestStatus).toBe("rejected")
+		expect(thunk.dispatch).toBeCalledTimes(2)
+		expect(thunk.dispatch).not.toBeCalledWith(setAuthData(userValue))
+		expect(thunk.dispatch).not.toBeCalledWith(resetForm())
+		expect(result.payload).toEqual({ noUser: true })
 	})
 
-	test("Getting AuthData Rejected Other Error", async () => {
+	test("getting authData rejected other error", async () => {
 		const errorText = "somethingError"
 
 		mockedPost.mockReturnValue(Promise.reject({ message: errorText }))
 
 		const result = await thunk.callThunk({ userName: "adminTest", password: "" })
 
-		await expect(mockedPost).toHaveBeenCalled()
-		await expect(result.meta.requestStatus).toBe("rejected")
-		await expect(thunk.dispatch).toBeCalledTimes(2)
-		await expect(thunk.dispatch).not.toHaveBeenCalledWith(setAuthData(userValue))
-		await expect(thunk.dispatch).not.toBeCalledWith(resetForm())
-		await expect(result.payload).toEqual({ otherError: errorText })
+		expect(mockedPost).toBeCalled()
+		expect(result.meta.requestStatus).toBe("rejected")
+		expect(thunk.dispatch).toBeCalledTimes(2)
+		expect(thunk.dispatch).not.toBeCalledWith(setAuthData(userValue))
+		expect(thunk.dispatch).not.toBeCalledWith(resetForm())
+		expect(result.payload).toEqual({ otherError: errorText })
 	})
 })

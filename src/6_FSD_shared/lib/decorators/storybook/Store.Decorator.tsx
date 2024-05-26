@@ -1,9 +1,9 @@
-import { DeepPartial } from "@app/types/global.types"
 import { StoreProvider } from "@providers/StoreProvider"
 import { ReducersMapObject } from "@reduxjs/toolkit"
 import { mainStateMap } from "@store/storeTypes/mainState.map"
 import { mainStateAsyncMap } from "@store/storeTypes/mainStateAsync.map"
 import { Decorator } from "@storybook/react"
+import { DeepPartial } from "../../../types/global.types"
 
 const asyncReducersDefault: DeepPartial<ReducersMapObject<mainStateAsyncMap>> = {}
 

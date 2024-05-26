@@ -60,10 +60,12 @@ const LoginForm = memo<LoginFormProps>(props => {
 		async (event: FormEvent<HTMLFormElement>) => {
 			event.preventDefault()
 
-			const result = await dispatch(loginByUserNameThunk({ userName, password }))
+			if (__PROJECT__ !== "storybook") {
+				const result = await dispatch(loginByUserNameThunk({ userName, password }))
 
-			if (result.meta.requestStatus === "fulfilled") {
-				onSuccess?.()
+				if (result.meta.requestStatus === "fulfilled") {
+					onSuccess?.()
+				}
 			}
 		},
 		[dispatch, onSuccess, password, userName]
@@ -88,12 +90,14 @@ const LoginForm = memo<LoginFormProps>(props => {
 				label={t("translation:userName")}
 				autoFocus
 				onChange={onChangeUserName}
+				readOnly={isLoading}
 				value={userName}
 			/>
 			<Input
 				classNamesLabel={styles.label}
 				label={t("translation:password")}
 				onChange={onChangePassword}
+				readOnly={isLoading}
 				value={password}
 			/>
 			<Button

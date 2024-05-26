@@ -27,6 +27,6 @@ export const loginByUserNameThunk = createAsyncThunk<
 		if (errorCustom?.response?.status === 403) {
 			return rejectWithValue({ noUser: true })
 		}
-		return rejectWithValue({ otherError: errorCustom?.message })
+		return rejectWithValue({ otherError: errorCustom.message })
 	}
 })

@@ -15,6 +15,7 @@ export default (env: buildEnv): Configuration => {
 		isDev: env.mode === "development",
 		isAnalyze: env.isAnalyze === "true",
 		port: env.port,
+		project: "frontend",
 		baseUrl: env.baseUrl || "http://localhost:8000"
 	}
 

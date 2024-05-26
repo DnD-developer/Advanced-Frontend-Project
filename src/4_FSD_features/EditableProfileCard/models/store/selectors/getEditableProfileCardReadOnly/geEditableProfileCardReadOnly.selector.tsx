@@ -4,5 +4,5 @@ import { getEditableProfileCardSelector } from "../getEditableProfileCard/getEdi
 
 export const getEditableProfileCardReadOnlySelector = createSelector(
 	getEditableProfileCardSelector,
-	(state?: editableProfileStateMap) => state?.readOnly
+	(state?: editableProfileStateMap) => state?.readOnly || false
 )

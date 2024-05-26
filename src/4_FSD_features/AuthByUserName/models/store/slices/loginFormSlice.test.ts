@@ -1,4 +1,5 @@
-import { DeepPartial } from "@app/types/global.types"
+import { DeepPartial } from "@customTypes/global.types"
+import { describe, expect, test } from "@jest/globals"
 import { loginFormStateMap } from "../storeTypes/loginFormState.map"
 import { loginByUserNameThunk } from "../thunks/loginByUserName/loginByUserName.thunk"
 import { loginFormActions, loginFormReducer } from "./loginForm.slice"

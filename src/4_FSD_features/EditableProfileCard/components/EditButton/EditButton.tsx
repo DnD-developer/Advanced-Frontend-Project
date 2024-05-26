@@ -6,7 +6,7 @@ import { memo, useCallback, useMemo } from "react"
 import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
 import { getEditableProfileCardErrorSelector } from "../../models/store/selectors/getEditableProfileCardError/getEditableProfileCardError.selector"
-import { getEditableProfileCardIsLoadingSelector } from "../../models/store/selectors/getEditableProfileCardIsLoading/getProfileIsLoading.selector"
+import { getEditableProfileCardIsLoadingSelector } from "../../models/store/selectors/getEditableProfileCardIsLoading/getEditableProfileCardIsLoading.selector"
 import { editableProfileActions } from "../../models/store/slices/editableProfileCard.slice"
 import styles from "./EditButton.module.scss"
 
