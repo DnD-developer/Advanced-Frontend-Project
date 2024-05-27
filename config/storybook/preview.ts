@@ -25,7 +25,8 @@ const preview: Preview = {
 		ThemeDecorator({
 			themes: {
 				Dark: THEMES.DARK,
-				Light: THEMES.LIGHT
+				Light: THEMES.LIGHT,
+				Green: THEMES.GREEN
 			},
 			defaultTheme: "Dark"
 		}),
