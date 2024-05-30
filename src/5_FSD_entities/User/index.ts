@@ -1,4 +1,5 @@
-export { userDataType } from "./models/store/storeTypes/userData.type"
+export { userDataType } from "./models/types/userData.type"
 export { userStateMap } from "./models/store/storeTypes/userState.map"
 export { getUserAuthDataSelector } from "./models/store/selectors/getUserAuthData/getUserAuthData.selector"
+export { useAuth } from "./models/hooks/useAuth.hook"
 export { userActions, userReducer } from "./models/store/slices/user.slice"

@@ -1,13 +1,9 @@
+import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin"
 import ESLintWebpackPlugin from "eslint-webpack-plugin"
 import HtmlWebpackPlugin from "html-webpack-plugin"
 import MiniCssExtractPlugin from "mini-css-extract-plugin"
 import StylelintWebpackPlugin from "stylelint-webpack-plugin"
-import {
-	DefinePlugin,
-	HotModuleReplacementPlugin,
-	ProgressPlugin,
-	type WebpackPluginInstance
-} from "webpack"
+import { DefinePlugin, ProgressPlugin, type WebpackPluginInstance } from "webpack"
 import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer"
 import { type buildOptions } from "./types/config"
 
@@ -37,9 +33,16 @@ export function pluginsWebpack({
 		new StylelintWebpackPlugin({
 			files: ["src/**/*.scss"],
 			fix: true
-		}),
-		new HotModuleReplacementPlugin()
+		})
 	]
+
+	if (isDev) {
+		plugins.push(
+			new ReactRefreshWebpackPlugin({
+				overlay: false
+			})
+		)
+	}
 
 	if (isAnalyze) {
 		plugins.push(
@@ -48,5 +51,6 @@ export function pluginsWebpack({
 			})
 		)
 	}
+
 	return plugins
 }

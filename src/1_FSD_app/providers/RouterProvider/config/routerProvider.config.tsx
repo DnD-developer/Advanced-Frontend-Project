@@ -6,10 +6,30 @@ import { ProfilePage } from "@pages/ProfilePage"
 import { type RouteProps } from "react-router"
 
 const findPath = (name: PagesNames) => routesPath.find(route => route.name === name)?.path
+const isRequiredAuth = (name: PagesNames) =>
+	routesPath.find(route => route.name === name)?.isRequireAuth
 
-export const routerProviderConfig: Record<PagesNames, RouteProps> = {
-	[PagesNames.MAIN]: { path: findPath(PagesNames.MAIN), element: <MainPage /> },
-	[PagesNames.ABOUT]: { path: findPath(PagesNames.ABOUT), element: <AboutPage /> },
-	[PagesNames.PROFILE]: { path: findPath(PagesNames.PROFILE), element: <ProfilePage /> },
-	[PagesNames.NOT_FOUND]: { path: findPath(PagesNames.NOT_FOUND), element: <NotFoundPage /> }
+type CustomRouteProps = { isRequiredAuth?: boolean } & RouteProps
+
+export const routerProviderConfig: Record<PagesNames, CustomRouteProps> = {
+	[PagesNames.MAIN]: {
+		path: findPath(PagesNames.MAIN),
+		element: <MainPage />,
+		isRequiredAuth: isRequiredAuth(PagesNames.MAIN)
+	},
+	[PagesNames.ABOUT]: {
+		path: findPath(PagesNames.ABOUT),
+		element: <AboutPage />,
+		isRequiredAuth: isRequiredAuth(PagesNames.ABOUT)
+	},
+	[PagesNames.PROFILE]: {
+		path: findPath(PagesNames.PROFILE),
+		element: <ProfilePage />,
+		isRequiredAuth: isRequiredAuth(PagesNames.PROFILE)
+	},
+	[PagesNames.NOT_FOUND]: {
+		path: findPath(PagesNames.NOT_FOUND),
+		element: <NotFoundPage />,
+		isRequiredAuth: isRequiredAuth(PagesNames.NOT_FOUND)
+	}
 }

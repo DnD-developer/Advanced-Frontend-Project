@@ -1,8 +1,8 @@
 import { Hello } from "@widgets/Hello"
-import { type FC } from "react"
+import { memo } from "react"
 import { useTranslation } from "react-i18next"
 
-const MainPage: FC = () => {
+const MainPage = memo(() => {
 	const { t } = useTranslation("mainPage")
 
 	return (
@@ -11,6 +11,6 @@ const MainPage: FC = () => {
 			<Hello>{t("mainPage:helloContent")}</Hello>
 		</div>
 	)
-}
+})
 
 export default MainPage

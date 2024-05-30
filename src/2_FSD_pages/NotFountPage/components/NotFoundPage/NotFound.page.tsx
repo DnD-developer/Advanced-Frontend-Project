@@ -1,12 +1,12 @@
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
-import { type FC } from "react"
+import { memo } from "react"
 import { useTranslation } from "react-i18next"
 import styles from "./NotFoundPage.module.scss"
 
 type NotFountPageProps = {
 	classNames?: string
 }
-export const NotFoundPage: FC<NotFountPageProps> = props => {
+export const NotFoundPage = memo<NotFountPageProps>(props => {
 	const { classNames } = props
 	const { t } = useTranslation("notFoundPage")
 
@@ -17,4 +17,4 @@ export const NotFoundPage: FC<NotFountPageProps> = props => {
 			</h1>
 		</div>
 	)
-}
+})

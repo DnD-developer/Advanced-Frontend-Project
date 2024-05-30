@@ -4,21 +4,21 @@ import { SwitchLangButton } from "@features/SwitchLang/components/SwitchLangButt
 import { SwitchThemeButton } from "@features/SwitchTheme"
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { Button, ButtonTheme } from "@ui/Button"
-import { type FC, type PropsWithChildren, useState } from "react"
+import { memo, type PropsWithChildren, useCallback, useState } from "react"
 import { NavLinks } from "../NavLinks/NavLinks"
 import styles from "./SideBar.module.scss"
 
 type SideBarProps = {
 	classNames?: string
 } & PropsWithChildren
-export const SideBar: FC<SideBarProps> = props => {
+export const SideBar = memo<SideBarProps>(props => {
 	const { classNames, children } = props
 
 	const [collapsed, setCollapsed] = useState(true)
 
-	const collapsedHandler = (): void => {
+	const collapsedHandler = useCallback(() => {
 		setCollapsed(prev => !prev)
-	}
+	}, [])
 
 	return (
 		<div
@@ -52,4 +52,4 @@ export const SideBar: FC<SideBarProps> = props => {
 			</div>
 		</div>
 	)
-}
+})

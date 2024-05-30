@@ -1,9 +1,9 @@
 import { EditableProfileCard } from "@features/EditableProfileCard"
-import { type FC } from "react"
+import { memo } from "react"
 import { useTranslation } from "react-i18next"
 import styles from "./ProfilePage.module.scss"
 
-const ProfilePage: FC = () => {
+const ProfilePage = memo(() => {
 	const { t } = useTranslation("profile")
 
 	return (
@@ -12,6 +12,6 @@ const ProfilePage: FC = () => {
 			<EditableProfileCard className={styles.profileCard} />
 		</div>
 	)
-}
+})
 
 export default ProfilePage

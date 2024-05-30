@@ -1,5 +1,5 @@
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
-import { FC, MouseEvent, PropsWithChildren, useCallback, useEffect, useState } from "react"
+import { memo, MouseEvent, PropsWithChildren, useCallback, useEffect, useState } from "react"
 import styles from "./Modal.module.scss"
 
 export type ModalProps = {
@@ -9,7 +9,7 @@ export type ModalProps = {
 	lazy?: boolean
 } & PropsWithChildren
 
-export const Modal: FC<ModalProps> = props => {
+export const Modal = memo<ModalProps>(props => {
 	const { classNames, children, isOpen, onClose, lazy = false } = props
 
 	const onCloseHandler = useCallback(() => {
@@ -59,4 +59,4 @@ export const Modal: FC<ModalProps> = props => {
 			</div>
 		</div>
 	)
-}
+})

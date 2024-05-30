@@ -1,5 +1,6 @@
 import { classNamesHelp, Mods } from "@helpers/classNamesHelp/classNamesHelp"
 import { memo, useMemo } from "react"
+import { TextAlign, TextSize, TextTheme } from "./Test.type"
 import styles from "./Text.module.scss"
 
 type TextProps = {
@@ -14,19 +15,6 @@ type TextProps = {
 	align?: TextAlign
 }
 
-export enum TextTheme {
-	PRIMARY = "primary",
-	ERROR = "error"
-}
-export enum TextSize {
-	NORMAL = "normal",
-	BIG = "big"
-}
-export enum TextAlign {
-	CENTER = "center",
-	LEFT = "left",
-	RIGHT = "right"
-}
 export const Text = memo<TextProps>(props => {
 	const {
 		classNames,

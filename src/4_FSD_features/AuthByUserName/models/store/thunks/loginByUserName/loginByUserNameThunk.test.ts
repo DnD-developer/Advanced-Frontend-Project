@@ -2,9 +2,9 @@ import { userActions, userDataType } from "@entities/User"
 import { beforeEach, describe, expect, test } from "@jest/globals"
 import { AsyncThunkMock } from "@mocks/AsyncThunk.mock"
 import { thunkConfigType } from "@store/storeTypes/thunks.type"
+import { loginByUserNameDataType } from "../../../types/loginByUserNameData.type"
+import { loginByUserNameError } from "../../../types/loginByUserNameError.type"
 import { loginFormActions } from "../../slices/loginForm.slice"
-import { loginByUserNameDataType } from "../../storeTypes/loginByUserNameData.type"
-import { loginByUserNameError } from "../../storeTypes/loginByUserNameError.type"
 import { loginByUserNameThunk } from "./loginByUserName.thunk"
 
 const { setAuthData } = userActions

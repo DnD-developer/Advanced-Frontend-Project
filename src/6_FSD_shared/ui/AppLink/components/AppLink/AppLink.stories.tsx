@@ -2,7 +2,8 @@ import preview from "@_storybook/preview"
 import { CenterDecorator } from "@decorators/storybook/Center.decorator"
 import { InvertedBgDecorator } from "@decorators/storybook/InvertedBg.decorator"
 import { type Meta, type StoryObj } from "@storybook/react"
-import { AppLink, AppLinkTheme } from "./AppLink"
+import { AppLink } from "./AppLink"
+import { AppLinkTheme } from "./AppLink.type"
 
 const meta: Meta<typeof AppLink> = {
 	title: "shared/AppLink",

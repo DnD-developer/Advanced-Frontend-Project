@@ -1,11 +1,11 @@
-import { getUserAuthDataSelector, userActions } from "@entities/User"
+import { useAuth } from "@entities/User"
 import { LoginModal } from "@features/AuthByUserName"
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { Button, ButtonTheme } from "@ui/Button"
 import { Portal } from "@ui/Portal"
 import { memo, type PropsWithChildren, useCallback, useState } from "react"
 import { useTranslation } from "react-i18next"
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 import styles from "./Header.module.scss"
 
 type HeaderProps = {
@@ -18,9 +18,8 @@ export const Header = memo<HeaderProps>(props => {
 
 	const [isAuthModal, setIsAuthModal] = useState(false)
 
-	const authData = useSelector(getUserAuthDataSelector)
 	const dispatch = useDispatch()
-	const { logOut } = userActions
+	const { logOut, authData } = useAuth()
 
 	const loginModalShow = useCallback(() => {
 		setIsAuthModal(true)

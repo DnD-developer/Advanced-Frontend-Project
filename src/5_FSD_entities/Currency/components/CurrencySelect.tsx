@@ -1,5 +1,5 @@
 import { OptionType, Select, SelectProps } from "@ui/Select"
-import { memo } from "react"
+import { memo, useCallback } from "react"
 import { useTranslation } from "react-i18next"
 import { Currency } from "../models/constants/Currency.constant"
 
@@ -24,9 +24,12 @@ export const CurrencySelect = memo<CurrencySelectProps>(props => {
 
 	const { t } = useTranslation()
 
-	const onChangeHandler = (value: string) => {
-		onChange?.(value as Currency)
-	}
+	const onChangeHandler = useCallback(
+		(value: string) => {
+			onChange?.(value as Currency)
+		},
+		[onChange]
+	)
 
 	return (
 		<Select

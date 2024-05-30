@@ -1,5 +1,5 @@
 import { PageDecorator } from "@decorators/storybook/Page.decorator"
-import { StoreDecorator } from "@decorators/storybook/Store.Decorator"
+import { StoreDecorator } from "@decorators/storybook/Store.decorator"
 import { Country } from "@entities/Country"
 import { Currency } from "@entities/Currency"
 import { editableProfileCardReducer, editableProfileStateMap } from "@features/EditableProfileCard"

@@ -9,6 +9,7 @@ import {
 	useRef
 } from "react"
 import styles from "./Input.module.scss"
+import { InputTheme } from "./Input.type"
 
 type InputCustomProps = {
 	classNames?: string
@@ -26,10 +27,6 @@ type InputCustomProps = {
 
 type InputProps = InputCustomProps &
 	Omit<InputHTMLAttributes<HTMLInputElement>, keyof InputCustomProps>
-
-export enum InputTheme {
-	OUTLINE = "outline"
-}
 
 export const Input = memo<InputProps>(props => {
 	const {

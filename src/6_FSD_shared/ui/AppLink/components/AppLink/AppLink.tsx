@@ -2,15 +2,12 @@ import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { memo } from "react"
 import { Link, type LinkProps } from "react-router-dom"
 import styles from "./AppLink.module.scss"
+import { AppLinkTheme } from "./AppLink.type"
 
 export type AppLinkProps = {
 	theme?: AppLinkTheme
 	inverted?: boolean
 } & LinkProps
-
-export enum AppLinkTheme {
-	PRIMARY = "primary"
-}
 
 export const AppLink = memo<AppLinkProps>(props => {
 	const {

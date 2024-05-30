@@ -1,19 +1,39 @@
 import { PageLoader } from "@widgets/PageLoader"
-import { type FC, Suspense } from "react"
+import { memo, ReactNode, Suspense, useCallback, useMemo } from "react"
 import { Route } from "react-router"
 import { Routes } from "react-router-dom"
 import { routerProviderConfig } from "../config/routerProvider.config"
+import { RequireAuth } from "./ui/RequireAuth"
 
-export const RouterProvider: FC = () => (
-	<Suspense fallback={<PageLoader />}>
-		<Routes>
-			{Object.values(routerProviderConfig).map(({ path, element }) => (
-				<Route
-					key={path}
-					path={path}
-					element={<div className="page-wrapper">{element}</div>}
+export const RouterProvider = memo(() => {
+	const pageWithWrapper = useCallback(
+		(element: ReactNode, isRequiredAuth: boolean | undefined) => (
+			<div className="page-wrapper">
+				<RequireAuth
+					isRequiredAuth={isRequiredAuth}
+					path="/"
+					element={element}
 				/>
-			))}
-		</Routes>
-	</Suspense>
-)
+			</div>
+		),
+		[]
+	)
+
+	const _fallback = useMemo(() => <PageLoader />, [])
+
+	return (
+		<Suspense fallback={_fallback}>
+			<Routes>
+				{Object.values(routerProviderConfig).map(({ path, element, isRequiredAuth }) => {
+					return (
+						<Route
+							key={path}
+							path={path}
+							element={pageWithWrapper(element, isRequiredAuth)}
+						/>
+					)
+				})}
+			</Routes>
+		</Suspense>
+	)
+})

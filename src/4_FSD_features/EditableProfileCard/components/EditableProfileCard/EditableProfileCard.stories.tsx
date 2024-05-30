@@ -1,5 +1,5 @@
 import { CenterDecorator } from "@decorators/storybook/Center.decorator"
-import { StoreDecorator } from "@decorators/storybook/Store.Decorator"
+import { StoreDecorator } from "@decorators/storybook/Store.decorator"
 import { Country } from "@entities/Country"
 import { Currency } from "@entities/Currency"
 import { ServerErrors, ValidateErrors } from "@entities/Profile"

@@ -23,8 +23,20 @@
 		"ecmaVersion": "latest",
 		"sourceType": "module"
 	},
-	"plugins": ["i18next", "react", "jest-dom", "@typescript-eslint", "react-hooks", "react-redux"],
+	"plugins": [
+		"i18next",
+		"react",
+		"jest-dom",
+		"@typescript-eslint",
+		"react-hooks",
+		"react-redux",
+		"react-refresh",
+		"@arthurgeron/react-usememo"
+	],
 	"rules": {
+		"@arthurgeron/react-usememo/require-usememo": [2],
+		"@arthurgeron/react-usememo/require-memo": "error",
+		"react-refresh/only-export-components": "error",
 		"react-hooks/exhaustive-deps": "error",
 		"@typescript-eslint/prefer-nullish-coalescing": "off",
 		"@typescript-eslint/strict-boolean-expressions": "off",
@@ -58,9 +70,16 @@
 	},
 	"overrides": [
 		{
-			"files": ["**/src/**/*.test.{ts,tsx}"],
+			"files": [
+				"**/src/**/*.test.{ts,tsx}",
+				"**/src/**/*.decorator.{ts,tsx}",
+				"**/src/**/*.stories.{ts,tsx}",
+				"**/*.mock.{ts,tsx}"
+			],
 			"rules": {
-				"i18next/no-literal-string": "off"
+				"i18next/no-literal-string": "off",
+				"@arthurgeron/react-usememo/require-usememo": "off",
+				"@arthurgeron/react-usememo/require-memo": "off"
 			}
 		}
 	]

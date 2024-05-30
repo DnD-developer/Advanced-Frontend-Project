@@ -14,12 +14,19 @@ type pagesInfo = {
 	name: PagesNames
 	path: string
 	inHeader: boolean
+	isRequireAuth: boolean
 	Icon?: FC<SVGProps<SVGSVGElement>>
 }
 
 export const routesPath: pagesInfo[] = [
-	{ name: PagesNames.MAIN, path: "/", inHeader: true, Icon: Home },
-	{ name: PagesNames.ABOUT, path: "/about", inHeader: true, Icon: About },
-	{ name: PagesNames.PROFILE, path: "/profile", inHeader: true, Icon: Profile },
-	{ name: PagesNames.NOT_FOUND, path: "*", inHeader: false }
+	{ name: PagesNames.MAIN, path: "/", inHeader: true, Icon: Home, isRequireAuth: false },
+	{ name: PagesNames.ABOUT, path: "/about", inHeader: true, Icon: About, isRequireAuth: false },
+	{
+		name: PagesNames.PROFILE,
+		path: "/profile",
+		inHeader: true,
+		Icon: Profile,
+		isRequireAuth: true
+	},
+	{ name: PagesNames.NOT_FOUND, path: "*", inHeader: false, isRequireAuth: false }
 ]

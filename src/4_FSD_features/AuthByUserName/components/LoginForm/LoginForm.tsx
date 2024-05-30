@@ -3,8 +3,7 @@ import { useAppDispatch } from "@hooks/useAppDispatch.hook"
 import { asyncReducersList, useAsyncReducer } from "@hooks/useAsyncReducer.hook"
 import { Button, ButtonTheme } from "@ui/Button"
 import { Input } from "@ui/Input"
-import { Text } from "@ui/Text"
-import { TextTheme } from "@ui/Text/components/Text/Text"
+import { Text, TextTheme } from "@ui/Text"
 import { FormEvent, memo, useCallback } from "react"
 import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
@@ -93,6 +92,7 @@ const LoginForm = memo<LoginFormProps>(props => {
 				readOnly={isLoading}
 				value={userName}
 			/>
+
 			<Input
 				classNamesLabel={styles.label}
 				label={t("translation:password")}

@@ -1,6 +1,6 @@
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { Button, ButtonTheme } from "@ui/Button"
-import { memo } from "react"
+import { memo, useCallback } from "react"
 import { useTranslation } from "react-i18next"
 import styles from "./SwitchLangButton.module.scss"
 
@@ -15,9 +15,9 @@ export const SwitchLangButton = memo<SwitchLangButtonProps>(props => {
 		i18n: { changeLanguage, language }
 	} = useTranslation()
 
-	const switchLanguageHandler = async (): Promise<void> => {
+	const switchLanguageHandler = useCallback(async () => {
 		await changeLanguage(language === "ru" ? "en" : "ru")
-	}
+	}, [changeLanguage, language])
 
 	return (
 		<Button

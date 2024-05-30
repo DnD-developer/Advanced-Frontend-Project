@@ -3,7 +3,7 @@ import { CurrencySelect } from "@entities/Currency"
 import { ProfileCard, profileDataType } from "@entities/Profile"
 import { useAppDispatch } from "@hooks/useAppDispatch.hook"
 import { asyncReducersList, useAsyncReducer } from "@hooks/useAsyncReducer.hook"
-import { memo, useCallback, useEffect } from "react"
+import { memo, useCallback, useEffect, useMemo } from "react"
 import { useSelector } from "react-redux"
 import { getEditableProfileCardErrorSelector } from "../../models/store/selectors/getEditableProfileCardError/getEditableProfileCardError.selector"
 import { getEditableProfileCardFormDataSelector } from "../../models/store/selectors/getEditableProfileCardFormData/getEditableProfileCardFormData.selector"
@@ -104,27 +104,39 @@ export const EditableProfileCard = memo<EditableProfileCardProps>(props => {
 		[dispatch, updateForm]
 	)
 
+	const editButton = useMemo(() => <EditButton />, [])
+	const saveButton = useMemo(() => <SaveButton />, [])
+	const cancelButton = useMemo(() => <CancelButton />, [])
+	const reloadButton = useMemo(() => <ReFetchButton />, [])
+	const selectCurrency = useMemo(
+		() => (
+			<CurrencySelect
+				onChange={onChangeCurrencyHandler}
+				disabled={readOnly}
+				value={formData?.currency}
+			/>
+		),
+		[formData?.currency, onChangeCurrencyHandler, readOnly]
+	)
+	const selectCountry = useMemo(
+		() => (
+			<CountrySelect
+				onChange={onChangeCountryHandler}
+				disabled={readOnly}
+				value={formData?.country}
+			/>
+		),
+		[formData?.country, onChangeCountryHandler, readOnly]
+	)
 	return (
 		<ProfileCard
 			classNames={className}
-			editButton={<EditButton />}
-			saveButton={<SaveButton />}
-			cancelButton={<CancelButton />}
-			reloadButton={<ReFetchButton />}
-			selectCurrency={
-				<CurrencySelect
-					onChange={onChangeCurrencyHandler}
-					disabled={readOnly}
-					value={formData?.currency}
-				/>
-			}
-			selectCountry={
-				<CountrySelect
-					onChange={onChangeCountryHandler}
-					disabled={readOnly}
-					value={formData?.country}
-				/>
-			}
+			editButton={editButton}
+			saveButton={saveButton}
+			cancelButton={cancelButton}
+			reloadButton={reloadButton}
+			selectCurrency={selectCurrency}
+			selectCountry={selectCountry}
 			isLoading={isLoading}
 			errors={errors}
 			readOnly={readOnly}

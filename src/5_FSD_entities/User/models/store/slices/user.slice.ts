@@ -1,9 +1,11 @@
 import { USER_TOKEN } from "@constants/localStorage.constant"
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import { userDataType } from "../storeTypes/userData.type"
+import { userDataType } from "../../types/userData.type"
 import { userStateMap } from "../storeTypes/userState.map"
 
-const initialState: userStateMap = {}
+const initialState: userStateMap = {
+	_initAuthData: false
+}
 
 const userSlice = createSlice({
 	name: "user",
@@ -19,6 +21,8 @@ const userSlice = createSlice({
 			if (userToken) {
 				state.authData = JSON.parse(userToken)
 			}
+
+			state._initAuthData = true
 		},
 		logOut: (state: userStateMap) => {
 			localStorage.removeItem(USER_TOKEN)

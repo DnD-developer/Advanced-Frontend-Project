@@ -1,9 +1,9 @@
 import { userActions, userDataType } from "@entities/User"
 import { createAsyncThunk } from "@reduxjs/toolkit"
 import { errorResponseType, thunkConfigType } from "@store/storeTypes/thunks.type"
+import { loginByUserNameDataType } from "../../../types/loginByUserNameData.type"
+import { loginByUserNameError } from "../../../types/loginByUserNameError.type"
 import { loginFormActions } from "../../slices/loginForm.slice"
-import { loginByUserNameDataType } from "../../storeTypes/loginByUserNameData.type"
-import { loginByUserNameError } from "../../storeTypes/loginByUserNameError.type"
 
 export const loginByUserNameThunk = createAsyncThunk<
 	userDataType,

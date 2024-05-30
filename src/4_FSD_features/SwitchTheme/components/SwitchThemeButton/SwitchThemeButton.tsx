@@ -1,4 +1,4 @@
-import SwitchThemeIcon from "@assets/icons/switch-theme-icon.svg"
+import { SwitchThemeIcon } from "@assets/index"
 import { Button, ButtonTheme } from "@ui/Button"
 import { memo } from "react"
 import { useTheme } from "../../hooks/useTheme"

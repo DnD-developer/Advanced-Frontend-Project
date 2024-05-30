@@ -1,6 +1,7 @@
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { ChangeEvent, memo, SelectHTMLAttributes, useCallback, useMemo } from "react"
 import styles from "./Select.module.scss"
+import { SelectTheme } from "./Select.type"
 
 type SelectCustomProps = {
 	classNames?: string
@@ -18,10 +19,6 @@ export type OptionType = {
 
 export type SelectProps = SelectCustomProps &
 	Omit<SelectHTMLAttributes<HTMLSelectElement>, keyof SelectCustomProps>
-
-export enum SelectTheme {
-	OUTLINE = "outline"
-}
 
 export const Select = memo<SelectProps>(props => {
 	const {

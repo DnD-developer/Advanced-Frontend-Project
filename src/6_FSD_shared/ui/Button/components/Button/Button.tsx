@@ -1,6 +1,7 @@
 import { classNamesHelp, Mods } from "@helpers/classNamesHelp/classNamesHelp"
 import { type ButtonHTMLAttributes, memo, useMemo } from "react"
 import styles from "./Button.module.scss"
+import { ButtonTheme } from "./Button.type"
 
 type ButtonProps = {
 	theme?: ButtonTheme
@@ -9,12 +10,6 @@ type ButtonProps = {
 	error?: boolean
 } & ButtonHTMLAttributes<HTMLButtonElement>
 
-export enum ButtonTheme {
-	CLEAR = "clear",
-	OUTLINE = "outline",
-	PRIMARY = "primary",
-	BACKGROUND = "background"
-}
 export const Button = memo<ButtonProps>(props => {
 	const {
 		theme = ButtonTheme.PRIMARY,

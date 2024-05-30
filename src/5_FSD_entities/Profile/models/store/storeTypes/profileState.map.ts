@@ -1,4 +1,4 @@
-import { profileDataType } from "./profileData.type"
+import { profileDataType } from "../../types/profileData.type"
 
 export type profileStateMap = {
 	data?: profileDataType

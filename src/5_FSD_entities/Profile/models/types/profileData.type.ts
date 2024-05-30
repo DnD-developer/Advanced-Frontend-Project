@@ -1,5 +1,5 @@
-import { Country } from "../../../../Country/models/constants/Country.constant"
-import { Currency } from "../../../../Currency"
+import { Country } from "../../../Country"
+import { Currency } from "../../../Currency"
 
 export type profileDataType = {
 	age?: number

@@ -1,5 +1,5 @@
-import { profileDataType } from "../../store/storeTypes/profileData.type"
 import { ValidateErrors } from "../../store/storeTypes/profileState.map"
+import { profileDataType } from "../../types/profileData.type"
 
 export const validateErrors = (profile?: profileDataType) => {
 	const errors: ValidateErrors[] = []

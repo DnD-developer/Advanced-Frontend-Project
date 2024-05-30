@@ -1,4 +1,4 @@
-import { StoreDecorator } from "@decorators/storybook/Store.Decorator"
+import { StoreDecorator } from "@decorators/storybook/Store.decorator"
 import { type Meta, type StoryObj } from "@storybook/react"
 import { Header } from "./Header"
 

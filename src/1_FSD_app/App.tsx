@@ -1,4 +1,4 @@
-import { userActions } from "@entities/User"
+import { useAuth } from "@entities/User"
 import { useTheme } from "@features/SwitchTheme"
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { useAppDispatch } from "@hooks/useAppDispatch.hook"
@@ -6,13 +6,13 @@ import { ErrorBoundaryProvider } from "@providers/ErrorBoundaryProvider"
 import { RouterProvider } from "@providers/RouterProvider"
 import { Header } from "@widgets/Header"
 import { SideBar } from "@widgets/SideBar"
-import { type FC, useEffect } from "react"
+import { memo, useEffect } from "react"
 
-const App: FC = () => {
+const App = memo(() => {
 	const { theme } = useTheme()
 
 	const dispatch = useAppDispatch()
-	const { initAuthData } = userActions
+	const { initAuthData, _isInitAuthData } = useAuth()
 
 	useEffect(() => {
 		dispatch(initAuthData())
@@ -24,11 +24,11 @@ const App: FC = () => {
 				<Header />
 				<div className="page-container">
 					<SideBar />
-					<RouterProvider />
+					{_isInitAuthData && <RouterProvider />}
 				</div>
 			</ErrorBoundaryProvider>
 		</div>
 	)
-}
+})
 
 export default App

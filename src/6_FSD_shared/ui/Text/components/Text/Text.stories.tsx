@@ -1,7 +1,8 @@
 import { CenterDecorator } from "@decorators/storybook/Center.decorator"
 import { InvertedBgDecorator } from "@decorators/storybook/InvertedBg.decorator"
 import { type Meta, type StoryObj } from "@storybook/react"
-import { Text, TextAlign, TextSize, TextTheme } from "./Text"
+import { TextAlign, TextSize, TextTheme } from "./Test.type"
+import { Text } from "./Text"
 
 const meta: Meta<typeof Text> = {
 	title: "shared/Text",

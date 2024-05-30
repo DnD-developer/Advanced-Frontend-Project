@@ -1,6 +1,7 @@
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { ImgHTMLAttributes, memo } from "react"
 import styles from "./Avatar.module.scss"
+import { AvatarSize, AvatarTheme } from "./Avatar.type"
 
 type AvatarCustomProps = {
 	className?: string
@@ -13,14 +14,6 @@ type AvatarCustomProps = {
 type AvatarProps = AvatarCustomProps &
 	Omit<ImgHTMLAttributes<HTMLImageElement>, keyof AvatarCustomProps>
 
-export enum AvatarSize {
-	SMALL = "small",
-	MIDDLE = "middle",
-	LARGE = "large"
-}
-export enum AvatarTheme {
-	CIRCLE = "circle"
-}
 export const Avatar = memo<AvatarProps>(props => {
 	const { className, size = AvatarSize.MIDDLE, alt, src, theme = AvatarTheme.CIRCLE } = props
 

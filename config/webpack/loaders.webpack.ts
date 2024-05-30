@@ -8,7 +8,7 @@ import { tsLoader } from "./webpackLoaders/tsLoader.webpack"
 
 export function loadersWebpack(options: buildOptions): RuleSetRule[] {
 	return [
-		babelLoader(),
+		babelLoader(options),
 		tsLoader(options),
 		sassLoader(options),
 		fileLoader(options),

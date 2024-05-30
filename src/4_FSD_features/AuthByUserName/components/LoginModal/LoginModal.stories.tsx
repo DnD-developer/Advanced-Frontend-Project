@@ -1,6 +1,6 @@
 import preview from "@_storybook/preview"
 import { CenterDecorator } from "@decorators/storybook/Center.decorator"
-import { StoreDecorator } from "@decorators/storybook/Store.Decorator"
+import { StoreDecorator } from "@decorators/storybook/Store.decorator"
 import { type Meta, type StoryObj } from "@storybook/react"
 import { loginFormReducer } from "../../models/store/slices/loginForm.slice"
 import { LoginModal } from "./LoginModal"
