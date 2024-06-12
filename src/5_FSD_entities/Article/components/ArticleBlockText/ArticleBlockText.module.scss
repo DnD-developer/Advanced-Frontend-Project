@@ -1,0 +1,19 @@
+.ArticleBlockText {
+	width: 100%;
+}
+
+.paragraph {
+	margin-top: 10px;
+
+	&:first-child {
+		margin-top: 0;
+	}
+}
+
+.title {
+	margin-bottom: 15px;
+}
+
+.paragraphs-list {
+	width: 100%;
+}

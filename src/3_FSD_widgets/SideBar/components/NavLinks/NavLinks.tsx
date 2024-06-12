@@ -1,4 +1,4 @@
-import { routesPath } from "@config/pagesPathsNames"
+import { routesPath } from "@config/routes/pagesPathsNames"
 import { useAuth } from "@entities/User"
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { HTMLAttributes, memo } from "react"

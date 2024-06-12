@@ -1,12 +1,12 @@
+import { DeepPartial } from "@customTypes/global.types"
 import { CenterDecorator } from "@decorators/storybook/Center.decorator"
 import { StoreDecorator } from "@decorators/storybook/Store.decorator"
 import { Country } from "@entities/Country"
 import { Currency } from "@entities/Currency"
 import { ServerErrors, ValidateErrors } from "@entities/Profile"
 import { type Meta, type StoryObj } from "@storybook/react"
-import { DeepPartial } from "../../../../6_FSD_shared/types/global.types"
-import { editableProfileCardReducer } from "../../models/store/slices/editableProfileCard.slice"
-import { editableProfileStateMap } from "../../models/store/storeTypes/editableProfileState.map"
+import { editableProfileCardReducer } from "../../store/slices/editableProfileCard.slice"
+import { editableProfileStateMap } from "../../store/storeTypes/editableProfileState.map"
 import { EditableProfileCard } from "./EditableProfileCard"
 
 const meta: Meta<typeof EditableProfileCard> = {
@@ -34,16 +34,13 @@ const editableProfileCardState: DeepPartial<editableProfileStateMap> = {
 	readOnly: true
 }
 
+const asyncReducer = { editableProfileCard: editableProfileCardReducer }
+
 type TypeStory = StoryObj<typeof EditableProfileCard>
 
 export const Default: TypeStory = {
 	args: {},
-	decorators: [
-		StoreDecorator(
-			{ editableProfileCard: editableProfileCardState },
-			{ editableProfileCard: editableProfileCardReducer }
-		)
-	]
+	decorators: [StoreDecorator({ editableProfileCard: editableProfileCardState }, asyncReducer)]
 }
 export const Loading: TypeStory = {
 	args: {},
@@ -55,7 +52,7 @@ export const Loading: TypeStory = {
 					isLoading: true
 				}
 			},
-			{ editableProfileCard: editableProfileCardReducer }
+			asyncReducer
 		)
 	]
 }
@@ -70,7 +67,7 @@ export const ErrorServer: TypeStory = {
 					errors: [ServerErrors.SERVER_NOT_FOUND]
 				}
 			},
-			{ editableProfileCard: editableProfileCardReducer }
+			asyncReducer
 		)
 	]
 }
@@ -100,7 +97,7 @@ export const ErrorValidate: TypeStory = {
 					errors: [...Object.values(ValidateErrors)]
 				}
 			},
-			{ editableProfileCard: editableProfileCardReducer }
+			asyncReducer
 		)
 	]
 }

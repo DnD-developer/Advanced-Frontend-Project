@@ -1,13 +1,14 @@
 import { classNamesHelp, Mods } from "@helpers/classNamesHelp/classNamesHelp"
 import { type ButtonHTMLAttributes, memo, useMemo } from "react"
+import { ButtonTheme } from "../../constants/Button.constant"
 import styles from "./Button.module.scss"
-import { ButtonTheme } from "./Button.type"
 
 type ButtonProps = {
 	theme?: ButtonTheme
 	inverted?: boolean
 	disabled?: boolean
 	error?: boolean
+	hover?: boolean
 } & ButtonHTMLAttributes<HTMLButtonElement>
 
 export const Button = memo<ButtonProps>(props => {
@@ -18,6 +19,7 @@ export const Button = memo<ButtonProps>(props => {
 		disabled = false,
 		inverted = false,
 		error = false,
+		hover = true,
 		...otherProps
 	} = props
 
@@ -25,9 +27,10 @@ export const Button = memo<ButtonProps>(props => {
 		return {
 			[styles.disabled]: disabled,
 			[styles.inverted]: inverted,
-			[styles.error]: error
+			[styles.error]: error,
+			[styles.hoverButton]: hover
 		}
-	}, [disabled, error, inverted])
+	}, [disabled, error, hover, inverted])
 
 	return (
 		<button

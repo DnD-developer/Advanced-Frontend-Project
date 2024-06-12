@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react"
+import { ButtonTheme } from "../../constants/Button.constant"
 import { Button } from "./Button"
-import { ButtonTheme } from "./Button.type"
 
 describe("Test Ui Button", () => {
 	test("Renders correctly", () => {

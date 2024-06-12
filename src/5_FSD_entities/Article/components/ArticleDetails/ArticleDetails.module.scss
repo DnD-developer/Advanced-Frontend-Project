@@ -1,0 +1,33 @@
+.ArticleDetails {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	padding: 25px;
+}
+
+.avatar {
+	margin: 0 auto;
+}
+
+.header {
+	width: 100%;
+	margin-top: 44px;
+}
+
+.header-margin {
+	margin-top: 10px;
+}
+
+.block-list {
+	margin-top: 23px;
+}
+
+.block {
+	margin-top: 30px;
+
+	&:first-child {
+		margin-top: 0;
+	}
+}

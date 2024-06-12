@@ -1,9 +1,9 @@
+import { fetchProfileDataThunk } from "@entities/Profile"
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { useAppDispatch } from "@hooks/useAppDispatch.hook"
 import { Button, ButtonTheme } from "@ui/Button"
 import { memo, useCallback } from "react"
 import { useTranslation } from "react-i18next"
-import { fetchProfileDataThunk } from "../../models/store/thunks/fetchProfileData/fetchProfileData.thunk"
 import styles from "./ReFetchButton.module.scss"
 
 type ReFetchButtonProps = {
@@ -12,7 +12,7 @@ type ReFetchButtonProps = {
 export const ReFetchButton = memo<ReFetchButtonProps>(props => {
 	const { classNames } = props
 
-	const { t } = useTranslation()
+	const { t } = useTranslation("profile")
 	const dispatch = useAppDispatch()
 
 	const onReFetchHandler = useCallback(() => {
@@ -26,7 +26,7 @@ export const ReFetchButton = memo<ReFetchButtonProps>(props => {
 			theme={ButtonTheme.OUTLINE}
 			error
 		>
-			{t("translation:reload")}
+			{t("profile:reload")}
 		</Button>
 	)
 })

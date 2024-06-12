@@ -8,8 +8,8 @@ import {
 	useMemo,
 	useRef
 } from "react"
+import { InputTheme } from "../../constants/Input.constant"
 import styles from "./Input.module.scss"
-import { InputTheme } from "./Input.type"
 
 type InputCustomProps = {
 	classNames?: string

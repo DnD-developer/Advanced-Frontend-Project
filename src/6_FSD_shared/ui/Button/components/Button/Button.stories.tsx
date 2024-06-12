@@ -2,8 +2,8 @@ import preview from "@_storybook/preview"
 import { CenterDecorator } from "@decorators/storybook/Center.decorator"
 import { InvertedBgDecorator } from "@decorators/storybook/InvertedBg.decorator"
 import { type Meta, type StoryObj } from "@storybook/react"
+import { ButtonTheme } from "../../constants/Button.constant"
 import { Button } from "./Button"
-import { ButtonTheme } from "./Button.type"
 
 const meta: Meta<typeof Button> = {
 	title: "shared/Button",

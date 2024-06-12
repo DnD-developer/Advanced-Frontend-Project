@@ -1,12 +1,13 @@
-import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
-import { memo } from "react"
+import { classNamesHelp, Mods } from "@helpers/classNamesHelp/classNamesHelp"
+import { memo, useMemo } from "react"
 import { Link, type LinkProps } from "react-router-dom"
+import { AppLinkTheme } from "../../constants/AppLink.constant"
 import styles from "./AppLink.module.scss"
-import { AppLinkTheme } from "./AppLink.type"
 
 export type AppLinkProps = {
 	theme?: AppLinkTheme
 	inverted?: boolean
+	hover?: boolean
 } & LinkProps
 
 export const AppLink = memo<AppLinkProps>(props => {
@@ -16,16 +17,18 @@ export const AppLink = memo<AppLinkProps>(props => {
 		theme = AppLinkTheme.PRIMARY,
 		children,
 		inverted = false,
+		hover = true,
 		...otherProps
 	} = props
+
+	const mods = useMemo<Mods>(() => {
+		return { [styles.inverted]: inverted, [styles.hoverLink]: hover }
+	}, [hover, inverted])
 
 	return (
 		<Link
 			to={to}
-			className={classNamesHelp(styles.AppLink, { [styles.inverted]: inverted }, [
-				className,
-				styles[theme]
-			])}
+			className={classNamesHelp(styles.AppLink, mods, [className, styles[theme]])}
 			{...otherProps}
 		>
 			{children}

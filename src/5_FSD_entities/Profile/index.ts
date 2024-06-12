@@ -1,8 +1,5 @@
 export { ProfileCard } from "./components/ProfileCard/ProfileCard"
-export { mappingErrors } from "./models/services/mappingErrors/mappingErrors"
-export { profileDataType } from "./models/types/profileData.type"
-export {
-	profileStateMap,
-	ServerErrors,
-	ValidateErrors
-} from "./models/store/storeTypes/profileState.map"
+export { mappingErrors } from "./lib/helpers/mappingErrors/mappingErrors"
+export { profileDataType } from "./types/profileData.type"
+export { fetchProfileDataThunk } from "./store/thunks/fetchProfileData.thunk"
+export { profileStateMap, ServerErrors, ValidateErrors } from "./store/storeTypes/profileState.map"

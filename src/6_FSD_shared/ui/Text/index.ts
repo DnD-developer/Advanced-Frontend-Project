@@ -1,2 +1,2 @@
 export { Text } from "./components/Text/Text"
-export { TextAlign, TextTheme, TextSize } from "./components/Text/Test.type"
+export { TextAlign, TextTheme, TextSize } from "./constants/Test.constant"

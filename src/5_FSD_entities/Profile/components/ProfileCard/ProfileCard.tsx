@@ -5,13 +5,13 @@ import { Loader } from "@ui/Loader"
 import { Text, TextAlign, TextSize, TextTheme } from "@ui/Text"
 import { memo, ReactNode, useMemo } from "react"
 import { useTranslation } from "react-i18next"
-import { mappingErrors } from "../../models/services/mappingErrors/mappingErrors"
+import { mappingErrors } from "../../lib/helpers/mappingErrors/mappingErrors"
 import {
 	profileStateMap,
 	ServerErrors,
 	ValidateErrors
-} from "../../models/store/storeTypes/profileState.map"
-import { profileDataType } from "../../models/types/profileData.type"
+} from "../../store/storeTypes/profileState.map"
+import { profileDataType } from "../../types/profileData.type"
 import styles from "./ProfileCard.module.scss"
 
 type ProfileCardCustomProps = {

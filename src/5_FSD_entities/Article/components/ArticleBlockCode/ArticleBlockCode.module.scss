@@ -1,0 +1,18 @@
+.ArticleBlockCode {
+	width: 100%;
+}
+
+.code {
+	position: relative;
+
+	padding: 20px 27px;
+	overflow: auto;
+
+	border: 1px solid var(--primary-color);
+
+	background-color: var(--code-bg);
+}
+
+.title {
+	margin-top: 15px;
+}

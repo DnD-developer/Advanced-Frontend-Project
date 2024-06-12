@@ -3,7 +3,7 @@ import { useAppDispatch } from "@hooks/useAppDispatch.hook"
 import { Button, ButtonTheme } from "@ui/Button"
 import { memo, useCallback } from "react"
 import { useTranslation } from "react-i18next"
-import { editableProfileActions } from "../../models/store/slices/editableProfileCard.slice"
+import { editableProfileActions } from "../../store/slices/editableProfileCard.slice"
 import styles from "./CancelButton.module.scss"
 
 type CancelButtonProps = {
@@ -11,7 +11,7 @@ type CancelButtonProps = {
 }
 export const CancelButton = memo<CancelButtonProps>(props => {
 	const { classNames } = props
-	const { t } = useTranslation()
+	const { t } = useTranslation("profile")
 
 	const { resetForm } = editableProfileActions
 	const dispatch = useAppDispatch()
@@ -27,7 +27,7 @@ export const CancelButton = memo<CancelButtonProps>(props => {
 			onClick={onResetFormHandler}
 			error={true}
 		>
-			{t("translation:cancel")}
+			{t("profile:cancel")}
 		</Button>
 	)
 })

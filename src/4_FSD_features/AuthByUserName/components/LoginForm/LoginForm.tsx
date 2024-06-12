@@ -7,12 +7,13 @@ import { Text, TextTheme } from "@ui/Text"
 import { FormEvent, memo, useCallback } from "react"
 import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
-import { getLoginFormErrorSelector } from "../../models/store/selectors/getLoginFormError/getLoginFormError.selector"
-import { getLoginFormIsLoadingSelector } from "../../models/store/selectors/getLoginFormIsLoading/getLoginFormIsLoading.selector"
-import { getLoginFormPasswordSelector } from "../../models/store/selectors/getLoginFormPassword/getLoginFormPassword.selector"
-import { getLoginFormUserNameSelector } from "../../models/store/selectors/getLoginFormUserName/getLoginFormUserName.selector"
-import { loginFormActions, loginFormReducer } from "../../models/store/slices/loginForm.slice"
-import { loginByUserNameThunk } from "../../models/store/thunks/loginByUserName/loginByUserName.thunk"
+import { getLoginFormErrorSelector } from "../../store/selectors/getLoginFormError/getLoginFormError.selector"
+import { getLoginFormIsLoadingSelector } from "../../store/selectors/getLoginFormIsLoading/getLoginFormIsLoading.selector"
+import { getLoginFormPasswordSelector } from "../../store/selectors/getLoginFormPassword/getLoginFormPassword.selector"
+import { getLoginFormUserNameSelector } from "../../store/selectors/getLoginFormUserName/getLoginFormUserName.selector"
+import { loginFormActions, loginFormReducer } from "../../store/slices/loginForm.slice"
+import { loginByUserNameThunk } from "../../store/thunks/loginByUserName/loginByUserName.thunk"
+
 import styles from "./LoginForm.module.scss"
 
 export type LoginFormProps = {
@@ -81,7 +82,7 @@ const LoginForm = memo<LoginFormProps>(props => {
 				<Text
 					theme={TextTheme.ERROR}
 					text={errorText}
-					classNames={styles.error}
+					className={styles.error}
 				/>
 			:	<></>}
 			<Input

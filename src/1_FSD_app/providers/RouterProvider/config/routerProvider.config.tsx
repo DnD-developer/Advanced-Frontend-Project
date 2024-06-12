@@ -1,5 +1,7 @@
-import { PagesNames, routesPath } from "@config/pagesPathsNames"
+import { PagesNames, routesPath } from "@config/routes/pagesPathsNames"
 import { AboutPage } from "@pages/AboutPage"
+import { ArticleDetailsPage } from "@pages/ArticleDetailsPage"
+import { ArticlesPage } from "@pages/ArticlesPage"
 import { MainPage } from "@pages/MainPage"
 import { NotFoundPage } from "@pages/NotFountPage"
 import { ProfilePage } from "@pages/ProfilePage"
@@ -26,6 +28,16 @@ export const routerProviderConfig: Record<PagesNames, CustomRouteProps> = {
 		path: findPath(PagesNames.PROFILE),
 		element: <ProfilePage />,
 		isRequiredAuth: isRequiredAuth(PagesNames.PROFILE)
+	},
+	[PagesNames.ARTICLES]: {
+		path: findPath(PagesNames.ARTICLES),
+		element: <ArticlesPage />,
+		isRequiredAuth: isRequiredAuth(PagesNames.ARTICLES)
+	},
+	[PagesNames.ARTICLE_DETAILS]: {
+		path: findPath(PagesNames.ARTICLE_DETAILS),
+		element: <ArticleDetailsPage />,
+		isRequiredAuth: isRequiredAuth(PagesNames.ARTICLE_DETAILS)
 	},
 	[PagesNames.NOT_FOUND]: {
 		path: findPath(PagesNames.NOT_FOUND),

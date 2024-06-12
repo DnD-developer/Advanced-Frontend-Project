@@ -1,7 +1,7 @@
 import { CenterDecorator } from "@decorators/storybook/Center.decorator"
 import { type Meta, type StoryObj } from "@storybook/react"
+import { SelectTheme } from "../../constants/Select.constant"
 import { Select } from "./Select"
-import { SelectTheme } from "./Select.type"
 
 const meta: Meta<typeof Select> = {
 	title: "shared/Select",

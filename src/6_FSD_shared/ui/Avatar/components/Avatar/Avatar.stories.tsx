@@ -1,7 +1,7 @@
 import { CenterDecorator } from "@decorators/storybook/Center.decorator"
 import { type Meta, type StoryObj } from "@storybook/react"
+import { AvatarSize, AvatarTheme } from "../../constants/Avatar.constant"
 import { Avatar } from "./Avatar"
-import { AvatarSize, AvatarTheme } from "./Avatar.type"
 
 const meta: Meta<typeof Avatar> = {
 	title: "shared/Avatar",

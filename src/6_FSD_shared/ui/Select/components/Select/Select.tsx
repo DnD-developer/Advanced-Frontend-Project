@@ -1,7 +1,7 @@
-import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
+import { classNamesHelp, Mods } from "@helpers/classNamesHelp/classNamesHelp"
 import { ChangeEvent, memo, SelectHTMLAttributes, useCallback, useMemo } from "react"
+import { SelectTheme } from "../../constants/Select.constant"
 import styles from "./Select.module.scss"
-import { SelectTheme } from "./Select.type"
 
 type SelectCustomProps = {
 	classNames?: string
@@ -52,10 +52,16 @@ export const Select = memo<SelectProps>(props => {
 		))
 	}, [options])
 
+	const mods: Mods = useMemo(() => {
+		return {
+			[styles.readonly]: disabled
+		}
+	}, [disabled])
+
 	const selectComponent = useMemo(() => {
 		return (
 			<select
-				className={classNamesHelp(styles.Select, {}, [classNames, styles[theme]])}
+				className={classNamesHelp(styles.Select, mods, [classNames, styles[theme]])}
 				disabled={disabled}
 				onChange={onChangeHandler}
 				value={value}
@@ -64,11 +70,11 @@ export const Select = memo<SelectProps>(props => {
 				{optionList}
 			</select>
 		)
-	}, [classNames, disabled, onChangeHandler, optionList, otherProps, theme, value])
+	}, [classNames, disabled, mods, onChangeHandler, optionList, otherProps, theme, value])
 
 	if (label) {
 		return (
-			<label className={classNamesHelp(styles.label, {}, [classNamesLabel])}>
+			<label className={classNamesHelp(styles.label, mods, [classNamesLabel])}>
 				{label}
 				{selectComponent}
 			</label>

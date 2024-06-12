@@ -17,6 +17,7 @@ export function configWebpack(options: buildOptions): Configuration {
 		resolve: resolversWebpack(options),
 		output: {
 			path: paths.build,
+			publicPath: "/",
 			filename: "[name].[contenthash].bundle.js",
 			clean: true
 		},

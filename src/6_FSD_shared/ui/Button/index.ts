@@ -1,2 +1,2 @@
 export { Button } from "./components/Button/Button"
-export { ButtonTheme } from "./components/Button/Button.type"
+export { ButtonTheme } from "./constants/Button.constant"

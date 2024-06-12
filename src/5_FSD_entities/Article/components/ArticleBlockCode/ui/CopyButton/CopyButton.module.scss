@@ -1,0 +1,15 @@
+.CopyButton {
+	display: flex;
+	position: absolute;
+	top: 18px;
+	right: 23px;
+	align-items: center;
+	justify-content: center;
+
+	color: var(--primary-color);
+}
+
+.copy-icon {
+	width: 25px;
+	height: 26px;
+}

@@ -1,10 +1,10 @@
 import { classNamesHelp, Mods } from "@helpers/classNamesHelp/classNamesHelp"
 import { memo, useMemo } from "react"
-import { TextAlign, TextSize, TextTheme } from "./Test.type"
+import { TextAlign, TextSize, TextTheme } from "../../constants/Test.constant"
 import styles from "./Text.module.scss"
 
 type TextProps = {
-	classNames?: string
+	className?: string
 	theme?: TextTheme
 	inverted?: boolean
 	text?: string
@@ -17,7 +17,7 @@ type TextProps = {
 
 export const Text = memo<TextProps>(props => {
 	const {
-		classNames,
+		className,
 		theme = TextTheme.PRIMARY,
 		inverted = false,
 		text,
@@ -32,10 +32,14 @@ export const Text = memo<TextProps>(props => {
 		return { [styles.inverted]: inverted }
 	}, [inverted])
 
+	const modsText = useMemo<Mods>(() => {
+		return { [styles.textMargin]: title ? true : false }
+	}, [title])
+
 	return (
 		<div
 			className={classNamesHelp(styles.TextWrapper, mods, [
-				classNames,
+				className,
 				styles[theme],
 				styles[size],
 				styles[align]
@@ -45,7 +49,7 @@ export const Text = memo<TextProps>(props => {
 				<p className={classNamesHelp(styles.title, {}, [classNameTitle])}>{title}</p>
 			:	null}
 			{text ?
-				<p className={classNamesHelp(styles.text, {}, [classNamesText])}>{text}</p>
+				<p className={classNamesHelp(styles.text, modsText, [classNamesText])}>{text}</p>
 			:	null}
 		</div>
 	)

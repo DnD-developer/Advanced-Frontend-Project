@@ -52,7 +52,15 @@
 				"mode": "jsx-only",
 				"makrupOnly": true,
 				"jsx-attributes": {
-					"exclude": ["data-testid", "className", "classNames", "style", "type"]
+					"exclude": [
+						"data-testid",
+						"className",
+						"classNames",
+						"style",
+						"type",
+						"height",
+						"width"
+					]
 				}
 			}
 		]

@@ -1,0 +1,17 @@
+.TextWithIcon {
+	display: flex;
+	align-items: center;
+}
+
+.icon {
+	width: 20px;
+	height: 20px;
+
+	margin-right: 7px;
+
+	color: var(--primary-color);
+}
+
+.text {
+	font-size: var(--f);
+}

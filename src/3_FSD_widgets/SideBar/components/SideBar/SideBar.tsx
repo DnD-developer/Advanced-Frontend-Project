@@ -32,6 +32,7 @@ export const SideBar = memo<SideBarProps>(props => {
 				data-testid="sidebar-collapsed-btn"
 				theme={ButtonTheme.BACKGROUND}
 				inverted={true}
+				hover={false}
 				className={styles.toggleButton}
 				onClick={collapsedHandler}
 			>
