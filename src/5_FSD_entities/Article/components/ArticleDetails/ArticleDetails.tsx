@@ -40,7 +40,9 @@ export const ArticleDetails = memo<ArticleDetailsProps>(props => {
 	const { t } = useTranslation("article")
 
 	useEffect(() => {
-		dispatch(fetchArticleDataByIdThunk(id.toString()))
+		if (__PROJECT__ !== "storybook") {
+			dispatch(fetchArticleDataByIdThunk(id.toString()))
+		}
 	}, [dispatch, id])
 
 	const isLoading = useSelector(getArticleIsLoadingSelector)
@@ -52,6 +54,7 @@ export const ArticleDetails = memo<ArticleDetailsProps>(props => {
 			case ArticleBlockTypeConstant.TEXT:
 				return (
 					<ArticleBlockText
+						key={block.id}
 						paragraphs={block.paragraphs}
 						title={block.title}
 						className={styles.block}
@@ -60,6 +63,7 @@ export const ArticleDetails = memo<ArticleDetailsProps>(props => {
 			case ArticleBlockTypeConstant.CODE:
 				return (
 					<ArticleBlockCode
+						key={block.id}
 						text={block.code}
 						title={block.title}
 						className={styles.block}
@@ -68,6 +72,7 @@ export const ArticleDetails = memo<ArticleDetailsProps>(props => {
 			case ArticleBlockTypeConstant.IMAGE:
 				return (
 					<ArticleBlockImage
+						key={block.id}
 						src={block.src}
 						title={block.title}
 						className={styles.block}

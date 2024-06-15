@@ -5,7 +5,6 @@ import { Country } from "@entities/Country"
 import { Currency } from "@entities/Currency"
 import { ServerErrors, ValidateErrors } from "@entities/Profile"
 import { type Meta, type StoryObj } from "@storybook/react"
-import { editableProfileCardReducer } from "../../store/slices/editableProfileCard.slice"
 import { editableProfileStateMap } from "../../store/storeTypes/editableProfileState.map"
 import { EditableProfileCard } from "./EditableProfileCard"
 
@@ -34,70 +33,59 @@ const editableProfileCardState: DeepPartial<editableProfileStateMap> = {
 	readOnly: true
 }
 
-const asyncReducer = { editableProfileCard: editableProfileCardReducer }
-
 type TypeStory = StoryObj<typeof EditableProfileCard>
 
 export const Default: TypeStory = {
 	args: {},
-	decorators: [StoreDecorator({ editableProfileCard: editableProfileCardState }, asyncReducer)]
+	decorators: [StoreDecorator({ editableProfileCard: editableProfileCardState })]
 }
 export const Loading: TypeStory = {
 	args: {},
 	decorators: [
-		StoreDecorator(
-			{
-				editableProfileCard: {
-					...editableProfileCardState,
-					isLoading: true
-				}
-			},
-			asyncReducer
-		)
+		StoreDecorator({
+			editableProfileCard: {
+				...editableProfileCardState,
+				isLoading: true
+			}
+		})
 	]
 }
 
 export const ErrorServer: TypeStory = {
 	args: {},
 	decorators: [
-		StoreDecorator(
-			{
-				editableProfileCard: {
-					...editableProfileCardState,
-					errors: [ServerErrors.SERVER_NOT_FOUND]
-				}
-			},
-			asyncReducer
-		)
+		StoreDecorator({
+			editableProfileCard: {
+				...editableProfileCardState,
+				errors: [ServerErrors.SERVER_NOT_FOUND]
+			}
+		})
 	]
 }
 export const ErrorValidate: TypeStory = {
 	args: {},
 	decorators: [
-		StoreDecorator(
-			{
-				editableProfileCard: {
-					data: {
-						avatar: "",
-						age: undefined,
-						userName: "",
-						firstName: "",
-						lastName: "",
-						city: ""
-					},
-					formData: {
-						avatar: "",
-						age: undefined,
-						userName: "",
-						firstName: "",
-						lastName: "",
-						city: ""
-					},
-					readOnly: false,
-					errors: [...Object.values(ValidateErrors)]
-				}
-			},
-			asyncReducer
-		)
+		StoreDecorator({
+			editableProfileCard: {
+				data: {
+					avatar: "",
+					age: undefined,
+					userName: "",
+					firstName: "",
+					lastName: "",
+					city: ""
+				},
+				formData: {
+					avatar: "",
+					age: undefined,
+					userName: "",
+					firstName: "",
+					lastName: "",
+					city: ""
+				},
+				readOnly: false,
+				errors: [...Object.values(ValidateErrors)]
+			}
+		})
 	]
 }

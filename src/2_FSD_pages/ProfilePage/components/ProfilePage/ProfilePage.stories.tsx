@@ -1,10 +1,10 @@
+import { DeepPartial } from "@customTypes/global.types"
 import { PageDecorator } from "@decorators/storybook/Page.decorator"
 import { StoreDecorator } from "@decorators/storybook/Store.decorator"
 import { Country } from "@entities/Country"
 import { Currency } from "@entities/Currency"
-import { editableProfileCardReducer, editableProfileStateMap } from "@features/EditableProfileCard"
+import { editableProfileStateMap } from "@features/EditableProfileCard"
 import { type Meta, type StoryObj } from "@storybook/react"
-import { DeepPartial } from "../../../../6_FSD_shared/types/global.types"
 import { ProfilePage } from "./ProfileAsync.page"
 
 const meta: Meta<typeof ProfilePage> = {
@@ -36,10 +36,5 @@ const editableProfileCardState: DeepPartial<editableProfileStateMap> = {
 
 export const Default: TypeStory = {
 	args: {},
-	decorators: [
-		StoreDecorator(
-			{ editableProfileCard: editableProfileCardState },
-			{ editableProfileCard: editableProfileCardReducer }
-		)
-	]
+	decorators: [StoreDecorator({ editableProfileCard: editableProfileCardState })]
 }

@@ -16,7 +16,7 @@ const ArticleDetailsPage = memo<ArticleDetailsPageProps>(props => {
 
 	let element: ReactNode
 
-	if (!id) {
+	if (!id && __PROJECT__ !== "storybook") {
 		element = (
 			<Text
 				title={t("article:articleNotFound")}
@@ -26,7 +26,7 @@ const ArticleDetailsPage = memo<ArticleDetailsPageProps>(props => {
 			/>
 		)
 	} else {
-		element = <ArticleDetails id={id} />
+		element = <ArticleDetails id={id || "1"} />
 	}
 
 	return <div className={classNamesHelp("", {}, [className])}>{element}</div>
