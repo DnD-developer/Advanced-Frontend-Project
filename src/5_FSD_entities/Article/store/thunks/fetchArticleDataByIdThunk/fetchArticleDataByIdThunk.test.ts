@@ -2,7 +2,7 @@ import { DeepPartial } from "@customTypes/global.types"
 import { beforeEach, describe, expect, test } from "@jest/globals"
 import { AsyncThunkMock } from "@mocks/AsyncThunk.mock"
 import { thunkConfigType } from "@store/storeTypes/thunks.type"
-import { articleDataType } from "../../../types/ArticleData.type"
+import { articleDataType } from "../../../types/articleData.type"
 import { articleDetailsStateMap } from "../../storeTypes/articleDetailsState.map"
 import { fetchArticleDataByIdThunk } from "./fetchArticleDataById.thunk"
 

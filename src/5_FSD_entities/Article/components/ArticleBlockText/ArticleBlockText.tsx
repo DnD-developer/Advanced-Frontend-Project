@@ -1,7 +1,7 @@
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { Text } from "@ui/Text"
 import { memo } from "react"
-import { articleBlockDataTextType } from "../../types/ArticleBlockDataType"
+import { articleBlockDataTextType } from "../../types/articleBlockData.type"
 import styles from "./ArticleBlockText.module.scss"
 
 type ArticleBlockTextProps = {

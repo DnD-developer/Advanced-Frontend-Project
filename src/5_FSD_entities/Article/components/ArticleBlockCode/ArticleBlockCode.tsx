@@ -1,7 +1,7 @@
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { Text, TextAlign } from "@ui/Text"
 import { memo } from "react"
-import { articleBlockDataCodeType } from "../../types/ArticleBlockDataType"
+import { articleBlockDataCodeType } from "../../types/articleBlockData.type"
 import styles from "./ArticleBlockCode.module.scss"
 import { CopyButton } from "./ui/CopyButton/CopyButton"
 

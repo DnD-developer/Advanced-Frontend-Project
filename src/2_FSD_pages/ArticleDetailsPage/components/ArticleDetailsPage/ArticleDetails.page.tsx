@@ -1,6 +1,7 @@
 import { ArticleDetails } from "@entities/Article"
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { Text, TextAlign, TextSize, TextTheme } from "@ui/Text"
+import { CommentList } from "@widgets/CommentList"
 import { memo, ReactNode } from "react"
 import { useTranslation } from "react-i18next"
 import { useParams } from "react-router"
@@ -26,7 +27,12 @@ const ArticleDetailsPage = memo<ArticleDetailsPageProps>(props => {
 			/>
 		)
 	} else {
-		element = <ArticleDetails id={id || "1"} />
+		element = (
+			<>
+				<ArticleDetails id={id || "1"} />
+				<CommentList articleId={id || "1"} />
+			</>
+		)
 	}
 
 	return <div className={classNamesHelp("", {}, [className])}>{element}</div>

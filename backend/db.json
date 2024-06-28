@@ -15,7 +15,8 @@
 		{
 			"id": "1",
 			"userName": "admin",
-			"password": "123"
+			"password": "123",
+			"avatar": "https://i.pinimg.com/originals/f0/f8/fe/f0f8fe0e76824fd544a9154b995fb01d.jpg"
 		}
 	],
 	"profile": {

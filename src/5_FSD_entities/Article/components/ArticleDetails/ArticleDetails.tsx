@@ -13,7 +13,7 @@ import { getArticleErrorSelector } from "../../store/selectors/getArticleError/g
 import { getArticleIsLoadingSelector } from "../../store/selectors/getArticleIsLoading/getArticleIsLoading.selector"
 import { articleReducer } from "../../store/slices/article.slice"
 import { fetchArticleDataByIdThunk } from "../../store/thunks/fetchArticleDataByIdThunk/fetchArticleDataById.thunk"
-import { articleBlockDataType } from "../../types/ArticleBlockDataType"
+import { articleBlockDataType } from "../../types/articleBlockData.type"
 import { ArticleBlockCode } from "../ArticleBlockCode/ArticleBlockCode"
 import { ArticleBlockImage } from "../ArticleBlockImage/ArticleBlockImage"
 import { ArticleBlockText } from "../ArticleBlockText/ArticleBlockText"

@@ -2,7 +2,7 @@ import { DeepPartial } from "@customTypes/global.types"
 import { StoreDecorator } from "@decorators/storybook/Store.decorator"
 import { mainStateMap } from "@store/storeTypes/mainState.map"
 import { type Meta, type StoryObj } from "@storybook/react"
-import { articleDataType } from "../../../types/ArticleData.type"
+import { articleDataType } from "../../../types/articleData.type"
 import { ArticleDetails } from "../ArticleDetails"
 import dataArticle from "./ArticleDetails.data.json"
 

@@ -1,5 +1,5 @@
 import { ArticleTypeConstant } from "../store/constants/Article.constant"
-import { articleBlockDataType } from "./ArticleBlockDataType"
+import { articleBlockDataType } from "./articleBlockData.type"
 
 export type articleDataType = {
 	id: string

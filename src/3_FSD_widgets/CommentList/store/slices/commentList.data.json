@@ -1,0 +1,25 @@
+{
+	"1": {
+		"id": "1",
+		"text": "some comment",
+		"user": {
+			"userName": "Lucifer"
+		}
+	},
+	"2": {
+		"id": "2",
+		"text": "some comment 2",
+		"user": {
+			"userName": "Lucifer",
+			"avatar": "https://i.pinimg.com/originals/f0/f8/fe/f0f8fe0e76824fd544a9154b995fb01d.jpg"
+		}
+	},
+	"3": {
+		"id": "3",
+		"text": "some comment 3",
+		"user": {
+			"userName": "Lucifer",
+			"avatar": "https://i.pinimg.com/originals/f0/f8/fe/f0f8fe0e76824fd544a9154b995fb01d.jpg"
+		}
+	}
+}

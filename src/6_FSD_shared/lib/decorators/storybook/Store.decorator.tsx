@@ -6,10 +6,12 @@ import { ReducersMapObject } from "@reduxjs/toolkit"
 import { mainStateMap } from "@store/storeTypes/mainState.map"
 import { mainStateAsyncMap } from "@store/storeTypes/mainStateAsync.map"
 import { Decorator } from "@storybook/react"
+import { commentListReducer } from "@widgets/CommentList/store/slices/commentList.slice"
 
 const asyncReducersDefault: DeepPartial<ReducersMapObject<mainStateAsyncMap>> = {
 	articleDetails: articleReducer,
-	editableProfileCard: editableProfileCardReducer
+	editableProfileCard: editableProfileCardReducer,
+	commentList: commentListReducer
 }
 
 export const StoreDecorator = (

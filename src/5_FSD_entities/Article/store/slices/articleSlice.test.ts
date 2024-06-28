@@ -1,6 +1,6 @@
 import { DeepPartial } from "@customTypes/global.types"
 import { describe, expect, test } from "@jest/globals"
-import { articleDataType } from "../../types/ArticleData.type"
+import { articleDataType } from "../../types/articleData.type"
 import { articleDetailsStateMap } from "../storeTypes/articleDetailsState.map"
 import { fetchArticleDataByIdThunk } from "../thunks/fetchArticleDataByIdThunk/fetchArticleDataById.thunk"
 import { articleReducer } from "./article.slice"
@@ -13,7 +13,7 @@ describe("articleSliceTest extraReducers fetchArticleDataByIdThunk", () => {
 	test("pending", () => {
 		const state: DeepPartial<articleDetailsStateMap> = {
 			isLoading: false,
-			error: "фвыаыва",
+			error: "error",
 			data: data
 		}
 
@@ -27,7 +27,7 @@ describe("articleSliceTest extraReducers fetchArticleDataByIdThunk", () => {
 	test("fulfilled", () => {
 		const state: DeepPartial<articleDetailsStateMap> = {
 			isLoading: true,
-			error: "фываыа",
+			error: "error",
 			data: data
 		}
 

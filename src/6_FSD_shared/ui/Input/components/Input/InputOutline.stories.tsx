@@ -14,7 +14,7 @@ const meta: Meta<typeof Input> = {
 			control: "radio"
 		}
 	},
-	decorators: [InvertedBgDecorator, CenterDecorator]
+	decorators: [ContainerDecorator, InvertedBgDecorator, CenterDecorator]
 }
 
 export default meta
@@ -26,8 +26,7 @@ export const Default: TypeStory = {
 		value: "userName",
 		theme: InputTheme.OUTLINE,
 		inverted: false
-	},
-	decorators: [ContainerDecorator]
+	}
 }
 
 export const WithLabel: TypeStory = {
@@ -36,6 +35,5 @@ export const WithLabel: TypeStory = {
 		theme: InputTheme.OUTLINE,
 		label: "User Name",
 		inverted: false
-	},
-	decorators: [ContainerDecorator]
+	}
 }
