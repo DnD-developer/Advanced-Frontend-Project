@@ -6,7 +6,7 @@ import { mainStateMap } from "@store/storeTypes/mainState.map"
 import { type Meta, type StoryObj } from "@storybook/react"
 import { ArticleDetailsPage } from "../ArticleDetailsAsync.page"
 import dataArticle from "./ArticleDetails.data.json"
-import commentsEntities from "./CommentList.data.json"
+import commentsEntities from "./comments.data.json"
 
 const meta: Meta<typeof ArticleDetailsPage> = {
 	title: "pages/ArticleDetailsPage",
@@ -18,7 +18,7 @@ export default meta
 
 const data: articleDataType = dataArticle as articleDataType
 
-const commentListState = {
+const commentsArticleDetailsState = {
 	entities: commentsEntities,
 	ids: ["1", "2", "3"],
 	error: undefined,
@@ -29,7 +29,7 @@ const store: DeepPartial<mainStateMap> = {
 	articleDetails: {
 		data: data
 	},
-	commentList: commentListState
+	commentsArticleDetails: commentsArticleDetailsState
 }
 
 type TypeStory = StoryObj<typeof ArticleDetailsPage>

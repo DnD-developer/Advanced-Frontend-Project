@@ -1,17 +1,18 @@
 .SideBar {
 	position: relative;
-	width: var(--side-bar-width);
+	width: 100%;
+	max-width: var(--side-bar-width);
 	height: calc(100vh - var(--header-height));
 
 	padding-top: 20px;
 
-	transition: width 0.3s;
+	transition: all 0.3s;
 
 	background-color: var(--inverted-bg-color);
 }
 
 .collapsed {
-	width: var(--side-bar-width-collapsed);
+	max-width: var(--side-bar-width-collapsed);
 }
 
 .toggle-button {

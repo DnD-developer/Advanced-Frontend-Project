@@ -1,0 +1,12 @@
+.CommentList {
+	width: 100%;
+	padding: 25px;
+}
+
+.comment {
+	margin-top: 20px;
+
+	&:first-child {
+		margin-top: 0;
+	}
+}

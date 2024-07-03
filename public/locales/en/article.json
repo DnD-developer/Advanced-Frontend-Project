@@ -1,7 +1,6 @@
 {
 	"articleNotFound": "Article not Found",
 	"errorWithRequestArticleDetails": "Error With Request Article Details",
-	"errorWithRequestComments": "Error With Request Comments",
 	"listOfComments": "List of Comments",
 	"pageTitle": "Articles List",
 	"subtitle": "Subtitle",

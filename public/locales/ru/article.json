@@ -1,7 +1,6 @@
 {
 	"articleNotFound": "Статья не найдена",
 	"errorWithRequestArticleDetails": "Ошибка при загрузке статьи",
-	"errorWithRequestComments": "Ошибка при загрузке комментариев",
 	"listOfComments": "Список Комментариев",
 	"pageTitle": "Список статей",
 	"subtitle": "Подзаголовок",

@@ -24,23 +24,27 @@ export const CommentCard = memo<CommentCardProps>(props => {
 
 	const faikAvatar = FAKE_AVATAR
 
-	return (
-		<div className={classNamesHelp(styles.CommentCard, {}, [className])}>
-			<div className={styles.header}>
-				<Avatar
-					src={comment?.user?.avatar || faikAvatar}
-					size={AvatarSize.SMALL}
-					alt={t("avatar")}
-				/>
+	if (comment) {
+		return (
+			<div className={classNamesHelp(styles.CommentCard, {}, [className])}>
+				<div className={styles.header}>
+					<Avatar
+						src={comment.user?.avatar || faikAvatar}
+						size={AvatarSize.SMALL}
+						alt={t("avatar")}
+					/>
+					<Text
+						title={comment.user.userName}
+						className={styles.title}
+					/>
+				</div>
 				<Text
-					title={comment?.user?.userName}
-					className={styles.title}
+					text={comment.text}
+					className={styles.text}
 				/>
 			</div>
-			<Text
-				text={comment?.text}
-				className={styles.text}
-			/>
-		</div>
-	)
+		)
+	}
+
+	return null
 })

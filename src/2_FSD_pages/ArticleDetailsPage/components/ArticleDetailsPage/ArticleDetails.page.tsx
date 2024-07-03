@@ -1,16 +1,17 @@
-import { ArticleDetails } from "@entities/Article"
+import { articleDataType, ArticleDetails } from "@entities/Article"
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { Text, TextAlign, TextSize, TextTheme } from "@ui/Text"
-import { CommentList } from "@widgets/CommentList"
+import { CommentsArticleDetails } from "@widgets/CommentsArticleDetails"
 import { memo, ReactNode } from "react"
 import { useTranslation } from "react-i18next"
 import { useParams } from "react-router"
 
 type ArticleDetailsPageProps = {
 	className?: string
+	testId?: articleDataType["id"]
 }
 const ArticleDetailsPage = memo<ArticleDetailsPageProps>(props => {
-	const { className } = props
+	const { className, testId = "1" } = props
 
 	const { t } = useTranslation("article")
 	const { id } = useParams<{ id: string }>()
@@ -26,13 +27,15 @@ const ArticleDetailsPage = memo<ArticleDetailsPageProps>(props => {
 				size={TextSize.BIG}
 			/>
 		)
-	} else {
+	} else if (id || testId) {
 		element = (
 			<>
-				<ArticleDetails id={id || "1"} />
-				<CommentList articleId={id || "1"} />
+				<ArticleDetails id={id || testId} />
+				<CommentsArticleDetails articleId={id || testId} />
 			</>
 		)
+	} else {
+		element = <></>
 	}
 
 	return <div className={classNamesHelp("", {}, [className])}>{element}</div>

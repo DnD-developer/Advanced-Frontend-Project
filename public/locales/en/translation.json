@@ -4,6 +4,7 @@
 	"decrement": "decrement",
 	"errorTextNoUser": "Unknown login or password",
 	"errorTextOtherError": "Error with login",
+	"errorWithRequestComments": "Error With Request Comments",
 	"increment": "increment",
 	"lang": "EN",
 	"loading": "Loading",

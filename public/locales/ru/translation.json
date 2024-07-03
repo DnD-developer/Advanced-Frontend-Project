@@ -4,6 +4,7 @@
 	"decrement": "Уменьшить",
 	"errorTextNoUser": "Неизвестный логин или пароль",
 	"errorTextOtherError": "Ошибка при авторизации",
+	"errorWithRequestComments": "Ошибка при загрузке комментариев",
 	"increment": "Увеличить",
 	"lang": "RU",
 	"loading": "Загрузка",
