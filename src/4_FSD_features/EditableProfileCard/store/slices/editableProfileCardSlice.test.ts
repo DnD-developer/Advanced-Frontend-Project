@@ -81,7 +81,7 @@ describe("editableProfileCard extraReducer fetchProfileDataThunk", () => {
 
 		const resultState = editableProfileCardReducer(
 			state as editableProfileStateMap,
-			fetchProfileDataThunk.pending("", undefined)
+			fetchProfileDataThunk.pending("", "1")
 		)
 
 		expect(resultState).toEqual({
@@ -95,6 +95,7 @@ describe("editableProfileCard extraReducer fetchProfileDataThunk", () => {
 			isLoading: true,
 			errors: [ServerErrors.SERVER_NOT_FOUND],
 			data: {
+				id: "1",
 				userName: "123"
 			},
 			formData: {
@@ -104,13 +105,14 @@ describe("editableProfileCard extraReducer fetchProfileDataThunk", () => {
 
 		const resultState = editableProfileCardReducer(
 			state as editableProfileStateMap,
-			fetchProfileDataThunk.fulfilled({ userName: "Lucifer" }, "", undefined)
+			fetchProfileDataThunk.fulfilled({ id: "1", userName: "Lucifer" }, "", "1")
 		)
 
 		expect(resultState).toEqual({
 			isLoading: false,
 			errors: undefined,
 			data: {
+				id: "1",
 				userName: "Lucifer"
 			},
 			formData: {
@@ -127,7 +129,7 @@ describe("editableProfileCard extraReducer fetchProfileDataThunk", () => {
 
 		const resultState = editableProfileCardReducer(
 			state as editableProfileStateMap,
-			fetchProfileDataThunk.rejected(null, "", undefined, [ServerErrors.SERVER_NOT_FOUND])
+			fetchProfileDataThunk.rejected(null, "", "1", [ServerErrors.SERVER_NOT_FOUND])
 		)
 
 		expect(resultState).toEqual({
@@ -147,7 +149,7 @@ describe("editableProfileCard extraReducer postProfileDataThunk", () => {
 
 		const resultState = editableProfileCardReducer(
 			state as editableProfileStateMap,
-			postProfileDataThunk.pending("", undefined)
+			postProfileDataThunk.pending("", "1")
 		)
 
 		expect(resultState).toEqual({
@@ -163,16 +165,17 @@ describe("editableProfileCard extraReducer postProfileDataThunk", () => {
 			errors: [ServerErrors.SERVER_NOT_FOUND],
 			readOnly: false,
 			data: {
-				userName: "123"
+				id: "1",
+				userName: "Lucifer"
 			},
 			formData: {
-				userName: "123"
+				userName: "Lucifer"
 			}
 		}
 
 		const resultState = editableProfileCardReducer(
 			state as editableProfileStateMap,
-			postProfileDataThunk.fulfilled({ userName: "Lucifer" }, "", undefined)
+			postProfileDataThunk.fulfilled({ id: "1", userName: "Lucifer" }, "", "1")
 		)
 
 		expect(resultState).toEqual({
@@ -180,6 +183,7 @@ describe("editableProfileCard extraReducer postProfileDataThunk", () => {
 			errors: undefined,
 			readOnly: true,
 			data: {
+				id: "1",
 				userName: "Lucifer"
 			},
 			formData: {
@@ -197,7 +201,7 @@ describe("editableProfileCard extraReducer postProfileDataThunk", () => {
 
 		const resultState = editableProfileCardReducer(
 			state as editableProfileStateMap,
-			postProfileDataThunk.rejected(null, "", undefined, [ServerErrors.SERVER_NOT_FOUND])
+			postProfileDataThunk.rejected(null, "", "1", [ServerErrors.SERVER_NOT_FOUND])
 		)
 
 		expect(resultState).toEqual({
@@ -216,7 +220,7 @@ describe("editableProfileCard extraReducer postProfileDataThunk", () => {
 
 		const resultState = editableProfileCardReducer(
 			state as editableProfileStateMap,
-			postProfileDataThunk.rejected(null, "", undefined, [ValidateErrors.FIRST_NAME])
+			postProfileDataThunk.rejected(null, "", "1", [ValidateErrors.FIRST_NAME])
 		)
 
 		expect(resultState).toEqual({

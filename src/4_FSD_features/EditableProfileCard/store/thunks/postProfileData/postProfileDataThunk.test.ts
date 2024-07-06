@@ -1,14 +1,36 @@
 import { Country } from "@entities/Country"
 import { Currency } from "@entities/Currency"
-import { profileDataType, profileStateMap, ServerErrors, ValidateErrors } from "@entities/Profile"
+import {
+	profileCardDatatype,
+	profileDataType,
+	profileStateMap,
+	ServerErrors,
+	ValidateErrors
+} from "@entities/Profile"
 import { describe, expect, test } from "@jest/globals"
 import { AsyncThunkMock } from "@mocks/AsyncThunk.mock"
 import { thunkConfigType } from "@store/storeTypes/thunks.type"
 import { postProfileDataThunk } from "./postProfileData.thunk"
 
-let thunk: AsyncThunkMock<profileDataType, undefined, thunkConfigType<profileStateMap["errors"]>>
+let thunk: AsyncThunkMock<
+	profileDataType,
+	profileDataType["id"],
+	thunkConfigType<profileStateMap["errors"]>
+>
+
+const profileCardDataValue: profileCardDatatype = {
+	avatar: "https://i.pinimg.com/originals/0d/cb/1f/0dcb1f45db2d5a624e5da74b74f3ddb9.png",
+	firstName: "Lucifer",
+	lastName: "Morningstar",
+	age: 25,
+	currency: Currency.EUR,
+	country: Country.Belarus,
+	city: "Fryazino",
+	userName: "Lucifer"
+}
 
 const profileDataValue: profileDataType = {
+	id: "1",
 	avatar: "https://i.pinimg.com/originals/0d/cb/1f/0dcb1f45db2d5a624e5da74b74f3ddb9.png",
 	firstName: "Lucifer",
 	lastName: "Morningstar",
@@ -21,21 +43,21 @@ const profileDataValue: profileDataType = {
 
 let mockedPut: (typeof AsyncThunkMock<
 	profileDataType,
-	undefined,
+	profileDataType["id"],
 	thunkConfigType<profileStateMap["errors"]>
 >)["prototype"]["api"]["put"]
 
 describe("postProfileDataThunkTest", () => {
 	test("getting updateDate fulfilled", async () => {
 		thunk = new AsyncThunkMock(postProfileDataThunk, {
-			editableProfileCard: { formData: profileDataValue }
+			editableProfileCard: { formData: profileCardDataValue }
 		})
 
 		mockedPut = thunk.api.put
 
 		mockedPut.mockReturnValue(Promise.resolve({ data: profileDataValue }))
 
-		const result = await thunk.callThunk(undefined)
+		const result = await thunk.callThunk("1")
 
 		expect(mockedPut).toBeCalled()
 		expect(result.meta.requestStatus).toBe("fulfilled")
@@ -44,14 +66,14 @@ describe("postProfileDataThunkTest", () => {
 
 	test("getting updateDate rejected error server", async () => {
 		thunk = new AsyncThunkMock(postProfileDataThunk, {
-			editableProfileCard: { formData: profileDataValue }
+			editableProfileCard: { formData: profileCardDataValue }
 		})
 
 		mockedPut = thunk.api.put
 
 		mockedPut.mockReturnValue(Promise.reject({ response: { status: 403 } }))
 
-		const result = await thunk.callThunk(undefined)
+		const result = await thunk.callThunk("1")
 
 		expect(mockedPut).toBeCalled()
 		expect(result.meta.requestStatus).toBe("rejected")
@@ -60,12 +82,12 @@ describe("postProfileDataThunkTest", () => {
 
 	test("getting updateDate rejected error validate", async () => {
 		thunk = new AsyncThunkMock(postProfileDataThunk, {
-			editableProfileCard: { formData: { ...profileDataValue, firstName: "" } }
+			editableProfileCard: { formData: { ...profileCardDataValue, firstName: "" } }
 		})
 
 		mockedPut = thunk.api.put
 
-		const result = await thunk.callThunk(undefined)
+		const result = await thunk.callThunk("1")
 
 		expect(mockedPut).not.toBeCalled()
 		expect(result.meta.requestStatus).toBe("rejected")

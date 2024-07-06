@@ -5,12 +5,22 @@ import { Country } from "@entities/Country"
 import { Currency } from "@entities/Currency"
 import { ServerErrors, ValidateErrors } from "@entities/Profile"
 import { type Meta, type StoryObj } from "@storybook/react"
+import { ComponentProps } from "react"
 import { editableProfileStateMap } from "../../store/storeTypes/editableProfileState.map"
 import { EditableProfileCard } from "./EditableProfileCard"
 
-const meta: Meta<typeof EditableProfileCard> = {
+type EditableProfileCardCustomProps = ComponentProps<typeof EditableProfileCard> & {
+	login: boolean
+}
+
+const meta: Meta<EditableProfileCardCustomProps> = {
 	title: "features/EditableProfileCard",
 	component: EditableProfileCard,
+	parameters: {
+		controls: {
+			exclude: ["id"]
+		}
+	},
 	decorators: [CenterDecorator]
 }
 
@@ -29,20 +39,35 @@ const dataTest = {
 
 const editableProfileCardState: DeepPartial<editableProfileStateMap> = {
 	formData: dataTest,
-	data: dataTest,
+	data: { id: "1", ...dataTest },
 	readOnly: true
 }
 
-type TypeStory = StoryObj<typeof EditableProfileCard>
+const state = {
+	user: { authData: { id: "1" } },
+	editableProfileCard: editableProfileCardState
+}
+
+type TypeStory = StoryObj<EditableProfileCardCustomProps>
 
 export const Default: TypeStory = {
-	args: {},
-	decorators: [StoreDecorator({ editableProfileCard: editableProfileCardState })]
+	render: ({ login }) => {
+		return <EditableProfileCard id={login ? "1" : "2"} />
+	},
+	args: {
+		login: true
+	},
+	decorators: [StoreDecorator(state)]
 }
+
 export const Loading: TypeStory = {
-	args: {},
+	render: ({ login }) => {
+		return <EditableProfileCard id={login ? "1" : "2"} />
+	},
+	args: { login: true },
 	decorators: [
 		StoreDecorator({
+			...state,
 			editableProfileCard: {
 				...editableProfileCardState,
 				isLoading: true
@@ -52,9 +77,13 @@ export const Loading: TypeStory = {
 }
 
 export const ErrorServer: TypeStory = {
-	args: {},
+	render: ({ login }) => {
+		return <EditableProfileCard id={login ? "1" : "2"} />
+	},
+	args: { login: true },
 	decorators: [
 		StoreDecorator({
+			...state,
 			editableProfileCard: {
 				...editableProfileCardState,
 				errors: [ServerErrors.SERVER_NOT_FOUND]
@@ -63,11 +92,15 @@ export const ErrorServer: TypeStory = {
 	]
 }
 export const ErrorValidate: TypeStory = {
-	args: {},
+	args: {
+		id: "1"
+	},
 	decorators: [
 		StoreDecorator({
+			...state,
 			editableProfileCard: {
 				data: {
+					id: "1",
 					avatar: "",
 					age: undefined,
 					userName: "",

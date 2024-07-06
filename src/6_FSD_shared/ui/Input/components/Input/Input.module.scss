@@ -40,6 +40,23 @@
 	color: var(--red);
 }
 
+.clear {
+	border: none;
+
+	color: var(--primary-color);
+	caret-color: var(--primary-color);
+}
+
+.clear.error {
+	color: var(--red);
+	caret-color: var(--red-dark);
+}
+
+.clear.inverted {
+	color: var(--inverted-color);
+	caret-color: var(--inverted-color);
+}
+
 .outline {
 	border: 2px solid var(--primary-color);
 

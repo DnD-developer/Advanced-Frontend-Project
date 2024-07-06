@@ -1,3 +1,4 @@
+import { profileDataType } from "@entities/Profile"
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { useAppDispatch } from "@hooks/useAppDispatch.hook"
 import { Button, ButtonTheme } from "@ui/Button"
@@ -8,16 +9,17 @@ import styles from "./SaveButton.module.scss"
 
 type SaveButtonProps = {
 	classNames?: string
+	id: profileDataType["id"]
 }
 export const SaveButton = memo<SaveButtonProps>(props => {
-	const { classNames } = props
+	const { classNames, id } = props
 	const { t } = useTranslation("profile")
 
 	const dispatch = useAppDispatch()
 
 	const onSaveHandler = useCallback(() => {
-		dispatch(postProfileDataThunk())
-	}, [dispatch])
+		dispatch(postProfileDataThunk(id))
+	}, [dispatch, id])
 
 	return (
 		<Button

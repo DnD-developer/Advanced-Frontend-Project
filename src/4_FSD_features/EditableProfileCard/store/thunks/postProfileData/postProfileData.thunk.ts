@@ -6,9 +6,9 @@ import { getEditableProfileCardFormDataSelector } from "../../selectors/getEdita
 
 export const postProfileDataThunk = createAsyncThunk<
 	profileDataType,
-	undefined,
+	profileDataType["id"],
 	thunkConfigType<profileStateMap["errors"]>
->("profile/postProfileData", async (_, thunkAPI) => {
+>("profile/postProfileData", async (id, thunkAPI) => {
 	const { extra, rejectWithValue, getState } = thunkAPI
 	try {
 		const formData = getEditableProfileCardFormDataSelector(getState())
@@ -19,11 +19,13 @@ export const postProfileDataThunk = createAsyncThunk<
 			return rejectWithValue(errors)
 		}
 
+		const data: profileDataType = { ...formData, id }
+
 		if (__PROJECT__ === "storybook") {
-			return formData || {}
+			return data || {}
 		}
 
-		const response = await extra.api.put<profileDataType>("/profile", formData)
+		const response = await extra.api.put<profileDataType>(`/profile/${id}`, data)
 
 		return response.data
 	} catch {

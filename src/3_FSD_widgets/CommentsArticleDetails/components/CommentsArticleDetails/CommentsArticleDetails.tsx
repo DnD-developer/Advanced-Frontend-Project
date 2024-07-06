@@ -1,5 +1,6 @@
 import { articleDataType } from "@entities/Article"
 import { CommentList } from "@entities/Comment"
+import { AddArticleCommentForm } from "@features/AddArticleComment"
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { useAppDispatch } from "@hooks/useAppDispatch.hook"
 import { asyncReducersList, useAsyncReducer } from "@hooks/useAsyncReducer.hook"
@@ -48,6 +49,10 @@ export const CommentsArticleDetails = memo<CommentsArticleDetailsProps>(props =>
 				title={t("article:listOfComments")}
 				size={TextSize.BIG}
 			/>
+			<div className={styles.form}>
+				<AddArticleCommentForm id={articleId} />
+			</div>
+
 			<CommentList
 				comments={comments}
 				isLoading={isLoading}

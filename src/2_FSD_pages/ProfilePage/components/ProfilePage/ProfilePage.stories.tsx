@@ -5,17 +5,25 @@ import { Country } from "@entities/Country"
 import { Currency } from "@entities/Currency"
 import { editableProfileStateMap } from "@features/EditableProfileCard"
 import { type Meta, type StoryObj } from "@storybook/react"
+import { ComponentProps } from "react"
 import { ProfilePage } from "./ProfileAsync.page"
 
-const meta: Meta<typeof ProfilePage> = {
+type ProfilePageCustomProps = ComponentProps<typeof ProfilePage> & { login: boolean }
+
+const meta: Meta<ProfilePageCustomProps> = {
 	title: "pages/ProfilePage",
 	component: ProfilePage,
+	parameters: {
+		controls: {
+			exclude: ["idTest"]
+		}
+	},
 	decorators: [PageDecorator, StoreDecorator({ editableProfileCard: {} })]
 }
 
 export default meta
 
-type TypeStory = StoryObj<typeof ProfilePage>
+type TypeStory = StoryObj<ProfilePageCustomProps>
 
 const dataTest = {
 	avatar: "https://i.pinimg.com/originals/0d/cb/1f/0dcb1f45db2d5a624e5da74b74f3ddb9.png",
@@ -30,11 +38,19 @@ const dataTest = {
 
 const editableProfileCardState: DeepPartial<editableProfileStateMap> = {
 	formData: dataTest,
-	data: dataTest,
+	data: { id: "1", ...dataTest },
 	readOnly: true
 }
 
 export const Default: TypeStory = {
-	args: {},
-	decorators: [StoreDecorator({ editableProfileCard: editableProfileCardState })]
+	render: ({ login }) => {
+		return <ProfilePage idTest={login ? "1" : "2"} />
+	},
+	args: { login: true },
+	decorators: [
+		StoreDecorator({
+			user: { authData: { id: "1" } },
+			editableProfileCard: editableProfileCardState
+		})
+	]
 }

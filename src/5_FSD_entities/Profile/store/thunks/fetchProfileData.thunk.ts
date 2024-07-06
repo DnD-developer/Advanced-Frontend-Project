@@ -5,12 +5,16 @@ import { profileStateMap, ServerErrors } from "../storeTypes/profileState.map"
 
 export const fetchProfileDataThunk = createAsyncThunk<
 	profileDataType,
-	undefined,
+	profileDataType["id"],
 	thunkConfigType<profileStateMap["errors"]>
->("profile/fetchProfileData", async (_, thunkAPI) => {
+>("profile/fetchProfileData", async (id, thunkAPI) => {
 	const { extra, rejectWithValue } = thunkAPI
 	try {
-		const response = await extra.api.get<profileDataType>("/profile")
+		if (!id) {
+			return rejectWithValue([ServerErrors.PROFILE_NOT_FOUND])
+		}
+
+		const response = await extra.api.get<profileDataType>(`profile/${id}`)
 		return response.data
 	} catch {
 		return rejectWithValue([ServerErrors.SERVER_NOT_FOUND])

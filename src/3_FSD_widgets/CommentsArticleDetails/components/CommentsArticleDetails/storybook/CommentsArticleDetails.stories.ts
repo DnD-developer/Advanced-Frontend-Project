@@ -1,13 +1,14 @@
-import { DeepPartial } from "@customTypes/global.types"
+import { ComponentPropsWithAuth, DeepPartial } from "@customTypes/global.types"
 import { CenterDecorator } from "@decorators/storybook/Center.decorator"
 import { ContainerDecorator } from "@decorators/storybook/Container.decorator"
 import { StoreDecorator } from "@decorators/storybook/Store.decorator"
+import { addArticleCommentStateMap } from "@features/AddArticleComment"
 import { mainStateMap } from "@store/storeTypes/mainState.map"
 import { type Meta, type StoryObj } from "@storybook/react"
 import { CommentsArticleDetails } from "../CommentsArticleDetails"
 import commentsEntities from "./comments.data.json"
 
-const meta: Meta<typeof CommentsArticleDetails> = {
+const meta: Meta<ComponentPropsWithAuth<typeof CommentsArticleDetails>> = {
 	title: "widgets/CommentsArticleDetails",
 	component: CommentsArticleDetails,
 	decorators: [ContainerDecorator, CenterDecorator]
@@ -15,7 +16,7 @@ const meta: Meta<typeof CommentsArticleDetails> = {
 
 export default meta
 
-type TypeStory = StoryObj<typeof CommentsArticleDetails>
+type TypeStory = StoryObj<ComponentPropsWithAuth<typeof CommentsArticleDetails>>
 
 const commentsState = {
 	entities: commentsEntities,
@@ -24,12 +25,21 @@ const commentsState = {
 	isLoading: false
 }
 
+const addArticleCommentState: DeepPartial<addArticleCommentStateMap> = {
+	text: "",
+	isLoading: false,
+	error: undefined
+}
+
 const state: DeepPartial<mainStateMap> = {
-	commentsArticleDetails: commentsState
+	commentsArticleDetails: commentsState,
+	addArticleComment: addArticleCommentState
 }
 
 export const Loading: TypeStory = {
-	args: {},
+	args: {
+		auth: true
+	},
 	decorators: [
 		StoreDecorator({
 			...state,
@@ -39,7 +49,9 @@ export const Loading: TypeStory = {
 }
 
 export const Error: TypeStory = {
-	args: {},
+	args: {
+		auth: true
+	},
 	decorators: [
 		StoreDecorator({
 			...state,
@@ -49,6 +61,8 @@ export const Error: TypeStory = {
 }
 
 export const Default: TypeStory = {
-	args: {},
+	args: {
+		auth: true
+	},
 	decorators: [StoreDecorator(state)]
 }

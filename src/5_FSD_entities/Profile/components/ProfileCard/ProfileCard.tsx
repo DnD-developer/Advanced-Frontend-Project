@@ -11,12 +11,14 @@ import {
 	ServerErrors,
 	ValidateErrors
 } from "../../store/storeTypes/profileState.map"
-import { profileDataType } from "../../types/profileData.type"
+import { profileCardDatatype, profileDataType } from "../../types/profileData.type"
 import styles from "./ProfileCard.module.scss"
 
 type ProfileCardCustomProps = {
 	classNames?: string
 	isLoading?: boolean
+	editAllow?: boolean
+	data?: profileCardDatatype
 	readOnly?: boolean
 	labelError?: string
 	editButton?: ReactNode
@@ -39,6 +41,7 @@ export const ProfileCard = memo<ProfileCardProps>(props => {
 	const {
 		classNames,
 		editButton,
+		editAllow = true,
 		saveButton,
 		reloadButton,
 		cancelButton,
@@ -72,13 +75,15 @@ export const ProfileCard = memo<ProfileCardProps>(props => {
 		<div className={classNamesHelp(styles.ProfileCard, modsReadOnly, [classNames])}>
 			<div className={styles.header}>
 				<Text title={t("profile:privateData")} />
-				{readOnly ?
-					editButton
-				:	<div className={styles.btnContainer}>
-						{cancelButton}
-						<div className={styles.save}>{saveButton}</div>
-					</div>
-				}
+				{editAllow ?
+					readOnly ?
+						editButton
+					:	<div className={styles.btnContainer}>
+							{cancelButton}
+							<div className={styles.save}>{saveButton}</div>
+						</div>
+
+				:	null}
 			</div>
 
 			{isLoading ?

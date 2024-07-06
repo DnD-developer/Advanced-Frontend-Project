@@ -1,4 +1,4 @@
-import { fetchProfileDataThunk } from "@entities/Profile"
+import { fetchProfileDataThunk, profileDataType } from "@entities/Profile"
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { useAppDispatch } from "@hooks/useAppDispatch.hook"
 import { Button, ButtonTheme } from "@ui/Button"
@@ -8,16 +8,17 @@ import styles from "./ReFetchButton.module.scss"
 
 type ReFetchButtonProps = {
 	classNames?: string
+	id: profileDataType["id"]
 }
 export const ReFetchButton = memo<ReFetchButtonProps>(props => {
-	const { classNames } = props
+	const { classNames, id } = props
 
 	const { t } = useTranslation("profile")
 	const dispatch = useAppDispatch()
 
 	const onReFetchHandler = useCallback(() => {
-		dispatch(fetchProfileDataThunk())
-	}, [dispatch])
+		dispatch(fetchProfileDataThunk(id))
+	}, [dispatch, id])
 
 	return (
 		<Button

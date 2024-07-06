@@ -40,7 +40,8 @@ export const Input = memo<InputProps>(props => {
 		classNamesLabel,
 		type = "text",
 		inverted = false,
-		readOnly = false
+		readOnly = false,
+		...otherProps
 	} = props
 
 	const inputRef = useRef<HTMLInputElement>(null)
@@ -72,6 +73,7 @@ export const Input = memo<InputProps>(props => {
 			className={classNamesHelp(styles.Input, mods, [classNames, styles[theme]])}
 			value={value}
 			onChange={onChangeHandler}
+			{...otherProps}
 		/>
 	)
 

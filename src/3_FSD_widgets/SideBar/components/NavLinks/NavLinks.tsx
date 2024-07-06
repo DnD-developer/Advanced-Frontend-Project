@@ -1,4 +1,4 @@
-import { routesPath } from "@config/routes/pagesPathsNames"
+import { routesPath } from "@config/routes/routePaths"
 import { useAuth } from "@entities/User"
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { HTMLAttributes, memo } from "react"
@@ -13,7 +13,7 @@ type NavLinksProps = {
 export const NavLinks = memo<NavLinksProps>(props => {
 	const { classNames, collapsed } = props
 
-	const { isAuth } = useAuth()
+	const { isAuth, authData } = useAuth()
 
 	return (
 		<ul className={classNamesHelp(styles.linkList, {}, [classNames])}>
@@ -22,14 +22,14 @@ export const NavLinks = memo<NavLinksProps>(props => {
 					({ inHeader, isRequireAuth }) =>
 						inHeader && ((isRequireAuth && isAuth) || !isRequireAuth)
 				)
-				.map(({ name, path, Icon }) => (
+				.map(({ name, path, Icon, isRequiredUserId }) => (
 					<li
 						key={path}
 						className={styles.linkItem}
 					>
 						{Icon ?
 							<AppLinkWithIcon
-								to={path}
+								to={isRequiredUserId ? `${path}/${authData?.id}` : path}
 								inverted={true}
 								collapsed={collapsed}
 								Icon={Icon}

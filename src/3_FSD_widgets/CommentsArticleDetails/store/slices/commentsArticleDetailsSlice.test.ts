@@ -3,7 +3,7 @@ import { commentDataType } from "@entities/Comment"
 import { describe, expect, test } from "@jest/globals"
 import { commentsArticleDetailsMap } from "../storeTypes/commentsArticleDetails.map"
 import { fetchCommentsByArticleIdThunk } from "../thunks/fetchCommentsByArticleId.thunk"
-import comments from "./commentList.data.json"
+import comments from "./comments.data.json"
 import { commentsArticleDetailsReducer } from "./commentsArticleDetails.slice"
 
 const rootState: DeepPartial<commentsArticleDetailsMap> = {

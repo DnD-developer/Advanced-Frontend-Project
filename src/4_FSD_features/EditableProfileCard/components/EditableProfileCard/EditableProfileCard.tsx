@@ -1,6 +1,7 @@
 import { CountrySelect } from "@entities/Country"
 import { CurrencySelect } from "@entities/Currency"
 import { fetchProfileDataThunk, ProfileCard, profileDataType } from "@entities/Profile"
+import { useAuth } from "@entities/User"
 import { useAppDispatch } from "@hooks/useAppDispatch.hook"
 import { asyncReducersList, useAsyncReducer } from "@hooks/useAsyncReducer.hook"
 import { memo, useCallback, useEffect, useMemo } from "react"
@@ -20,6 +21,7 @@ import { SaveButton } from "../SaveButton/SaveButton"
 
 type EditableProfileCardProps = {
 	className?: string
+	id: profileDataType["id"]
 }
 
 const initialReducers: asyncReducersList = {
@@ -27,9 +29,11 @@ const initialReducers: asyncReducersList = {
 }
 
 export const EditableProfileCard = memo<EditableProfileCardProps>(props => {
-	const { className } = props
+	const { className, id } = props
 
 	useAsyncReducer(initialReducers)
+
+	const { authData } = useAuth()
 
 	const formData = useSelector(getEditableProfileCardFormDataSelector)
 	const isLoading = useSelector(getEditableProfileCardIsLoadingSelector)
@@ -40,9 +44,9 @@ export const EditableProfileCard = memo<EditableProfileCardProps>(props => {
 
 	useEffect(() => {
 		if (__PROJECT__ !== "storybook") {
-			dispatch(fetchProfileDataThunk())
+			dispatch(fetchProfileDataThunk(id))
 		}
-	}, [dispatch])
+	}, [dispatch, id])
 
 	const { updateForm } = editableProfileActions
 
@@ -104,9 +108,9 @@ export const EditableProfileCard = memo<EditableProfileCardProps>(props => {
 	)
 
 	const editButton = useMemo(() => <EditButton />, [])
-	const saveButton = useMemo(() => <SaveButton />, [])
+	const saveButton = useMemo(() => <SaveButton id={id} />, [id])
 	const cancelButton = useMemo(() => <CancelButton />, [])
-	const reloadButton = useMemo(() => <ReFetchButton />, [])
+	const reloadButton = useMemo(() => <ReFetchButton id={id} />, [id])
 	const selectCurrency = useMemo(
 		() => (
 			<CurrencySelect
@@ -137,6 +141,7 @@ export const EditableProfileCard = memo<EditableProfileCardProps>(props => {
 			selectCurrency={selectCurrency}
 			selectCountry={selectCountry}
 			isLoading={isLoading}
+			editAllow={authData?.id === id}
 			errors={errors}
 			readOnly={readOnly}
 			data={formData}

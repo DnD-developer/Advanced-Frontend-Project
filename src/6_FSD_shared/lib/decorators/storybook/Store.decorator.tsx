@@ -1,5 +1,6 @@
 import { DeepPartial } from "@customTypes/global.types"
 import { articleReducer } from "@entities/Article/store/slices/article.slice"
+import { addArticleCommentReducer } from "@features/AddArticleComment/store/slices/addArticleComment.slice"
 import { editableProfileCardReducer } from "@features/EditableProfileCard/store/slices/editableProfileCard.slice"
 import { StoreProvider } from "@providers/StoreProvider"
 import { ReducersMapObject } from "@reduxjs/toolkit"
@@ -11,7 +12,8 @@ import { commentsArticleDetailsReducer } from "@widgets/CommentsArticleDetails/s
 const asyncReducersDefault: DeepPartial<ReducersMapObject<mainStateAsyncMap>> = {
 	articleDetails: articleReducer,
 	editableProfileCard: editableProfileCardReducer,
-	commentsArticleDetails: commentsArticleDetailsReducer
+	commentsArticleDetails: commentsArticleDetailsReducer,
+	addArticleComment: addArticleCommentReducer
 }
 
 export const StoreDecorator = (
@@ -23,12 +25,19 @@ export const StoreDecorator = (
 		...asyncReducers
 	}
 
-	return Story => (
-		<StoreProvider
-			initialState={initialState as mainStateMap}
-			asyncReducers={asyncReducersDynamic as ReducersMapObject<mainStateAsyncMap>}
-		>
-			<Story />
-		</StoreProvider>
-	)
+	return Story => {
+		const state: DeepPartial<mainStateMap> =
+			Story().props?.auth ?
+				{ ...initialState, user: { authData: { id: "1" } } }
+			:	initialState
+
+		return (
+			<StoreProvider
+				initialState={state as mainStateMap}
+				asyncReducers={asyncReducersDynamic as ReducersMapObject<mainStateAsyncMap>}
+			>
+				<Story />
+			</StoreProvider>
+		)
+	}
 }

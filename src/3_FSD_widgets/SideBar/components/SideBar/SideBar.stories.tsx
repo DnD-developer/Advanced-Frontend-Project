@@ -1,3 +1,6 @@
+import { DeepPartial } from "@customTypes/global.types"
+import { StoreDecorator } from "@decorators/storybook/Store.decorator"
+import { mainStateMap } from "@store/storeTypes/mainState.map"
 import { type Meta, type StoryObj } from "@storybook/react"
 import { SideBar } from "./SideBar"
 
@@ -11,8 +14,26 @@ export default meta
 
 type TypeStory = StoryObj<typeof SideBar>
 
-export const Default: TypeStory = {
+const store: DeepPartial<mainStateMap> = {
+	user: {
+		_initAuthData: true,
+		authData: {
+			id: "1",
+			userName: "Lucifer"
+		}
+	}
+}
+
+export const Login: TypeStory = {
 	args: {
 		classNames: "full-height"
-	}
+	},
+	decorators: [StoreDecorator(store)]
+}
+
+export const WithOutLogin: TypeStory = {
+	args: {
+		classNames: "full-height"
+	},
+	decorators: [StoreDecorator({ ...store, user: { ...store.user, authData: undefined } })]
 }

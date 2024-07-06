@@ -1,4 +1,4 @@
-import { fetchProfileDataThunk, mappingErrors, profileDataType } from "@entities/Profile"
+import { fetchProfileDataThunk, mappingErrors } from "@entities/Profile"
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 import { editableProfileStateMap } from "../storeTypes/editableProfileState.map"
 import { postProfileDataThunk } from "../thunks/postProfileData/postProfileData.thunk"
@@ -23,7 +23,10 @@ const editableProfileCardSlice = createSlice({
 			state.readOnly = true
 			state.errors = undefined
 		},
-		updateForm(state: editableProfileStateMap, action: PayloadAction<profileDataType>) {
+		updateForm(
+			state: editableProfileStateMap,
+			action: PayloadAction<editableProfileStateMap["formData"]>
+		) {
 			state.formData = {
 				...state.formData,
 				...action.payload
@@ -39,8 +42,11 @@ const editableProfileCardSlice = createSlice({
 			.addCase(fetchProfileDataThunk.fulfilled, (state, action) => {
 				state.isLoading = false
 				state.errors = undefined
-				state.data = action.payload
-				state.formData = action.payload
+
+				const { id, ...formData } = action.payload
+
+				state.data = { id, ...formData }
+				state.formData = formData
 			})
 			.addCase(fetchProfileDataThunk.rejected, (state, action) => {
 				state.isLoading = false
@@ -54,8 +60,11 @@ const editableProfileCardSlice = createSlice({
 			.addCase(postProfileDataThunk.fulfilled, (state, action) => {
 				state.isLoading = false
 				state.errors = undefined
-				state.data = action.payload
-				state.formData = action.payload
+
+				const { id, ...formData } = action.payload
+
+				state.data = { id, ...formData }
+
 				state.readOnly = true
 			})
 			.addCase(postProfileDataThunk.rejected, (state, action) => {

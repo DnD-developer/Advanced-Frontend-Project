@@ -10,7 +10,7 @@ type CommentCardCustomProps = ComponentProps<typeof CommentCard> & {
 }
 
 const meta: Meta<CommentCardCustomProps> = {
-	title: "entities/CommentCard",
+	title: "entities/Comment/CommentCard",
 	component: CommentCard,
 	decorators: [ContainerDecorator, CenterDecorator],
 	parameters: {

@@ -12,12 +12,7 @@ export default meta
 
 type TypeStory = StoryObj<typeof Header>
 
-export const WithOutLogin: TypeStory = {
-	args: {},
-	decorators: [StoreDecorator({})]
-}
-
-export const WithLogin: TypeStory = {
+export const Login: TypeStory = {
 	args: {},
 	decorators: [
 		StoreDecorator({
@@ -26,4 +21,9 @@ export const WithLogin: TypeStory = {
 			}
 		})
 	]
+}
+
+export const WithOutLogin: TypeStory = {
+	args: {},
+	decorators: [StoreDecorator({})]
 }

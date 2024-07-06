@@ -4,11 +4,14 @@ import { StoreDecorator } from "@decorators/storybook/Store.decorator"
 import { articleDataType } from "@entities/Article/types/articleData.type"
 import { mainStateMap } from "@store/storeTypes/mainState.map"
 import { type Meta, type StoryObj } from "@storybook/react"
+import { ComponentProps } from "react"
 import { ArticleDetailsPage } from "../ArticleDetailsAsync.page"
 import dataArticle from "./ArticleDetails.data.json"
 import commentsEntities from "./comments.data.json"
 
-const meta: Meta<typeof ArticleDetailsPage> = {
+type ArticleDetailsPageCustomProps = ComponentProps<typeof ArticleDetailsPage> & { auth: boolean }
+
+const meta: Meta<ArticleDetailsPageCustomProps> = {
 	title: "pages/ArticleDetailsPage",
 	component: ArticleDetailsPage,
 	decorators: [PageDecorator]
@@ -26,15 +29,22 @@ const commentsArticleDetailsState = {
 }
 
 const store: DeepPartial<mainStateMap> = {
+	addArticleComment: {
+		error: "",
+		isLoading: false,
+		text: ""
+	},
 	articleDetails: {
 		data: data
 	},
 	commentsArticleDetails: commentsArticleDetailsState
 }
 
-type TypeStory = StoryObj<typeof ArticleDetailsPage>
+type TypeStory = StoryObj<ArticleDetailsPageCustomProps>
 
 export const Default: TypeStory = {
-	args: {},
+	args: {
+		auth: true
+	},
 	decorators: [StoreDecorator(store)]
 }

@@ -2,6 +2,7 @@ import { Country } from "../../Country"
 import { Currency } from "../../Currency"
 
 export type profileDataType = {
+	id: string
 	age?: number
 	avatar?: string
 	city?: string
@@ -11,3 +12,5 @@ export type profileDataType = {
 	lastName?: string
 	userName?: string
 }
+
+export type profileCardDatatype = Omit<profileDataType, "id">

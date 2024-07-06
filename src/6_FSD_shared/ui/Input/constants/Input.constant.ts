@@ -1,3 +1,4 @@
 export enum InputTheme {
-	OUTLINE = "outline"
+	OUTLINE = "outline",
+	CLEAR = "clear"
 }

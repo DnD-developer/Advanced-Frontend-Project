@@ -14,7 +14,7 @@ const ArticleDetailsPage = memo<ArticleDetailsPageProps>(props => {
 	const { className, testId = "1" } = props
 
 	const { t } = useTranslation("article")
-	const { id } = useParams<{ id: string }>()
+	const { id } = useParams<{ id: articleDataType["id"] }>()
 
 	let element: ReactNode
 

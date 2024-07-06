@@ -10,7 +10,7 @@ const meta: Meta<typeof Input> = {
 	component: Input,
 	argTypes: {
 		theme: {
-			options: [InputTheme.OUTLINE],
+			options: [InputTheme.OUTLINE, InputTheme.CLEAR],
 			control: "radio"
 		}
 	},
