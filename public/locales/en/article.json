@@ -1,8 +1,13 @@
 {
 	"articleNotFound": "Article not Found",
+	"articlePreview": "article preview",
+	"articlesNotFound": "Articles Not Found",
+	"authorAvatar": "Author Avatar",
+	"errorWithRequestArticle": "Error With Request Articles",
 	"errorWithRequestArticleDetails": "Error With Request Article Details",
 	"listOfComments": "List of Comments",
 	"pageTitle": "Articles List",
+	"readMore": "Read more...",
 	"subtitle": "Subtitle",
 	"title": "Title"
 }

@@ -1,7 +1,7 @@
 import { DeepPartial } from "@customTypes/global.types"
 import { PageDecorator } from "@decorators/storybook/Page.decorator"
 import { StoreDecorator } from "@decorators/storybook/Store.decorator"
-import { articleDataType } from "@entities/Article/types/articleData.type"
+import { articleDetailsDataType } from "@entities/Article/types/articleDetailsData.type"
 import { mainStateMap } from "@store/storeTypes/mainState.map"
 import { type Meta, type StoryObj } from "@storybook/react"
 import { ComponentProps } from "react"
@@ -19,7 +19,7 @@ const meta: Meta<ArticleDetailsPageCustomProps> = {
 
 export default meta
 
-const data: articleDataType = dataArticle as articleDataType
+const data: articleDetailsDataType = dataArticle as articleDetailsDataType
 
 const commentsArticleDetailsState = {
 	entities: commentsEntities,

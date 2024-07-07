@@ -1,4 +1,4 @@
-import { articleDataType } from "@entities/Article"
+import { articleDetailsDataType } from "@entities/Article"
 import { AddCommentForm } from "@entities/Comment"
 import { useAuth } from "@entities/User"
 import { commentBdDataType } from "@features/AddArticleComment/types/commentBdData.type"
@@ -17,7 +17,7 @@ import { addNewArticleCommentThunk } from "../../store/thunks/addNewArticleComme
 
 type AddArticleCommentFormProps = {
 	className?: string
-	id: articleDataType["id"]
+	id: articleDetailsDataType["id"]
 }
 
 const initReducer: asyncReducersList = {

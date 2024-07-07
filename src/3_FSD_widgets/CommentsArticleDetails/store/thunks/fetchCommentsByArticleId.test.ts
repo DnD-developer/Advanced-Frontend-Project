@@ -1,5 +1,5 @@
 import { DeepPartial } from "@customTypes/global.types"
-import { articleDataType } from "@entities/Article"
+import { articleDetailsDataType } from "@entities/Article"
 import { commentDataType } from "@entities/Comment"
 import { beforeEach, describe, expect, test } from "@jest/globals"
 import { AsyncThunkMock } from "@mocks/AsyncThunk.mock"
@@ -9,7 +9,7 @@ import { fetchCommentsByArticleIdThunk } from "./fetchCommentsByArticleId.thunk"
 
 let thunk: AsyncThunkMock<
 	commentDataType[],
-	articleDataType["id"],
+	articleDetailsDataType["id"],
 	thunkConfigType<commentsArticleDetailsMap["error"]>
 >
 
@@ -17,7 +17,7 @@ let DataValue: DeepPartial<commentDataType[]>
 
 let mockedRequest: (typeof AsyncThunkMock<
 	commentDataType[],
-	articleDataType["id"],
+	articleDetailsDataType["id"],
 	thunkConfigType<commentsArticleDetailsMap["error"]>
 >)["prototype"]["api"]["get"]
 

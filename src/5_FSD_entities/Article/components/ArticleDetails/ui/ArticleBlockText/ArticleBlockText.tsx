@@ -1,13 +1,13 @@
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { Text } from "@ui/Text"
 import { memo } from "react"
-import { articleBlockDataTextType } from "../../types/articleBlockData.type"
+import { articleBlockDataTextType } from "../../../../types/articleBlockData.type"
 import styles from "./ArticleBlockText.module.scss"
 
 type ArticleBlockTextProps = {
 	className?: string
 	paragraphs: articleBlockDataTextType["paragraphs"]
-	title: articleBlockDataTextType["title"]
+	title?: articleBlockDataTextType["title"]
 }
 
 export const ArticleBlockText = memo<ArticleBlockTextProps>(props => {

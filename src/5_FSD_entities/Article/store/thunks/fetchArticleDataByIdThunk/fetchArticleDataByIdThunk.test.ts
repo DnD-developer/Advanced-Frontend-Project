@@ -2,16 +2,20 @@ import { DeepPartial } from "@customTypes/global.types"
 import { beforeEach, describe, expect, test } from "@jest/globals"
 import { AsyncThunkMock } from "@mocks/AsyncThunk.mock"
 import { thunkConfigType } from "@store/storeTypes/thunks.type"
-import { articleDataType } from "../../../types/articleData.type"
+import { articleDetailsDataType } from "../../../types/articleDetailsData.type"
 import { articleDetailsStateMap } from "../../storeTypes/articleDetailsState.map"
 import { fetchArticleDataByIdThunk } from "./fetchArticleDataById.thunk"
 
-let thunk: AsyncThunkMock<articleDataType, string, thunkConfigType<articleDetailsStateMap["error"]>>
+let thunk: AsyncThunkMock<
+	articleDetailsDataType,
+	string,
+	thunkConfigType<articleDetailsStateMap["error"]>
+>
 
-let DataValue: DeepPartial<articleDataType>
+let DataValue: DeepPartial<articleDetailsDataType>
 
 let mockedRequest: (typeof AsyncThunkMock<
-	articleDataType,
+	articleDetailsDataType,
 	string,
 	thunkConfigType<articleDetailsStateMap["error"]>
 >)["prototype"]["api"]["get"]

@@ -5,5 +5,6 @@ export enum AvatarSize {
 }
 
 export enum AvatarTheme {
-	CIRCLE = "circle"
+	CIRCLE = "circle",
+	SQUARE = "square"
 }

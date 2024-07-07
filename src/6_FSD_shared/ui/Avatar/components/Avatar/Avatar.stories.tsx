@@ -21,7 +21,7 @@ type TypeStory = StoryObj<typeof Avatar>
 export const Default: TypeStory = {
 	argTypes: {
 		theme: {
-			options: [AvatarTheme.CIRCLE],
+			options: [AvatarTheme.SQUARE, AvatarTheme.CIRCLE],
 			control: "radio"
 		},
 		size: {

@@ -1,4 +1,4 @@
-import { articleDataType } from "@entities/Article"
+import { articleDetailsDataType } from "@entities/Article"
 import { commentDataType } from "@entities/Comment"
 import { createAsyncThunk } from "@reduxjs/toolkit"
 import { thunkConfigType } from "@store/storeTypes/thunks.type"
@@ -6,7 +6,7 @@ import { commentsArticleDetailsMap } from "../storeTypes/commentsArticleDetails.
 
 export const fetchCommentsByArticleIdThunk = createAsyncThunk<
 	commentDataType[],
-	articleDataType["id"],
+	articleDetailsDataType["id"],
 	thunkConfigType<commentsArticleDetailsMap["error"]>
 >("commentsArticleDetails/fetchCommentsByArticleId", async (articleId, thunkAPI) => {
 	const { extra, rejectWithValue } = thunkAPI

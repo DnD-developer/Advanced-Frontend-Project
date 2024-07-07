@@ -5,7 +5,13 @@
 	"img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
 	"views": 1022,
 	"createdAt": "26.02.2022",
-	"type": ["IT"],
+	"type": ["IT", "Politic", "Design", "IT", "Politic", "Design"],
+	"user": {
+		"id": "1",
+		"userName": "Lucifer",
+		"password": "123",
+		"avatar": "https://i.pinimg.com/originals/f0/f8/fe/f0f8fe0e76824fd544a9154b995fb01d.jpg"
+	},
 	"blocks": [
 		{
 			"id": "1",

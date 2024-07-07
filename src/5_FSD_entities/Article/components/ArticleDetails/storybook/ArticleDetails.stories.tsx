@@ -2,19 +2,19 @@ import { DeepPartial } from "@customTypes/global.types"
 import { StoreDecorator } from "@decorators/storybook/Store.decorator"
 import { mainStateMap } from "@store/storeTypes/mainState.map"
 import { type Meta, type StoryObj } from "@storybook/react"
-import { articleDataType } from "../../../types/articleData.type"
+import { articleDetailsDataType } from "../../../types/articleDetailsData.type"
 import { ArticleDetails } from "../ArticleDetails"
-import dataArticle from "./ArticleDetails.data.json"
+import dataArticle from "./article.data.json"
 
 const meta: Meta<typeof ArticleDetails> = {
-	title: "entities/ArticleDetails",
+	title: "entities/Article/ArticleDetails",
 	component: ArticleDetails,
 	decorators: []
 }
 
 export default meta
 
-const data: articleDataType = dataArticle as articleDataType
+const data: articleDetailsDataType = dataArticle as articleDetailsDataType
 
 const store: DeepPartial<mainStateMap> = {
 	articleDetails: {

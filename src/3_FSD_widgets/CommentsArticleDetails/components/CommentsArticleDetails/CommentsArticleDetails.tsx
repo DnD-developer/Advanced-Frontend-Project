@@ -1,4 +1,4 @@
-import { articleDataType } from "@entities/Article"
+import { articleDetailsDataType } from "@entities/Article"
 import { CommentList } from "@entities/Comment"
 import { AddArticleCommentForm } from "@features/AddArticleComment"
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
@@ -17,7 +17,7 @@ import styles from "./CommentsArticleDetails.module.scss"
 
 type CommentsArticleDetailsProps = {
 	className?: string
-	articleId: articleDataType["id"]
+	articleId: articleDetailsDataType["id"]
 }
 
 const initialReducer: asyncReducersList = {

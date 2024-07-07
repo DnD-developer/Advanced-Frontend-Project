@@ -1,7 +1,7 @@
 import { articleDetailsDataType } from "../../types/articleDetailsData.type"
 
-export type articleDetailsStateMap = {
+export type articleListItemStateMap = {
 	isLoading: boolean
+	article: articleDetailsDataType
 	error?: string
-	data?: articleDetailsDataType
 }

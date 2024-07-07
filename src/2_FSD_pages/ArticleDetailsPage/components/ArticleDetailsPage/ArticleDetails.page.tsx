@@ -1,4 +1,4 @@
-import { articleDataType, ArticleDetails } from "@entities/Article"
+import { ArticleDetails, articleDetailsDataType } from "@entities/Article"
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { Text, TextAlign, TextSize, TextTheme } from "@ui/Text"
 import { CommentsArticleDetails } from "@widgets/CommentsArticleDetails"
@@ -8,13 +8,13 @@ import { useParams } from "react-router"
 
 type ArticleDetailsPageProps = {
 	className?: string
-	testId?: articleDataType["id"]
+	testId?: articleDetailsDataType["id"]
 }
 const ArticleDetailsPage = memo<ArticleDetailsPageProps>(props => {
 	const { className, testId = "1" } = props
 
 	const { t } = useTranslation("article")
-	const { id } = useParams<{ id: articleDataType["id"] }>()
+	const { id } = useParams<{ id: articleDetailsDataType["id"] }>()
 
 	let element: ReactNode
 

@@ -1,9 +1,9 @@
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { Text, TextAlign } from "@ui/Text"
 import { memo } from "react"
-import { articleBlockDataCodeType } from "../../types/articleBlockData.type"
+import { articleBlockDataCodeType } from "../../../../types/articleBlockData.type"
+import { CopyButton } from "../CopyButton/CopyButton"
 import styles from "./ArticleBlockCode.module.scss"
-import { CopyButton } from "./ui/CopyButton/CopyButton"
 
 type ArticleBlockCodeProps = {
 	className?: string

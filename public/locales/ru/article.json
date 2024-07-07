@@ -1,8 +1,13 @@
 {
 	"articleNotFound": "Статья не найдена",
+	"articlePreview": "превью статьи",
+	"articlesNotFound": "Статьи не найдены",
+	"authorAvatar": "Аватар Автора",
+	"errorWithRequestArticle": "Ошибка при закгрузке статей",
 	"errorWithRequestArticleDetails": "Ошибка при загрузке статьи",
 	"listOfComments": "Список Комментариев",
 	"pageTitle": "Список статей",
+	"readMore": "Читать далее...",
 	"subtitle": "Подзаголовок",
 	"title": "Заголовок"
 }

@@ -1,11 +1,11 @@
 import { DeepPartial } from "@customTypes/global.types"
 import { describe, expect, test } from "@jest/globals"
-import { articleDataType } from "../../types/articleData.type"
+import { articleDetailsDataType } from "../../types/articleDetailsData.type"
 import { articleDetailsStateMap } from "../storeTypes/articleDetailsState.map"
 import { fetchArticleDataByIdThunk } from "../thunks/fetchArticleDataByIdThunk/fetchArticleDataById.thunk"
 import { articleReducer } from "./article.slice"
 
-const data: DeepPartial<articleDataType> = {
+const data: DeepPartial<articleDetailsDataType> = {
 	id: "1"
 }
 
@@ -33,7 +33,7 @@ describe("articleSliceTest extraReducers fetchArticleDataByIdThunk", () => {
 
 		const newState = articleReducer(
 			state as articleDetailsStateMap,
-			fetchArticleDataByIdThunk.fulfilled(data as articleDataType, "", "")
+			fetchArticleDataByIdThunk.fulfilled(data as articleDetailsDataType, "", "")
 		)
 		expect(newState).toEqual({ ...state, isLoading: false, error: undefined })
 	})

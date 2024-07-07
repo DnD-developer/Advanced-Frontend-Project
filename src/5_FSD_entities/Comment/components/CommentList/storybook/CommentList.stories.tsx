@@ -5,7 +5,7 @@ import { CommentList } from "../CommentList"
 import comments from "./comments.data.json"
 
 const meta: Meta<typeof CommentList> = {
-	title: "entities/comment/CommentList",
+	title: "entities/Comment/CommentList",
 	component: CommentList,
 	parameters: {
 		controls: {

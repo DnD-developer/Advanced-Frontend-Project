@@ -1,4 +1,4 @@
-import { ArticleBlockTypeConstant } from "../store/constants/ArticleBlock.constant"
+import { ArticleBlockTypeConstant } from "../constants/ArticleBlock.constant"
 
 type articleBlockDataBaseType = {
 	id: string

@@ -1,7 +1,7 @@
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { Text, TextAlign } from "@ui/Text"
 import { memo } from "react"
-import { articleBlockDataImageType } from "../../types/articleBlockData.type"
+import { articleBlockDataImageType } from "../../../../types/articleBlockData.type"
 import styles from "./ArticleBlockImage.module.scss"
 
 type ArticleBlockImageProps = {
