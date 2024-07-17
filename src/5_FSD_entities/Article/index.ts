@@ -1,6 +1,6 @@
 export { ArticleDetails } from "./components/ArticleDetails/ArticleDetails"
-export { ArticleList } from "./components/ArticleList/ArticleList"
+export { ArticleItemList } from "./components/ArticleItemList/ArticleItemList"
 export { articleDetailsDataType } from "./types/articleDetailsData.type"
 export { articleDetailsStateMap } from "./store/storeTypes/articleDetailsState.map"
-export { articleListStateMap } from "./store/storeTypes/articleListState.map"
+export { articleItemListStateMap } from "./store/storeTypes/articleItemListState.map"
 export { ArticleItemViews } from "./constants/ArticleItemViews.constant"

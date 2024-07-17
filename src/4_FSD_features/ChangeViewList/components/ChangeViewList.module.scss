@@ -1,0 +1,21 @@
+.ChangeViewList {
+	display: flex;
+	align-items: center;
+}
+
+.button {
+	width: 24px;
+	height: 24px;
+
+	opacity: 0.2;
+
+	color: var(--primary-color);
+
+	&.active {
+		opacity: 1;
+	}
+
+	&:last-child {
+		margin-left: 10px;
+	}
+}

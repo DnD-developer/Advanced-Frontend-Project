@@ -6,7 +6,7 @@ export default async function delayForDemo(callbackFunc: {
 }): Promise<{ default: FC<any> }> {
 	if (__PROJECT__ !== "storybook") {
 		await new Promise(resolve => {
-			setTimeout(resolve, 2000)
+			setTimeout(resolve, 400)
 		})
 	}
 

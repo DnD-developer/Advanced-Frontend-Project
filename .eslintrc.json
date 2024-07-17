@@ -53,6 +53,7 @@
 				"makrupOnly": true,
 				"jsx-attributes": {
 					"exclude": [
+						"defaultView",
 						"data-testid",
 						"className",
 						"classNames",
