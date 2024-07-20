@@ -1,7 +1,8 @@
 import { type Decorator } from "@storybook/react"
+import { Page } from "@ui/Page"
 
 export const PageDecorator: Decorator = Story => (
-	<div className="page-wrapper full-height">
+	<Page className="full-height">
 		<Story />
-	</div>
+	</Page>
 )

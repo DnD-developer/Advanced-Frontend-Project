@@ -1,5 +1,6 @@
 import { profileDataType } from "@entities/Profile"
 import { EditableProfileCard } from "@features/EditableProfileCard"
+import { Page } from "@ui/Page"
 import { memo } from "react"
 import { useTranslation } from "react-i18next"
 import { useParams } from "react-router"
@@ -18,25 +19,25 @@ const ProfilePage = memo((props: profilePageProps) => {
 
 	if (id) {
 		return (
-			<div>
+			<Page>
 				<h1 className="page-header">{t("pageTitle")}</h1>
 				<EditableProfileCard
 					className={styles.profileCard}
 					id={id}
 				/>
-			</div>
+			</Page>
 		)
 	}
 
 	if (idTest) {
 		return (
-			<div>
+			<Page>
 				<h1 className="page-header">{t("pageTitle")}</h1>
 				<EditableProfileCard
 					className={styles.profileCard}
 					id={idTest}
 				/>
-			</div>
+			</Page>
 		)
 	}
 

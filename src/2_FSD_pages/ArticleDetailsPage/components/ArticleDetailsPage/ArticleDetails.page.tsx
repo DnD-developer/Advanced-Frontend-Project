@@ -1,5 +1,6 @@
 import { ArticleDetails, articleDetailsDataType } from "@entities/Article"
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
+import { Page } from "@ui/Page"
 import { Text, TextAlign, TextSize, TextTheme } from "@ui/Text"
 import { CommentsArticleDetails } from "@widgets/CommentsArticleDetails"
 import { memo, ReactNode } from "react"
@@ -38,7 +39,7 @@ const ArticleDetailsPage = memo<ArticleDetailsPageProps>(props => {
 		element = <></>
 	}
 
-	return <div className={classNamesHelp("", {}, [className])}>{element}</div>
+	return <Page className={classNamesHelp("", {}, [className])}>{element}</Page>
 })
 
 export default ArticleDetailsPage

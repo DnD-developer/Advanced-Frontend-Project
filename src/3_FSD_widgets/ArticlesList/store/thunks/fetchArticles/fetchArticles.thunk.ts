@@ -1,26 +1,28 @@
 import { articleDetailsDataType } from "@entities/Article"
 import { createAsyncThunk } from "@reduxjs/toolkit"
 import { thunkConfigType } from "@store/storeTypes/thunks.type"
+import { getArticlesListLimitSelector } from "../../selectors/getArticlesListLimit/getArticlesListLimit.selector"
 import { articlesListStateMap } from "../../storeTypes/articlesListState.map"
 
 export const fetchArticlesThunk = createAsyncThunk<
 	articleDetailsDataType[],
-	undefined,
+	articlesListStateMap["pageNumber"],
 	thunkConfigType<articlesListStateMap["error"]>
->("articlesList/fetchArticlesThunk", async (_, thunkAPI) => {
-	const { extra, rejectWithValue } = thunkAPI
+>("articlesList/fetchArticlesThunk", async (pageNumber, thunkAPI) => {
+	const { extra, rejectWithValue, getState } = thunkAPI
+
+	const limit = getArticlesListLimitSelector(getState())
+
 	try {
 		const response = await extra.api.get("/articles", {
 			params: {
+				_page: pageNumber,
+				_limit: limit,
 				_expand: "user"
 			}
 		})
 
-		if (response.data.length) {
-			return response.data
-		}
-
-		return rejectWithValue("no data")
+		return response.data
 	} catch {
 		return rejectWithValue("error with request articles")
 	}

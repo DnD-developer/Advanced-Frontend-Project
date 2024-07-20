@@ -8,13 +8,11 @@ import { RequireAuth } from "./ui/RequireAuth"
 export const RouterProvider = memo(() => {
 	const pageWithWrapper = useCallback(
 		(element: ReactNode, isRequiredAuth: boolean | undefined) => (
-			<div className="page-wrapper">
-				<RequireAuth
-					isRequiredAuth={isRequiredAuth}
-					path="/"
-					element={element}
-				/>
-			</div>
+			<RequireAuth
+				isRequiredAuth={isRequiredAuth}
+				path="/"
+				element={element}
+			/>
 		),
 		[]
 	)

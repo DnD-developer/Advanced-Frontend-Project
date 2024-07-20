@@ -1,10 +1,13 @@
 import { LOCAL_STORAGE_VIEW_ARTICLES_KEY } from "@constants/localStorage.constant"
-import { articleDetailsDataType, ArticleItemViews } from "@entities/Article"
+import { articleDetailsDataType, ArticleItemViews, CountArticleItemOfView } from "@entities/Article"
 import { createEntityAdapter, createSlice, PayloadAction } from "@reduxjs/toolkit"
 import { articlesListStateMap } from "../storeTypes/articlesListState.map"
 import { fetchArticlesThunk } from "../thunks/fetchArticles/fetchArticles.thunk"
 
 const initialState: articlesListStateMap = {
+	pageNumber: 1,
+	limit: 0,
+	hasMore: true,
 	isLoading: false,
 	view: ArticleItemViews.PlATES,
 	error: undefined,
@@ -18,11 +21,34 @@ const articlesListSlice = createSlice({
 	name: "articlesList",
 	initialState: articlesListAdapter.getInitialState<articlesListStateMap>(initialState),
 	reducers: {
+		initState: (state: articlesListStateMap) => {
+			const view =
+				(localStorage.getItem(LOCAL_STORAGE_VIEW_ARTICLES_KEY) as ArticleItemViews) ||
+				ArticleItemViews.PlATES
+			state.view = view
+			state.limit =
+				view === ArticleItemViews.PlATES ?
+					CountArticleItemOfView.PlATES
+				:	CountArticleItemOfView.DETAILED
+		},
+
+		setPage: (state: articlesListStateMap) => {
+			state.pageNumber += 1
+		},
+
 		setView: (
 			state: articlesListStateMap,
 			action: PayloadAction<articlesListStateMap["view"]>
 		) => {
-			state.view = action.payload
+			const newView = action.payload
+			state.view = newView
+			state.limit =
+				newView === ArticleItemViews.PlATES ?
+					CountArticleItemOfView.PlATES
+				:	CountArticleItemOfView.DETAILED
+
+			state.pageNumber = Math.floor(state.ids.length / state.limit)
+
 			localStorage.setItem(LOCAL_STORAGE_VIEW_ARTICLES_KEY, action.payload)
 		}
 	},
@@ -35,6 +61,9 @@ const articlesListSlice = createSlice({
 			.addCase(fetchArticlesThunk.fulfilled, (state, action) => {
 				state.isLoading = false
 				state.error = undefined
+
+				state.hasMore = action.payload?.length > 0
+
 				articlesListAdapter.addMany(state, action.payload)
 			})
 			.addCase(fetchArticlesThunk.rejected, (state, action) => {

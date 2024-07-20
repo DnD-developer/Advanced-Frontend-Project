@@ -64,9 +64,10 @@ export const ArticleItemDetailedRender = memo<ArticleItemDetailedRenderProps>(pr
 			</div>
 
 			{textBlock && (
-				<p className={styles.description}>
-					<ArticleBlockText paragraphs={textBlock.paragraphs} />
-				</p>
+				<ArticleBlockText
+					paragraphs={textBlock.paragraphs}
+					className={styles.description}
+				/>
 			)}
 			<div className={styles.footer}>
 				<Button

@@ -6,6 +6,7 @@ import { ArticleItemViews } from "../../constants/ArticleItemViews.constant"
 import { articleItemStateMap } from "../../store/storeTypes/articleItemState.map"
 import { ArticleItem } from "../ArticleItem/ArticleItem"
 import styles from "./ArticleItemList.module.scss"
+import { ArticlesItemListSkeleton } from "./ui/ArticlesItemListSkeleton/ArticlesItemListSkeleton"
 
 type ArticleItemListProps = {
 	className?: string
@@ -22,54 +23,34 @@ export const ArticleItemList = memo<ArticleItemListProps>(props => {
 
 	let element: ReactNode
 
-	if (!articles.length) {
-		element = (
-			<Text
-				className={styles.text}
-				title={t("article:articlesNotFound")}
-				size={TextSize.BIG}
-				align={TextAlign.CENTER}
-			/>
-		)
-	} else {
+	if (articles.length) {
 		element = articles.map(article => (
 			<ArticleItem
 				key={article.id}
 				className={styles.item}
 				view={view}
-				isLoading={isLoading}
+				isLoading={false}
 				article={article}
 				error={error}
 			/>
 		))
 	}
 
-	if (isLoading) {
-		element = (
-			<>
-				<ArticleItem
-					className={styles.item}
-					view={view}
-					isLoading={isLoading}
-				/>
-				<ArticleItem
-					className={styles.item}
-					view={view}
-					isLoading={isLoading}
-				/>
-				<ArticleItem
-					className={styles.item}
-					view={view}
-					isLoading={isLoading}
-				/>
-				<ArticleItem
-					className={styles.item}
-					view={view}
-					isLoading={isLoading}
-				/>
-			</>
-		)
-	}
+	const noArticlesElement = (
+		<Text
+			className={styles.text}
+			title={t("article:articlesNotFound")}
+			size={TextSize.BIG}
+			align={TextAlign.CENTER}
+		/>
+	)
+
+	const loadingElement = (
+		<ArticlesItemListSkeleton
+			view={view}
+			className={styles.item}
+		/>
+	)
 
 	if (error) {
 		element = (
@@ -83,5 +64,10 @@ export const ArticleItemList = memo<ArticleItemListProps>(props => {
 		)
 	}
 
-	return <div className={classNamesHelp(styles.ArticleItemList, {}, [className])}>{element}</div>
+	return (
+		<div className={classNamesHelp(styles.ArticleItemList, {}, [className])}>
+			{!articles.length && !isLoading ? noArticlesElement : element}
+			{isLoading && loadingElement}
+		</div>
+	)
 })
