@@ -7,13 +7,15 @@ import { ReducersMapObject } from "@reduxjs/toolkit"
 import { mainStateMap } from "@store/storeTypes/mainState.map"
 import { mainStateAsyncMap } from "@store/storeTypes/mainStateAsync.map"
 import { Decorator } from "@storybook/react"
+import { articlesListReducer } from "@widgets/ArticlesList/store/slices/articlesList.slice"
 import { commentsArticleDetailsReducer } from "@widgets/CommentsArticleDetails/store/slices/commentsArticleDetails.slice"
 
 const asyncReducersDefault: DeepPartial<ReducersMapObject<mainStateAsyncMap>> = {
 	articleDetails: articleReducer,
 	editableProfileCard: editableProfileCardReducer,
 	commentsArticleDetails: commentsArticleDetailsReducer,
-	addArticleComment: addArticleCommentReducer
+	addArticleComment: addArticleCommentReducer,
+	articlesListStateMap: articlesListReducer
 }
 
 export const StoreDecorator = (

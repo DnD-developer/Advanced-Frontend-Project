@@ -24,7 +24,7 @@ const ArticlesPage = memo<ArticlesPageProps>(props => {
 	const articlesIsLoading = useSelector(getArticlesListIsLoadingSelector)
 
 	const onScrollEndHandler = useCallback(() => {
-		if (!articlesIsLoading) {
+		if (!articlesIsLoading && __PROJECT__ !== "storybook") {
 			dispatch(fetchNextArticlesPageThunk())
 		}
 	}, [dispatch, articlesIsLoading])

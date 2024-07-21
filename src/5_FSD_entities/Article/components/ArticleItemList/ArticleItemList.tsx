@@ -66,7 +66,7 @@ export const ArticleItemList = memo<ArticleItemListProps>(props => {
 
 	return (
 		<div className={classNamesHelp(styles.ArticleItemList, {}, [className])}>
-			{!articles.length && !isLoading ? noArticlesElement : element}
+			{!articles.length && !isLoading && !error ? noArticlesElement : element}
 			{isLoading && loadingElement}
 		</div>
 	)
