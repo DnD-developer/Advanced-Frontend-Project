@@ -9,7 +9,7 @@ export type asyncReducersList = {
 }
 type asyncReducersEntries = [mainStateAsyncKeys, Reducer][]
 
-export const useAsyncReducer = (asyncReducers: asyncReducersList) => {
+export const useAsyncReducer = (asyncReducers: asyncReducersList, removeAfterUnmount = true) => {
 	const storeApp = useAppStore()
 	const dispatch = useAppDispatch()
 
@@ -17,15 +17,19 @@ export const useAsyncReducer = (asyncReducers: asyncReducersList) => {
 		const entries = Object.entries(asyncReducers) as unknown as asyncReducersEntries
 
 		entries.forEach(([key, value]) => {
-			storeApp.reducerManager.add(key as mainStateAsyncKeys, value)
-			dispatch({ type: `@INIT ${key}` })
+			if (!storeApp.reducerManager.getReducerMap()[key]) {
+				storeApp.reducerManager.add(key as mainStateAsyncKeys, value)
+				dispatch({ type: `@INIT ${key}` })
+			}
 		})
 
 		return () => {
 			entries.forEach(([key, value]) => {
-				storeApp.reducerManager.remove(key as mainStateAsyncKeys, value)
-				dispatch({ type: `@DESTROY ${key}` })
+				if (removeAfterUnmount) {
+					storeApp.reducerManager.remove(key as mainStateAsyncKeys, value)
+					dispatch({ type: `@DESTROY ${key}` })
+				}
 			})
 		}
-	}, [asyncReducers, dispatch, storeApp.reducerManager])
+	}, [asyncReducers, dispatch, removeAfterUnmount, storeApp.reducerManager])
 }

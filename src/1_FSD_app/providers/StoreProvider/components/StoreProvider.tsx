@@ -4,7 +4,6 @@ import { mainStateMap } from "@store/storeTypes/mainState.map"
 import { mainStateAsyncMap } from "@store/storeTypes/mainStateAsync.map"
 import { memo, PropsWithChildren } from "react"
 import { Provider } from "react-redux"
-import { useNavigate } from "react-router-dom"
 
 type StoreProviderProps = {
 	initialState?: mainStateMap
@@ -14,9 +13,7 @@ type StoreProviderProps = {
 export const StoreProvider = memo<StoreProviderProps>(props => {
 	const { children, initialState, asyncReducers } = props
 
-	const navigate = useNavigate()
-
-	const store = createReduxStore(initialState, asyncReducers, navigate)
+	const store = createReduxStore(initialState, asyncReducers)
 
 	return <Provider store={store}>{children}</Provider>
 })

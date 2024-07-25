@@ -1,7 +1,6 @@
 import { $api } from "@api/instanceAxios.api"
 import { userReducer } from "@entities/User"
 import { configureStore, Reducer, ReducersMapObject } from "@reduxjs/toolkit"
-import { NavigateFunction } from "react-router-dom"
 import { createReducerManager, reducerManagerType } from "./reducerManager"
 import { appStoreType } from "./storeTypes/appStoreType"
 import { mainStateMap } from "./storeTypes/mainState.map"
@@ -9,14 +8,9 @@ import { mainStateAsyncMap } from "./storeTypes/mainStateAsync.map"
 import { mainStateStaticMap } from "./storeTypes/mainStateStatic.map"
 import { thunkExtraType } from "./storeTypes/thunks.type"
 
-export const storeCreator = (
-	{ reduce }: reducerManagerType,
-	initialState?: mainStateMap,
-	navigateFunction?: NavigateFunction
-) => {
+export const storeCreator = ({ reduce }: reducerManagerType, initialState?: mainStateMap) => {
 	const apiService: thunkExtraType = {
-		api: $api,
-		navigate: navigateFunction
+		api: $api
 	}
 
 	return configureStore({
@@ -34,8 +28,7 @@ export const storeCreator = (
 
 export function createReduxStore(
 	initialState?: mainStateMap,
-	asyncReducers?: ReducersMapObject<mainStateAsyncMap>,
-	navigate?: NavigateFunction
+	asyncReducers?: ReducersMapObject<mainStateAsyncMap>
 ) {
 	const staticReducer: ReducersMapObject<mainStateStaticMap> = {
 		user: userReducer
@@ -48,7 +41,7 @@ export function createReduxStore(
 
 	const reducerManager = createReducerManager(rootReducer)
 
-	const store = storeCreator(reducerManager, initialState, navigate)
+	const store = storeCreator(reducerManager, initialState)
 
 	const appStore: appStoreType = { ...store, reducerManager: reducerManager }
 

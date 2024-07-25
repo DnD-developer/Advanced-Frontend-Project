@@ -12,9 +12,8 @@ import { useSelector } from "react-redux"
 import { getArticlesListDataSelector } from "../../store/selectors/getArticlesListData/getArticlesListData.selector"
 import { getArticlesListErrorSelector } from "../../store/selectors/getArticlesListError/getArticlesListError.selector"
 import { getArticlesListIsLoadingSelector } from "../../store/selectors/getArticlesListIsLoading/getArticlesListIsLoading.selector"
-import { getArticlesListPageNumberSelector } from "../../store/selectors/getArticlesListPageNumber/getArticlesListPageNumber.selector"
 import { articlesListActions, articlesListReducer } from "../../store/slices/articlesList.slice"
-import { fetchArticlesThunk } from "../../store/thunks/fetchArticles/fetchArticles.thunk"
+import { initArticlesListThunk } from "../../store/thunks/initArticlesList/initArticlesList.thunk"
 import styles from "./ArticlesList.module.scss"
 
 type ArticlesList = {
@@ -28,18 +27,15 @@ const initialReducer: asyncReducersList = {
 export const ArticlesList = memo<ArticlesList>(props => {
 	const { className } = props
 
-	useAsyncReducer(initialReducer)
+	useAsyncReducer(initialReducer, false)
 	const dispatch = useAppDispatch()
 
-	const { setView, initState } = articlesListActions
-
-	const pageNumber = useSelector(getArticlesListPageNumberSelector)
+	const { setView } = articlesListActions
 
 	useInitialEffect(
 		useCallback(() => {
-			dispatch(initState())
-			dispatch(fetchArticlesThunk(pageNumber))
-		}, [dispatch, initState, pageNumber])
+			dispatch(initArticlesListThunk())
+		}, [dispatch])
 	)
 
 	const data = useSelector(getArticlesListDataSelector)

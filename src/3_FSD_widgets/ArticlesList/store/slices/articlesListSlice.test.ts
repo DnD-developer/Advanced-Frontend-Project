@@ -9,7 +9,8 @@ describe("articlesListSliceTest Reducers", () => {
 	test("initState", () => {
 		const state: DeepPartial<articlesListStateMap> = {
 			view: undefined,
-			limit: 0
+			limit: 0,
+			_inited: false
 		}
 
 		const initState = articlesListActions.initState()
@@ -18,7 +19,8 @@ describe("articlesListSliceTest Reducers", () => {
 
 		expect(newState).toEqual({
 			view: ArticleItemViews.PlATES,
-			limit: CountArticleItemOfView.PlATES
+			limit: CountArticleItemOfView.PlATES,
+			_inited: true
 		})
 	})
 

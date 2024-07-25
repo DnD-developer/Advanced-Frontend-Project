@@ -6,6 +6,7 @@ import { fetchArticlesThunk } from "../thunks/fetchArticles/fetchArticles.thunk"
 
 const initialState: articlesListStateMap = {
 	pageNumber: 1,
+	_inited: false,
 	limit: 0,
 	hasMore: true,
 	isLoading: false,
@@ -30,6 +31,7 @@ const articlesListSlice = createSlice({
 				view === ArticleItemViews.PlATES ?
 					CountArticleItemOfView.PlATES
 				:	CountArticleItemOfView.DETAILED
+			state._inited = true
 		},
 
 		setPage: (state: articlesListStateMap) => {
