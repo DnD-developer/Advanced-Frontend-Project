@@ -1,6 +1,6 @@
 import { profileDataType } from "@entities/Profile"
 import { EditableProfileCard } from "@features/EditableProfileCard"
-import { Page } from "@ui/Page"
+import { Page } from "@widgets/Page"
 import { memo } from "react"
 import { useTranslation } from "react-i18next"
 import { useParams } from "react-router"

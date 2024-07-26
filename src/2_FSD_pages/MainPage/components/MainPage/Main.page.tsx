@@ -1,5 +1,5 @@
-import { Page } from "@ui/Page"
 import { Hello } from "@widgets/Hello"
+import { Page } from "@widgets/Page"
 import { memo } from "react"
 import { useTranslation } from "react-i18next"
 

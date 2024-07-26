@@ -7,7 +7,7 @@ export const fetchArticleDataByIdThunk = createAsyncThunk<
 	articleDetailsDataType,
 	articleDetailsDataType["id"],
 	thunkConfigType<articleDetailsStateMap["error"]>
->("/", async (id, thunkAPI) => {
+>("article/fetchArticleDataById", async (id, thunkAPI) => {
 	const { extra, rejectWithValue } = thunkAPI
 	try {
 		const response = await extra.api.get<articleDetailsDataType>(`/articles/${id}`, {

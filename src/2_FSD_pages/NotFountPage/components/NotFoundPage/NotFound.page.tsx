@@ -1,5 +1,5 @@
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
-import { Page } from "@ui/Page"
+import { Page } from "@widgets/Page"
 import { memo } from "react"
 import { useTranslation } from "react-i18next"
 import styles from "./NotFoundPage.module.scss"

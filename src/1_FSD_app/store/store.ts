@@ -1,5 +1,6 @@
 import { $api } from "@api/instanceAxios.api"
 import { userReducer } from "@entities/User"
+import { scrollPositionReducer } from "@features/ScrollSave"
 import { configureStore, Reducer, ReducersMapObject } from "@reduxjs/toolkit"
 import { createReducerManager, reducerManagerType } from "./reducerManager"
 import { appStoreType } from "./storeTypes/appStoreType"
@@ -31,7 +32,8 @@ export function createReduxStore(
 	asyncReducers?: ReducersMapObject<mainStateAsyncMap>
 ) {
 	const staticReducer: ReducersMapObject<mainStateStaticMap> = {
-		user: userReducer
+		user: userReducer,
+		scrollPosition: scrollPositionReducer
 	}
 
 	const rootReducer: ReducersMapObject<mainStateMap> = {

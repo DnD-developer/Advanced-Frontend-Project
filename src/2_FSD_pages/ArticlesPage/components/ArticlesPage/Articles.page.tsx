@@ -1,11 +1,11 @@
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { useAppDispatch } from "@hooks/useAppDispatch.hook"
-import { Page } from "@ui/Page"
 import {
 	ArticlesList,
 	fetchNextArticlesPageThunk,
 	getArticlesListIsLoadingSelector
 } from "@widgets/ArticlesList"
+import { Page } from "@widgets/Page"
 import { memo, useCallback } from "react"
 import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"

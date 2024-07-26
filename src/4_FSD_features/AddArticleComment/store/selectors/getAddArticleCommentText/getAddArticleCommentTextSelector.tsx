@@ -4,5 +4,5 @@ import { getAddArticleCommentSelector } from "../getAddArticleComment/getAddArti
 
 export const getAddArticleCommentTextSelector = createSelector(
 	getAddArticleCommentSelector,
-	(state?: addArticleCommentStateMap) => state?.text || ""
+	(state?: addArticleCommentStateMap) => state?.text ?? ""
 )
