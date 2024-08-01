@@ -3,26 +3,26 @@ import { ChangeEvent, memo, SelectHTMLAttributes, useCallback, useMemo } from "r
 import { SelectTheme } from "../../constants/Select.constant"
 import styles from "./Select.module.scss"
 
-type SelectCustomProps = {
-	classNames?: string
+type SelectCustomProps<T extends string> = {
+	className?: string
 	classNamesLabel?: string
 	theme?: SelectTheme
-	options: OptionType[]
+	options: OptionType<T>[]
 	label?: string
-	onChange?: (value: string) => void
+	onChange?: (value: T) => void
 }
 
-export type OptionType = {
-	value: string
+export type OptionType<T extends string> = {
+	value: T
 	content: string
 }
 
-export type SelectProps = SelectCustomProps &
-	Omit<SelectHTMLAttributes<HTMLSelectElement>, keyof SelectCustomProps>
+export type SelectProps<T extends string> = SelectCustomProps<T> &
+	Omit<SelectHTMLAttributes<HTMLSelectElement>, keyof SelectCustomProps<T>>
 
-export const Select = memo<SelectProps>(props => {
+const SelectComponent = <T extends string>(props: SelectProps<T>) => {
 	const {
-		classNames,
+		className,
 		classNamesLabel,
 		theme = SelectTheme.OUTLINE,
 		options,
@@ -36,7 +36,7 @@ export const Select = memo<SelectProps>(props => {
 	const onChangeHandler = useCallback(
 		(event: ChangeEvent<HTMLSelectElement>) => {
 			const { target } = event
-			onChange?.(target.value)
+			onChange?.(target.value as T)
 		},
 		[onChange]
 	)
@@ -61,7 +61,7 @@ export const Select = memo<SelectProps>(props => {
 	const selectComponent = useMemo(() => {
 		return (
 			<select
-				className={classNamesHelp(styles.Select, mods, [classNames, styles[theme]])}
+				className={classNamesHelp(styles.Select, mods, [className, styles[theme]])}
 				disabled={disabled}
 				onChange={onChangeHandler}
 				value={value}
@@ -70,7 +70,7 @@ export const Select = memo<SelectProps>(props => {
 				{optionList}
 			</select>
 		)
-	}, [classNames, disabled, mods, onChangeHandler, optionList, otherProps, theme, value])
+	}, [className, disabled, mods, onChangeHandler, optionList, otherProps, theme, value])
 
 	if (label) {
 		return (
@@ -82,4 +82,6 @@ export const Select = memo<SelectProps>(props => {
 	}
 
 	return selectComponent
-})
+}
+
+export const Select = memo(SelectComponent) as typeof SelectComponent

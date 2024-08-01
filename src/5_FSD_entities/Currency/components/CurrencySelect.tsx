@@ -9,18 +9,18 @@ type CurrencySelectCustomProps = {
 	options?: never
 }
 
-type CurrencySelectProps = CurrencySelectCustomProps &
-	Omit<SelectProps, keyof CurrencySelectCustomProps>
+type CurrencySelectProps<T extends string> = CurrencySelectCustomProps &
+	Omit<SelectProps<T>, keyof CurrencySelectCustomProps>
 
-const currencyOptions: OptionType[] = Object.entries(Currency).map(([value, content]) => {
+const currencyOptions: OptionType<Currency>[] = Object.entries(Currency).map(([content, value]) => {
 	return {
 		value: value,
 		content: content
 	}
 })
 
-export const CurrencySelect = memo<CurrencySelectProps>(props => {
-	const { classNames, onChange, value, ...otherProps } = props
+const CurrencySelectElement = <T extends string>(props: CurrencySelectProps<T>) => {
+	const { className, onChange, value, ...otherProps } = props
 
 	const { t } = useTranslation("profile")
 
@@ -34,11 +34,13 @@ export const CurrencySelect = memo<CurrencySelectProps>(props => {
 	return (
 		<Select
 			options={currencyOptions}
-			classNamesLabel={classNames}
+			classNamesLabel={className}
 			onChange={onChangeHandler}
 			label={t("profile:yourCurrency")}
 			value={value}
 			{...otherProps}
 		/>
 	)
-})
+}
+
+export const CurrencySelect = memo(CurrencySelectElement) as typeof CurrencySelectElement

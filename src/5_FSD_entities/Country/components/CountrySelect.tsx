@@ -9,18 +9,18 @@ type CountrySelectCustomProps = {
 	options?: never
 }
 
-type CountrySelectProps = CountrySelectCustomProps &
-	Omit<SelectProps, keyof CountrySelectCustomProps>
+type CountrySelectProps<T extends string> = CountrySelectCustomProps &
+	Omit<SelectProps<T>, keyof CountrySelectCustomProps>
 
-const currencyOptions: OptionType[] = Object.entries(Country).map(([value, content]) => {
+const currencyOptions: OptionType<Country>[] = Object.entries(Country).map(([content, value]) => {
 	return {
 		value: value,
 		content: content
 	}
 })
 
-export const CountrySelect = memo<CountrySelectProps>(props => {
-	const { classNames, onChange, value, ...otherProps } = props
+const CountrySelectElement = <T extends string>(props: CountrySelectProps<T>) => {
+	const { className, onChange, value, ...otherProps } = props
 
 	const { t } = useTranslation("profile")
 
@@ -34,11 +34,13 @@ export const CountrySelect = memo<CountrySelectProps>(props => {
 	return (
 		<Select
 			options={currencyOptions}
-			classNamesLabel={classNames}
+			classNamesLabel={className}
 			onChange={onChangeHandler}
 			label={t("profile:yourCountry")}
 			value={value}
 			{...otherProps}
 		/>
 	)
-})
+}
+
+export const CountrySelect = memo(CountrySelectElement) as typeof CountrySelectElement

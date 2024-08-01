@@ -19,6 +19,7 @@ describe("articlesListSliceTest Reducers", () => {
 
 		expect(newState).toEqual({
 			view: ArticleItemViews.PlATES,
+			pageNumber: 1,
 			limit: CountArticleItemOfView.PlATES,
 			_inited: true
 		})
@@ -79,7 +80,7 @@ describe("articlesListSliceTest Reducers", () => {
 	})
 })
 
-const data = [{ id: "2" }, { id: "3" }] as articleDetailsDataType[]
+const data = [{ id: "2" }, { id: "3" }, { id: "4" }, { id: "5" }] as articleDetailsDataType[]
 
 describe("articlesListSliceTest ExtraReducers", () => {
 	test("pending", () => {
@@ -88,7 +89,7 @@ describe("articlesListSliceTest ExtraReducers", () => {
 			error: "error text"
 		}
 
-		const pending = fetchArticlesThunk.pending("", 1)
+		const pending = fetchArticlesThunk.pending("", {})
 
 		const newState = articlesListReducer(state as articlesListStateMap, pending)
 
@@ -103,6 +104,7 @@ describe("articlesListSliceTest ExtraReducers", () => {
 			isLoading: true,
 			error: "error text",
 			hasMore: true,
+			limit: CountArticleItemOfView.DETAILED,
 			ids: ["1"],
 			entities: {
 				"1": {
@@ -111,7 +113,7 @@ describe("articlesListSliceTest ExtraReducers", () => {
 			}
 		}
 
-		const fulfilled = fetchArticlesThunk.fulfilled(data, "", 1)
+		const fulfilled = fetchArticlesThunk.fulfilled(data, "", {})
 
 		const newState = articlesListReducer(state as articlesListStateMap, fulfilled)
 
@@ -119,7 +121,8 @@ describe("articlesListSliceTest ExtraReducers", () => {
 			isLoading: false,
 			error: undefined,
 			hasMore: true,
-			ids: ["1", "2", "3"],
+			ids: ["1", "2", "3", "4", "5"],
+			limit: CountArticleItemOfView.DETAILED,
 			entities: {
 				"1": {
 					id: "1"
@@ -129,6 +132,12 @@ describe("articlesListSliceTest ExtraReducers", () => {
 				},
 				"3": {
 					id: "3"
+				},
+				"4": {
+					id: "4"
+				},
+				"5": {
+					id: "5"
 				}
 			}
 		})
@@ -147,7 +156,7 @@ describe("articlesListSliceTest ExtraReducers", () => {
 			}
 		}
 
-		const fulfilled = fetchArticlesThunk.fulfilled([], "", 1)
+		const fulfilled = fetchArticlesThunk.fulfilled([], "", {})
 
 		const newState = articlesListReducer(state as articlesListStateMap, fulfilled)
 
@@ -170,7 +179,7 @@ describe("articlesListSliceTest ExtraReducers", () => {
 			error: undefined
 		}
 
-		const rejected = fetchArticlesThunk.rejected(null, "", 1, "error text")
+		const rejected = fetchArticlesThunk.rejected(null, "", {}, "error text")
 
 		const newState = articlesListReducer(state as articlesListStateMap, rejected)
 

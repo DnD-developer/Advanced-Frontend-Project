@@ -1,0 +1,30 @@
+.Tabs {
+	display: flex;
+	align-items: center;
+	gap: 0 20px;
+
+	margin-top: 30px;
+}
+
+.btn {
+	width: 80px;
+
+	background: none;
+
+	line-height: 30px;
+
+	cursor: pointer;
+}
+
+.outline {
+	border: 1px solid var(--inverted-bg-color);
+	border-radius: var(--small-br);
+
+	color: var(--inverted-bg-color);
+}
+
+.active.outline {
+	border: 2px solid var(--primary-color);
+
+	color: var(--primary-color);
+}

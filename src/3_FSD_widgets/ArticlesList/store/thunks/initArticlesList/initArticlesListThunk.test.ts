@@ -7,7 +7,11 @@ import { articlesListActions } from "../../slices/articlesList.slice"
 import { fetchArticlesThunk } from "../fetchArticles/fetchArticles.thunk"
 import { initArticlesListThunk } from "./initArticlesList.thunk"
 
-type AsyncThunkMockType = AsyncThunkMock<undefined, undefined, thunkConfigType<undefined>>
+type AsyncThunkMockType = AsyncThunkMock<
+	undefined,
+	URLSearchParams | undefined,
+	thunkConfigType<undefined>
+>
 
 let thunk: AsyncThunkMockType
 
@@ -27,7 +31,7 @@ describe("fetchProfileDataThunkTest", () => {
 		await thunk.callThunk(undefined)
 
 		expect(thunk.dispatch).toBeCalled()
-		expect(thunk.dispatch).toBeCalledTimes(4)
+		expect(thunk.dispatch).toBeCalledTimes(8)
 		expect(thunk.getState()).toEqual({
 			articlesListStateMap: {
 				_inited: false,
@@ -35,7 +39,7 @@ describe("fetchProfileDataThunkTest", () => {
 			}
 		})
 		expect(thunk.dispatch).toBeCalledWith(articlesListActions.initState())
-		expect(thunk.dispatch).toBeCalledWith(fetchArticlesThunk(1))
+		expect(thunk.dispatch).toBeCalledWith(fetchArticlesThunk({}))
 	})
 
 	test("after inited", async () => {
@@ -58,6 +62,6 @@ describe("fetchProfileDataThunkTest", () => {
 			}
 		})
 		expect(thunk.dispatch).not.toBeCalledWith(articlesListActions.initState())
-		expect(thunk.dispatch).not.toBeCalledWith(fetchArticlesThunk(1))
+		expect(thunk.dispatch).not.toBeCalledWith(fetchArticlesThunk({}))
 	})
 })

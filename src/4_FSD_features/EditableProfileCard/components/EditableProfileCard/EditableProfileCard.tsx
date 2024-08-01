@@ -79,8 +79,8 @@ export const EditableProfileCard = memo<EditableProfileCardProps>(props => {
 	)
 
 	const onChangeAgeHandler = useCallback(
-		(value: string) => {
-			if (!/\D/.test(value)) {
+		(value: string | number) => {
+			if (!/\D/.test(value as string)) {
 				dispatch(updateForm({ age: Number(value) }))
 			}
 		},

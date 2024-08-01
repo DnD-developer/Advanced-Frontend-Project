@@ -11,13 +11,13 @@ import {
 import { InputTheme } from "../../constants/Input.constant"
 import styles from "./Input.module.scss"
 
-type InputCustomProps = {
-	classNames?: string
+type InputCustomProps<T extends number | string> = {
+	className?: string
 	theme?: InputTheme
 	inverted?: boolean
 	error?: boolean
-	value?: string | number
-	onChange?: (value: string) => void
+	value?: T
+	onChange?: (value: T) => void
 	autoFocus?: boolean
 	label?: string
 	classNamesLabel?: string
@@ -25,12 +25,12 @@ type InputCustomProps = {
 	type?: string
 }
 
-type InputProps = InputCustomProps &
-	Omit<InputHTMLAttributes<HTMLInputElement>, keyof InputCustomProps>
+type InputProps<T extends number | string> = InputCustomProps<T> &
+	Omit<InputHTMLAttributes<HTMLInputElement>, keyof InputCustomProps<T>>
 
-export const Input = memo<InputProps>(props => {
+const InputElement = <T extends string | number>(props: InputProps<T>) => {
 	const {
-		classNames,
+		className,
 		theme = InputTheme.OUTLINE,
 		value,
 		error,
@@ -56,7 +56,7 @@ export const Input = memo<InputProps>(props => {
 		(event: ChangeEvent<HTMLInputElement>) => {
 			const { value } = event.target
 
-			onChange?.(value)
+			onChange?.(value as T)
 		},
 		[onChange]
 	)
@@ -70,7 +70,7 @@ export const Input = memo<InputProps>(props => {
 			ref={inputRef}
 			type={type}
 			readOnly={readOnly}
-			className={classNamesHelp(styles.Input, mods, [classNames, styles[theme]])}
+			className={classNamesHelp(styles.Input, mods, [className, styles[theme]])}
 			value={value}
 			onChange={onChangeHandler}
 			{...otherProps}
@@ -87,4 +87,6 @@ export const Input = memo<InputProps>(props => {
 	}
 
 	return inputElement()
-})
+}
+
+export const Input = memo(InputElement) as typeof InputElement

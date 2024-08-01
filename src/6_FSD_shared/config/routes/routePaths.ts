@@ -5,7 +5,7 @@ export enum PagesNames {
 	MAIN = "main",
 	ABOUT = "about",
 	PROFILE = "profile",
-	ARTICLES = "Articles",
+	ARTICLES = "articles",
 	ARTICLE_DETAILS = "ArticleDetails",
 	NOT_FOUND = "NotFound"
 }

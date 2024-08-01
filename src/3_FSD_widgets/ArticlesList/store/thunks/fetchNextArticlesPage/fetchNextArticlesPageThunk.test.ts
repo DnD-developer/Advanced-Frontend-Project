@@ -33,8 +33,8 @@ describe("fetchProfileDataThunkTest", () => {
 
 		expect(thunk.dispatch).toHaveBeenCalledTimes(4)
 		expect(thunk.dispatch).toHaveBeenCalledWith(articlesListActions.setPage())
-		expect(fetchArticlesThunk).toHaveBeenCalledWith(1)
-		expect(thunk.dispatch).toHaveBeenCalledWith(fetchArticlesThunk(0))
+		expect(fetchArticlesThunk).toHaveBeenCalledWith({})
+		expect(thunk.dispatch).toHaveBeenCalledWith(fetchArticlesThunk({}))
 		expect(result.meta.requestStatus).toBe("fulfilled")
 	})
 

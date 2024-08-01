@@ -1,24 +1,53 @@
 import { articleDetailsDataType } from "@entities/Article"
+import {
+	getFilterArticlesListOrderSelector,
+	getFilterArticlesListSearchSelector,
+	getFilterArticlesListSortFieldSelector,
+	getFilterArticlesListTypeTopicSelector
+} from "@features/FilterArticlesList"
+import { addQueryParams } from "@helpers/addQueryParams/addQueryParams.helper"
 import { createAsyncThunk } from "@reduxjs/toolkit"
 import { thunkConfigType } from "@store/storeTypes/thunks.type"
 import { getArticlesListLimitSelector } from "../../selectors/getArticlesListLimit/getArticlesListLimit.selector"
+import { getArticlesListPageNumberSelector } from "../../selectors/getArticlesListPageNumber/getArticlesListPageNumber.selector"
 import { articlesListStateMap } from "../../storeTypes/articlesListState.map"
+
+export type fetchArticlesThunkProps = {
+	replace?: boolean
+}
 
 export const fetchArticlesThunk = createAsyncThunk<
 	articleDetailsDataType[],
-	articlesListStateMap["pageNumber"],
+	fetchArticlesThunkProps,
 	thunkConfigType<articlesListStateMap["error"]>
->("articlesList/fetchArticlesThunk", async (pageNumber, thunkAPI) => {
+>("articlesList/fetchArticlesThunk", async (props, thunkAPI) => {
 	const { extra, rejectWithValue, getState } = thunkAPI
 
 	const limit = getArticlesListLimitSelector(getState())
+	const pageNumber = getArticlesListPageNumberSelector(getState())
+	const order = getFilterArticlesListOrderSelector(getState())
+	const sortField = getFilterArticlesListSortFieldSelector(getState())
+	const search = getFilterArticlesListSearchSelector(getState())
+	const typeTopic = getFilterArticlesListTypeTopicSelector(getState())
+
+	const params: Record<string, any> = {
+		_sort: sortField,
+		_order: order,
+		type: typeTopic,
+		search
+	}
 
 	try {
+		addQueryParams(params)
 		const response = await extra.api.get("/articles", {
 			params: {
 				_page: pageNumber,
 				_limit: limit,
-				_expand: "user"
+				_expand: "user",
+				_sort: sortField,
+				_order: order,
+				type: typeTopic === "ALL" ? undefined : typeTopic,
+				q: search
 			}
 		})
 

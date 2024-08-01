@@ -5,13 +5,13 @@ import { AsyncThunkMock } from "@mocks/AsyncThunk.mock"
 import { mainStateMap } from "@store/storeTypes/mainState.map"
 import { thunkConfigType } from "@store/storeTypes/thunks.type"
 import { articlesListStateMap } from "../../storeTypes/articlesListState.map"
-import { fetchArticlesThunk } from "./fetchArticles.thunk"
+import { fetchArticlesThunk, fetchArticlesThunkProps } from "./fetchArticles.thunk"
 
 let DataValue: DeepPartial<articleDetailsDataType>[]
 
 type AsyncThunkMockType = AsyncThunkMock<
 	articleDetailsDataType[],
-	articlesListStateMap["pageNumber"],
+	fetchArticlesThunkProps,
 	thunkConfigType<articlesListStateMap["error"]>
 >
 
@@ -36,7 +36,7 @@ describe("fetchProfileDataThunkTest", () => {
 
 		mockedRequest.mockReturnValue(Promise.resolve({ data: DataValue }))
 
-		const result = await thunk.callThunk(1)
+		const result = await thunk.callThunk({})
 
 		expect(mockedRequest).toHaveBeenCalled()
 		expect(result.meta.requestStatus).toBe("fulfilled")
@@ -46,7 +46,7 @@ describe("fetchProfileDataThunkTest", () => {
 	test("fetchProfileDataThunkTest rejected", async () => {
 		mockedRequest.mockReturnValue(Promise.reject({ response: { status: 403 } }))
 
-		const result = await thunk.callThunk(1)
+		const result = await thunk.callThunk({})
 
 		expect(mockedRequest).toHaveBeenCalled()
 		expect(result.meta.requestStatus).toBe("rejected")

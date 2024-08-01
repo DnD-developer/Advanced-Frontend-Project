@@ -31,7 +31,7 @@ type ProfileCardCustomProps = {
 	onChangeAvatar?: (value: profileDataType["avatar"]) => void
 	onChangeFirstName?: (value: profileDataType["firstName"]) => void
 	onChangeLastName?: (value: profileDataType["lastName"]) => void
-	onChangeAge?: (value: string) => void
+	onChangeAge?: (value: string | number) => void
 	onChangeCity?: (value: profileDataType["city"]) => void
 }
 

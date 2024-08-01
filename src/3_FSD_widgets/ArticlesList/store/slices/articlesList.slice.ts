@@ -27,6 +27,7 @@ const articlesListSlice = createSlice({
 				(localStorage.getItem(LOCAL_STORAGE_VIEW_ARTICLES_KEY) as ArticleItemViews) ||
 				ArticleItemViews.PlATES
 			state.view = view
+			state.pageNumber = 1
 			state.limit =
 				view === ArticleItemViews.PlATES ?
 					CountArticleItemOfView.PlATES
@@ -37,7 +38,6 @@ const articlesListSlice = createSlice({
 		setPage: (state: articlesListStateMap) => {
 			state.pageNumber += 1
 		},
-
 		setView: (
 			state: articlesListStateMap,
 			action: PayloadAction<articlesListStateMap["view"]>
@@ -56,7 +56,13 @@ const articlesListSlice = createSlice({
 	},
 	extraReducers: builder => {
 		builder
-			.addCase(fetchArticlesThunk.pending, state => {
+			.addCase(fetchArticlesThunk.pending, (state, action) => {
+				const { replace } = action.meta.arg
+
+				if (replace) {
+					articlesListAdapter.removeAll(state)
+				}
+
 				state.isLoading = true
 				state.error = undefined
 			})
@@ -64,9 +70,15 @@ const articlesListSlice = createSlice({
 				state.isLoading = false
 				state.error = undefined
 
-				state.hasMore = action.payload?.length > 0
+				state.hasMore = action.payload?.length === state.limit
 
-				articlesListAdapter.addMany(state, action.payload)
+				const { replace } = action.meta.arg
+
+				if (replace) {
+					articlesListAdapter.setAll(state, action.payload)
+				} else {
+					articlesListAdapter.addMany(state, action.payload)
+				}
 			})
 			.addCase(fetchArticlesThunk.rejected, (state, action) => {
 				state.isLoading = false
