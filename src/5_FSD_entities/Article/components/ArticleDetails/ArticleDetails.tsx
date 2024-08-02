@@ -33,7 +33,7 @@ const initReducers: asyncReducersList = {
 export const ArticleDetails = memo<ArticleDetailsProps>(props => {
 	const { className, id } = props
 
-	useAsyncReducer(initReducers)
+	useAsyncReducer(initReducers, false)
 
 	const dispatch = useAppDispatch()
 

@@ -1,7 +1,6 @@
 .Header {
 	display: flex;
 	align-items: center;
-	justify-content: right;
 	width: 100%;
 	height: var(--header-height);
 	padding: 10px 50px;
@@ -9,9 +8,22 @@
 	background-color: var(--inverted-bg-color);
 }
 
+.headerLeft {
+	display: flex;
+	align-items: center;
+}
+
+.createLink {
+	margin-left: 20px;
+
+	font-size: 20px;
+}
+
 .links {
 	display: flex;
 	align-items: center;
+	justify-content: space-between;
+	width: 100%;
 }
 
 .link {

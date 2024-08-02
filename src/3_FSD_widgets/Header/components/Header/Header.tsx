@@ -1,8 +1,11 @@
+import { PagesPaths } from "@config/routes/routePaths"
 import { useAuth } from "@entities/User"
 import { LoginModal } from "@features/AuthByUserName"
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
+import { AppLink, AppLinkTheme } from "@ui/AppLink"
 import { Button, ButtonTheme } from "@ui/Button"
 import { Portal } from "@ui/Portal"
+import { Text, TextSize } from "@ui/Text"
 import { memo, type PropsWithChildren, useCallback, useState } from "react"
 import { useTranslation } from "react-i18next"
 import { useDispatch } from "react-redux"
@@ -57,7 +60,26 @@ export const Header = memo<HeaderProps>(props => {
 	return (
 		<div className={classNamesHelp(styles.Header, {}, [classNames])}>
 			{children}
-			<div className={styles.links}>{authData ? btnLogOut : btnLogin}</div>
+			<div className={styles.links}>
+				<div className={styles.headerLeft}>
+					<Text
+						title={t("translation:welcomeToHell")}
+						size={TextSize.BIG}
+						inverted={true}
+					/>
+					{authData ?
+						<AppLink
+							theme={AppLinkTheme.OUTLINE}
+							className={styles.createLink}
+							to={PagesPaths.ARTICLE_DETAILS_CREATE}
+							inverted={true}
+						>
+							{t("translation:createArticle")}
+						</AppLink>
+					:	null}
+				</div>
+				{authData ? btnLogOut : btnLogin}
+			</div>
 			<Portal>
 				<LoginModal
 					onClose={loginModalClose}

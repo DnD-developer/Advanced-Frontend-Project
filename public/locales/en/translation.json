@@ -2,6 +2,7 @@
 	"about": "About",
 	"articles": "Artciles",
 	"avatar": "Avatar",
+	"createArticle": "Create Article",
 	"decrement": "decrement",
 	"errorTextNoUser": "Unknown login or password",
 	"errorTextOtherError": "Error with login",
@@ -21,5 +22,6 @@
 	"textModal": "Login in Application",
 	"toggle": "Toggle",
 	"unexpectedErrorTitle": "An unexpected error occurred",
-	"userName": "User Name"
+	"userName": "User Name",
+	"welcomeToHell": "Welcome To Hell"
 }

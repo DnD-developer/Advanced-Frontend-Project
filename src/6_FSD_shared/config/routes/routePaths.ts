@@ -7,6 +7,8 @@ export enum PagesNames {
 	PROFILE = "profile",
 	ARTICLES = "articles",
 	ARTICLE_DETAILS = "ArticleDetails",
+	ARTICLE_DETAILS_EDIT = "ArticleDetailEdit",
+	ARTICLE_DETAILS_CREATE = "ArticleDetailsCreate",
 	NOT_FOUND = "NotFound"
 }
 
@@ -15,6 +17,9 @@ export enum PagesPaths {
 	ABOUT = "/about",
 	PROFILE = "/profile",
 	ARTICLES = "/articles",
+	ARTICLE_DETAILS = "/articles/:id",
+	ARTICLE_DETAILS_EDIT = "/articles/:id/edit",
+	ARTICLE_DETAILS_CREATE = "/articles/new",
 	NOT_FOUND = "*"
 }
 
@@ -62,10 +67,24 @@ export const routesPath: pagesInfo[] = [
 	},
 	{
 		name: PagesNames.ARTICLE_DETAILS,
-		path: PagesPaths.ARTICLES,
+		path: PagesPaths.ARTICLE_DETAILS,
 		isRequiredUserId: false,
 		inHeader: false,
 		isRequireAuth: false
+	},
+	{
+		name: PagesNames.ARTICLE_DETAILS_EDIT,
+		path: PagesPaths.ARTICLE_DETAILS_EDIT,
+		isRequiredUserId: false,
+		inHeader: false,
+		isRequireAuth: true
+	},
+	{
+		name: PagesNames.ARTICLE_DETAILS_CREATE,
+		path: PagesPaths.ARTICLE_DETAILS_CREATE,
+		isRequiredUserId: false,
+		inHeader: false,
+		isRequireAuth: true
 	},
 	{
 		name: PagesNames.NOT_FOUND,

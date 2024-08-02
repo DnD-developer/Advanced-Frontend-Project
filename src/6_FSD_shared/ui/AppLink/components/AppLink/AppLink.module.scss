@@ -1,4 +1,6 @@
 .AppLink {
+	display: block;
+
 	color: var(--primary-color);
 	font-size: 30px;
 }
@@ -13,6 +15,22 @@
 	color: var(--primary-color);
 }
 
+.outline {
+	padding: 0 20px;
+
+	border: 1px solid var(--primary-color);
+	border-radius: var(--small-br);
+
+	color: var(--primary-color);
+	line-height: 30px;
+}
+
 .primary.inverted {
+	color: var(--inverted-color);
+}
+
+.outline.inverted {
+	border-color: var(--inverted-color);
+
 	color: var(--inverted-color);
 }

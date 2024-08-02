@@ -2,6 +2,7 @@
 	"about": "О нас",
 	"articles": "Статьи",
 	"avatar": "Иконка профиля",
+	"createArticle": "Создать статью",
 	"decrement": "Уменьшить",
 	"errorTextNoUser": "Неизвестный логин или пароль",
 	"errorTextOtherError": "Ошибка при авторизации",
@@ -21,5 +22,6 @@
 	"textModal": "Войдите в Приложение",
 	"toggle": "Переключить",
 	"unexpectedErrorTitle": "Произошла непредвиденная ошибка",
-	"userName": "Имя пользователя"
+	"userName": "Имя пользователя",
+	"welcomeToHell": "Добро пожаловать в Ад"
 }

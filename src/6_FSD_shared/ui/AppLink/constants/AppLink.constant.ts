@@ -1,3 +1,4 @@
 export enum AppLinkTheme {
-	PRIMARY = "primary"
+	PRIMARY = "primary",
+	OUTLINE = "outline"
 }

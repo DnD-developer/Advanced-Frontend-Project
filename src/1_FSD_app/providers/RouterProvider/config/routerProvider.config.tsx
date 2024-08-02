@@ -1,5 +1,6 @@
 import { PagesNames, PagesPaths, routesPath } from "@config/routes/routePaths"
 import { AboutPage } from "@pages/AboutPage"
+import { ArticleDetailsEditPage } from "@pages/ArticleDetailsEditPage"
 import { ArticleDetailsPage } from "@pages/ArticleDetailsPage"
 import { ArticlesPage } from "@pages/ArticlesPage"
 import { MainPage } from "@pages/MainPage"
@@ -34,9 +35,19 @@ export const routerProviderConfig: Record<PagesNames, CustomRouteProps> = {
 		isRequiredAuth: isRequiredAuth(PagesNames.ARTICLES)
 	},
 	[PagesNames.ARTICLE_DETAILS]: {
-		path: `${PagesPaths.ARTICLES}/:id`,
+		path: `${PagesPaths.ARTICLE_DETAILS}`,
 		element: <ArticleDetailsPage />,
 		isRequiredAuth: isRequiredAuth(PagesNames.ARTICLE_DETAILS)
+	},
+	[PagesNames.ARTICLE_DETAILS_EDIT]: {
+		path: `${PagesPaths.ARTICLE_DETAILS_EDIT}`,
+		element: <ArticleDetailsEditPage />,
+		isRequiredAuth: isRequiredAuth(PagesNames.ARTICLE_DETAILS_EDIT)
+	},
+	[PagesNames.ARTICLE_DETAILS_CREATE]: {
+		path: `${PagesPaths.ARTICLE_DETAILS_CREATE}`,
+		element: <ArticleDetailsEditPage />,
+		isRequiredAuth: isRequiredAuth(PagesNames.ARTICLE_DETAILS_CREATE)
 	},
 	[PagesNames.NOT_FOUND]: {
 		path: PagesPaths.NOT_FOUND,

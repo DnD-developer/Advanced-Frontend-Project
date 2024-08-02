@@ -1,3 +1,4 @@
+import { PagesPaths } from "@config/routes/routePaths"
 import { PageLoader } from "@widgets/PageLoader"
 import { memo, ReactNode, Suspense, useCallback, useMemo } from "react"
 import { Route } from "react-router"
@@ -10,7 +11,7 @@ export const RouterProvider = memo(() => {
 		(element: ReactNode, isRequiredAuth: boolean | undefined) => (
 			<RequireAuth
 				isRequiredAuth={isRequiredAuth}
-				path="/"
+				path={PagesPaths.MAIN}
 				element={element}
 			/>
 		),
