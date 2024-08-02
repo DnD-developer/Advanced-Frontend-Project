@@ -20,7 +20,9 @@ const TabsElement = <T extends string>(props: TabsProps<T>) => {
 	const { className, theme = TabThemes.OUTLINE, tabs, onTabClick, value } = props
 
 	const onTabClickHandler = (tab: TabsItem<T>) => () => {
-		onTabClick?.(tab)
+		if (tab.value !== value) {
+			onTabClick?.(tab)
+		}
 	}
 
 	return (

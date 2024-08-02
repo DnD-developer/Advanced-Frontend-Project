@@ -1,5 +1,6 @@
 import { articleDetailsStateMap } from "@entities/Article"
 import { addArticleCommentStateMap } from "@features/AddArticleComment"
+import { articlesRecommendationState } from "@features/ArticlesRecommendation"
 import { loginFormStateMap } from "@features/AuthByUserName"
 import { editableProfileStateMap } from "@features/EditableProfileCard"
 import { filterArticlesListStateMap } from "@features/FilterArticlesList"
@@ -14,6 +15,7 @@ export type mainStateAsyncMap = {
 	addArticleComment?: addArticleCommentStateMap
 	articlesListStateMap?: articlesListStateMap
 	filterArticlesList?: filterArticlesListStateMap
+	articlesRecommendation?: articlesRecommendationState
 }
 
 export type mainStateAsyncKeys = keyof mainStateAsyncMap

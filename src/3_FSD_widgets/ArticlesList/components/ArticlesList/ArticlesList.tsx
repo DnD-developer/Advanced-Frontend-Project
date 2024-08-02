@@ -69,6 +69,7 @@ export const ArticlesList = memo<ArticlesList>(props => {
 			</div>
 
 			<ArticleItemList
+				className={styles.list}
 				view={view}
 				articles={data}
 				isLoading={isLoading}

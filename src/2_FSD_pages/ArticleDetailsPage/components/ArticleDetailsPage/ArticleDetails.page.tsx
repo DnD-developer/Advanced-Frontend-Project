@@ -1,4 +1,5 @@
 import { ArticleDetails, articleDetailsDataType } from "@entities/Article"
+import { ArticlesRecommendation } from "@features/ArticlesRecommendation"
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { Text, TextAlign, TextSize, TextTheme } from "@ui/Text"
 import { CommentsArticleDetails } from "@widgets/CommentsArticleDetails"
@@ -32,6 +33,7 @@ const ArticleDetailsPage = memo<ArticleDetailsPageProps>(props => {
 		element = (
 			<>
 				<ArticleDetails id={id || testId} />
+				<ArticlesRecommendation />
 				<CommentsArticleDetails articleId={id || testId} />
 			</>
 		)

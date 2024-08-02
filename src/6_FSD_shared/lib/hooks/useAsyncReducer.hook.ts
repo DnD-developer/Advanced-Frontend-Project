@@ -1,11 +1,11 @@
 import { Reducer } from "@reduxjs/toolkit"
-import { mainStateAsyncKeys } from "@store/storeTypes/mainStateAsync.map"
+import { mainStateAsyncKeys, mainStateAsyncMap } from "@store/storeTypes/mainStateAsync.map"
 import { useEffect } from "react"
 import { useAppDispatch } from "./useAppDispatch.hook"
 import { useAppStore } from "./useAppStore.hook"
 
 export type asyncReducersList = {
-	[name in mainStateAsyncKeys]?: Reducer
+	[name in mainStateAsyncKeys]?: Reducer<NonNullable<mainStateAsyncMap[name]>>
 }
 type asyncReducersEntries = [mainStateAsyncKeys, Reducer][]
 

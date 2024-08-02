@@ -18,6 +18,7 @@ export const AppLink = memo<AppLinkProps>(props => {
 		children,
 		inverted = false,
 		hover = true,
+		target,
 		...otherProps
 	} = props
 
@@ -27,6 +28,7 @@ export const AppLink = memo<AppLinkProps>(props => {
 
 	return (
 		<Link
+			target={target}
 			to={to}
 			className={classNamesHelp(styles.AppLink, mods, [className, styles[theme]])}
 			{...otherProps}

@@ -1,11 +1,13 @@
 import { EyeIcon } from "@assets/index"
+import { PagesPaths } from "@config/routes/routePaths"
 import { FAKE_AVATAR } from "@constants/common.constant"
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
+import { AppLink } from "@ui/AppLink"
 import { Avatar, AvatarSize, AvatarTheme } from "@ui/Avatar"
 import { Button, ButtonTheme } from "@ui/Button"
 import { Card } from "@ui/Card/Card"
 import { Text, TextSize } from "@ui/Text"
-import { memo } from "react"
+import { HTMLAttributeAnchorTarget, memo } from "react"
 import { useTranslation } from "react-i18next"
 import { ArticleBlockTypeConstant } from "../../../../constants/ArticleBlock.constant"
 import { articleItemStateMap } from "../../../../store/storeTypes/articleItemState.map"
@@ -16,10 +18,10 @@ import styles from "./ArticleItemDetailedRender.module.scss"
 type ArticleItemDetailedRenderProps = {
 	className?: string
 	article: articleItemStateMap["article"]
-	onClickHandler?: () => void
+	target?: HTMLAttributeAnchorTarget
 }
 export const ArticleItemDetailedRender = memo<ArticleItemDetailedRenderProps>(props => {
-	const { className, article, onClickHandler } = props
+	const { className, article, target } = props
 
 	const { t } = useTranslation("article")
 
@@ -70,12 +72,13 @@ export const ArticleItemDetailedRender = memo<ArticleItemDetailedRenderProps>(pr
 				/>
 			)}
 			<div className={styles.footer}>
-				<Button
-					theme={ButtonTheme.OUTLINE}
-					onClick={onClickHandler}
+				<AppLink
+					to={`${PagesPaths.ARTICLES}/${article.id}`}
+					target={target}
 				>
-					{t("article:readMore")}
-				</Button>
+					<Button theme={ButtonTheme.OUTLINE}>{t("article:readMore")}</Button>
+				</AppLink>
+
 				<div className={styles.view}>
 					<Text
 						text={article.views.toString()}

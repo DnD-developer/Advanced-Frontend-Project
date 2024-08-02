@@ -1,6 +1,4 @@
-import { PagesPaths } from "@config/routes/routePaths"
-import { memo, useCallback } from "react"
-import { useNavigate } from "react-router-dom"
+import { HTMLAttributeAnchorTarget, memo } from "react"
 import { ArticleItemViews } from "../../constants/ArticleItemViews.constant"
 import { articleItemStateMap } from "../../store/storeTypes/articleItemState.map"
 import { ArticleItemDetailedRender } from "./renders/ArticleItemDetailed/ArticleItemDetailed.render"
@@ -12,20 +10,13 @@ type ArticleItemProps = {
 	className?: string
 	view: ArticleItemViews
 	article?: articleItemStateMap["article"]
+	target?: HTMLAttributeAnchorTarget
 	isLoading: articleItemStateMap["isLoading"]
 	error?: articleItemStateMap["error"]
 }
 
 export const ArticleItem = memo<ArticleItemProps>(props => {
-	const { className, article, view = ArticleItemViews.PlATES, isLoading, error } = props
-
-	const navigate = useNavigate()
-
-	const onClickHandler = useCallback(() => {
-		if (__PROJECT__ !== "storybook") {
-			navigate(`${PagesPaths.ARTICLES}/${article?.id}`)
-		}
-	}, [article?.id, navigate])
+	const { className, article, view = ArticleItemViews.PlATES, isLoading, error, target } = props
 
 	if (isLoading) {
 		return (
@@ -44,7 +35,7 @@ export const ArticleItem = memo<ArticleItemProps>(props => {
 		if (view === ArticleItemViews.PlATES) {
 			return (
 				<ArticleItemPlateRender
-					onClickHandler={onClickHandler}
+					target={target}
 					article={article}
 					className={className}
 				/>
@@ -54,8 +45,8 @@ export const ArticleItem = memo<ArticleItemProps>(props => {
 		if (view === ArticleItemViews.DETAILED) {
 			return (
 				<ArticleItemDetailedRender
+					target={target}
 					article={article}
-					onClickHandler={onClickHandler}
 					className={className}
 				/>
 			)

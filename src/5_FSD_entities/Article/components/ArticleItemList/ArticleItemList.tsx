@@ -1,6 +1,6 @@
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { Text, TextAlign, TextSize, TextTheme } from "@ui/Text"
-import { memo, ReactNode } from "react"
+import { HTMLAttributeAnchorTarget, memo, ReactNode } from "react"
 import { useTranslation } from "react-i18next"
 import { ArticleItemViews } from "../../constants/ArticleItemViews.constant"
 import { articleItemStateMap } from "../../store/storeTypes/articleItemState.map"
@@ -10,14 +10,22 @@ import { ArticlesItemListSkeleton } from "./ui/ArticlesItemListSkeleton/Articles
 
 type ArticleItemListProps = {
 	className?: string
-	view: ArticleItemViews
+	view?: ArticleItemViews
 	articles: articleItemStateMap["article"][]
 	isLoading: articleItemStateMap["isLoading"]
+	target?: HTMLAttributeAnchorTarget
 	error: articleItemStateMap["error"]
 }
 
 export const ArticleItemList = memo<ArticleItemListProps>(props => {
-	const { className, view, articles = [], isLoading, error } = props
+	const {
+		className,
+		view = ArticleItemViews.PlATES,
+		articles = [],
+		isLoading,
+		error,
+		target
+	} = props
 
 	const { t } = useTranslation("article")
 
@@ -27,6 +35,7 @@ export const ArticleItemList = memo<ArticleItemListProps>(props => {
 		element = articles.map(article => (
 			<ArticleItem
 				key={article.id}
+				target={target}
 				className={styles.item}
 				view={view}
 				isLoading={false}
