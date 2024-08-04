@@ -51,7 +51,9 @@ export const ArticlesList = memo<ArticlesList>(props => {
 
 	const onFetchFilterArticles = useCallback(() => {
 		dispatch(initState())
-		dispatch(fetchArticlesThunk({ replace: true }))
+		if (__PROJECT__ !== "storybook") {
+			dispatch(fetchArticlesThunk({ replace: true }))
+		}
 	}, [dispatch, initState])
 
 	const onChangeViewHandler = useCallback(

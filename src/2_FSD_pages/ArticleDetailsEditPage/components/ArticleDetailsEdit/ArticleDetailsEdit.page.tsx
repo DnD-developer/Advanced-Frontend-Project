@@ -12,9 +12,10 @@ import { Navigate } from "react-router-dom"
 
 type ArticleDetailsEditPageProps = {
 	className?: string
+	testId?: string
 }
 const ArticleDetailsEditPage = memo<ArticleDetailsEditPageProps>(props => {
-	const { className } = props
+	const { className, testId } = props
 
 	const { t } = useTranslation("article")
 	const { id } = useParams<{ id: articleDetailsDataType["id"] }>()
@@ -27,7 +28,7 @@ const ArticleDetailsEditPage = memo<ArticleDetailsEditPageProps>(props => {
 
 	return (
 		<Page className={classNamesHelp("", {}, [className])}>
-			{id ?
+			{id || testId ?
 				<>
 					<h1 className="page-header">{t("article:articleEdit")}</h1>
 					<AppLink to={`${PagesPaths.ARTICLES}/${id}`}>

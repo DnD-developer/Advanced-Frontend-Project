@@ -1,4 +1,7 @@
 import { CenterDecorator } from "@decorators/storybook/Center.decorator"
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-expect-error
+import { useArgs } from "@storybook/preview-api"
 import { type Meta, type StoryObj } from "@storybook/react"
 import { TabThemes } from "../constant/TabThemes.constant"
 import { Tabs, TabsItem } from "./Tabs"
@@ -36,5 +39,20 @@ export const Default: TypeStory = {
 		tabs: tabs,
 		value: "Tabs2",
 		theme: TabThemes.OUTLINE
+	},
+	render: function Render(argsStory) {
+		const [{ value }, updateArgs] = useArgs()
+
+		const onChangeTab = (tab: TabsItem<string>) => {
+			updateArgs({ value: tab.value })
+		}
+
+		return (
+			<Tabs
+				{...argsStory}
+				value={value}
+				onTabClick={onChangeTab}
+			/>
+		)
 	}
 }

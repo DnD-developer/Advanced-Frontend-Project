@@ -5,6 +5,7 @@ export const CenterDecorator: Decorator = Story => (
 		style={{
 			height: "100vh",
 			display: "flex",
+			padding: "0 20px",
 			justifyContent: "center",
 			alignItems: "center"
 		}}

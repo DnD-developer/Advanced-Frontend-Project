@@ -3159,6 +3159,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@storybook/preview-api@npm:^8.2.7":
+  version: 8.2.7
+  resolution: "@storybook/preview-api@npm:8.2.7"
+  peerDependencies:
+    storybook: ^8.2.7
+  checksum: 10c0/a233b3705ef4f26cf4a404f30d1f19627b283aaac06179e2fa10d5bb5cdded5442c0ce38a848373618a6e3fe822ab6e740a79dd290f8008f68341238a0a576aa
+  languageName: node
+  linkType: hard
+
 "@storybook/preview@npm:8.0.9":
   version: 8.0.9
   resolution: "@storybook/preview@npm:8.0.9"
@@ -4957,6 +4966,7 @@ __metadata:
     "@storybook/addon-themes": "npm:^8.0.9"
     "@storybook/addon-webpack5-compiler-swc": "npm:^1.0.2"
     "@storybook/blocks": "npm:^8.0.8"
+    "@storybook/preview-api": "npm:^8.2.7"
     "@storybook/react": "npm:^8.0.8"
     "@storybook/react-webpack5": "npm:^8.0.8"
     "@storybook/test": "npm:^8.0.8"

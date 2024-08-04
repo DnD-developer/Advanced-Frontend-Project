@@ -8,7 +8,7 @@ import articles from "./articles.data.json"
 import { ArticlesList } from "./ArticlesList"
 
 const meta: Meta<typeof ArticlesList> = {
-	title: "widget/ArticlesList",
+	title: "widgets/ArticlesList",
 	component: ArticlesList,
 	decorators: [PageDecorator]
 }

@@ -1,7 +1,9 @@
 import { DeepPartial } from "@customTypes/global.types"
 import { articleReducer } from "@entities/Article/store/slices/article.slice"
 import { addArticleCommentReducer } from "@features/AddArticleComment/store/slices/addArticleComment.slice"
+import { articlesRecommendationReducer } from "@features/ArticlesRecommendation/store/slice/articlesRecommendation.slice"
 import { editableProfileCardReducer } from "@features/EditableProfileCard/store/slices/editableProfileCard.slice"
+import { filterArticlesListReducer } from "@features/FilterArticlesList/store/slices/filterArticlesList.slice"
 import { StoreProvider } from "@providers/StoreProvider"
 import { ReducersMapObject } from "@reduxjs/toolkit"
 import { mainStateMap } from "@store/storeTypes/mainState.map"
@@ -15,7 +17,9 @@ const asyncReducersDefault: DeepPartial<ReducersMapObject<mainStateAsyncMap>> = 
 	editableProfileCard: editableProfileCardReducer,
 	commentsArticleDetails: commentsArticleDetailsReducer,
 	addArticleComment: addArticleCommentReducer,
-	articlesListStateMap: articlesListReducer
+	articlesListStateMap: articlesListReducer,
+	filterArticlesList: filterArticlesListReducer,
+	articlesRecommendation: articlesRecommendationReducer
 }
 
 export const StoreDecorator = (

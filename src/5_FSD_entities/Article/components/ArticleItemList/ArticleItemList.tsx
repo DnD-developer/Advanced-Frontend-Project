@@ -36,7 +36,6 @@ export const ArticleItemList = memo<ArticleItemListProps>(props => {
 			<ArticleItem
 				key={article.id}
 				target={target}
-				className={styles.item}
 				view={view}
 				isLoading={false}
 				article={article}
@@ -54,12 +53,7 @@ export const ArticleItemList = memo<ArticleItemListProps>(props => {
 		/>
 	)
 
-	const loadingElement = (
-		<ArticlesItemListSkeleton
-			view={view}
-			className={styles.item}
-		/>
-	)
+	const loadingElement = <ArticlesItemListSkeleton view={view} />
 
 	if (error) {
 		element = (
