@@ -1,4 +1,5 @@
 import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin"
+import CopyPlugin from "copy-webpack-plugin"
 import ESLintWebpackPlugin from "eslint-webpack-plugin"
 import HtmlWebpackPlugin from "html-webpack-plugin"
 import MiniCssExtractPlugin from "mini-css-extract-plugin"
@@ -33,6 +34,9 @@ export function pluginsWebpack({
 		new StylelintWebpackPlugin({
 			files: ["src/**/*.scss"],
 			fix: true
+		}),
+		new CopyPlugin({
+			patterns: [{ from: paths.locales, to: paths.buildLocales }]
 		})
 	]
 

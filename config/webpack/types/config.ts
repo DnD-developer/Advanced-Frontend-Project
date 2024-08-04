@@ -5,6 +5,8 @@ export type buildPaths = {
 	build: string
 	html: string
 	src: string
+	locales: string
+	buildLocales: string
 }
 
 export type buildEnv = {

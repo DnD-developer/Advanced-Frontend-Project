@@ -5,5 +5,7 @@ export const mainPathsWebpack = (dirname: string): buildOptions["paths"] => ({
 	html: path.resolve(dirname, "public", "index.html"),
 	entry: path.resolve(dirname, "src", "index.tsx"),
 	build: path.resolve(dirname, "build"),
-	src: path.resolve(dirname, "src")
+	src: path.resolve(dirname, "src"),
+	locales: path.resolve(dirname, "public", "locales"),
+	buildLocales: path.resolve(dirname, "build", "locales")
 })

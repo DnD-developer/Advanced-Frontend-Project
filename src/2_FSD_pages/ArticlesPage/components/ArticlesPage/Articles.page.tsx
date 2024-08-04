@@ -5,6 +5,7 @@ import {
 	fetchNextArticlesPageThunk,
 	getArticlesListIsLoadingSelector
 } from "@widgets/ArticlesList"
+import { getArticlesListErrorSelector } from "@widgets/ArticlesList/store/selectors/getArticlesListError/getArticlesListError.selector"
 import { Page } from "@widgets/Page"
 import { memo, useCallback } from "react"
 import { useTranslation } from "react-i18next"
@@ -22,12 +23,13 @@ const ArticlesPage = memo<ArticlesPageProps>(props => {
 	const dispatch = useAppDispatch()
 
 	const articlesIsLoading = useSelector(getArticlesListIsLoadingSelector)
+	const articlesError = useSelector(getArticlesListErrorSelector)
 
 	const onScrollEndHandler = useCallback(() => {
-		if (!articlesIsLoading && __PROJECT__ !== "storybook") {
+		if (!articlesIsLoading && !articlesError && __PROJECT__ !== "storybook") {
 			dispatch(fetchNextArticlesPageThunk())
 		}
-	}, [dispatch, articlesIsLoading])
+	}, [dispatch, articlesIsLoading, articlesError])
 
 	return (
 		<Page
