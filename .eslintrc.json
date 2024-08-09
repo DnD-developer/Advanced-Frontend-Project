@@ -61,7 +61,11 @@
 						"style",
 						"type",
 						"height",
-						"width"
+						"width",
+						"direction",
+						"gap",
+						"justify",
+						"align"
 					]
 				}
 			}
