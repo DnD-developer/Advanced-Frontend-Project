@@ -1,5 +1,5 @@
 import { classNamesHelp, Mods } from "@helpers/classNamesHelp/classNamesHelp"
-import { memo, PropsWithChildren } from "react"
+import { DetailedHTMLProps, HTMLAttributes, memo, PropsWithChildren } from "react"
 import styles from "./Flex.module.scss"
 
 type justifyType = "spaceBetween" | "spaceAround" | "flexEnd" | "flexStart" | "center"
@@ -14,7 +14,8 @@ export type FlexProps = {
 	direction?: directionType
 	gap?: gapType
 	widthMax?: boolean
-} & PropsWithChildren
+} & PropsWithChildren &
+	DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 
 const justifyMap: Record<justifyType, string> = {
 	spaceBetween: styles.justifySpaceBetween,
@@ -50,7 +51,7 @@ export const Flex = memo<FlexProps>(props => {
 		direction = "row",
 		widthMax = true,
 		align = "flexStart",
-		gap = "gap8",
+		gap,
 		children
 	} = props
 
@@ -63,7 +64,7 @@ export const Flex = memo<FlexProps>(props => {
 		justifyMap[justify],
 		alignMap[align],
 		directionMap[direction],
-		gapMap[gap]
+		gap ? gapMap[gap] : undefined
 	]
 
 	return <div className={classNamesHelp(styles.Flex, mods, classNames)}>{children}</div>

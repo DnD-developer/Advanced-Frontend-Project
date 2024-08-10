@@ -4,6 +4,7 @@ export enum TextTheme {
 }
 
 export enum TextSize {
+	SMALL = "small",
 	NORMAL = "normal",
 	BIG = "big"
 }

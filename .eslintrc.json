@@ -65,7 +65,8 @@
 						"direction",
 						"gap",
 						"justify",
-						"align"
+						"align",
+						"role"
 					]
 				}
 			}

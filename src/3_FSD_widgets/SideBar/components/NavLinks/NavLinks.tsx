@@ -16,6 +16,7 @@ export const NavLinks = memo<NavLinksProps>(props => {
 
 	return (
 		<VStack
+			role={"navigation"}
 			gap={"gap32"}
 			align={"center"}
 			className={classNames}
@@ -25,19 +26,20 @@ export const NavLinks = memo<NavLinksProps>(props => {
 					({ inHeader, isRequireAuth }) =>
 						inHeader && ((isRequireAuth && isAuth) || !isRequireAuth)
 				)
-				.map(({ name, path, Icon, isRequiredUserId }) => (
-					<div key={path}>
-						{Icon ?
+				.map(({ name, path, Icon, isRequiredUserId }) => {
+					if (Icon) {
+						return (
 							<AppLinkWithIcon
+								key={path}
 								to={isRequiredUserId ? `${path}/${authData?.id}` : path}
 								inverted={true}
 								collapsed={collapsed}
 								Icon={Icon}
 								name={name}
 							/>
-						:	<></>}
-					</div>
-				))}
+						)
+					}
+				})}
 		</VStack>
 	)
 })

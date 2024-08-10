@@ -1,7 +1,7 @@
 import { CenterDecorator } from "@decorators/storybook/Center.decorator"
 import { InvertedBgDecorator } from "@decorators/storybook/InvertedBg.decorator"
 import { type Meta, type StoryObj } from "@storybook/react"
-import { TextAlign, TextSize, TextTheme } from "../../constants/Test.constant"
+import { TextAlign, TextSize, TextTheme } from "../../constants/Text.constant"
 import { Text } from "./Text"
 
 const meta: Meta<typeof Text> = {
@@ -9,7 +9,7 @@ const meta: Meta<typeof Text> = {
 	component: Text,
 	argTypes: {
 		size: {
-			options: [TextSize.NORMAL, TextSize.BIG],
+			options: [TextSize.NORMAL, TextSize.BIG, TextSize.SMALL],
 			control: "radio"
 		},
 		align: {

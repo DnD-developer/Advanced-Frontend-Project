@@ -3,6 +3,7 @@ import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { useAppDispatch } from "@hooks/useAppDispatch.hook"
 import { asyncReducersList, useAsyncReducer } from "@hooks/useAsyncReducer.hook"
 import { Avatar, AvatarSize, AvatarTheme } from "@ui/Avatar"
+import { VStack } from "@ui/Stack"
 import { Text, TextSize } from "@ui/Text"
 import { memo, ReactNode, useCallback, useEffect } from "react"
 import { useTranslation } from "react-i18next"
@@ -57,7 +58,6 @@ export const ArticleDetails = memo<ArticleDetailsProps>(props => {
 						key={block.id}
 						paragraphs={block.paragraphs}
 						title={block.title}
-						className={styles.block}
 					/>
 				)
 			case ArticleBlockTypeConstant.CODE:
@@ -66,7 +66,6 @@ export const ArticleDetails = memo<ArticleDetailsProps>(props => {
 						key={block.id}
 						text={block.code}
 						title={block.title}
-						className={styles.block}
 					/>
 				)
 			case ArticleBlockTypeConstant.IMAGE:
@@ -75,7 +74,6 @@ export const ArticleDetails = memo<ArticleDetailsProps>(props => {
 						key={block.id}
 						src={block.src}
 						title={block.title}
-						className={styles.block}
 					/>
 				)
 			default:
@@ -95,26 +93,33 @@ export const ArticleDetails = memo<ArticleDetailsProps>(props => {
 				alt={data?.title || ""}
 			/>
 
-			<div className={styles.header}>
-				<Text
-					title={data?.title || t("article:title")}
-					size={TextSize.BIG}
-				/>
-				<Text
-					text={data?.subtitle || t("article:subtitle")}
-					className={styles.headerMargin}
-					size={TextSize.BIG}
-				/>
-				<TextWithIcon
-					Icon={EyeIcon}
-					text={data?.views.toString() || "0"}
-				/>
-				<TextWithIcon
-					Icon={CalendarIcon}
-					text={data?.createdAt || "01.01.2000"}
-				/>
-			</div>
-			<div className={styles.blockList}>{data?.blocks.map(block => renderBlock(block))}</div>
+			<VStack gap={"gap32"}>
+				<div>
+					<VStack gap={"gap16"}>
+						<Text
+							title={data?.title || t("article:title")}
+							size={TextSize.BIG}
+						/>
+
+						<VStack gap={"gap8"}>
+							<Text
+								text={data?.subtitle || t("article:subtitle")}
+								size={TextSize.BIG}
+							/>
+
+							<TextWithIcon
+								Icon={EyeIcon}
+								text={data?.views.toString() || "0"}
+							/>
+							<TextWithIcon
+								Icon={CalendarIcon}
+								text={data?.createdAt || "01.01.2000"}
+							/>
+						</VStack>
+					</VStack>
+				</div>
+				<VStack gap={"gap32"}>{data?.blocks.map(block => renderBlock(block))}</VStack>
+			</VStack>
 		</>
 	)
 
@@ -126,5 +131,12 @@ export const ArticleDetails = memo<ArticleDetailsProps>(props => {
 		content = <ArticleDetailsError />
 	}
 
-	return <div className={classNamesHelp(styles.ArticleDetails, {}, [className])}>{content}</div>
+	return (
+		<VStack
+			gap={"gap16"}
+			className={classNamesHelp(styles.ArticleDetails, {}, [className])}
+		>
+			{content}
+		</VStack>
+	)
 })

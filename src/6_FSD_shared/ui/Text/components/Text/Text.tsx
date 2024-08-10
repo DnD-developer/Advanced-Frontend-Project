@@ -1,6 +1,6 @@
 import { classNamesHelp, Mods } from "@helpers/classNamesHelp/classNamesHelp"
 import { memo, useMemo } from "react"
-import { TextAlign, TextSize, TextTheme } from "../../constants/Test.constant"
+import { TextAlign, TextSize, TextTheme } from "../../constants/Text.constant"
 import styles from "./Text.module.scss"
 
 type TextProps = {
@@ -13,6 +13,13 @@ type TextProps = {
 	classNameTitle?: string
 	size?: TextSize
 	align?: TextAlign
+}
+type TitleTagType = "h2" | "h3" | "h4"
+
+const titleTagsMap: Record<TextSize, TitleTagType> = {
+	[TextSize.BIG]: "h2",
+	[TextSize.NORMAL]: "h3",
+	[TextSize.SMALL]: "h4"
 }
 
 export const Text = memo<TextProps>(props => {
@@ -36,6 +43,8 @@ export const Text = memo<TextProps>(props => {
 		return { [styles.textMargin]: title ? true : false }
 	}, [title])
 
+	const TitleTag = titleTagsMap[size]
+
 	return (
 		<div
 			className={classNamesHelp(styles.TextWrapper, mods, [
@@ -46,7 +55,9 @@ export const Text = memo<TextProps>(props => {
 			])}
 		>
 			{title ?
-				<p className={classNamesHelp(styles.title, {}, [classNameTitle])}>{title}</p>
+				<TitleTag className={classNamesHelp(styles.title, {}, [classNameTitle])}>
+					{title}
+				</TitleTag>
 			:	null}
 			{text ?
 				<p className={classNamesHelp(styles.text, modsText, [classNamesText])}>{text}</p>

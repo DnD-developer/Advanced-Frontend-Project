@@ -12,6 +12,7 @@ import styles from "./SideBar.module.scss"
 type SideBarProps = {
 	classNames?: string
 } & PropsWithChildren
+
 export const SideBar = memo<SideBarProps>(props => {
 	const { classNames, children } = props
 
@@ -29,7 +30,7 @@ export const SideBar = memo<SideBarProps>(props => {
 	)
 
 	return (
-		<div
+		<aside
 			data-testid="sidebar-widgets"
 			className={classNamesHelp(styles.SideBar, { [styles.collapsed]: collapsed }, [
 				classNames
@@ -67,6 +68,6 @@ export const SideBar = memo<SideBarProps>(props => {
 					{switcherContent}
 				</HStack>
 			}
-		</div>
+		</aside>
 	)
 })

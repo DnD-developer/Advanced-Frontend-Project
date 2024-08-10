@@ -8,6 +8,7 @@ import {
 	useMemo,
 	useRef
 } from "react"
+import { VStack } from "../../../Stack"
 import { InputTheme } from "../../constants/Input.constant"
 import styles from "./Input.module.scss"
 
@@ -80,8 +81,10 @@ const InputElement = <T extends string | number>(props: InputProps<T>) => {
 	if (label) {
 		return (
 			<label className={classNamesHelp(styles.label, mods, [classNamesLabel])}>
-				{label}
-				{inputElement()}
+				<VStack gap={"gap8"}>
+					{label}
+					{inputElement()}
+				</VStack>
 			</label>
 		)
 	}

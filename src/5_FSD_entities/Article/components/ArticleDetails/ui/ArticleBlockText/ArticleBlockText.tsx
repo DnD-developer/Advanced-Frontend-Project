@@ -1,8 +1,8 @@
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
+import { VStack } from "@ui/Stack"
 import { Text } from "@ui/Text"
 import { memo } from "react"
 import { articleBlockDataTextType } from "../../../../types/articleBlockData.type"
-import styles from "./ArticleBlockText.module.scss"
 
 type ArticleBlockTextProps = {
 	className?: string
@@ -14,22 +14,19 @@ export const ArticleBlockText = memo<ArticleBlockTextProps>(props => {
 	const { className, paragraphs, title } = props
 
 	return (
-		<div className={classNamesHelp(styles.ArticleBlockText, {}, [className])}>
-			{title && (
-				<Text
-					title={title}
-					className={styles.title}
-				/>
-			)}
-			<div className={styles.paragraphsList}>
+		<VStack
+			className={classNamesHelp("", {}, [className])}
+			gap={"gap16"}
+		>
+			{title && <Text title={title} />}
+			<VStack gap={"gap8"}>
 				{paragraphs.map(par => (
 					<Text
 						text={par}
 						key={par}
-						className={styles.paragraph}
 					/>
 				))}
-			</div>
-		</div>
+			</VStack>
+		</VStack>
 	)
 })

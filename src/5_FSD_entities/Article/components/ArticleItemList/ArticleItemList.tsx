@@ -1,4 +1,5 @@
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
+import { HStack } from "@ui/Stack"
 import { Text, TextAlign, TextSize, TextTheme } from "@ui/Text"
 import { HTMLAttributeAnchorTarget, memo, ReactNode } from "react"
 import { useTranslation } from "react-i18next"
@@ -68,9 +69,14 @@ export const ArticleItemList = memo<ArticleItemListProps>(props => {
 	}
 
 	return (
-		<div className={classNamesHelp(styles.ArticleItemList, {}, [className])}>
+		<HStack
+			role={"list"}
+			align={"center"}
+			gap={"gap16"}
+			className={classNamesHelp(styles.ArticleItemList, {}, [className])}
+		>
 			{!articles.length && !isLoading && !error ? noArticlesElement : element}
 			{isLoading && loadingElement}
-		</div>
+		</HStack>
 	)
 })
