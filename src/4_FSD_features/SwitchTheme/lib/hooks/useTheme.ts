@@ -1,7 +1,7 @@
 import { LOCAL_STORAGE_THEME_KEY } from "@constants/localStorage.constant"
 import { ThemeProviderContext } from "@providers/ThemeProvider/model/context/ThemeProvider.context"
 import { THEMES } from "@providers/ThemeProvider/model/context/ThemeProviderContext.type"
-import { useCallback, useContext } from "react"
+import { useCallback, useContext, useEffect } from "react"
 
 type useThemeType = { theme: THEMES; switchTheme: () => void }
 
@@ -27,6 +27,10 @@ export function useTheme(): useThemeType {
 		setTheme?.(newTheme)
 		localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme)
 	}, [setTheme, theme])
+
+	useEffect(() => {
+		document.body.className = theme || THEMES.GREEN
+	}, [theme])
 
 	return { theme: theme || THEMES.GREEN, switchTheme }
 }
