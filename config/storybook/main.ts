@@ -5,7 +5,6 @@ const config: StorybookConfig = {
 	stories: ["../../**/*.stories.@(js|jsx|mjs|ts|tsx)"],
 	addons: [
 		"@storybook/addon-webpack5-compiler-swc",
-		"@storybook/addon-onboarding",
 		"@storybook/addon-links",
 		"@storybook/addon-essentials",
 		"@chromatic-com/storybook",

@@ -1,5 +1,5 @@
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
-import { Card } from "@ui/Card/Card"
+import { Card } from "@ui/Card"
 import { Skeleton, SkeletonTheme } from "@ui/Skeleton"
 import { HStack, VStack } from "@ui/Stack"
 import { memo } from "react"

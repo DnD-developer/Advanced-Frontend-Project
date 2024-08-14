@@ -1,5 +1,5 @@
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
-import { Card } from "@ui/Card/Card"
+import { Card } from "@ui/Card"
 import { Text, TextAlign, TextTheme } from "@ui/Text"
 import { memo } from "react"
 import { useTranslation } from "react-i18next"
