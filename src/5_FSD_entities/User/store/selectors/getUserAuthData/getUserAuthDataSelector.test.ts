@@ -2,7 +2,7 @@ import { mainStateMap } from "@store/storeTypes/mainState.map"
 import { getUserAuthDataSelector } from "./getUserAuthData.selector"
 
 describe("getUserAuthDataSelectorTest", () => {
-	test("getting userAuthData from mainState", () => {
+	test("with state", () => {
 		const state: Partial<mainStateMap> = {
 			user: {
 				authData: {
@@ -15,7 +15,7 @@ describe("getUserAuthDataSelectorTest", () => {
 		expect(getUserAuthDataSelector(state as mainStateMap)).toEqual({ userName: "123", id: "1" })
 	})
 
-	test("getting userAuthData withOut state", () => {
+	test("withOut state", () => {
 		const state: Partial<mainStateMap> = {}
 		expect(getUserAuthDataSelector(state as mainStateMap)).toEqual(undefined)
 	})
