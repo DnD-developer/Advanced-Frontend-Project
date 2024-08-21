@@ -3,7 +3,7 @@ import { CenterDecorator } from "@decorators/storybook/Center.decorator"
 // @ts-expect-error
 import { useArgs } from "@storybook/preview-api"
 import { type Meta, type StoryObj } from "@storybook/react"
-import { TabThemes } from "../constant/TabThemes.constant"
+import { TabThemes } from "../../constant/TabThemes.constant"
 import { Tabs, TabsItem } from "./Tabs"
 
 const meta: Meta<typeof Tabs> = {
