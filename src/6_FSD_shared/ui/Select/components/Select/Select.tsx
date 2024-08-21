@@ -88,6 +88,9 @@ const SelectComponent = <T extends string>(props: SelectProps<T>) => {
 		}),
 		[]
 	)
+
+	const triggerContent = options.filter(opt => opt.value == value)[0]?.content || defaultValue
+
 	const hSelectComponent = (
 		<HListBox
 			className={classNamesHelp(styles.Select, mods, [className, styles[theme]])}
@@ -96,7 +99,7 @@ const SelectComponent = <T extends string>(props: SelectProps<T>) => {
 			disabled={disabled}
 			onChange={onChangeHandler}
 		>
-			<HListBoxButton className={styles.trigger}>{value ?? defaultValue}</HListBoxButton>
+			<HListBoxButton className={styles.trigger}>{triggerContent}</HListBoxButton>
 			<HListBoxOptions
 				className={styles.list}
 				anchor={anchor}

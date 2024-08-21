@@ -2,6 +2,7 @@ import { classNamesHelp, Mods } from "@helpers/classNamesHelp/classNamesHelp"
 import { Avatar } from "@ui/Avatar"
 import { Input } from "@ui/Input"
 import { Loader } from "@ui/Loader"
+import { HStack, VStack } from "@ui/Stack"
 import { Text, TextAlign, TextSize, TextTheme } from "@ui/Text"
 import { memo, ReactNode, useMemo } from "react"
 import { useTranslation } from "react-i18next"
@@ -73,27 +74,23 @@ export const ProfileCard = memo<ProfileCardProps>(props => {
 
 	return (
 		<div className={classNamesHelp(styles.ProfileCard, modsReadOnly, [classNames])}>
-			<div className={styles.header}>
-				<Text title={t("profile:privateData")} />
-				{editAllow ?
-					readOnly ?
-						editButton
-					:	<div className={styles.btnContainer}>
-							{cancelButton}
-							<div className={styles.save}>{saveButton}</div>
-						</div>
-
-				:	null}
-			</div>
-
 			{isLoading ?
-				<div className={styles.container}>
+				<VStack
+					align={"center"}
+					justify={"center"}
+					className={styles.container}
+				>
 					<Loader />
-				</div>
+				</VStack>
 			:	null}
 
 			{isServerErrors ?
-				<div className={styles.container}>
+				<VStack
+					justify={"center"}
+					align={"center"}
+					gap={"gap24"}
+					className={styles.container}
+				>
 					<Text
 						size={TextSize.BIG}
 						align={TextAlign.CENTER}
@@ -102,89 +99,126 @@ export const ProfileCard = memo<ProfileCardProps>(props => {
 						theme={TextTheme.ERROR}
 					/>
 
-					<div className={styles.reload}>{reloadButton}</div>
-				</div>
+					{reloadButton}
+				</VStack>
 			:	null}
+			<VStack gap={"gap16"}>
+				<HStack
+					align={"center"}
+					justify={"spaceBetween"}
+				>
+					<Text title={t("profile:privateData")} />
+					{editAllow ?
+						readOnly ?
+							editButton
+						:	<HStack
+								gap={"gap12"}
+								widthMax={false}
+							>
+								{cancelButton}
+								{saveButton}
+							</HStack>
 
-			<div className={classNamesHelp(styles.avatar, modsOpacityZero)}>
-				{readOnly ?
-					<Avatar
-						src={data?.avatar || ""}
-						alt={t("translation:avatar")}
-					/>
-				:	<Input
-						value={data?.avatar || ""}
-						label={
-							validateErrors.AVATAR_ERROR ?
-								t(ValidateErrors.AVATAR_ERROR)
-							:	t("profile:yourAvatar")
-						}
-						classNamesLabel={classNamesHelp(styles.input, modsOpacityZero)}
-						onChange={onChangeAvatar}
-						readOnly={readOnly}
-						error={validateErrors.AVATAR_ERROR}
-					/>
-				}
-			</div>
+					:	null}
+				</HStack>
 
-			<Input
-				value={data?.userName || ""}
-				label={
-					validateErrors.USERNAME_ERROR ?
-						t(ValidateErrors.USERNAME_ERROR)
-					:	t("profile:yourUserName")
-				}
-				classNamesLabel={classNamesHelp(styles.input, modsOpacityZero)}
-				onChange={onChangeUserName}
-				readOnly={readOnly}
-				error={validateErrors.USERNAME_ERROR}
-			/>
-			<Input
-				value={data?.firstName || ""}
-				label={
-					validateErrors.FIRST_NAME ? t(ValidateErrors.FIRST_NAME) : t("profile:yourName")
-				}
-				classNamesLabel={classNamesHelp(styles.input, modsOpacityZero)}
-				onChange={onChangeFirstName}
-				readOnly={readOnly}
-				error={validateErrors.FIRST_NAME}
-			/>
-			<Input
-				value={data?.lastName || ""}
-				classNamesLabel={classNamesHelp(styles.input, modsOpacityZero)}
-				label={
-					validateErrors.LAST_NAME ?
-						t(ValidateErrors.LAST_NAME)
-					:	t("profile:yourLastName")
-				}
-				onChange={onChangeLastName}
-				readOnly={readOnly}
-				error={validateErrors.LAST_NAME}
-			/>
-			<Input
-				value={data?.age || ""}
-				classNamesLabel={classNamesHelp(styles.input, modsOpacityZero)}
-				label={
-					validateErrors.AGE_ERROR ? t(ValidateErrors.AGE_ERROR) : t("profile:yourAge")
-				}
-				onChange={onChangeAge}
-				readOnly={readOnly}
-				error={validateErrors.AGE_ERROR}
-			/>
-			<Input
-				value={data?.city || ""}
-				classNamesLabel={classNamesHelp(styles.input, modsOpacityZero)}
-				label={
-					validateErrors.CITY_ERROR ? t(ValidateErrors.CITY_ERROR) : t("profile:yourCity")
-				}
-				onChange={onChangeCity}
-				readOnly={readOnly}
-				error={validateErrors.CITY_ERROR}
-			/>
-			<div className={classNamesHelp(styles.selects, modsOpacityZero)}>
-				{selectCurrency}
-				<div className={styles.selectCountry}>{selectCountry}</div>
-			</div>
+				<HStack
+					align={"center"}
+					justify={"center"}
+					className={classNamesHelp("", modsOpacityZero)}
+				>
+					{readOnly ?
+						<Avatar
+							src={data?.avatar || ""}
+							alt={t("translation:avatar")}
+						/>
+					:	<Input
+							value={data?.avatar || ""}
+							label={
+								validateErrors.AVATAR_ERROR ?
+									t(ValidateErrors.AVATAR_ERROR)
+								:	t("profile:yourAvatar")
+							}
+							classNamesLabel={classNamesHelp("", modsOpacityZero)}
+							onChange={onChangeAvatar}
+							readOnly={readOnly}
+							error={validateErrors.AVATAR_ERROR}
+						/>
+					}
+				</HStack>
+				<VStack gap={"gap16"}>
+					<VStack gap={"gap16"}>
+						<Input
+							value={data?.userName || ""}
+							label={
+								validateErrors.USERNAME_ERROR ?
+									t(ValidateErrors.USERNAME_ERROR)
+								:	t("profile:yourUserName")
+							}
+							classNamesLabel={classNamesHelp("", modsOpacityZero)}
+							onChange={onChangeUserName}
+							readOnly={readOnly}
+							error={validateErrors.USERNAME_ERROR}
+						/>
+						<Input
+							value={data?.firstName || ""}
+							label={
+								validateErrors.FIRST_NAME ?
+									t(ValidateErrors.FIRST_NAME)
+								:	t("profile:yourName")
+							}
+							classNamesLabel={classNamesHelp("", modsOpacityZero)}
+							onChange={onChangeFirstName}
+							readOnly={readOnly}
+							error={validateErrors.FIRST_NAME}
+						/>
+						<Input
+							value={data?.lastName || ""}
+							classNamesLabel={classNamesHelp("", modsOpacityZero)}
+							label={
+								validateErrors.LAST_NAME ?
+									t(ValidateErrors.LAST_NAME)
+								:	t("profile:yourLastName")
+							}
+							onChange={onChangeLastName}
+							readOnly={readOnly}
+							error={validateErrors.LAST_NAME}
+						/>
+						<Input
+							value={data?.age || ""}
+							classNamesLabel={classNamesHelp("", modsOpacityZero)}
+							label={
+								validateErrors.AGE_ERROR ?
+									t(ValidateErrors.AGE_ERROR)
+								:	t("profile:yourAge")
+							}
+							onChange={onChangeAge}
+							readOnly={readOnly}
+							error={validateErrors.AGE_ERROR}
+						/>
+						<Input
+							value={data?.city || ""}
+							classNamesLabel={classNamesHelp("", modsOpacityZero)}
+							label={
+								validateErrors.CITY_ERROR ?
+									t(ValidateErrors.CITY_ERROR)
+								:	t("profile:yourCity")
+							}
+							onChange={onChangeCity}
+							readOnly={readOnly}
+							error={validateErrors.CITY_ERROR}
+						/>
+					</VStack>
+
+					<HStack
+						gap={"gap12"}
+						className={classNamesHelp("", modsOpacityZero)}
+					>
+						{selectCurrency}
+						{selectCountry}
+					</HStack>
+				</VStack>
+			</VStack>
 		</div>
 	)
 })

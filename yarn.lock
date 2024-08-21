@@ -4539,6 +4539,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/whatwg-fetch@npm:^0.0.33":
+  version: 0.0.33
+  resolution: "@types/whatwg-fetch@npm:0.0.33"
+  dependencies:
+    "@types/whatwg-streams": "npm:*"
+  checksum: 10c0/97f0664b0aeea2b38b8074a356551b9fb64b3581059cc5f2851b32725f45701a14009609f0d70d50892091d015ba6eeb342b3804a942eb5bbe04c94bb50ca030
+  languageName: node
+  linkType: hard
+
+"@types/whatwg-streams@npm:*":
+  version: 0.0.7
+  resolution: "@types/whatwg-streams@npm:0.0.7"
+  checksum: 10c0/f61362bfe9b2e62c8e9504f7a0ab7a8da767766de1e968a19edb47b3ea46d3cdbbde9ab4457b10fc89123c46338f66a4fa9b008964c39004012ee2aba7043524
+  languageName: node
+  linkType: hard
+
 "@types/ws@npm:^8.5.10":
   version: 8.5.10
   resolution: "@types/ws@npm:8.5.10"
@@ -5169,6 +5185,7 @@ __metadata:
     "@types/testing-library__jest-dom": "npm:^6.0.0"
     "@types/webpack": "npm:^5.28.5"
     "@types/webpack-bundle-analyzer": "npm:^4.7.0"
+    "@types/whatwg-fetch": "npm:^0.0.33"
     "@typescript-eslint/eslint-plugin": "npm:^7.7.1"
     "@typescript-eslint/parser": "npm:^7.7.1"
     axios: "npm:^1.6.8"
@@ -5204,6 +5221,7 @@ __metadata:
     identity-obj-proxy: "npm:^3.0.0"
     jest: "npm:^29.7.0"
     jest-environment-jsdom: "npm:^29.7.0"
+    jest-html-reporters: "npm:^3.1.7"
     json-server: "npm:0.17.0"
     mini-css-extract-plugin: "npm:^2.8.1"
     normalize.css: "npm:^8.0.1"
@@ -5241,6 +5259,7 @@ __metadata:
     webpack-bundle-analyzer: "npm:^4.10.1"
     webpack-cli: "npm:^5.1.4"
     webpack-dev-server: "npm:^5.0.3"
+    whatwg-fetch: "npm:^3.6.20"
   languageName: unknown
   linkType: soft
 
@@ -10966,6 +10985,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jest-html-reporters@npm:^3.1.7":
+  version: 3.1.7
+  resolution: "jest-html-reporters@npm:3.1.7"
+  dependencies:
+    fs-extra: "npm:^10.0.0"
+    open: "npm:^8.0.3"
+  checksum: 10c0/1ad97df450b7757a5d1267d26706cba5cba069538ef51cb99b434f0dc560fbf7dfa7c276e86b53068103e06caffe4acc3dbfbcc37a1d0e9d07b457ac24b9b63b
+  languageName: node
+  linkType: hard
+
 "jest-leak-detector@npm:^29.7.0":
   version: 29.7.0
   resolution: "jest-leak-detector@npm:29.7.0"
@@ -12732,7 +12761,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"open@npm:^8.0.4, open@npm:^8.4.0":
+"open@npm:^8.0.3, open@npm:^8.0.4, open@npm:^8.4.0":
   version: 8.4.2
   resolution: "open@npm:8.4.2"
   dependencies:
@@ -17020,6 +17049,13 @@ __metadata:
   dependencies:
     iconv-lite: "npm:0.6.3"
   checksum: 10c0/91b90a49f312dc751496fd23a7e68981e62f33afe938b97281ad766235c4872fc4e66319f925c5e9001502b3040dd25a33b02a9c693b73a4cbbfdc4ad10c3e3e
+  languageName: node
+  linkType: hard
+
+"whatwg-fetch@npm:^3.6.20":
+  version: 3.6.20
+  resolution: "whatwg-fetch@npm:3.6.20"
+  checksum: 10c0/fa972dd14091321d38f36a4d062298df58c2248393ef9e8b154493c347c62e2756e25be29c16277396046d6eaa4b11bd174f34e6403fff6aaca9fb30fa1ff46d
   languageName: node
   linkType: hard
 

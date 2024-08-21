@@ -20,7 +20,7 @@ const currencyOptions: OptionType<Country>[] = Object.entries(Country).map(([con
 })
 
 const CountrySelectElement = <T extends string>(props: CountrySelectProps<T>) => {
-	const { className, onChange, value, ...otherProps } = props
+	const { className, onChange, value = Country.Belarus, ...otherProps } = props
 
 	const { t } = useTranslation("profile")
 

@@ -1,7 +1,6 @@
 import { DeepPartial } from "@customTypes/global.types"
 import { articleReducer } from "@entities/Article/store/slices/article.slice"
 import { addArticleCommentReducer } from "@features/AddArticleComment/store/slices/addArticleComment.slice"
-import { articlesRecommendationReducer } from "@features/ArticlesRecommendation/store/slice/articlesRecommendation.slice"
 import { editableProfileCardReducer } from "@features/EditableProfileCard/store/slices/editableProfileCard.slice"
 import { filterArticlesListReducer } from "@features/FilterArticlesList/store/slices/filterArticlesList.slice"
 import { StoreProvider } from "@providers/StoreProvider"
@@ -18,8 +17,7 @@ const asyncReducersDefault: DeepPartial<ReducersMapObject<mainStateAsyncMap>> = 
 	commentsArticleDetails: commentsArticleDetailsReducer,
 	addArticleComment: addArticleCommentReducer,
 	articlesListStateMap: articlesListReducer,
-	filterArticlesList: filterArticlesListReducer,
-	articlesRecommendation: articlesRecommendationReducer
+	filterArticlesList: filterArticlesListReducer
 }
 
 export const StoreDecorator = (
@@ -34,7 +32,16 @@ export const StoreDecorator = (
 	return Story => {
 		const state: DeepPartial<mainStateMap> =
 			Story().props?.auth ?
-				{ ...initialState, user: { authData: { id: "1" } } }
+				{
+					...initialState,
+					user: {
+						authData: {
+							id: "1",
+							userName: "Lucifer",
+							avatar: "https://i.pinimg.com/originals/f0/f8/fe/f0f8fe0e76824fd544a9154b995fb01d.jpg"
+						}
+					}
+				}
 			:	initialState
 
 		return (
