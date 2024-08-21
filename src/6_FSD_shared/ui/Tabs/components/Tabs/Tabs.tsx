@@ -1,6 +1,6 @@
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { memo } from "react"
-import { TabThemes } from "../constant/TabThemes.constant"
+import { TabThemes } from "../../constant/TabThemes.constant"
 import styles from "./Tabs.module.scss"
 
 export type TabsItem<T extends string> = {
