@@ -21,7 +21,7 @@ export const ThemeDecorator = ({
 
 		return (
 			<ThemesProvider>
-				<div className={`app ${selected}`}>
+				<div className={`app`}>
 					<StoryFn />
 				</div>
 			</ThemesProvider>

@@ -36,8 +36,8 @@ export const Default: TypeStory = {
 		value: "1",
 		disabled: false,
 		options: [
-			{ value: "123", content: "1" },
-			{ value: "212", content: "2" }
+			{ value: "1", content: "123" },
+			{ value: "2", content: "321" }
 		],
 		theme: SelectTheme.OUTLINE
 	}
