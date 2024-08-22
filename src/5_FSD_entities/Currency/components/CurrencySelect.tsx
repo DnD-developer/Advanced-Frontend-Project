@@ -33,6 +33,7 @@ const CurrencySelectElement = <T extends string>(props: CurrencySelectProps<T>) 
 
 	return (
 		<Select
+			data-testid={"currencySelect-entity"}
 			options={currencyOptions}
 			classNamesLabel={className}
 			onChange={onChangeHandler}

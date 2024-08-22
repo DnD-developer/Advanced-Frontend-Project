@@ -12,7 +12,7 @@ import { MemoryRouter } from "react-router"
 type optionsType = {
 	route?: string
 	initialState?: DeepPartial<mainStateMap>
-	asyncReducers?: DeepPartial<mainStateAsyncMap>
+	asyncReducers?: DeepPartial<ReducersMapObject<mainStateAsyncMap>>
 }
 
 export const renderDecorator = async (

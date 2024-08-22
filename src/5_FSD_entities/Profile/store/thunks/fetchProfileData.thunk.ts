@@ -15,6 +15,7 @@ export const fetchProfileDataThunk = createAsyncThunk<
 		}
 
 		const response = await extra.api.get<profileDataType>(`profile/${id}`)
+
 		return response.data
 	} catch {
 		return rejectWithValue([ServerErrors.SERVER_NOT_FOUND])

@@ -5236,6 +5236,7 @@ __metadata:
     react-refresh-typescript: "npm:^2.0.9"
     react-router: "npm:^6.22.3"
     react-router-dom: "npm:^6.22.3"
+    resize-observer-polyfill: "npm:^1.5.1"
     sass: "npm:^1.72.0"
     sass-loader: "npm:^14.1.1"
     storybook: "npm:^8.0.8"
@@ -14431,6 +14432,13 @@ __metadata:
   version: 0.1.2
   resolution: "reserved-words@npm:0.1.2"
   checksum: 10c0/88360388d88f4b36c1f5d47f8d596936dbf950bddd642c04ce940f1dab1fa58ef6fec23f5fab81a1bfe5cd0f223b2b635311496fcf0ef3db93ad4dfb6d7be186
+  languageName: node
+  linkType: hard
+
+"resize-observer-polyfill@npm:^1.5.1":
+  version: 1.5.1
+  resolution: "resize-observer-polyfill@npm:1.5.1"
+  checksum: 10c0/5e882475067f0b97dc07e0f37c3e335ac5bc3520d463f777cec7e894bb273eddbfecb857ae668e6fb6881fd6f6bb7148246967172139302da50fa12ea3a15d95
   languageName: node
   linkType: hard
 
