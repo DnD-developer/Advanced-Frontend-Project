@@ -4,6 +4,7 @@ import { SwitchLangButton } from "@features/SwitchLang/components/SwitchLangButt
 import { SwitchThemeButton } from "@features/SwitchTheme"
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { Button, ButtonTheme } from "@ui/Button"
+import { HStack, VStack } from "@ui/Stack"
 import { memo, type PropsWithChildren, useCallback, useState } from "react"
 import { NavLinks } from "../NavLinks/NavLinks"
 import styles from "./SideBar.module.scss"
@@ -11,6 +12,7 @@ import styles from "./SideBar.module.scss"
 type SideBarProps = {
 	classNames?: string
 } & PropsWithChildren
+
 export const SideBar = memo<SideBarProps>(props => {
 	const { classNames, children } = props
 
@@ -20,8 +22,15 @@ export const SideBar = memo<SideBarProps>(props => {
 		setCollapsed(prev => !prev)
 	}, [])
 
+	const switcherContent = (
+		<>
+			<SwitchThemeButton />
+			<SwitchLangButton />
+		</>
+	)
+
 	return (
-		<div
+		<aside
 			data-testid="sidebar-widgets"
 			className={classNamesHelp(styles.SideBar, { [styles.collapsed]: collapsed }, [
 				classNames
@@ -41,16 +50,24 @@ export const SideBar = memo<SideBarProps>(props => {
 				:	<ArrowLeft />}
 			</Button>
 			{children}
-			<div
-				className={classNamesHelp(styles.switchers, {
-					[styles.switchersColumn]: collapsed
-				})}
-			>
-				<SwitchThemeButton />
-				<div className={styles.switcherMargin}>
-					<SwitchLangButton />
-				</div>
-			</div>
-		</div>
+			{collapsed ?
+				<VStack
+					className={styles.switchers}
+					gap={"gap8"}
+					align={"center"}
+					justify={"center"}
+				>
+					{switcherContent}
+				</VStack>
+			:	<HStack
+					className={styles.switchers}
+					gap={"gap16"}
+					align={"center"}
+					justify={"center"}
+				>
+					{switcherContent}
+				</HStack>
+			}
+		</aside>
 	)
 })

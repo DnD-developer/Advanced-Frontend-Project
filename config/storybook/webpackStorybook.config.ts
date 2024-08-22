@@ -52,5 +52,6 @@ export const webpackStorybookConfig = (config: Configuration): Configuration => 
 		config.module.rules = [...config.module.rules, ...svgrLoaders()]
 		config.module.rules = [...config.module.rules, sassLoader(options)]
 	}
+
 	return config
 }

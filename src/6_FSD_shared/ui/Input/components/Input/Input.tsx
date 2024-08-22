@@ -8,6 +8,7 @@ import {
 	useMemo,
 	useRef
 } from "react"
+import { VStack } from "../../../Stack"
 import { InputTheme } from "../../constants/Input.constant"
 import styles from "./Input.module.scss"
 
@@ -23,6 +24,7 @@ type InputCustomProps<T extends number | string> = {
 	classNamesLabel?: string
 	readOnly?: boolean
 	type?: string
+	"data-testid"?: string
 }
 
 type InputProps<T extends number | string> = InputCustomProps<T> &
@@ -39,6 +41,7 @@ const InputElement = <T extends string | number>(props: InputProps<T>) => {
 		label = "",
 		classNamesLabel,
 		type = "text",
+		"data-testid": dataTestId = "Input",
 		inverted = false,
 		readOnly = false,
 		...otherProps
@@ -67,6 +70,7 @@ const InputElement = <T extends string | number>(props: InputProps<T>) => {
 
 	const inputElement = () => (
 		<input
+			data-testid={`${dataTestId}.InputElement`}
 			ref={inputRef}
 			type={type}
 			readOnly={readOnly}
@@ -79,9 +83,14 @@ const InputElement = <T extends string | number>(props: InputProps<T>) => {
 
 	if (label) {
 		return (
-			<label className={classNamesHelp(styles.label, mods, [classNamesLabel])}>
-				{label}
-				{inputElement()}
+			<label
+				className={classNamesHelp(styles.label, mods, [classNamesLabel])}
+				data-testid={`${dataTestId}.LabelElement`}
+			>
+				<VStack gap={"gap8"}>
+					{label}
+					{inputElement()}
+				</VStack>
 			</label>
 		)
 	}

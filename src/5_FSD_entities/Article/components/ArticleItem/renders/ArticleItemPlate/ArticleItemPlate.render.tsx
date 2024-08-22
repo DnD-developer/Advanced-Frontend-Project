@@ -3,7 +3,8 @@ import { PagesPaths } from "@config/routes/routePaths"
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { AppLink } from "@ui/AppLink"
 import { Avatar, AvatarTheme } from "@ui/Avatar"
-import { Card } from "@ui/Card/Card"
+import { Card } from "@ui/Card"
+import { HStack, VStack } from "@ui/Stack"
 import { Text, TextSize } from "@ui/Text"
 import { HTMLAttributeAnchorTarget, memo } from "react"
 import { useTranslation } from "react-i18next"
@@ -30,36 +31,48 @@ export const ArticleItemPlateRender = memo<ArticleItemPlateRenderProps>(props =>
 					text={article.createdAt}
 					className={styles.date}
 				/>
-				<div className={styles.imgWrapper}>
-					<Avatar
-						theme={AvatarTheme.SQUARE}
-						className={styles.img}
-						src={article.img}
-						alt={t("article:articlePreview")}
-					/>
-				</div>
-
-				<div className={styles.content}>
-					<div className={styles.contentHeader}>
-						<Text
-							text={[...article.type].join(", ")}
-							className={styles.types}
-							classNamesText={styles.typesText}
+				<VStack gap={"gap16"}>
+					<HStack
+						align={"center"}
+						justify={"center"}
+						className={styles.imgWrapper}
+					>
+						<Avatar
+							theme={AvatarTheme.SQUARE}
+							className={styles.img}
+							src={article.img}
+							alt={t("article:articlePreview")}
 						/>
-						<div className={styles.views}>
+					</HStack>
+
+					<VStack gap={"gap8"}>
+						<HStack
+							align={"center"}
+							justify={"spaceBetween"}
+						>
 							<Text
-								text={article.views.toString()}
-								className={styles.viewsText}
+								text={[...article.type].join(", ")}
+								className={styles.types}
+								classNamesText={styles.typesText}
 							/>
-							<EyeIcon className={styles.viewsIcon} />
-						</div>
-					</div>
-					<Text
-						className={styles.title}
-						title={article.title}
-						size={TextSize.NORMAL}
-					/>
-				</div>
+							<HStack
+								gap={"gap8"}
+								align={"center"}
+								widthMax={false}
+							>
+								<Text
+									text={article.views.toString()}
+									className={styles.viewsText}
+								/>
+								<EyeIcon className={styles.viewsIcon} />
+							</HStack>
+						</HStack>
+						<Text
+							title={article.title}
+							size={TextSize.NORMAL}
+						/>
+					</VStack>
+				</VStack>
 			</AppLink>
 		</Card>
 	)

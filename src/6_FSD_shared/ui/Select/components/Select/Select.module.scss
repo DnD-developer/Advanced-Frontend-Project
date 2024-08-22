@@ -1,5 +1,6 @@
 .Select {
-	display: block;
+	position: relative;
+
 	width: 150px;
 
 	color: var(--primary-color);
@@ -10,6 +11,58 @@
 	border-radius: 5px;
 
 	background: none;
+}
+
+.trigger {
+	width: 100%;
+	margin: 0;
+
+	padding: 0 10px;
+
+	border: none;
+
+	background: none;
+
+	color: var(--primary-color);
+
+	text-align: left;
+
+	cursor: pointer;
+}
+
+.option.focus {
+	color: var(--red);
+}
+
+.list {
+	display: flex;
+
+	position: absolute;
+	flex-direction: column;
+	width: 150px;
+
+	gap: 3px;
+
+	&:focus {
+		outline: none;
+	}
+}
+
+.option {
+	width: 100%;
+
+	padding: 0 10px;
+
+	background-color: var(--bg-color);
+
+	color: var(--primary-color);
+
+	cursor: pointer;
+}
+
+.option.outline {
+	border: 1px solid var(--primary-color);
+	border-radius: 5px;
 }
 
 .label {

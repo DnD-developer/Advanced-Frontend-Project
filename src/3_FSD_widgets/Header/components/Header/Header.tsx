@@ -3,10 +3,13 @@ import { useAuth } from "@entities/User"
 import { LoginModal } from "@features/AuthByUserName"
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { AppLink, AppLinkTheme } from "@ui/AppLink"
+import { Avatar, AvatarSize, AvatarTheme } from "@ui/Avatar"
 import { Button, ButtonTheme } from "@ui/Button"
+import { Dropdown } from "@ui/Dropdown"
 import { Portal } from "@ui/Portal"
+import { HStack } from "@ui/Stack"
 import { Text, TextSize } from "@ui/Text"
-import { memo, type PropsWithChildren, useCallback, useState } from "react"
+import { memo, type PropsWithChildren, useCallback, useMemo, useState } from "react"
 import { useTranslation } from "react-i18next"
 import { useDispatch } from "react-redux"
 import styles from "./Header.module.scss"
@@ -14,6 +17,7 @@ import styles from "./Header.module.scss"
 type HeaderProps = {
 	classNames?: string
 } & PropsWithChildren
+
 export const Header = memo<HeaderProps>(props => {
 	const { classNames, children } = props
 
@@ -47,21 +51,54 @@ export const Header = memo<HeaderProps>(props => {
 		</Button>
 	)
 
+	const itemsDropDown = useMemo(
+		() => [
+			{
+				content: t("translation:profile"),
+				href: `${PagesPaths.PROFILE}/${authData?.id}`
+			},
+			{
+				content: t("translation:logout"),
+				onClick: logOutHandler
+			}
+		],
+		[authData?.id, logOutHandler, t]
+	)
+
+	const profileAvatar = useMemo(
+		() => (
+			<Avatar
+				theme={AvatarTheme.CIRCLE}
+				size={AvatarSize.SMALL}
+				src={authData?.avatar || ""}
+				alt={t("translation:avatar")}
+			/>
+		),
+		[authData?.avatar, t]
+	)
+
 	const btnLogOut = (
-		<Button
-			theme={ButtonTheme.CLEAR}
-			inverted
-			onClick={logOutHandler}
-		>
-			{t("translation:logout")}
-		</Button>
+		<Dropdown
+			triggerNode={profileAvatar}
+			items={itemsDropDown}
+		/>
 	)
 
 	return (
-		<div className={classNamesHelp(styles.Header, {}, [classNames])}>
+		<HStack
+			role={"heading"}
+			align={"center"}
+			className={classNamesHelp(styles.Header, {}, [classNames])}
+		>
 			{children}
-			<div className={styles.links}>
-				<div className={styles.headerLeft}>
+			<HStack
+				align={"center"}
+				justify={"spaceBetween"}
+			>
+				<HStack
+					align={"center"}
+					gap={"gap16"}
+				>
 					<Text
 						title={t("translation:welcomeToHell")}
 						size={TextSize.BIG}
@@ -77,9 +114,9 @@ export const Header = memo<HeaderProps>(props => {
 							{t("translation:createArticle")}
 						</AppLink>
 					:	null}
-				</div>
+				</HStack>
 				{authData ? btnLogOut : btnLogin}
-			</div>
+			</HStack>
 			<Portal>
 				<LoginModal
 					onClose={loginModalClose}
@@ -87,6 +124,6 @@ export const Header = memo<HeaderProps>(props => {
 					lazy
 				/>
 			</Portal>
-		</div>
+		</HStack>
 	)
 })

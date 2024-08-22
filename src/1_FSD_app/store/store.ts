@@ -1,4 +1,5 @@
 import { $api } from "@api/instanceAxios.api"
+import { rtkBaseApi } from "@api/rtkBase.api"
 import { userReducer } from "@entities/User"
 import { scrollPositionReducer } from "@features/ScrollSave"
 import { configureStore, Reducer, ReducersMapObject } from "@reduxjs/toolkit"
@@ -23,7 +24,7 @@ export const storeCreator = ({ reduce }: reducerManagerType, initialState?: main
 				thunk: {
 					extraArgument: apiService
 				}
-			})
+			}).concat(rtkBaseApi.middleware)
 	})
 }
 
@@ -33,7 +34,8 @@ export function createReduxStore(
 ) {
 	const staticReducer: ReducersMapObject<mainStateStaticMap> = {
 		user: userReducer,
-		scrollPosition: scrollPositionReducer
+		scrollPosition: scrollPositionReducer,
+		[rtkBaseApi.reducerPath]: rtkBaseApi.reducer
 	}
 
 	const rootReducer: ReducersMapObject<mainStateMap> = {

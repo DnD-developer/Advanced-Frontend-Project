@@ -47,6 +47,7 @@
 		"@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
 		"no-console": ["warn"],
 		"react/prop-types": "off",
+		"@typescript-eslint/no-invalid-void-type": "off",
 		"i18next/no-literal-string": [
 			"error",
 			{
@@ -61,7 +62,14 @@
 						"style",
 						"type",
 						"height",
-						"width"
+						"width",
+						"direction",
+						"gap",
+						"justify",
+						"align",
+						"role",
+						"anchor",
+						"as"
 					]
 				}
 			}

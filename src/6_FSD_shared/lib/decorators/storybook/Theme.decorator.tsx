@@ -17,9 +17,11 @@ export const ThemeDecorator = ({
 		const selected =
 			themes[themeOverride || ""] || themes[selectedTheme] || themes[defaultTheme]
 
+		document.body.className = selected
+
 		return (
 			<ThemesProvider>
-				<div className={`app ${selected}`}>
+				<div className={`app`}>
 					<StoryFn />
 				</div>
 			</ThemesProvider>

@@ -15,7 +15,14 @@ const meta: Meta<typeof Select> = {
 	},
 	parameters: {
 		controls: {
-			exclude: ["options"]
+			exclude: [
+				"options",
+				"className",
+				"classNamesLabel",
+				"defaultValue",
+				"onChange",
+				"value"
+			]
 		}
 	}
 }
@@ -26,9 +33,11 @@ type TypeStory = StoryObj<typeof Select>
 
 export const Default: TypeStory = {
 	args: {
+		value: "1",
+		disabled: false,
 		options: [
-			{ value: "1", content: "1" },
-			{ value: "2", content: "2" }
+			{ value: "1", content: "123" },
+			{ value: "2", content: "321" }
 		],
 		theme: SelectTheme.OUTLINE
 	}
@@ -37,6 +46,8 @@ export const Default: TypeStory = {
 export const WithLabel: TypeStory = {
 	args: {
 		label: "Your Label",
+		value: "1",
+		disabled: false,
 		options: [
 			{ value: "1", content: "1" },
 			{ value: "2", content: "2" }

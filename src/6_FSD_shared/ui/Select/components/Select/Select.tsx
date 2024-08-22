@@ -1,5 +1,12 @@
+import {
+	Listbox as HListBox,
+	ListboxButton as HListBoxButton,
+	ListboxOption as HListBoxOption,
+	ListboxOptions as HListBoxOptions
+} from "@headlessui/react"
+import { AnchorPropsWithSelection } from "@headlessui/react/dist/internal/floating"
 import { classNamesHelp, Mods } from "@helpers/classNamesHelp/classNamesHelp"
-import { ChangeEvent, memo, SelectHTMLAttributes, useCallback, useMemo } from "react"
+import { Fragment, memo, useCallback, useMemo } from "react"
 import { SelectTheme } from "../../constants/Select.constant"
 import styles from "./Select.module.scss"
 
@@ -9,6 +16,9 @@ type SelectCustomProps<T extends string> = {
 	theme?: SelectTheme
 	options: OptionType<T>[]
 	label?: string
+	disabled?: boolean
+	defaultValue?: T
+	value?: T
 	onChange?: (value: T) => void
 }
 
@@ -17,8 +27,7 @@ export type OptionType<T extends string> = {
 	content: string
 }
 
-export type SelectProps<T extends string> = SelectCustomProps<T> &
-	Omit<SelectHTMLAttributes<HTMLSelectElement>, keyof SelectCustomProps<T>>
+export type SelectProps<T extends string> = SelectCustomProps<T>
 
 const SelectComponent = <T extends string>(props: SelectProps<T>) => {
 	const {
@@ -27,30 +36,44 @@ const SelectComponent = <T extends string>(props: SelectProps<T>) => {
 		theme = SelectTheme.OUTLINE,
 		options,
 		disabled,
+		defaultValue,
 		value,
 		label,
-		onChange,
-		...otherProps
+		onChange
 	} = props
 
 	const onChangeHandler = useCallback(
-		(event: ChangeEvent<HTMLSelectElement>) => {
-			const { target } = event
-			onChange?.(target.value as T)
+		(value: T) => {
+			onChange?.(value)
 		},
 		[onChange]
 	)
 
 	const optionList = useMemo(() => {
 		return options.map(opt => (
-			<option
+			<HListBoxOption
+				as={Fragment}
 				key={opt.value}
 				value={opt.value}
 			>
-				{opt.content}
-			</option>
+				{({ focus }) => {
+					return (
+						<li
+							className={classNamesHelp(
+								styles.option,
+								{
+									[styles.focus]: focus
+								},
+								[styles[theme]]
+							)}
+						>
+							{opt.content}
+						</li>
+					)
+				}}
+			</HListBoxOption>
 		))
-	}, [options])
+	}, [options, theme])
 
 	const mods: Mods = useMemo(() => {
 		return {
@@ -58,30 +81,44 @@ const SelectComponent = <T extends string>(props: SelectProps<T>) => {
 		}
 	}, [disabled])
 
-	const selectComponent = useMemo(() => {
-		return (
-			<select
-				className={classNamesHelp(styles.Select, mods, [className, styles[theme]])}
-				disabled={disabled}
-				onChange={onChangeHandler}
-				value={value}
-				{...otherProps}
+	const anchor: AnchorPropsWithSelection = useMemo(
+		() => ({
+			gap: 8,
+			to: "bottom"
+		}),
+		[]
+	)
+
+	const triggerContent = options.filter(opt => opt.value == value)[0]?.content || defaultValue
+
+	const hSelectComponent = (
+		<HListBox
+			className={classNamesHelp(styles.Select, mods, [className, styles[theme]])}
+			as="div"
+			value={value}
+			disabled={disabled}
+			onChange={onChangeHandler}
+		>
+			<HListBoxButton className={styles.trigger}>{triggerContent}</HListBoxButton>
+			<HListBoxOptions
+				className={styles.list}
+				anchor={anchor}
 			>
 				{optionList}
-			</select>
-		)
-	}, [className, disabled, mods, onChangeHandler, optionList, otherProps, theme, value])
+			</HListBoxOptions>
+		</HListBox>
+	)
 
 	if (label) {
 		return (
 			<label className={classNamesHelp(styles.label, mods, [classNamesLabel])}>
 				{label}
-				{selectComponent}
+				{hSelectComponent}
 			</label>
 		)
 	}
 
-	return selectComponent
+	return hSelectComponent
 }
 
 export const Select = memo(SelectComponent) as typeof SelectComponent

@@ -63,6 +63,7 @@ const editableProfileCardSlice = createSlice({
 
 				const { id, ...formData } = action.payload
 
+				state.formData = formData
 				state.data = { id, ...formData }
 
 				state.readOnly = true

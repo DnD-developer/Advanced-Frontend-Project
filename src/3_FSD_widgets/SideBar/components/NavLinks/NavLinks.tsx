@@ -1,8 +1,7 @@
 import { routesPath } from "@config/routes/routePaths"
 import { useAuth } from "@entities/User"
-import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
+import { VStack } from "@ui/Stack"
 import { HTMLAttributes, memo } from "react"
-import styles from "./NavLinks.module.scss"
 import { AppLinkWithIcon } from "./ui/AppLinkWithIcon/AppLinkWithIcon"
 
 type NavLinksProps = {
@@ -16,28 +15,31 @@ export const NavLinks = memo<NavLinksProps>(props => {
 	const { isAuth, authData } = useAuth()
 
 	return (
-		<ul className={classNamesHelp(styles.linkList, {}, [classNames])}>
+		<VStack
+			role={"navigation"}
+			gap={"gap32"}
+			align={"center"}
+			className={classNames}
+		>
 			{routesPath
 				.filter(
 					({ inHeader, isRequireAuth }) =>
 						inHeader && ((isRequireAuth && isAuth) || !isRequireAuth)
 				)
-				.map(({ name, path, Icon, isRequiredUserId }) => (
-					<li
-						key={path}
-						className={styles.linkItem}
-					>
-						{Icon ?
+				.map(({ name, path, Icon, isRequiredUserId }) => {
+					if (Icon) {
+						return (
 							<AppLinkWithIcon
+								key={path}
 								to={isRequiredUserId ? `${path}/${authData?.id}` : path}
 								inverted={true}
 								collapsed={collapsed}
 								Icon={Icon}
 								name={name}
 							/>
-						:	<></>}
-					</li>
-				))}
-		</ul>
+						)
+					}
+				})}
+		</VStack>
 	)
 })

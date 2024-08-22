@@ -22,6 +22,7 @@ export const ReFetchButton = memo<ReFetchButtonProps>(props => {
 
 	return (
 		<Button
+			data-testid={"EditableProfileCard.ReFetchButton"}
 			className={classNamesHelp(styles.ReFetchButton, {}, [classNames])}
 			onClick={onReFetchHandler}
 			theme={ButtonTheme.OUTLINE}

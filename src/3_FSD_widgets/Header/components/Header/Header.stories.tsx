@@ -17,7 +17,11 @@ export const Login: TypeStory = {
 	decorators: [
 		StoreDecorator({
 			user: {
-				authData: { userName: "admin", id: "1" }
+				authData: {
+					userName: "admin",
+					id: "1",
+					avatar: "https://i.pinimg.com/originals/f0/f8/fe/f0f8fe0e76824fd544a9154b995fb01d.jpg"
+				}
 			}
 		})
 	]

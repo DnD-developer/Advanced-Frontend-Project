@@ -7,8 +7,6 @@
 
 	border: none;
 
-	outline: none;
-
 	background: none;
 
 	font: var(--font-l);
@@ -26,10 +24,6 @@
 	color: var(--primary-color);
 
 	font: var(--font-m);
-
-	.Input {
-		margin-top: 5px;
-	}
 }
 
 .label.inverted {

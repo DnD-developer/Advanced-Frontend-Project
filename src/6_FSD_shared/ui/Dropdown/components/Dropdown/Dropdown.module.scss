@@ -1,0 +1,45 @@
+.Dropdown {
+	outline: none !important;
+}
+
+.list {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	outline: none !important;
+
+	gap: 8px;
+}
+
+.trigger {
+	display: inline-block;
+
+	cursor: pointer;
+}
+
+.item {
+	width: 100%;
+	min-width: 100px;
+
+	padding: 5px 10px;
+
+	border: 1px solid var(--primary-color);
+	border-radius: 5px;
+
+	background-color: var(--primary-color);
+
+	color: var(--inverted-color);
+
+	font: var(--font-m);
+	text-align: center;
+
+	cursor: pointer;
+}
+
+.active {
+	background-color: var(--inverted-color);
+
+	color: var(--primary-color);
+}

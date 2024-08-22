@@ -114,6 +114,7 @@ export const EditableProfileCard = memo<EditableProfileCardProps>(props => {
 	const selectCurrency = useMemo(
 		() => (
 			<CurrencySelect
+				data-testid={"EditableProfileCard.CurrencySelect"}
 				onChange={onChangeCurrencyHandler}
 				disabled={readOnly}
 				value={formData?.currency}
@@ -124,6 +125,7 @@ export const EditableProfileCard = memo<EditableProfileCardProps>(props => {
 	const selectCountry = useMemo(
 		() => (
 			<CountrySelect
+				data-testid={"EditableProfileCard.CountrySelect"}
 				onChange={onChangeCountryHandler}
 				disabled={readOnly}
 				value={formData?.country}
@@ -133,6 +135,7 @@ export const EditableProfileCard = memo<EditableProfileCardProps>(props => {
 	)
 	return (
 		<ProfileCard
+			data-testid={"EditableProfileCard"}
 			classNames={className}
 			editButton={editButton}
 			saveButton={saveButton}
