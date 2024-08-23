@@ -50,6 +50,7 @@ export const ArticleItemList = memo<ArticleItemListProps>(props => {
 			className={styles.text}
 			title={t("article:articlesNotFound")}
 			size={TextSize.BIG}
+			theme={TextTheme.ERROR}
 			align={TextAlign.CENTER}
 		/>
 	)

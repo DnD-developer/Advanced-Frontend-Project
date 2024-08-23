@@ -1,11 +1,12 @@
 import { PageDecorator } from "@decorators/storybook/Page.decorator"
+import { StoreDecorator } from "@decorators/storybook/Store.decorator"
 import { type Meta, type StoryObj } from "@storybook/react"
 import { AdminPanelPage } from "./AdminPanelAsync.page"
 
 const meta: Meta<typeof AdminPanelPage> = {
-	title: "pages/ForbiddenPage",
+	title: "pages/AdminPanelPage",
 	component: AdminPanelPage,
-	decorators: [PageDecorator]
+	decorators: [StoreDecorator({}), PageDecorator]
 }
 
 export default meta

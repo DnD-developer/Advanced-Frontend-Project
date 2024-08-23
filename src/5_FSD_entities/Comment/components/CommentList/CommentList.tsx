@@ -1,11 +1,10 @@
-import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
+import { VStack } from "@ui/Stack"
 import { Text, TextAlign, TextTheme } from "@ui/Text"
 import { memo, ReactNode } from "react"
 import { useTranslation } from "react-i18next"
 import { commentListStateMap } from "../../store/storeTypes/commentListState.map"
 import { commentDataType } from "../../types/commentData.type"
 import { CommentCard } from "../CommentCard/CommentCard"
-import styles from "./CommentList.module.scss"
 
 type CommentListProps = {
 	comments: commentDataType[]
@@ -24,7 +23,6 @@ export const CommentList = memo<CommentListProps>(props => {
 	if (comments.length) {
 		commentElements = comments.map(comment => (
 			<CommentCard
-				className={styles.comment}
 				key={comment.id}
 				isLoading={isLoading}
 				comment={comment}
@@ -35,18 +33,9 @@ export const CommentList = memo<CommentListProps>(props => {
 	if (isLoading) {
 		commentElements = (
 			<>
-				<CommentCard
-					isLoading={isLoading}
-					className={styles.comment}
-				/>
-				<CommentCard
-					isLoading={isLoading}
-					className={styles.comment}
-				/>
-				<CommentCard
-					isLoading={isLoading}
-					className={styles.comment}
-				/>
+				<CommentCard isLoading={isLoading} />
+				<CommentCard isLoading={isLoading} />
+				<CommentCard isLoading={isLoading} />
 			</>
 		)
 	}
@@ -62,6 +51,12 @@ export const CommentList = memo<CommentListProps>(props => {
 	}
 
 	return (
-		<div className={classNamesHelp(styles.CommentList, {}, [className])}>{commentElements}</div>
+		<VStack
+			gap={"gap16"}
+			align={"center"}
+			className={className}
+		>
+			{commentElements}
+		</VStack>
 	)
 })

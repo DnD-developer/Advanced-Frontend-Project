@@ -30,6 +30,7 @@ export const AddCommentForm = memo<AddCommentFormProps>(props => {
 		<HStack
 			align={"center"}
 			justify={"spaceBetween"}
+			gap={"gap24"}
 			className={classNamesHelp(styles.AddCommentForm, {}, [className])}
 		>
 			<Input
