@@ -30,7 +30,8 @@ server.post("/login", (req, res) => {
 			return res.json({
 				userName: userFromBd.userName,
 				id: userFromBd.id,
-				avatar: userFromBd.avatar
+				avatar: userFromBd.avatar,
+				roles: userFromBd.roles
 			})
 		}
 

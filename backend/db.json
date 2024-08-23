@@ -16,12 +16,19 @@
       "id": "1",
       "userName": "Lucifer",
       "password": "123",
+      "roles": [
+        "USER",
+        "ADMIN"
+      ],
       "avatar": "https://i.pinimg.com/originals/f0/f8/fe/f0f8fe0e76824fd544a9154b995fb01d.jpg"
     },
     {
       "id": "2",
       "userName": "Alice",
       "password": "123",
+      "roles": [
+        "USER"
+      ],
       "avatar": "https://i.pinimg.com/originals/05/86/f5/0586f507c54a52dc0542a43fefe01cd2.jpg"
     }
   ],
@@ -29,7 +36,7 @@
     {
       "firstName": "Lucifer",
       "lastName": "Morningstar",
-      "age": 100000,
+      "age": 10000,
       "currency": "EUR",
       "country": "Ukraine",
       "city": "Fryazino",
@@ -585,6 +592,24 @@
       "id": "Top ArticleLucifer5",
       "articleId": "5",
       "userId": "1"
+    },
+    {
+      "text": "Asdf",
+      "id": "AsdfAlice1",
+      "articleId": "1",
+      "userId": "2"
+    },
+    {
+      "text": "asd",
+      "id": "asdAlice1",
+      "articleId": "1",
+      "userId": "2"
+    },
+    {
+      "text": "adf",
+      "id": "adfAlice1",
+      "articleId": "1",
+      "userId": "2"
     }
   ]
 }
