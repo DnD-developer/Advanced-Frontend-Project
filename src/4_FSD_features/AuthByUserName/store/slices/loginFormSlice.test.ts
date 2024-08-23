@@ -1,4 +1,5 @@
 import { DeepPartial } from "@customTypes/global.types"
+import { UserRoles } from "@entities/User"
 import { describe, expect, test } from "@jest/globals"
 import { loginFormStateMap } from "../storeTypes/loginFormState.map"
 import { loginByUserNameThunk } from "../thunks/loginByUserName/loginByUserName.thunk"
@@ -95,7 +96,7 @@ describe("loginFormSliceTest extraReducer", () => {
 
 		const resultState = loginFormReducer(
 			state as loginFormStateMap,
-			loginByUserNameThunk.fulfilled({ userName: "", id: "" }, "", {
+			loginByUserNameThunk.fulfilled({ userName: "", id: "", roles: [UserRoles.ADMIN] }, "", {
 				userName: "",
 				password: ""
 			})

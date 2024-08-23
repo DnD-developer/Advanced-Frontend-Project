@@ -11,6 +11,7 @@
 			"id": "1",
 			"userName": "Lucifer",
 			"password": "123",
+			"roles": ["USER", "ADMIN"],
 			"avatar": "https://i.pinimg.com/originals/f0/f8/fe/f0f8fe0e76824fd544a9154b995fb01d.jpg"
 		},
 		"blocks": [
@@ -87,6 +88,7 @@
 			"id": "1",
 			"userName": "Lucifer",
 			"password": "123",
+			"roles": ["USER"],
 			"avatar": "https://i.pinimg.com/originals/f0/f8/fe/f0f8fe0e76824fd544a9154b995fb01d.jpg"
 		},
 		"blocks": [
@@ -163,6 +165,7 @@
 			"id": "1",
 			"userName": "Lucifer",
 			"password": "123",
+			"roles": ["USER"],
 			"avatar": "https://i.pinimg.com/originals/f0/f8/fe/f0f8fe0e76824fd544a9154b995fb01d.jpg"
 		},
 		"blocks": [
@@ -238,6 +241,7 @@
 			"id": "2",
 			"userName": "Alice",
 			"password": "123",
+			"roles": ["USER"],
 			"avatar": "https://i.pinimg.com/originals/05/86/f5/0586f507c54a52dc0542a43fefe01cd2.jpg"
 		},
 		"type": ["IT", "Politic", "Design", "IT", "Politic", "Design"],
@@ -314,6 +318,7 @@
 			"id": "2",
 			"userName": "Alice",
 			"password": "123",
+			"roles": ["USER"],
 			"avatar": "https://i.pinimg.com/originals/05/86/f5/0586f507c54a52dc0542a43fefe01cd2.jpg"
 		},
 		"type": ["IT", "Politic", "Design", "IT", "Politic", "Design"],
@@ -390,6 +395,7 @@
 			"id": "2",
 			"userName": "Alice",
 			"password": "123",
+			"roles": ["USER"],
 			"avatar": "https://i.pinimg.com/originals/05/86/f5/0586f507c54a52dc0542a43fefe01cd2.jpg"
 		},
 		"type": ["IT", "Politic", "Design", "IT", "Politic", "Design"],

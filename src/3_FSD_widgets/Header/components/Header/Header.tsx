@@ -26,7 +26,7 @@ export const Header = memo<HeaderProps>(props => {
 	const [isAuthModal, setIsAuthModal] = useState(false)
 
 	const dispatch = useDispatch()
-	const { logOut, authData } = useAuth()
+	const { logOut, authData, isAdmin, isManager } = useAuth()
 
 	const loginModalShow = useCallback(() => {
 		setIsAuthModal(true)
@@ -53,6 +53,14 @@ export const Header = memo<HeaderProps>(props => {
 
 	const itemsDropDown = useMemo(
 		() => [
+			...(isManager || isAdmin ?
+				[
+					{
+						content: t("translation:admin"),
+						href: `${PagesPaths.ADMIN_PANEL}`
+					}
+				]
+			:	[]),
 			{
 				content: t("translation:profile"),
 				href: `${PagesPaths.PROFILE}/${authData?.id}`
@@ -62,7 +70,7 @@ export const Header = memo<HeaderProps>(props => {
 				onClick: logOutHandler
 			}
 		],
-		[authData?.id, logOutHandler, t]
+		[authData?.id, isAdmin, isManager, logOutHandler, t]
 	)
 
 	const profileAvatar = useMemo(

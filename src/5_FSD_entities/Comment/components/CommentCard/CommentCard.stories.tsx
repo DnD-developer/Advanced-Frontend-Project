@@ -2,6 +2,7 @@ import { CenterDecorator } from "@decorators/storybook/Center.decorator"
 import { ContainerDecorator } from "@decorators/storybook/Container.decorator"
 import { type Meta, type StoryObj } from "@storybook/react"
 import { ComponentProps } from "react"
+import { UserRoles } from "../../../User/constants/userRoles.constant"
 import { CommentCard } from "./CommentCard"
 
 type CommentCardCustomProps = ComponentProps<typeof CommentCard> & {
@@ -34,7 +35,7 @@ export const Default: TypeStory = {
 	render: ({ userName, text, ...args }) => {
 		return (
 			<CommentCard
-				comment={{ user: { id: "1", userName }, text, id: "1" }}
+				comment={{ user: { id: "1", userName, roles: [UserRoles.ADMIN] }, text, id: "1" }}
 				{...args}
 			/>
 		)
