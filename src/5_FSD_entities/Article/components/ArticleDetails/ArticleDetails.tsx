@@ -15,7 +15,6 @@ import { getArticleIsLoadingSelector } from "../../store/selectors/getArticleIsL
 import { articleReducer } from "../../store/slices/article.slice"
 import { fetchArticleDataByIdThunk } from "../../store/thunks/fetchArticleDataByIdThunk/fetchArticleDataById.thunk"
 import { articleBlockDataType } from "../../types/articleBlockData.type"
-import styles from "./ArticleDetails.module.scss"
 import { ArticleBlockCode } from "./ui/ArticleBlockCode/ArticleBlockCode"
 import { ArticleBlockImage } from "./ui/ArticleBlockImage/ArticleBlockImage"
 import { ArticleBlockText } from "./ui/ArticleBlockText/ArticleBlockText"
@@ -88,12 +87,11 @@ export const ArticleDetails = memo<ArticleDetailsProps>(props => {
 			<Avatar
 				theme={AvatarTheme.CIRCLE}
 				size={AvatarSize.LARGE}
-				className={styles.avatar}
 				src={data?.img || ""}
 				alt={data?.title || ""}
 			/>
 
-			<VStack gap={"gap32"}>
+			<VStack gap={"gap24"}>
 				<div>
 					<VStack gap={"gap16"}>
 						<Text
@@ -118,7 +116,7 @@ export const ArticleDetails = memo<ArticleDetailsProps>(props => {
 						</VStack>
 					</VStack>
 				</div>
-				<VStack gap={"gap32"}>{data?.blocks.map(block => renderBlock(block))}</VStack>
+				<VStack gap={"gap24"}>{data?.blocks.map(block => renderBlock(block))}</VStack>
 			</VStack>
 		</>
 	)
@@ -134,7 +132,8 @@ export const ArticleDetails = memo<ArticleDetailsProps>(props => {
 	return (
 		<VStack
 			gap={"gap16"}
-			className={classNamesHelp(styles.ArticleDetails, {}, [className])}
+			align={"center"}
+			className={classNamesHelp("", {}, [className])}
 		>
 			{content}
 		</VStack>

@@ -94,7 +94,7 @@ export const ProfileCard = memo<ProfileCardProps>(props => {
 				<VStack
 					justify={"center"}
 					align={"center"}
-					gap={"gap24"}
+					gap={"gap16"}
 					className={styles.container}
 					data-testid={`${dataTestId}.ServerError`}
 				>

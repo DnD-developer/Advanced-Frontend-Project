@@ -1,4 +1,5 @@
 import { DeepPartial } from "@customTypes/global.types"
+import { PageDecorator } from "@decorators/storybook/Page.decorator"
 import { StoreDecorator } from "@decorators/storybook/Store.decorator"
 import { mainStateMap } from "@store/storeTypes/mainState.map"
 import { type Meta, type StoryObj } from "@storybook/react"
@@ -9,7 +10,7 @@ import dataArticle from "./article.data.json"
 const meta: Meta<typeof ArticleDetails> = {
 	title: "entities/Article/ArticleDetails",
 	component: ArticleDetails,
-	decorators: []
+	decorators: [PageDecorator]
 }
 
 export default meta

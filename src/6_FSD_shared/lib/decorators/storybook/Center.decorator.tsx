@@ -1,4 +1,5 @@
 import { type Decorator } from "@storybook/react"
+import { Suspense } from "react"
 
 export const CenterDecorator: Decorator = Story => (
 	<div
@@ -10,6 +11,8 @@ export const CenterDecorator: Decorator = Story => (
 			alignItems: "center"
 		}}
 	>
-		<Story />
+		<Suspense>
+			<Story />
+		</Suspense>
 	</div>
 )

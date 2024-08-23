@@ -4,6 +4,7 @@ import { useAuth } from "@entities/User"
 import { ArticlesRecommendation } from "@features/ArticlesRecommendation"
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { AppLink, AppLinkTheme } from "@ui/AppLink"
+import { VStack } from "@ui/Stack"
 import { Text, TextAlign, TextSize, TextTheme } from "@ui/Text"
 import { CommentsArticleDetails } from "@widgets/CommentsArticleDetails"
 import { Page } from "@widgets/Page"
@@ -27,6 +28,8 @@ const ArticleDetailsPage = memo<ArticleDetailsPageProps>(props => {
 
 	let element: ReactNode
 
+	const toArticleEdit = `${PagesPaths.ARTICLES}/${id}/edit`
+
 	if (!id && __PROJECT__ !== "storybook") {
 		element = (
 			<Text
@@ -38,22 +41,20 @@ const ArticleDetailsPage = memo<ArticleDetailsPageProps>(props => {
 		)
 	} else if (id || testId) {
 		element = (
-			<>
+			<VStack gap={"gap24"}>
 				{authData?.id === articleData?.user.id ?
-					<div>
-						<AppLink
-							className={styles.header}
-							to={`${PagesPaths.ARTICLES}/${id}/edit`}
-							theme={AppLinkTheme.OUTLINE}
-						>
-							{t("article:Edit")}
-						</AppLink>
-					</div>
+					<AppLink
+						className={styles.header}
+						to={toArticleEdit}
+						theme={AppLinkTheme.OUTLINE}
+					>
+						{t("article:Edit")}
+					</AppLink>
 				:	null}
 				<ArticleDetails id={id || testId} />
 				<ArticlesRecommendation />
 				<CommentsArticleDetails articleId={id || testId} />
-			</>
+			</VStack>
 		)
 	} else {
 		element = <></>

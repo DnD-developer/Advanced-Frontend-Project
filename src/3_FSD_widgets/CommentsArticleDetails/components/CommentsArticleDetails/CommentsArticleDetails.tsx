@@ -4,6 +4,7 @@ import { AddArticleCommentForm } from "@features/AddArticleComment"
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { useAppDispatch } from "@hooks/useAppDispatch.hook"
 import { asyncReducersList, useAsyncReducer } from "@hooks/useAsyncReducer.hook"
+import { VStack } from "@ui/Stack"
 import { Text, TextSize } from "@ui/Text"
 import { memo, useEffect } from "react"
 import { useTranslation } from "react-i18next"
@@ -13,7 +14,6 @@ import { getCommentsArticleDetailsErrorSelector } from "../../store/selectors/ge
 import { getCommentsArticleDetailsIsLoadingSelector } from "../../store/selectors/getCommentsArticleDetailsIsLoading/getCommentsArticleDetailsIsLoading.selector"
 import { commentsArticleDetailsReducer } from "../../store/slices/commentsArticleDetails.slice"
 import { fetchCommentsByArticleIdThunk } from "../../store/thunks/fetchCommentsByArticleId.thunk"
-import styles from "./CommentsArticleDetails.module.scss"
 
 type CommentsArticleDetailsProps = {
 	className?: string
@@ -43,21 +43,20 @@ export const CommentsArticleDetails = memo<CommentsArticleDetailsProps>(props =>
 	const comments = useSelector(getCommentsArticleDetailsDataSelector)
 
 	return (
-		<div className={classNamesHelp(styles.CommentsArticleDetails, {}, [className])}>
+		<VStack
+			gap={"gap16"}
+			className={classNamesHelp("", {}, [className])}
+		>
 			<Text
-				className={styles.title}
 				title={t("article:listOfComments")}
 				size={TextSize.BIG}
 			/>
-			<div className={styles.form}>
-				<AddArticleCommentForm id={articleId} />
-			</div>
-
+			<AddArticleCommentForm id={articleId} />
 			<CommentList
 				comments={comments}
 				isLoading={isLoading}
 				error={error}
 			/>
-		</div>
+		</VStack>
 	)
 })

@@ -20,6 +20,7 @@ export const ArticleBlockImage = memo<ArticleBlockImageProps>(props => {
 			className={classNamesHelp("", {}, [className])}
 		>
 			<img
+				style={{ width: "100%" }}
 				src={src}
 				alt={alt}
 			/>
