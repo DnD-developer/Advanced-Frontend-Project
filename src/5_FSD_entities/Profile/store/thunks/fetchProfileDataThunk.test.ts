@@ -1,9 +1,9 @@
 import { beforeEach, describe, expect, test } from "@jest/globals"
 import { AsyncThunkMock } from "@mocks/AsyncThunk.mock"
-import { thunkConfigType } from "@store/storeTypes/thunks.type"
+import type { thunkConfigType } from "@store/storeTypes/thunks.type"
 import { ServerErrors } from "../../constants/ServerErrors.constant"
-import { profileDataType } from "../../types/profileData.type"
-import { profileStateMap } from "../storeTypes/profileState.map"
+import type { profileDataType } from "../../types/profileData.type"
+import type { profileStateMap } from "../storeTypes/profileState.map"
 import { fetchProfileDataThunk } from "./fetchProfileData.thunk"
 
 let thunk: AsyncThunkMock<

@@ -6,7 +6,7 @@ import { Avatar, AvatarSize } from "@ui/Avatar"
 import { Text } from "@ui/Text"
 import { memo } from "react"
 import { useTranslation } from "react-i18next"
-import { commentDataType } from "../../types/commentData.type"
+import type { commentDataType } from "../../types/commentData.type"
 import styles from "./CommentCard.module.scss"
 import { CommentCardSkeleton } from "./ui/CommentCardSkeleton/CommentCardSkeleton"
 

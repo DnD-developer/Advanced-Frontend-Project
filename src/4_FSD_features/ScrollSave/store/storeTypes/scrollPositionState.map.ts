@@ -1,4 +1,4 @@
-import { OptionalRecord } from "@customTypes/global.types"
+import type { OptionalRecord } from "@customTypes/global.types"
 
 export type scrollType = OptionalRecord<string, number>
 

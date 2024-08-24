@@ -1,11 +1,12 @@
-import { DeepPartial } from "@customTypes/global.types"
-import { articleDetailsDataType } from "@entities/Article"
+import type { DeepPartial } from "@customTypes/global.types"
+import type { articleDetailsDataType } from "@entities/Article"
 import { beforeEach, describe, expect, test } from "@jest/globals"
 import { AsyncThunkMock } from "@mocks/AsyncThunk.mock"
-import { mainStateMap } from "@store/storeTypes/mainState.map"
-import { thunkConfigType } from "@store/storeTypes/thunks.type"
-import { articlesListStateMap } from "../../storeTypes/articlesListState.map"
-import { fetchArticlesThunk, fetchArticlesThunkProps } from "./fetchArticles.thunk"
+import type { mainStateMap } from "@store/storeTypes/mainState.map"
+import type { thunkConfigType } from "@store/storeTypes/thunks.type"
+import type { articlesListStateMap } from "../../storeTypes/articlesListState.map"
+import type { fetchArticlesThunkProps } from "./fetchArticles.thunk"
+import { fetchArticlesThunk } from "./fetchArticles.thunk"
 
 let DataValue: DeepPartial<articleDetailsDataType>[]
 

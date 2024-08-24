@@ -5,7 +5,7 @@ import { InputTheme } from "@ui/Input/constants/Input.constant"
 import { HStack } from "@ui/Stack"
 import { memo } from "react"
 import { useTranslation } from "react-i18next"
-import { addCommentFormStateMap } from "../../store/storeTypes/addCommentFormState.map"
+import type { addCommentFormStateMap } from "../../store/storeTypes/addCommentFormState.map"
 import styles from "./AddCommentForm.module.scss"
 
 type AddCommentFormProps = {

@@ -2,7 +2,7 @@ import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { VStack } from "@ui/Stack"
 import { Text } from "@ui/Text"
 import { memo } from "react"
-import { articleBlockDataTextType } from "../../../../types/articleBlockData.type"
+import type { articleBlockDataTextType } from "../../../../types/articleBlockData.type"
 
 type ArticleBlockTextProps = {
 	className?: string

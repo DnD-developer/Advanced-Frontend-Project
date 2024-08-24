@@ -1,7 +1,8 @@
-import { profileDataType, profileStateMap, ServerErrors } from "@entities/Profile"
+import type { profileDataType, profileStateMap } from "@entities/Profile"
+import { ServerErrors } from "@entities/Profile"
 import { validateErrors } from "@entities/Profile/lib/helpers/validateErrors/validateErrors"
 import { createAsyncThunk } from "@reduxjs/toolkit"
-import { thunkConfigType } from "@store/storeTypes/thunks.type"
+import type { thunkConfigType } from "@store/storeTypes/thunks.type"
 import { getEditableProfileCardFormDataSelector } from "../../selectors/getEditableProfileCardFormData/getEditableProfileCardFormData.selector"
 
 export const postProfileDataThunk = createAsyncThunk<

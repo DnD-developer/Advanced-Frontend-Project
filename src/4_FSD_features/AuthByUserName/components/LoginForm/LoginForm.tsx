@@ -1,10 +1,12 @@
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { useAppDispatch } from "@hooks/useAppDispatch.hook"
-import { asyncReducersList, useAsyncReducer } from "@hooks/useAsyncReducer.hook"
+import type { asyncReducersList } from "@hooks/useAsyncReducer.hook"
+import { useAsyncReducer } from "@hooks/useAsyncReducer.hook"
 import { Button, ButtonTheme } from "@ui/Button"
 import { Input } from "@ui/Input"
 import { Text, TextTheme } from "@ui/Text"
-import { FormEvent, memo, useCallback } from "react"
+import type { FormEvent } from "react"
+import { memo, useCallback } from "react"
 import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
 import { getLoginFormErrorSelector } from "../../store/selectors/getLoginFormError/getLoginFormError.selector"
@@ -30,7 +32,7 @@ const LoginForm = memo<LoginFormProps>(props => {
 	const { t } = useTranslation()
 
 	const dispatch = useAppDispatch()
-	const { setUserName, setPassword } = loginFormActions
+	const { setUserName, setPassword, resetForm } = loginFormActions
 
 	const userName = useSelector(getLoginFormUserNameSelector)
 	const password = useSelector(getLoginFormPasswordSelector)
@@ -66,9 +68,11 @@ const LoginForm = memo<LoginFormProps>(props => {
 				if (result.meta.requestStatus === "fulfilled") {
 					onSuccess?.()
 				}
+
+				dispatch(resetForm())
 			}
 		},
-		[dispatch, onSuccess, password, userName]
+		[dispatch, onSuccess, password, resetForm, userName]
 	)
 
 	return (

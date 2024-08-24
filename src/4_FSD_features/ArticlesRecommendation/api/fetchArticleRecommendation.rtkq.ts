@@ -1,6 +1,6 @@
 import { rtkBaseApi } from "@api/rtkBase.api"
 import { PagesPaths } from "@config/routes/routePaths"
-import { articleDetailsDataType } from "@entities/Article"
+import type { articleDetailsDataType } from "@entities/Article"
 
 const fetchArticleRecommendationRtkq = rtkBaseApi.injectEndpoints({
 	endpoints: build => ({

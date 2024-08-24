@@ -24,7 +24,7 @@
 			}
 		]
 	},
-	"exclude": ["node_modules", ".stylelintrc.js", "backend"],
+	"exclude": ["node_modules", ".stylelintrc.js", "backend", ".dependency-cruiser.js"],
 	"ts-node": {
 		"compilerOptions": {
 			"module": "CommonJS"

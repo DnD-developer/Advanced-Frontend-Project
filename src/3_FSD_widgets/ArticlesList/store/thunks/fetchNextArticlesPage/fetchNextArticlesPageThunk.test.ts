@@ -1,9 +1,9 @@
-import { DeepPartial } from "@customTypes/global.types"
+import type { DeepPartial } from "@customTypes/global.types"
 import { AsyncThunkMock } from "@mocks/AsyncThunk.mock"
-import { mainStateMap } from "@store/storeTypes/mainState.map"
-import { thunkConfigType } from "@store/storeTypes/thunks.type"
+import type { mainStateMap } from "@store/storeTypes/mainState.map"
+import type { thunkConfigType } from "@store/storeTypes/thunks.type"
 import { articlesListActions } from "../../slices/articlesList.slice"
-import { articlesListStateMap } from "../../storeTypes/articlesListState.map"
+import type { articlesListStateMap } from "../../storeTypes/articlesListState.map"
 import { fetchArticlesThunk } from "../fetchArticles/fetchArticles.thunk"
 import { fetchNextArticlesPageThunk } from "./fetchNextArticlesPage.thunk"
 

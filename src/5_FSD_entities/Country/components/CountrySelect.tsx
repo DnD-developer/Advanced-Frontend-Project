@@ -1,4 +1,5 @@
-import { OptionType, Select, SelectProps } from "@ui/Select"
+import type { OptionType, SelectProps } from "@ui/Select"
+import { Select } from "@ui/Select"
 import { memo, useCallback } from "react"
 import { useTranslation } from "react-i18next"
 import { Country } from "../constants/Country.constant"

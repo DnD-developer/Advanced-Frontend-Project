@@ -1,4 +1,4 @@
-import { ComponentProps, JSXElementConstructor } from "react"
+import type { ComponentProps, JSXElementConstructor } from "react"
 import { JSX } from "react/jsx-runtime"
 import IntrinsicElements = JSX.IntrinsicElements
 

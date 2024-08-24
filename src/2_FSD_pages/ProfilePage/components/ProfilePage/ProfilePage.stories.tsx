@@ -3,7 +3,7 @@ import { StoreDecorator } from "@decorators/storybook/Store.decorator"
 import { profileDataMock } from "@entities/Profile"
 import { userDataMock } from "@entities/User"
 import { type Meta, type StoryObj } from "@storybook/react"
-import { ComponentProps } from "react"
+import type { ComponentProps } from "react"
 import { ProfilePage } from "./ProfileAsync.page"
 
 type ProfilePageCustomProps = ComponentProps<typeof ProfilePage> & { login: boolean }

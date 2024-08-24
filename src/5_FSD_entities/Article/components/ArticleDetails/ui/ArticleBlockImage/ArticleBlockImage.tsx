@@ -2,7 +2,7 @@ import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { VStack } from "@ui/Stack"
 import { Text, TextAlign } from "@ui/Text"
 import { memo } from "react"
-import { articleBlockDataImageType } from "../../../../types/articleBlockData.type"
+import type { articleBlockDataImageType } from "../../../../types/articleBlockData.type"
 
 type ArticleBlockImageProps = {
 	className?: string

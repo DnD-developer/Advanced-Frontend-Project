@@ -1,6 +1,6 @@
 import { Country } from "../../../Country"
 import { Currency } from "../../../Currency"
-import { profileCardDataType, profileDataType } from "../../types/profileData.type"
+import type { profileCardDataType, profileDataType } from "../../types/profileData.type"
 
 export const profileDataMock: profileDataType = {
 	id: "1",

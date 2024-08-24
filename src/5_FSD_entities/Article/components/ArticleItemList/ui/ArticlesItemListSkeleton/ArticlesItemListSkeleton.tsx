@@ -1,8 +1,6 @@
 import { memo } from "react"
-import {
-	ArticleItemViews,
-	CountArticleItemOfView
-} from "../../../../constants/ArticleItemViews.constant"
+import type { ArticleItemViews } from "../../../../constants/ArticleItemViews.constant"
+import { CountArticleItemOfView } from "../../../../constants/ArticleItemViews.constant"
 import { ArticleItem } from "../../../ArticleItem/ArticleItem"
 
 type ArticlesItemListSkeletonProps = {

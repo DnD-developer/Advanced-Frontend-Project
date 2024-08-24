@@ -1,4 +1,4 @@
-import { articleDetailsDataType } from "../../types/articleDetailsData.type"
+import type { articleDetailsDataType } from "../../types/articleDetailsData.type"
 
 export type articleDetailsStateMap = {
 	isLoading: boolean

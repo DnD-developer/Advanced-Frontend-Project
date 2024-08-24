@@ -1,5 +1,5 @@
-import { reducerManagerType } from "../reducerManager"
-import { storeCreator } from "../store"
+import { type reducerManagerType } from "../reducerManager"
+import type { storeCreator } from "../store"
 
 export type appStoreType = {
 	reducerManager: reducerManagerType

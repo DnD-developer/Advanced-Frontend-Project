@@ -1,7 +1,9 @@
 import { LOCAL_STORAGE_VIEW_ARTICLES_KEY } from "@constants/localStorage.constant"
-import { articleDetailsDataType, ArticleItemViews, CountArticleItemOfView } from "@entities/Article"
-import { createEntityAdapter, createSlice, PayloadAction } from "@reduxjs/toolkit"
-import { articlesListStateMap } from "../storeTypes/articlesListState.map"
+import type { articleDetailsDataType } from "@entities/Article"
+import { ArticleItemViews, CountArticleItemOfView } from "@entities/Article"
+import type { PayloadAction } from "@reduxjs/toolkit"
+import { createEntityAdapter, createSlice } from "@reduxjs/toolkit"
+import type { articlesListStateMap } from "../storeTypes/articlesListState.map"
 import { fetchArticlesThunk } from "../thunks/fetchArticles/fetchArticles.thunk"
 
 const initialState: articlesListStateMap = {

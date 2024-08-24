@@ -1,7 +1,7 @@
-import { DeepPartial } from "@customTypes/global.types"
+import type { DeepPartial } from "@customTypes/global.types"
 import { fetchProfileDataThunk, ServerErrors, ValidateErrorsConstant } from "@entities/Profile"
 import { describe, expect, test } from "@jest/globals"
-import { editableProfileStateMap } from "../storeTypes/editableProfileState.map"
+import type { editableProfileStateMap } from "../storeTypes/editableProfileState.map"
 import { postProfileDataThunk } from "../thunks/postProfileData/postProfileData.thunk"
 import { editableProfileActions, editableProfileCardReducer } from "./editableProfileCard.slice"
 

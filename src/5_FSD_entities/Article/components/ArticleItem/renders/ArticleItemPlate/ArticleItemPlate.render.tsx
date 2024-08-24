@@ -6,9 +6,10 @@ import { Avatar, AvatarTheme } from "@ui/Avatar"
 import { Card } from "@ui/Card"
 import { HStack, VStack } from "@ui/Stack"
 import { Text, TextSize } from "@ui/Text"
-import { HTMLAttributeAnchorTarget, memo } from "react"
+import type { HTMLAttributeAnchorTarget } from "react"
+import { memo } from "react"
 import { useTranslation } from "react-i18next"
-import { articleItemStateMap } from "../../../../store/storeTypes/articleItemState.map"
+import type { articleItemStateMap } from "../../../../store/storeTypes/articleItemState.map"
 import styles from "./ArticleItemPlateRender.module.scss"
 
 type ArticleItemPlateRenderProps = {

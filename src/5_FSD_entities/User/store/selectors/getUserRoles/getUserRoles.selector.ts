@@ -1,5 +1,5 @@
 import { createSelector } from "@reduxjs/toolkit"
-import { userStateMap } from "../../storeTypes/userState.map"
+import type { userStateMap } from "../../storeTypes/userState.map"
 import { getUserSelector } from "../getUser/getUser.selector"
 
 export const getUserRolesSelector = createSelector(

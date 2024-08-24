@@ -1,5 +1,5 @@
 import { ValidateErrorsConstant } from "../../../constants/ValidateErrors.constant"
-import { profileCardDataType } from "../../../types/profileData.type"
+import type { profileCardDataType } from "../../../types/profileData.type"
 
 export const validateErrors = (profile?: profileCardDataType) => {
 	const errors: ValidateErrorsConstant[] = []

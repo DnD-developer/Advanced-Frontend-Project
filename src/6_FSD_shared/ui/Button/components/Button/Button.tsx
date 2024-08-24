@@ -1,4 +1,5 @@
-import { classNamesHelp, Mods } from "@helpers/classNamesHelp/classNamesHelp"
+import type { Mods } from "@helpers/classNamesHelp/classNamesHelp"
+import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { type ButtonHTMLAttributes, memo, useMemo } from "react"
 import { ButtonTheme } from "../../constants/Button.constant"
 import styles from "./Button.module.scss"

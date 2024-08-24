@@ -1,8 +1,8 @@
-import { DeepPartial } from "@customTypes/global.types"
+import type { DeepPartial } from "@customTypes/global.types"
 import { ArticleTypeConstant } from "@entities/Article/constants/Article.constant"
 import { describe, expect, test } from "@jest/globals"
 import { ArticleSortFieldConstant } from "../../constants/ArticleSortField.constant"
-import { filterArticlesListStateMap } from "../storeTypes/filterArticlesListState.map"
+import type { filterArticlesListStateMap } from "../storeTypes/filterArticlesListState.map"
 import { filterArticlesListActions, filterArticlesListReducer } from "./filterArticlesList.slice"
 
 describe("filterArticlesListSliceTest", () => {

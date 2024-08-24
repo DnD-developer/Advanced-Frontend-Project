@@ -1,7 +1,7 @@
-import { DeepPartial } from "@customTypes/global.types"
+import type { DeepPartial } from "@customTypes/global.types"
 import { ArticleTypeConstant } from "@entities/Article/constants/Article.constant"
 import { describe, expect, test } from "@jest/globals"
-import { mainStateMap } from "@store/storeTypes/mainState.map"
+import type { mainStateMap } from "@store/storeTypes/mainState.map"
 import { getFilterArticlesListTypeTopicSelector } from "./getFilterArticlesListTypeTopic.selector"
 
 describe(getFilterArticlesListTypeTopicSelector, () => {

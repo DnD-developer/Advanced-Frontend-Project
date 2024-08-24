@@ -1,9 +1,9 @@
 import { beforeEach, describe, expect, test } from "@jest/globals"
 import { AsyncThunkMock } from "@mocks/AsyncThunk.mock"
-import { thunkConfigType } from "@store/storeTypes/thunks.type"
+import type { thunkConfigType } from "@store/storeTypes/thunks.type"
 import { articleDataMock } from "../../../lib/mocks/articleData.mock"
-import { articleDetailsDataType } from "../../../types/articleDetailsData.type"
-import { articleDetailsStateMap } from "../../storeTypes/articleDetailsState.map"
+import type { articleDetailsDataType } from "../../../types/articleDetailsData.type"
+import type { articleDetailsStateMap } from "../../storeTypes/articleDetailsState.map"
 import { fetchArticleDataByIdThunk } from "./fetchArticleDataById.thunk"
 
 let thunk: AsyncThunkMock<

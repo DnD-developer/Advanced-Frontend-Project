@@ -1,5 +1,6 @@
 import { Loader } from "@ui/Loader"
-import { Modal, ModalProps } from "@ui/Modal"
+import type { ModalProps } from "@ui/Modal"
+import { Modal } from "@ui/Modal"
 import { memo, Suspense, useCallback, useMemo } from "react"
 import { LoginForm } from "../LoginForm/LoginForm.async"
 

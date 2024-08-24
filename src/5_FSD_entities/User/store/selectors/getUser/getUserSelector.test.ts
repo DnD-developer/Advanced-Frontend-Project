@@ -1,4 +1,4 @@
-import { mainStateMap } from "@store/storeTypes/mainState.map"
+import type { mainStateMap } from "@store/storeTypes/mainState.map"
 import { UserRoles } from "../../../constants/userRoles.constant"
 import { getUserSelector } from "./getUser.selector"
 

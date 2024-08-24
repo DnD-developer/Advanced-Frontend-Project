@@ -1,7 +1,7 @@
 import { CenterDecorator } from "@decorators/storybook/Center.decorator"
 import { ContainerDecorator } from "@decorators/storybook/Container.decorator"
 import { type Meta, type StoryObj } from "@storybook/react"
-import { ComponentProps } from "react"
+import type { ComponentProps } from "react"
 import { UserRoles } from "../../../User/constants/userRoles.constant"
 import { CommentCard } from "./CommentCard"
 

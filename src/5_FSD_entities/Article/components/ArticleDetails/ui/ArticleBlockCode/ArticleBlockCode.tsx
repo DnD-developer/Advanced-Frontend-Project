@@ -2,7 +2,7 @@ import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { VStack } from "@ui/Stack"
 import { Text, TextAlign } from "@ui/Text"
 import { memo } from "react"
-import { articleBlockDataCodeType } from "../../../../types/articleBlockData.type"
+import type { articleBlockDataCodeType } from "../../../../types/articleBlockData.type"
 import { CopyButton } from "../CopyButton/CopyButton"
 import styles from "./ArticleBlockCode.module.scss"
 

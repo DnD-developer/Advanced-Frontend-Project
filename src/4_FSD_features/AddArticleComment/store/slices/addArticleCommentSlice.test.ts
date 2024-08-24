@@ -1,6 +1,6 @@
-import { DeepPartial } from "@customTypes/global.types"
+import type { DeepPartial } from "@customTypes/global.types"
 import { beforeEach, describe, expect, test } from "@jest/globals"
-import { addArticleCommentStateMap } from "../storeTypes/addArticleCommentState.map"
+import type { addArticleCommentStateMap } from "../storeTypes/addArticleCommentState.map"
 import { addNewArticleCommentThunk } from "../thunks/addNewArticleCommentThunk/addNewArticleComment.thunk"
 import { addArticleCommentActions, addArticleCommentReducer } from "./addArticleComment.slice"
 

@@ -3,8 +3,8 @@ import { StoreDecorator } from "@decorators/storybook/Store.decorator"
 import { profileCardDataMock, profileDataMock } from "@entities/Profile"
 import { userDataMock } from "@entities/User"
 import { type Meta, type StoryObj } from "@storybook/react"
-import { ComponentProps } from "react"
-import { editableProfileStateMap } from "../../store/storeTypes/editableProfileState.map"
+import type { ComponentProps } from "react"
+import type { editableProfileStateMap } from "../../store/storeTypes/editableProfileState.map"
 import { EditableProfileCard } from "./EditableProfileCard"
 
 type EditableProfileCardCustomProps = ComponentProps<typeof EditableProfileCard> & {

@@ -1,6 +1,7 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit"
+import type { PayloadAction } from "@reduxjs/toolkit"
+import { createSlice } from "@reduxjs/toolkit"
 import { ArticleSortFieldConstant } from "../../constants/ArticleSortField.constant"
-import { filterArticlesListStateMap } from "../storeTypes/filterArticlesListState.map"
+import type { filterArticlesListStateMap } from "../storeTypes/filterArticlesListState.map"
 
 const initialState: filterArticlesListStateMap = {
 	order: "ASC",

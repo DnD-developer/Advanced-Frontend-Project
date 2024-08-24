@@ -1,6 +1,11 @@
-import { combineReducers, Reducer, ReducersMapObject, UnknownAction } from "@reduxjs/toolkit"
-import { mainStateMap } from "./storeTypes/mainState.map"
-import { mainStateAsyncKeys } from "./storeTypes/mainStateAsync.map"
+import {
+	combineReducers,
+	type Reducer,
+	type ReducersMapObject,
+	type UnknownAction
+} from "@reduxjs/toolkit"
+import { type mainStateMap } from "./storeTypes/mainState.map"
+import { type mainStateAsyncKeys } from "./storeTypes/mainStateAsync.map"
 
 export type reducerManagerType = {
 	getReducerMap: () => ReducersMapObject<mainStateMap>

@@ -1,5 +1,6 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import { addArticleCommentStateMap } from "../storeTypes/addArticleCommentState.map"
+import type { PayloadAction } from "@reduxjs/toolkit"
+import { createSlice } from "@reduxjs/toolkit"
+import type { addArticleCommentStateMap } from "../storeTypes/addArticleCommentState.map"
 import { addNewArticleCommentThunk } from "../thunks/addNewArticleCommentThunk/addNewArticleComment.thunk"
 
 const initialState: addArticleCommentStateMap = { error: undefined, text: "", isLoading: false }
