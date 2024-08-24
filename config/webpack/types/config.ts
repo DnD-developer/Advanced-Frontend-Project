@@ -1,6 +1,6 @@
 export type buildMode = "production" | "development"
 
-export type buildPaths = {
+export type buildPathsType = {
 	entry: string
 	build: string
 	html: string
@@ -9,16 +9,16 @@ export type buildPaths = {
 	buildLocales: string
 }
 
-export type buildEnv = {
+export type buildEnvType = {
 	mode: buildMode
-	port: buildOptions["port"]
+	port: buildOptionsType["port"]
 	isAnalyze: "true" | "false"
-	baseUrl: buildOptions["baseUrl"]
+	baseUrl: buildOptionsType["baseUrl"]
 }
 
-export type buildOptions = {
+export type buildOptionsType = {
 	mode?: buildMode
-	paths: buildPaths
+	paths: buildPathsType
 	port?: number
 	aliases: Record<string, string>
 	isDev: boolean
