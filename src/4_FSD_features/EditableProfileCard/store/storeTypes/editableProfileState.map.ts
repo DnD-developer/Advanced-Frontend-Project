@@ -1,5 +1,5 @@
-import { profileCardDatatype, profileStateMap } from "@entities/Profile"
+import { profileCardDataType, profileStateMap } from "@entities/Profile"
 
 export type editableProfileStateMap = {
-	formData?: profileCardDatatype
+	formData?: profileCardDataType
 } & profileStateMap

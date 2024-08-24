@@ -9,7 +9,8 @@ const config: StorybookConfig = {
 		"@storybook/addon-essentials",
 		"@chromatic-com/storybook",
 		"@storybook/addon-themes",
-		"storybook-react-i18next"
+		"storybook-react-i18next",
+		"storybook-addon-mock"
 	],
 	framework: {
 		name: "@storybook/react-webpack5",

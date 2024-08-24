@@ -12,7 +12,7 @@ import {
 	ServerErrors,
 	ValidateErrors
 } from "../../store/storeTypes/profileState.map"
-import { profileCardDatatype, profileDataType } from "../../types/profileData.type"
+import { profileCardDataType, profileDataType } from "../../types/profileData.type"
 import styles from "./ProfileCard.module.scss"
 
 type ProfileCardCustomProps = {
@@ -20,7 +20,7 @@ type ProfileCardCustomProps = {
 	classNames?: string
 	isLoading?: boolean
 	editAllow?: boolean
-	data?: profileCardDatatype
+	data?: profileCardDataType
 	readOnly?: boolean
 	labelError?: string
 	editButton?: ReactNode

@@ -1,7 +1,7 @@
 import { ValidateErrors } from "../../../store/storeTypes/profileState.map"
-import { profileCardDatatype } from "../../../types/profileData.type"
+import { profileCardDataType } from "../../../types/profileData.type"
 
-export const validateErrors = (profile?: profileCardDatatype) => {
+export const validateErrors = (profile?: profileCardDataType) => {
 	const errors: ValidateErrors[] = []
 
 	if (!profile?.avatar) {

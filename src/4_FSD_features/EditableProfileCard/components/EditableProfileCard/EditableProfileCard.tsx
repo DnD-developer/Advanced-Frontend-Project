@@ -43,9 +43,7 @@ export const EditableProfileCard = memo<EditableProfileCardProps>(props => {
 	const dispatch = useAppDispatch()
 
 	useEffect(() => {
-		if (__PROJECT__ !== "storybook") {
-			dispatch(fetchProfileDataThunk(id))
-		}
+		dispatch(fetchProfileDataThunk(id))
 	}, [dispatch, id])
 
 	const { updateForm } = editableProfileActions
