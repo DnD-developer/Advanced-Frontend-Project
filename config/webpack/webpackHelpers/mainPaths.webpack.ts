@@ -1,7 +1,7 @@
 import path from "node:path"
-import { type buildOptions } from "../types/config"
+import { type buildOptionsType } from "../types/config"
 
-export const mainPathsWebpack = (dirname: string): buildOptions["paths"] => ({
+export const mainPathsWebpack = (dirname: string): buildOptionsType["paths"] => ({
 	html: path.resolve(dirname, "public", "index.html"),
 	entry: path.resolve(dirname, "src", "index.tsx"),
 	build: path.resolve(dirname, "build"),

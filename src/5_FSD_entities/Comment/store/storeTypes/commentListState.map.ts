@@ -1,5 +1,5 @@
-import { EntityState } from "@reduxjs/toolkit"
-import { commentDataType } from "../../types/commentData.type"
+import type { EntityState } from "@reduxjs/toolkit"
+import type { commentDataType } from "../../types/commentData.type"
 
 export type commentListStateMap = {
 	isLoading: boolean

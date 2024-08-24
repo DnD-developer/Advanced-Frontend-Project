@@ -4,8 +4,9 @@ import {
 	ListboxOption as HListBoxOption,
 	ListboxOptions as HListBoxOptions
 } from "@headlessui/react"
-import { AnchorPropsWithSelection } from "@headlessui/react/dist/internal/floating"
-import { classNamesHelp, Mods } from "@helpers/classNamesHelp/classNamesHelp"
+import type { AnchorPropsWithSelection } from "@headlessui/react/dist/internal/floating"
+import type { Mods } from "@helpers/classNamesHelp/classNamesHelp"
+import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { Fragment, memo, useCallback, useMemo } from "react"
 import { SelectTheme } from "../../constants/Select.constant"
 import styles from "./Select.module.scss"

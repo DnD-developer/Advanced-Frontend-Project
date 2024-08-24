@@ -1,4 +1,4 @@
-import { profileDataType } from "@entities/Profile"
+import type { profileDataType } from "@entities/Profile"
 import { EditableProfileCard } from "@features/EditableProfileCard"
 import { Page } from "@widgets/Page"
 import { memo } from "react"

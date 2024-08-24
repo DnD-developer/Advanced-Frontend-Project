@@ -1,0 +1,4 @@
+export enum ServerErrors {
+	SERVER_NOT_FOUND = "SERVER_NOT_FOUND",
+	PROFILE_NOT_FOUND = "PROFILE_NOT_FOUND"
+}

@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { articleDetailsStateMap } from "../storeTypes/articleDetailsState.map"
+import type { articleDetailsStateMap } from "../storeTypes/articleDetailsState.map"
 import { fetchArticleDataByIdThunk } from "../thunks/fetchArticleDataByIdThunk/fetchArticleDataById.thunk"
 
 const initialState: articleDetailsStateMap = {

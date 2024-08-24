@@ -4,7 +4,8 @@ import { CenterDecorator } from "@decorators/storybook/Center.decorator"
 import { useArgs } from "@storybook/preview-api"
 import { type Meta, type StoryObj } from "@storybook/react"
 import { TabThemes } from "../../constant/TabThemes.constant"
-import { Tabs, TabsItem } from "./Tabs"
+import type { TabsItemType } from "./Tabs"
+import { Tabs } from "./Tabs"
 
 const meta: Meta<typeof Tabs> = {
 	title: "shared/Tabs",
@@ -27,7 +28,7 @@ export default meta
 
 type TypeStory = StoryObj<typeof Tabs>
 
-const tabs: TabsItem<string>[] = [
+const tabs: TabsItemType<string>[] = [
 	{ content: "Tabs1", value: "Tabs1" },
 	{ content: "Tabs2", value: "Tabs2" },
 	{ content: "Tabs3", value: "Tabs3" },
@@ -43,7 +44,7 @@ export const Default: TypeStory = {
 	render: function Render(argsStory) {
 		const [{ value }, updateArgs] = useArgs()
 
-		const onChangeTab = (tab: TabsItem<string>) => {
+		const onChangeTab = (tab: TabsItemType<string>) => {
 			updateArgs({ value: tab.value })
 		}
 

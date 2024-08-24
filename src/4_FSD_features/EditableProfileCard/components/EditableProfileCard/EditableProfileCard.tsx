@@ -1,9 +1,11 @@
 import { CountrySelect } from "@entities/Country"
 import { CurrencySelect } from "@entities/Currency"
-import { fetchProfileDataThunk, ProfileCard, profileDataType } from "@entities/Profile"
+import type { profileDataType } from "@entities/Profile"
+import { fetchProfileDataThunk, ProfileCard } from "@entities/Profile"
 import { useAuth } from "@entities/User"
 import { useAppDispatch } from "@hooks/useAppDispatch.hook"
-import { asyncReducersList, useAsyncReducer } from "@hooks/useAsyncReducer.hook"
+import type { asyncReducersList } from "@hooks/useAsyncReducer.hook"
+import { useAsyncReducer } from "@hooks/useAsyncReducer.hook"
 import { memo, useCallback, useEffect, useMemo } from "react"
 import { useSelector } from "react-redux"
 import { getEditableProfileCardErrorSelector } from "../../store/selectors/getEditableProfileCardError/getEditableProfileCardError.selector"
@@ -43,9 +45,7 @@ export const EditableProfileCard = memo<EditableProfileCardProps>(props => {
 	const dispatch = useAppDispatch()
 
 	useEffect(() => {
-		if (__PROJECT__ !== "storybook") {
-			dispatch(fetchProfileDataThunk(id))
-		}
+		dispatch(fetchProfileDataThunk(id))
 	}, [dispatch, id])
 
 	const { updateForm } = editableProfileActions

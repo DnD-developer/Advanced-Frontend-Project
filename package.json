@@ -23,7 +23,9 @@
 		"test:unit": "jest --config ./config/jest/jest.config.ts",
 		"test:ui": "chromatic --t chpt_4330b52d5d14286",
 		"storybook:start": "storybook dev -c config/storybook --no-open -p 6006 ",
-		"storybook:build": "storybook build -ci -c config/storybook"
+		"storybook:build": "storybook build -ci -c config/storybook",
+		"depcruiser:validate": "depcruise --validate .dependency-cruiser.js src",
+		"depcruiser:report": "depcruise --exclude \"^node_modules\" --output-type dot src | dot -T svg > reports/tests/dependencygraph.svg"
 	},
 	"author": {
 		"name": "Salim Cat"
@@ -33,6 +35,8 @@
 	"devDependencies": {
 		"@arthurgeron/eslint-plugin-react-usememo": "^2.4.0",
 		"@babel/core": "^7.24.3",
+		"@babel/plugin-transform-runtime": "^7.25.4",
+		"@babel/plugin-transform-typescript": "^7.25.2",
 		"@babel/preset-env": "^7.24.3",
 		"@babel/preset-react": "^7.24.1",
 		"@babel/preset-typescript": "^7.24.1",
@@ -55,6 +59,9 @@
 		"@testing-library/jest-dom": "^6.4.2",
 		"@testing-library/react": "^14.2.2",
 		"@testing-library/user-event": "^14.5.2",
+		"@types/babel__core": "^7.20.5",
+		"@types/babel__plugin-transform-runtime": "^7",
+		"@types/circular-dependency-plugin": "^5.0.8",
 		"@types/jest": "^29.5.12",
 		"@types/node": "^20.11.28",
 		"@types/react": "^18.2.79",
@@ -69,6 +76,7 @@
 		"@typescript-eslint/parser": "^7.7.1",
 		"babel-loader": "^9.1.3",
 		"chromatic": "^11.3.0",
+		"circular-dependency-plugin": "^5.2.2",
 		"concurrently": "^8.2.2",
 		"copy-webpack-plugin": "^12.0.2",
 		"css-loader": "^6.10.0",
@@ -90,6 +98,7 @@
 		"eslint-plugin-storybook": "^0.8.0",
 		"eslint-webpack-plugin": "^4.1.0",
 		"file-loader": "^6.2.0",
+		"fork-ts-checker-webpack-plugin": "^9.0.2",
 		"html-webpack-plugin": "^5.6.0",
 		"husky": "^9.0.11",
 		"identity-obj-proxy": "^3.0.0",
@@ -107,6 +116,7 @@
 		"sass": "^1.72.0",
 		"sass-loader": "^14.1.1",
 		"storybook": "^8.0.8",
+		"storybook-addon-mock": "^5.0.0",
 		"storybook-react-i18next": "^3.0.1",
 		"style-loader": "^3.3.4",
 		"stylelint": "^16.3.1",
@@ -129,6 +139,7 @@
 		"whatwg-fetch": "^3.6.20"
 	},
 	"dependencies": {
+		"@babel/runtime": "^7.25.4",
 		"@headlessui/react": "^2.1.2",
 		"@reduxjs/toolkit": "^2.2.3",
 		"axios": "^1.6.8",

@@ -1,18 +1,18 @@
-import { classNamesHelp, Mods } from "@helpers/classNamesHelp/classNamesHelp"
+import type { Mods } from "@helpers/classNamesHelp/classNamesHelp"
+import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { Avatar } from "@ui/Avatar"
 import { Input } from "@ui/Input"
 import { Loader } from "@ui/Loader"
 import { HStack, VStack } from "@ui/Stack"
 import { Text, TextAlign, TextSize, TextTheme } from "@ui/Text"
-import { memo, ReactNode, useMemo } from "react"
+import type { ReactNode } from "react"
+import { memo, useMemo } from "react"
 import { useTranslation } from "react-i18next"
+import { ServerErrors } from "../../constants/ServerErrors.constant"
+import { ValidateErrorsConstant } from "../../constants/ValidateErrors.constant"
 import { mappingErrors } from "../../lib/helpers/mappingErrors/mappingErrors"
-import {
-	profileStateMap,
-	ServerErrors,
-	ValidateErrors
-} from "../../store/storeTypes/profileState.map"
-import { profileCardDatatype, profileDataType } from "../../types/profileData.type"
+import type { profileStateMap } from "../../store/storeTypes/profileState.map"
+import type { profileCardDataType, profileDataType } from "../../types/profileData.type"
 import styles from "./ProfileCard.module.scss"
 
 type ProfileCardCustomProps = {
@@ -20,7 +20,7 @@ type ProfileCardCustomProps = {
 	classNames?: string
 	isLoading?: boolean
 	editAllow?: boolean
-	data?: profileCardDatatype
+	data?: profileCardDataType
 	readOnly?: boolean
 	labelError?: string
 	editButton?: ReactNode
@@ -94,7 +94,7 @@ export const ProfileCard = memo<ProfileCardProps>(props => {
 				<VStack
 					justify={"center"}
 					align={"center"}
-					gap={"gap24"}
+					gap={"gap16"}
 					className={styles.container}
 					data-testid={`${dataTestId}.ServerError`}
 				>
@@ -145,7 +145,7 @@ export const ProfileCard = memo<ProfileCardProps>(props => {
 							value={data?.avatar || ""}
 							label={
 								validateErrors.AVATAR_ERROR ?
-									t(ValidateErrors.AVATAR_ERROR)
+									t(ValidateErrorsConstant.AVATAR_ERROR)
 								:	t("profile:yourAvatar")
 							}
 							classNamesLabel={classNamesHelp("", modsOpacityZero)}
@@ -162,7 +162,7 @@ export const ProfileCard = memo<ProfileCardProps>(props => {
 							value={data?.userName || ""}
 							label={
 								validateErrors.USERNAME_ERROR ?
-									t(ValidateErrors.USERNAME_ERROR)
+									t(ValidateErrorsConstant.USERNAME_ERROR)
 								:	t("profile:yourUserName")
 							}
 							classNamesLabel={classNamesHelp("", modsOpacityZero)}
@@ -175,7 +175,7 @@ export const ProfileCard = memo<ProfileCardProps>(props => {
 							data-testid={`${dataTestId}.FirstNameInput`}
 							label={
 								validateErrors.FIRST_NAME ?
-									t(ValidateErrors.FIRST_NAME)
+									t(ValidateErrorsConstant.FIRST_NAME)
 								:	t("profile:yourName")
 							}
 							classNamesLabel={classNamesHelp("", modsOpacityZero)}
@@ -189,7 +189,7 @@ export const ProfileCard = memo<ProfileCardProps>(props => {
 							classNamesLabel={classNamesHelp("", modsOpacityZero)}
 							label={
 								validateErrors.LAST_NAME ?
-									t(ValidateErrors.LAST_NAME)
+									t(ValidateErrorsConstant.LAST_NAME)
 								:	t("profile:yourLastName")
 							}
 							onChange={onChangeLastName}
@@ -202,7 +202,7 @@ export const ProfileCard = memo<ProfileCardProps>(props => {
 							classNamesLabel={classNamesHelp("", modsOpacityZero)}
 							label={
 								validateErrors.AGE_ERROR ?
-									t(ValidateErrors.AGE_ERROR)
+									t(ValidateErrorsConstant.AGE_ERROR)
 								:	t("profile:yourAge")
 							}
 							onChange={onChangeAge}
@@ -215,7 +215,7 @@ export const ProfileCard = memo<ProfileCardProps>(props => {
 							classNamesLabel={classNamesHelp("", modsOpacityZero)}
 							label={
 								validateErrors.CITY_ERROR ?
-									t(ValidateErrors.CITY_ERROR)
+									t(ValidateErrorsConstant.CITY_ERROR)
 								:	t("profile:yourCity")
 							}
 							onChange={onChangeCity}

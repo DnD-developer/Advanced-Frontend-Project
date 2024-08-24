@@ -11,6 +11,7 @@
 		"allowJs": true,
 		"moduleResolution": "node",
 		"allowSyntheticDefaultImports": true,
+		"isolatedModules": true,
 		"esModuleInterop": true,
 		"types": ["node", "@jest/globals", "@types/jest", "@testing-library/jest-dom"],
 		"resolveJsonModule": true,
@@ -23,7 +24,7 @@
 			}
 		]
 	},
-	"exclude": ["node_modules", ".stylelintrc.js", "backend"],
+	"exclude": ["node_modules", ".stylelintrc.js", "backend", ".dependency-cruiser.js"],
 	"ts-node": {
 		"compilerOptions": {
 			"module": "CommonJS"

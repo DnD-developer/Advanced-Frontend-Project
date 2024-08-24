@@ -1,11 +1,13 @@
 import { CalendarIcon, EyeIcon } from "@assets/index"
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { useAppDispatch } from "@hooks/useAppDispatch.hook"
-import { asyncReducersList, useAsyncReducer } from "@hooks/useAsyncReducer.hook"
+import type { asyncReducersList } from "@hooks/useAsyncReducer.hook"
+import { useAsyncReducer } from "@hooks/useAsyncReducer.hook"
 import { Avatar, AvatarSize, AvatarTheme } from "@ui/Avatar"
 import { VStack } from "@ui/Stack"
 import { Text, TextSize } from "@ui/Text"
-import { memo, ReactNode, useCallback, useEffect } from "react"
+import type { ReactNode } from "react"
+import { memo, useCallback, useEffect } from "react"
 import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
 import { ArticleBlockTypeConstant } from "../../constants/ArticleBlock.constant"
@@ -14,8 +16,7 @@ import { getArticleErrorSelector } from "../../store/selectors/getArticleError/g
 import { getArticleIsLoadingSelector } from "../../store/selectors/getArticleIsLoading/getArticleIsLoading.selector"
 import { articleReducer } from "../../store/slices/article.slice"
 import { fetchArticleDataByIdThunk } from "../../store/thunks/fetchArticleDataByIdThunk/fetchArticleDataById.thunk"
-import { articleBlockDataType } from "../../types/articleBlockData.type"
-import styles from "./ArticleDetails.module.scss"
+import type { articleBlockDataType } from "../../types/articleBlockData.type"
 import { ArticleBlockCode } from "./ui/ArticleBlockCode/ArticleBlockCode"
 import { ArticleBlockImage } from "./ui/ArticleBlockImage/ArticleBlockImage"
 import { ArticleBlockText } from "./ui/ArticleBlockText/ArticleBlockText"
@@ -88,12 +89,11 @@ export const ArticleDetails = memo<ArticleDetailsProps>(props => {
 			<Avatar
 				theme={AvatarTheme.CIRCLE}
 				size={AvatarSize.LARGE}
-				className={styles.avatar}
 				src={data?.img || ""}
 				alt={data?.title || ""}
 			/>
 
-			<VStack gap={"gap32"}>
+			<VStack gap={"gap24"}>
 				<div>
 					<VStack gap={"gap16"}>
 						<Text
@@ -118,7 +118,7 @@ export const ArticleDetails = memo<ArticleDetailsProps>(props => {
 						</VStack>
 					</VStack>
 				</div>
-				<VStack gap={"gap32"}>{data?.blocks.map(block => renderBlock(block))}</VStack>
+				<VStack gap={"gap24"}>{data?.blocks.map(block => renderBlock(block))}</VStack>
 			</VStack>
 		</>
 	)
@@ -134,7 +134,8 @@ export const ArticleDetails = memo<ArticleDetailsProps>(props => {
 	return (
 		<VStack
 			gap={"gap16"}
-			className={classNamesHelp(styles.ArticleDetails, {}, [className])}
+			align={"center"}
+			className={classNamesHelp("", {}, [className])}
 		>
 			{content}
 		</VStack>

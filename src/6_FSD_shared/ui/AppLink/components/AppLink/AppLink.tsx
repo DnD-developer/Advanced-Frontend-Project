@@ -1,4 +1,5 @@
-import { classNamesHelp, Mods } from "@helpers/classNamesHelp/classNamesHelp"
+import type { Mods } from "@helpers/classNamesHelp/classNamesHelp"
+import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { memo, useMemo } from "react"
 import { Link, type LinkProps } from "react-router-dom"
 import { AppLinkTheme } from "../../constants/AppLink.constant"

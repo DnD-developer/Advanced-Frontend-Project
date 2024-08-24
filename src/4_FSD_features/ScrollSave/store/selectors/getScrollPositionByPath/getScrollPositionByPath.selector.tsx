@@ -1,5 +1,5 @@
 import { createSelector } from "@reduxjs/toolkit"
-import { scrollPositionState } from "../../../index"
+import type { scrollPositionState } from "../../../index"
 import { getScrollPositionSelector } from "../getScrollPosition/getScrollPosition.selector"
 
 export const getScrollPositionByPathSelector = (key: string) =>

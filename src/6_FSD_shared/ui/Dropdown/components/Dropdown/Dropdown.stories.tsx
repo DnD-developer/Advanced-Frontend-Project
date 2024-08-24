@@ -24,6 +24,7 @@ export const Default: TypeStory = {
 		items: [
 			{
 				content: "Нажми на меня",
+				//eslint-disable-next-line
 				onClick: () => console.info("1")
 			},
 			{

@@ -1,6 +1,6 @@
-import { DeepPartial } from "@customTypes/global.types"
+import type { DeepPartial } from "@customTypes/global.types"
 import { describe, expect, test } from "@jest/globals"
-import { scrollPositionState } from "../storeTypes/scrollPositionState.map"
+import type { scrollPositionState } from "../storeTypes/scrollPositionState.map"
 import { scrollPositionActions, scrollPositionReducer } from "./scrollPosition.slice"
 
 describe("scrollPositionSliceTest", () => {

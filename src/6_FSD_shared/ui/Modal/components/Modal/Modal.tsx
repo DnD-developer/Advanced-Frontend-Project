@@ -1,5 +1,6 @@
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
-import { memo, MouseEvent, PropsWithChildren, useCallback, useEffect, useState } from "react"
+import type { MouseEvent, PropsWithChildren } from "react"
+import { memo, useCallback, useEffect, useState } from "react"
 import styles from "./Modal.module.scss"
 
 export type ModalProps = {

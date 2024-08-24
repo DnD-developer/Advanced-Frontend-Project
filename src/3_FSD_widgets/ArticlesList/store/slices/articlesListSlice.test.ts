@@ -1,7 +1,8 @@
-import { DeepPartial } from "@customTypes/global.types"
-import { articleDetailsDataType, ArticleItemViews, CountArticleItemOfView } from "@entities/Article"
+import type { DeepPartial } from "@customTypes/global.types"
+import type { articleDetailsDataType } from "@entities/Article"
+import { ArticleItemViews, CountArticleItemOfView } from "@entities/Article"
 import { describe, expect, test } from "@jest/globals"
-import { articlesListStateMap } from "../storeTypes/articlesListState.map"
+import type { articlesListStateMap } from "../storeTypes/articlesListState.map"
 import { fetchArticlesThunk } from "../thunks/fetchArticles/fetchArticles.thunk"
 import { articlesListActions, articlesListReducer } from "./articlesList.slice"
 

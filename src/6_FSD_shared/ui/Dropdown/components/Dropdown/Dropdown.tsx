@@ -1,7 +1,8 @@
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react"
-import { AnchorProps } from "@headlessui/react/dist/internal/floating"
+import { type AnchorProps } from "@headlessui/react/dist/internal/floating"
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
-import { Fragment, memo, ReactNode, useMemo } from "react"
+import type { ReactNode } from "react"
+import { Fragment, memo, useMemo } from "react"
 import { uid } from "uid"
 import styles from "./Dropdown.module.scss"
 

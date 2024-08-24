@@ -3,7 +3,7 @@ import { memo } from "react"
 import { TabThemes } from "../../constant/TabThemes.constant"
 import styles from "./Tabs.module.scss"
 
-export type TabsItem<T extends string> = {
+export type TabsItemType<T extends string> = {
 	value: T
 	content: string
 }
@@ -11,15 +11,15 @@ export type TabsItem<T extends string> = {
 type TabsProps<T extends string> = {
 	className?: string
 	theme?: TabThemes
-	tabs: TabsItem<T>[]
+	tabs: TabsItemType<T>[]
 	value?: T
-	onTabClick?: (value: TabsItem<T>) => void
+	onTabClick?: (value: TabsItemType<T>) => void
 }
 
 const TabsElement = <T extends string>(props: TabsProps<T>) => {
 	const { className, theme = TabThemes.OUTLINE, tabs, onTabClick, value } = props
 
-	const onTabClickHandler = (tab: TabsItem<T>) => () => {
+	const onTabClickHandler = (tab: TabsItemType<T>) => () => {
 		if (tab.value !== value) {
 			onTabClick?.(tab)
 		}

@@ -1,9 +1,9 @@
-import { DeepPartial } from "@customTypes/global.types"
+import type { DeepPartial } from "@customTypes/global.types"
 import { PageDecorator } from "@decorators/storybook/Page.decorator"
 import { StoreDecorator } from "@decorators/storybook/Store.decorator"
-import { mainStateMap } from "@store/storeTypes/mainState.map"
+import type { mainStateMap } from "@store/storeTypes/mainState.map"
 import { type Meta, type StoryObj } from "@storybook/react"
-import { articlesListStateMap } from "@widgets/ArticlesList"
+import type { articlesListStateMap } from "@widgets/ArticlesList"
 import { ArticlesPage } from "../ArticlesAsync.page"
 import articles from "./articles.data.json"
 

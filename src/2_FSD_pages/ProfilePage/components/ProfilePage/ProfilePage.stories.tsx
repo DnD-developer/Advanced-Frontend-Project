@@ -1,11 +1,9 @@
-import { DeepPartial } from "@customTypes/global.types"
 import { PageDecorator } from "@decorators/storybook/Page.decorator"
 import { StoreDecorator } from "@decorators/storybook/Store.decorator"
-import { Country } from "@entities/Country"
-import { Currency } from "@entities/Currency"
-import { editableProfileStateMap } from "@features/EditableProfileCard"
+import { profileDataMock } from "@entities/Profile"
+import { userDataMock } from "@entities/User"
 import { type Meta, type StoryObj } from "@storybook/react"
-import { ComponentProps } from "react"
+import type { ComponentProps } from "react"
 import { ProfilePage } from "./ProfileAsync.page"
 
 type ProfilePageCustomProps = ComponentProps<typeof ProfilePage> & { login: boolean }
@@ -16,7 +14,23 @@ const meta: Meta<ProfilePageCustomProps> = {
 	parameters: {
 		controls: {
 			exclude: ["idTest"]
-		}
+		},
+		mockData: [
+			{
+				url: `${__BASE_URL__}/profile/:id`,
+				method: "PUT",
+				status: 200,
+				delay: 2000,
+				response: profileDataMock
+			},
+			{
+				url: `${__BASE_URL__}/profile/:id`,
+				method: "GET",
+				status: 200,
+				delay: 2000,
+				response: profileDataMock
+			}
+		]
 	},
 	decorators: [PageDecorator, StoreDecorator({ editableProfileCard: {} })]
 }
@@ -25,23 +39,6 @@ export default meta
 
 type TypeStory = StoryObj<ProfilePageCustomProps>
 
-const dataTest = {
-	avatar: "https://i.pinimg.com/originals/0d/cb/1f/0dcb1f45db2d5a624e5da74b74f3ddb9.png",
-	firstName: "Lucifer",
-	lastName: "Morningstar",
-	age: 25,
-	currency: Currency.EUR,
-	country: Country.Belarus,
-	city: "Fryazino",
-	userName: "Lucifer"
-}
-
-const editableProfileCardState: DeepPartial<editableProfileStateMap> = {
-	formData: dataTest,
-	data: { id: "1", ...dataTest },
-	readOnly: true
-}
-
 export const Default: TypeStory = {
 	render: ({ login }) => {
 		return <ProfilePage idTest={login ? "1" : "2"} />
@@ -49,8 +46,7 @@ export const Default: TypeStory = {
 	args: { login: true },
 	decorators: [
 		StoreDecorator({
-			user: { authData: { id: "1" } },
-			editableProfileCard: editableProfileCardState
+			user: { authData: userDataMock }
 		})
 	]
 }

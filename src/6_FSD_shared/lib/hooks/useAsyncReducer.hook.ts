@@ -1,5 +1,5 @@
-import { Reducer } from "@reduxjs/toolkit"
-import { mainStateAsyncKeys, mainStateAsyncMap } from "@store/storeTypes/mainStateAsync.map"
+import type { Reducer } from "@reduxjs/toolkit"
+import type { mainStateAsyncKeys, mainStateAsyncMap } from "@store/storeTypes/mainStateAsync.map"
 import { useEffect } from "react"
 import { useAppDispatch } from "./useAppDispatch.hook"
 import { useAppStore } from "./useAppStore.hook"

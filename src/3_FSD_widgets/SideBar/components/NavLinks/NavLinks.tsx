@@ -1,7 +1,8 @@
 import { routesPath } from "@config/routes/routePaths"
 import { useAuth } from "@entities/User"
 import { VStack } from "@ui/Stack"
-import { HTMLAttributes, memo } from "react"
+import type { HTMLAttributes } from "react"
+import { memo } from "react"
 import { AppLinkWithIcon } from "./ui/AppLinkWithIcon/AppLinkWithIcon"
 
 type NavLinksProps = {

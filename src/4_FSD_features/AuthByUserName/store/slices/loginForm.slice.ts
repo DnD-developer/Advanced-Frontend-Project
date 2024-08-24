@@ -1,5 +1,6 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import { loginFormStateMap } from "../storeTypes/loginFormState.map"
+import type { PayloadAction } from "@reduxjs/toolkit"
+import { createSlice } from "@reduxjs/toolkit"
+import type { loginFormStateMap } from "../storeTypes/loginFormState.map"
 import { loginByUserNameThunk } from "../thunks/loginByUserName/loginByUserName.thunk"
 
 const initialState: loginFormStateMap = {

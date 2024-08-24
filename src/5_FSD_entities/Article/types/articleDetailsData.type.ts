@@ -1,6 +1,6 @@
-import { userDataType } from "../../User"
-import { ArticleTypeConstant } from "../constants/Article.constant"
-import { articleBlockDataType } from "./articleBlockData.type"
+import type { userDataType } from "../../User"
+import type { ArticleTypeConstant } from "../constants/Article.constant"
+import type { articleBlockDataType } from "./articleBlockData.type"
 
 export type articleDetailsDataType = {
 	id: string

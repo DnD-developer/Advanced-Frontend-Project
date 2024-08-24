@@ -16,6 +16,12 @@ const preview: Preview = {
 	},
 	parameters: {
 		layout: "fullscreen",
+		mockAddonConfigs: {
+			globalMockData: [],
+			disableUsingOriginal: false,
+			refreshStoryOnUpdate: true,
+			disable: true
+		},
 		controls: {
 			exclude: ["className", "classNames"]
 		},

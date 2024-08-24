@@ -1,13 +1,7 @@
-import { classNamesHelp, Mods } from "@helpers/classNamesHelp/classNamesHelp"
-import {
-	ChangeEvent,
-	InputHTMLAttributes,
-	memo,
-	useCallback,
-	useEffect,
-	useMemo,
-	useRef
-} from "react"
+import type { Mods } from "@helpers/classNamesHelp/classNamesHelp"
+import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
+import type { ChangeEvent, InputHTMLAttributes } from "react"
+import { memo, useCallback, useEffect, useMemo, useRef } from "react"
 import { VStack } from "../../../Stack"
 import { InputTheme } from "../../constants/Input.constant"
 import styles from "./Input.module.scss"

@@ -1,6 +1,6 @@
 import { compilerOptions } from "@/tsconfig.paths.json"
 import { resolversWebpack } from "@_webpack/resolvers.webpack"
-import { type buildOptions } from "@_webpack/types/config"
+import { type buildOptionsType } from "@_webpack/types/config"
 import { aliasesFromTsConfig } from "@_webpack/webpackHelpers/aliasesFromTsConfig.webpack"
 import { mainPathsWebpack } from "@_webpack/webpackHelpers/mainPaths.webpack"
 import { sassLoader } from "@_webpack/webpackLoaders/sassLoader.webpack"
@@ -11,12 +11,12 @@ import { type Configuration, DefinePlugin, type RuleSetRule } from "webpack"
 export const webpackStorybookConfig = (config: Configuration): Configuration => {
 	const baseUrl = path.resolve(__dirname, "..", "..")
 
-	const options: buildOptions = {
+	const options: buildOptionsType = {
 		paths: mainPathsWebpack(baseUrl),
 		aliases: aliasesFromTsConfig(compilerOptions, baseUrl),
 		isDev: true,
 		project: "storybook",
-		baseUrl: ""
+		baseUrl: "http://storybook.mock"
 	}
 
 	if (config.resolve) {

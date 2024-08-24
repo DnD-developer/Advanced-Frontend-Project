@@ -1,9 +1,9 @@
-import { DeepPartial } from "@customTypes/global.types"
 import { beforeEach, describe, expect, test } from "@jest/globals"
 import { AsyncThunkMock } from "@mocks/AsyncThunk.mock"
-import { thunkConfigType } from "@store/storeTypes/thunks.type"
-import { articleDetailsDataType } from "../../../types/articleDetailsData.type"
-import { articleDetailsStateMap } from "../../storeTypes/articleDetailsState.map"
+import type { thunkConfigType } from "@store/storeTypes/thunks.type"
+import { articleDataMock } from "../../../lib/mocks/articleData.mock"
+import type { articleDetailsDataType } from "../../../types/articleDetailsData.type"
+import type { articleDetailsStateMap } from "../../storeTypes/articleDetailsState.map"
 import { fetchArticleDataByIdThunk } from "./fetchArticleDataById.thunk"
 
 let thunk: AsyncThunkMock<
@@ -11,8 +11,6 @@ let thunk: AsyncThunkMock<
 	string,
 	thunkConfigType<articleDetailsStateMap["error"]>
 >
-
-let DataValue: DeepPartial<articleDetailsDataType>
 
 let mockedRequest: (typeof AsyncThunkMock<
 	articleDetailsDataType,
@@ -27,18 +25,13 @@ describe("fetchProfileDataThunkTest", () => {
 	})
 
 	test("getting ArticleData fullFilled", async () => {
-		DataValue = {
-			id: "1",
-			views: 1234
-		}
-
-		mockedRequest.mockReturnValue(Promise.resolve({ data: DataValue }))
+		mockedRequest.mockReturnValue(Promise.resolve({ data: articleDataMock }))
 
 		const result = await thunk.callThunk("1")
 
 		expect(mockedRequest).toHaveBeenCalled()
 		expect(result.meta.requestStatus).toBe("fulfilled")
-		expect(result.payload).toEqual(DataValue)
+		expect(result.payload).toEqual(articleDataMock)
 	})
 
 	test("getting articleData rejected", async () => {

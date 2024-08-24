@@ -1,20 +1,21 @@
-import { DeepPartial } from "@customTypes/global.types"
+import type { DeepPartial } from "@customTypes/global.types"
+import { PageDecorator } from "@decorators/storybook/Page.decorator"
 import { StoreDecorator } from "@decorators/storybook/Store.decorator"
-import { mainStateMap } from "@store/storeTypes/mainState.map"
+import type { mainStateMap } from "@store/storeTypes/mainState.map"
 import { type Meta, type StoryObj } from "@storybook/react"
-import { articleDetailsDataType } from "../../../types/articleDetailsData.type"
-import { ArticleDetails } from "../ArticleDetails"
-import dataArticle from "./article.data.json"
+import { articleDataMock } from "../../lib/mocks/articleData.mock"
+import type { articleDetailsDataType } from "../../types/articleDetailsData.type"
+import { ArticleDetails } from "./ArticleDetails"
 
 const meta: Meta<typeof ArticleDetails> = {
 	title: "entities/Article/ArticleDetails",
 	component: ArticleDetails,
-	decorators: []
+	decorators: [PageDecorator]
 }
 
 export default meta
 
-const data: articleDetailsDataType = dataArticle as articleDetailsDataType
+const data: articleDetailsDataType = articleDataMock
 
 const store: DeepPartial<mainStateMap> = {
 	articleDetails: {

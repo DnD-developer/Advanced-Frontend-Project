@@ -1,10 +1,11 @@
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { HStack } from "@ui/Stack"
 import { Text, TextAlign, TextSize, TextTheme } from "@ui/Text"
-import { HTMLAttributeAnchorTarget, memo, ReactNode } from "react"
+import type { HTMLAttributeAnchorTarget, ReactNode } from "react"
+import { memo } from "react"
 import { useTranslation } from "react-i18next"
 import { ArticleItemViews } from "../../constants/ArticleItemViews.constant"
-import { articleItemStateMap } from "../../store/storeTypes/articleItemState.map"
+import type { articleItemStateMap } from "../../store/storeTypes/articleItemState.map"
 import { ArticleItem } from "../ArticleItem/ArticleItem"
 import styles from "./ArticleItemList.module.scss"
 import { ArticlesItemListSkeleton } from "./ui/ArticlesItemListSkeleton/ArticlesItemListSkeleton"
@@ -50,6 +51,7 @@ export const ArticleItemList = memo<ArticleItemListProps>(props => {
 			className={styles.text}
 			title={t("article:articlesNotFound")}
 			size={TextSize.BIG}
+			theme={TextTheme.ERROR}
 			align={TextAlign.CENTER}
 		/>
 	)

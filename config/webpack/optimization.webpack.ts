@@ -1,9 +1,9 @@
 import CssMinimizerPlugin from "css-minimizer-webpack-plugin"
 import TerserPlugin from "terser-webpack-plugin"
-import { Configuration } from "webpack"
-import { type buildOptions } from "./types/config"
+import type { Configuration } from "webpack"
+import { type buildOptionsType } from "./types/config"
 
-export function optimizationWebpack({ isDev }: buildOptions): Configuration["optimization"] {
+export function optimizationWebpack({ isDev }: buildOptionsType): Configuration["optimization"] {
 	const cssMinimizer = new CssMinimizerPlugin()
 
 	return {

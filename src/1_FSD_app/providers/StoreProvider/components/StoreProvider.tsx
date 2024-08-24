@@ -1,8 +1,9 @@
-import { ReducersMapObject } from "@reduxjs/toolkit"
+import type { ReducersMapObject } from "@reduxjs/toolkit"
 import { createReduxStore } from "@store/store"
-import { mainStateMap } from "@store/storeTypes/mainState.map"
-import { mainStateAsyncMap } from "@store/storeTypes/mainStateAsync.map"
-import { memo, PropsWithChildren } from "react"
+import type { mainStateMap } from "@store/storeTypes/mainState.map"
+import type { mainStateAsyncMap } from "@store/storeTypes/mainStateAsync.map"
+import type { PropsWithChildren } from "react"
+import { memo } from "react"
 import { Provider } from "react-redux"
 
 type StoreProviderProps = {

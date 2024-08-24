@@ -1,10 +1,10 @@
-import { DeepPartial } from "@customTypes/global.types"
+import type { DeepPartial } from "@customTypes/global.types"
 import { beforeEach, describe, expect, test } from "@jest/globals"
 import { AsyncThunkMock } from "@mocks/AsyncThunk.mock"
-import { thunkConfigType } from "@store/storeTypes/thunks.type"
-import { commentBdDataType } from "../../../types/commentBdData.type"
+import type { thunkConfigType } from "@store/storeTypes/thunks.type"
+import type { commentBdDataType } from "../../../types/commentBdData.type"
 import { addArticleCommentActions } from "../../slices/addArticleComment.slice"
-import { addArticleCommentStateMap } from "../../storeTypes/addArticleCommentState.map"
+import type { addArticleCommentStateMap } from "../../storeTypes/addArticleCommentState.map"
 import { addNewArticleCommentThunk } from "./addNewArticleComment.thunk"
 
 let DataValue: DeepPartial<commentBdDataType>

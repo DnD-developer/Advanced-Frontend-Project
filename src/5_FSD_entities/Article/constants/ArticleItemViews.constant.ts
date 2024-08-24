@@ -5,5 +5,5 @@ export enum ArticleItemViews {
 
 export enum CountArticleItemOfView {
 	PlATES = 12,
-	DETAILED = 4
+	DETAILED = 3
 }

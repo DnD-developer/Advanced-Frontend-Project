@@ -1,20 +1,16 @@
-import { DeepPartial } from "@customTypes/global.types"
+import type { DeepPartial } from "@customTypes/global.types"
 import { describe, expect, test } from "@jest/globals"
-import { articleDetailsDataType } from "../../types/articleDetailsData.type"
-import { articleDetailsStateMap } from "../storeTypes/articleDetailsState.map"
+import { articleDataMock } from "../../lib/mocks/articleData.mock"
+import type { articleDetailsStateMap } from "../storeTypes/articleDetailsState.map"
 import { fetchArticleDataByIdThunk } from "../thunks/fetchArticleDataByIdThunk/fetchArticleDataById.thunk"
 import { articleReducer } from "./article.slice"
-
-const data: DeepPartial<articleDetailsDataType> = {
-	id: "1"
-}
 
 describe("articleSliceTest extraReducers fetchArticleDataByIdThunk", () => {
 	test("pending", () => {
 		const state: DeepPartial<articleDetailsStateMap> = {
 			isLoading: false,
 			error: "error",
-			data: data
+			data: articleDataMock
 		}
 
 		const newState = articleReducer(
@@ -28,12 +24,12 @@ describe("articleSliceTest extraReducers fetchArticleDataByIdThunk", () => {
 		const state: DeepPartial<articleDetailsStateMap> = {
 			isLoading: true,
 			error: "error",
-			data: data
+			data: articleDataMock
 		}
 
 		const newState = articleReducer(
 			state as articleDetailsStateMap,
-			fetchArticleDataByIdThunk.fulfilled(data as articleDetailsDataType, "", "")
+			fetchArticleDataByIdThunk.fulfilled(articleDataMock, "", "")
 		)
 		expect(newState).toEqual({ ...state, isLoading: false, error: undefined })
 	})
@@ -42,7 +38,7 @@ describe("articleSliceTest extraReducers fetchArticleDataByIdThunk", () => {
 		const state: DeepPartial<articleDetailsStateMap> = {
 			isLoading: true,
 			error: undefined,
-			data: data
+			data: articleDataMock
 		}
 
 		const newState = articleReducer(

@@ -1,6 +1,6 @@
 import { CenterDecorator } from "@decorators/storybook/Center.decorator"
 import { type Meta, type StoryObj } from "@storybook/react"
-import { commentDataType } from "../../../types/commentData.type"
+import type { commentDataType } from "../../../types/commentData.type"
 import { CommentList } from "../CommentList"
 import comments from "./comments.data.json"
 

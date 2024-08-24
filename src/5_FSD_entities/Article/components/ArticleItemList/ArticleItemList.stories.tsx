@@ -1,9 +1,8 @@
 import { PageDecorator } from "@decorators/storybook/Page.decorator"
 import { type Meta, type StoryObj } from "@storybook/react"
-import { ArticleItemViews } from "../../../constants/ArticleItemViews.constant"
-import { articleItemStateMap } from "../../../store/storeTypes/articleItemState.map"
-import { ArticleItemList } from "../ArticleItemList"
-import articles from "./articles.data.json"
+import { ArticleItemViews } from "../../constants/ArticleItemViews.constant"
+import { articlesListDataMock } from "../../lib/mocks/articlesListData.mock"
+import { ArticleItemList } from "./ArticleItemList"
 
 const meta: Meta<typeof ArticleItemList> = {
 	title: "entities/Article/ArticleItemList",
@@ -30,7 +29,7 @@ export const Default: TypeStory = {
 	args: {
 		view: ArticleItemViews.PlATES,
 		isLoading: false,
-		articles: articles as articleItemStateMap["article"][]
+		articles: articlesListDataMock
 	}
 }
 export const NotFound: TypeStory = {

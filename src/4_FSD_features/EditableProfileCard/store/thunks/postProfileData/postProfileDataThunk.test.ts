@@ -1,15 +1,10 @@
 import { Country } from "@entities/Country"
 import { Currency } from "@entities/Currency"
-import {
-	profileCardDatatype,
-	profileDataType,
-	profileStateMap,
-	ServerErrors,
-	ValidateErrors
-} from "@entities/Profile"
+import type { profileCardDataType, profileDataType, profileStateMap } from "@entities/Profile"
+import { ServerErrors, ValidateErrorsConstant } from "@entities/Profile"
 import { describe, expect, test } from "@jest/globals"
 import { AsyncThunkMock } from "@mocks/AsyncThunk.mock"
-import { thunkConfigType } from "@store/storeTypes/thunks.type"
+import type { thunkConfigType } from "@store/storeTypes/thunks.type"
 import { postProfileDataThunk } from "./postProfileData.thunk"
 
 let thunk: AsyncThunkMock<
@@ -18,7 +13,7 @@ let thunk: AsyncThunkMock<
 	thunkConfigType<profileStateMap["errors"]>
 >
 
-const profileCardDataValue: profileCardDatatype = {
+const profileCardDataValue: profileCardDataType = {
 	avatar: "https://i.pinimg.com/originals/0d/cb/1f/0dcb1f45db2d5a624e5da74b74f3ddb9.png",
 	firstName: "Lucifer",
 	lastName: "Morningstar",
@@ -91,6 +86,6 @@ describe("postProfileDataThunkTest", () => {
 
 		expect(mockedPut).not.toBeCalled()
 		expect(result.meta.requestStatus).toBe("rejected")
-		expect(result.payload).toEqual([ValidateErrors.FIRST_NAME])
+		expect(result.payload).toEqual([ValidateErrorsConstant.FIRST_NAME])
 	})
 })

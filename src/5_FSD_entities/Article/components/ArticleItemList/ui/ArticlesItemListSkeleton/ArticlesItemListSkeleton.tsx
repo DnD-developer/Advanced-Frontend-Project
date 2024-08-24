@@ -1,8 +1,6 @@
 import { memo } from "react"
-import {
-	ArticleItemViews,
-	CountArticleItemOfView
-} from "../../../../constants/ArticleItemViews.constant"
+import type { ArticleItemViews } from "../../../../constants/ArticleItemViews.constant"
+import { CountArticleItemOfView } from "../../../../constants/ArticleItemViews.constant"
 import { ArticleItem } from "../../../ArticleItem/ArticleItem"
 
 type ArticlesItemListSkeletonProps = {
@@ -12,11 +10,7 @@ type ArticlesItemListSkeletonProps = {
 export const ArticlesItemListSkeleton = memo<ArticlesItemListSkeletonProps>(props => {
 	const { className, view } = props
 
-	return Array(
-		view === ArticleItemViews.PlATES ?
-			CountArticleItemOfView.PlATES
-		:	CountArticleItemOfView.DETAILED
-	)
+	return Array(CountArticleItemOfView.DETAILED)
 		.fill(1)
 		.map((_, i) => {
 			return (

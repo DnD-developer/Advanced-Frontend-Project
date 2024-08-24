@@ -1,10 +1,9 @@
 import { CenterDecorator } from "@decorators/storybook/Center.decorator"
 import { ContainerDecorator } from "@decorators/storybook/Container.decorator"
 import { type Meta, type StoryObj } from "@storybook/react"
-import { ArticleItemViews } from "../../../constants/ArticleItemViews.constant"
-import { articleItemStateMap } from "../../../store/storeTypes/articleItemState.map"
-import { ArticleItem } from "../ArticleItem"
-import article from "./article.data.json"
+import { ArticleItemViews } from "../../constants/ArticleItemViews.constant"
+import { articleDataMock } from "../../lib/mocks/articleData.mock"
+import { ArticleItem } from "./ArticleItem"
 
 const meta: Meta<typeof ArticleItem> = {
 	title: "entities/Article/ArticleItem",
@@ -32,7 +31,7 @@ export const Default: TypeStory = {
 		view: ArticleItemViews.PlATES,
 		isLoading: false,
 		error: undefined,
-		article: article as articleItemStateMap["article"]
+		article: articleDataMock
 	}
 }
 
@@ -52,6 +51,6 @@ export const Error: TypeStory = {
 		view: ArticleItemViews.PlATES,
 		isLoading: false,
 		error: "error",
-		article: article as articleItemStateMap["article"]
+		article: articleDataMock
 	}
 }

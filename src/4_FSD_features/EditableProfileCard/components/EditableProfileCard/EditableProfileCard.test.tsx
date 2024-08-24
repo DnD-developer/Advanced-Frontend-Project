@@ -1,10 +1,10 @@
 import { $api } from "@api/instanceAxios.api"
-import { DeepPartial } from "@customTypes/global.types"
+import type { DeepPartial } from "@customTypes/global.types"
 import { renderDecorator } from "@decorators/tests/render.decorator"
 import { userEventDecorator } from "@decorators/tests/userEvent.decorator"
-import { mainStateMap } from "@store/storeTypes/mainState.map"
+import { profileDataMock } from "@entities/Profile"
+import type { mainStateMap } from "@store/storeTypes/mainState.map"
 import { screen } from "@testing-library/react"
-import { dataTestProfileCard } from "../../mocks/DataProfileCard.mock"
 import { editableProfileCardReducer } from "../../store/slices/editableProfileCard.slice"
 import { EditableProfileCard } from "./EditableProfileCard"
 
@@ -15,10 +15,10 @@ describe("editableProfileCardTest", () => {
 	beforeEach(async () => {
 		state = {
 			editableProfileCard: {
-				data: dataTestProfileCard,
+				data: profileDataMock,
 				readOnly: true,
 				errors: undefined,
-				formData: dataTestProfileCard,
+				formData: profileDataMock,
 				isLoading: false
 			},
 			user: { authData: { id: "1" } }
@@ -26,7 +26,7 @@ describe("editableProfileCardTest", () => {
 
 		jest.spyOn($api, "get").mockReturnValue(
 			Promise.resolve({
-				data: dataTestProfileCard
+				data: profileDataMock
 			})
 		)
 
@@ -81,7 +81,7 @@ describe("editableProfileCardTest", () => {
 		await userEventDecorator("click", cancelButton)
 
 		expect(screen.getByTestId("EditableProfileCard.UserNameInput.InputElement")).toHaveValue(
-			dataTestProfileCard.userName
+			profileDataMock.userName
 		)
 	})
 
@@ -90,7 +90,7 @@ describe("editableProfileCardTest", () => {
 
 		const mockedPut = jest.spyOn($api, "put").mockReturnValue(
 			Promise.resolve({
-				data: dataTestProfileCard
+				data: profileDataMock
 			})
 		)
 
@@ -102,7 +102,7 @@ describe("editableProfileCardTest", () => {
 		await userEventDecorator("click", saveButton)
 
 		expect(mockedPut).toHaveBeenCalled()
-		expect(userNameInput).toHaveValue(dataTestProfileCard.userName)
+		expect(userNameInput).toHaveValue(profileDataMock.userName)
 	})
 
 	test("errorSaveInputs", async () => {
@@ -110,7 +110,7 @@ describe("editableProfileCardTest", () => {
 
 		const mockedPut = jest.spyOn($api, "put").mockReturnValue(
 			Promise.resolve({
-				data: dataTestProfileCard
+				data: profileDataMock
 			})
 		)
 

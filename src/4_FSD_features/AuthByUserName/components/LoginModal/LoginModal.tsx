@@ -1,6 +1,7 @@
 import { Loader } from "@ui/Loader"
-import { Modal, ModalProps } from "@ui/Modal"
-import { memo, Suspense, useMemo } from "react"
+import type { ModalProps } from "@ui/Modal"
+import { Modal } from "@ui/Modal"
+import { memo, Suspense, useCallback, useMemo } from "react"
 import { LoginForm } from "../LoginForm/LoginForm.async"
 
 type LoginModalProps = {
@@ -11,6 +12,11 @@ export const LoginModal = memo<LoginModalProps>(props => {
 	const { classNames, onClose, isOpen, lazy = false } = props
 
 	const fallback = useMemo(() => <Loader />, [])
+
+	const onSuccessHandler = useCallback(() => {
+		onClose?.()
+	}, [onClose])
+
 	return (
 		<Modal
 			isOpen={isOpen}
@@ -18,7 +24,9 @@ export const LoginModal = memo<LoginModalProps>(props => {
 			classNames={classNames}
 			lazy={lazy}
 		>
-			<Suspense fallback={fallback}>{isOpen && <LoginForm onSuccess={onClose} />}</Suspense>
+			<Suspense fallback={fallback}>
+				{isOpen && <LoginForm onSuccess={onSuccessHandler} />}
+			</Suspense>
 		</Modal>
 	)
 })

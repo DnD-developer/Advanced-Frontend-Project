@@ -1,6 +1,6 @@
-import { sortOrder } from "@customTypes/productGlobal.types"
-import { ArticleTypeConstant } from "@entities/Article/constants/Article.constant"
-import { ArticleSortFieldConstant } from "../../constants/ArticleSortField.constant"
+import type { sortOrder } from "@customTypes/productGlobal.types"
+import type { ArticleTypeConstant } from "@entities/Article/constants/Article.constant"
+import type { ArticleSortFieldConstant } from "../../constants/ArticleSortField.constant"
 
 export type filterArticlesListStateMap = {
 	order: sortOrder

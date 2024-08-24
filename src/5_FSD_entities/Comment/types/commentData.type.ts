@@ -1,4 +1,4 @@
-import { userDataType } from "../../User"
+import type { userDataType } from "../../User"
 
 export type commentDataType = {
 	id: string

@@ -1,9 +1,10 @@
-import { DeepPartial } from "@customTypes/global.types"
+import type { DeepPartial } from "@customTypes/global.types"
 import { jest } from "@jest/globals"
-import { AsyncThunkAction, GetDispatch, GetState } from "@reduxjs/toolkit"
-import { AsyncThunkConfig, GetThunkAPI } from "@reduxjs/toolkit/dist/createAsyncThunk"
-import { mainStateMap } from "@store/storeTypes/mainState.map"
-import axios, { AxiosStatic } from "axios"
+import type { AsyncThunkAction, GetDispatch, GetState } from "@reduxjs/toolkit"
+import type { AsyncThunkConfig, GetThunkAPI } from "@reduxjs/toolkit/dist/createAsyncThunk"
+import type { mainStateMap } from "@store/storeTypes/mainState.map"
+import type { AxiosStatic } from "axios"
+import axios from "axios"
 
 type actionThunkType<Return, Arg, ThunkConfigType extends AsyncThunkConfig> = (
 	arg: Arg

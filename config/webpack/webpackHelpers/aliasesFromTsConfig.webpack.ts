@@ -1,5 +1,5 @@
 import path from "node:path"
-import { CompilerOptions } from "typescript"
+import type { CompilerOptions } from "typescript"
 
 type aliasTsconfigType = Record<string, string[]>
 type aliasWebpackConfigType = Record<string, string>
