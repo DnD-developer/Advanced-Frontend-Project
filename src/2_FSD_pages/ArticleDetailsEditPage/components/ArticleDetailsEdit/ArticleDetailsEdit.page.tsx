@@ -1,5 +1,6 @@
 import { PagesPaths } from "@config/routes/routePaths"
-import { articleDetailsDataType, getArticleDataSelector } from "@entities/Article"
+import type { articleDetailsDataType } from "@entities/Article"
+import { getArticleDataSelector } from "@entities/Article"
 import { useAuth } from "@entities/User"
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { AppLink } from "@ui/AppLink"

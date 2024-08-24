@@ -1,6 +1,6 @@
-import { ServerErrors } from "../../constants/ServerErrors.constant"
-import { ValidateErrorsConstant } from "../../constants/ValidateErrors.constant"
-import { profileDataType } from "../../types/profileData.type"
+import type { ServerErrors } from "../../constants/ServerErrors.constant"
+import type { ValidateErrorsConstant } from "../../constants/ValidateErrors.constant"
+import type { profileDataType } from "../../types/profileData.type"
 
 export type profileStateMap = {
 	data?: profileDataType

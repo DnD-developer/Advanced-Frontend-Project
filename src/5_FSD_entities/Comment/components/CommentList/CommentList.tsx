@@ -1,9 +1,10 @@
 import { VStack } from "@ui/Stack"
 import { Text, TextAlign, TextTheme } from "@ui/Text"
-import { memo, ReactNode } from "react"
+import type { ReactNode } from "react"
+import { memo } from "react"
 import { useTranslation } from "react-i18next"
-import { commentListStateMap } from "../../store/storeTypes/commentListState.map"
-import { commentDataType } from "../../types/commentData.type"
+import type { commentListStateMap } from "../../store/storeTypes/commentListState.map"
+import type { commentDataType } from "../../types/commentData.type"
 import { CommentCard } from "../CommentCard/CommentCard"
 
 type CommentListProps = {

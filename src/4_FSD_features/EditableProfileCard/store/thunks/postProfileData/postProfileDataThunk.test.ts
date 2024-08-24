@@ -1,15 +1,10 @@
 import { Country } from "@entities/Country"
 import { Currency } from "@entities/Currency"
-import {
-	profileCardDataType,
-	profileDataType,
-	profileStateMap,
-	ServerErrors,
-	ValidateErrorsConstant
-} from "@entities/Profile"
+import type { profileCardDataType, profileDataType, profileStateMap } from "@entities/Profile"
+import { ServerErrors, ValidateErrorsConstant } from "@entities/Profile"
 import { describe, expect, test } from "@jest/globals"
 import { AsyncThunkMock } from "@mocks/AsyncThunk.mock"
-import { thunkConfigType } from "@store/storeTypes/thunks.type"
+import type { thunkConfigType } from "@store/storeTypes/thunks.type"
 import { postProfileDataThunk } from "./postProfileData.thunk"
 
 let thunk: AsyncThunkMock<

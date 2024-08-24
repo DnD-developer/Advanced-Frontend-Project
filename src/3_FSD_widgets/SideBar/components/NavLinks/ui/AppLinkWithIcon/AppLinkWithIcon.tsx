@@ -1,7 +1,9 @@
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
-import { AppLink, AppLinkProps } from "@ui/AppLink"
+import type { AppLinkProps } from "@ui/AppLink"
+import { AppLink } from "@ui/AppLink"
 import { HStack } from "@ui/Stack"
-import { FC, memo, SVGProps } from "react"
+import type { FC, SVGProps } from "react"
+import { memo } from "react"
 import { useTranslation } from "react-i18next"
 import styles from "./ApplinkWithIcon.module.scss"
 

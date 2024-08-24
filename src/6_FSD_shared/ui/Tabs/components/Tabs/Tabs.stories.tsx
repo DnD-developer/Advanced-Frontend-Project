@@ -4,7 +4,8 @@ import { CenterDecorator } from "@decorators/storybook/Center.decorator"
 import { useArgs } from "@storybook/preview-api"
 import { type Meta, type StoryObj } from "@storybook/react"
 import { TabThemes } from "../../constant/TabThemes.constant"
-import { Tabs, TabsItemType } from "./Tabs"
+import type { TabsItemType } from "./Tabs"
+import { Tabs } from "./Tabs"
 
 const meta: Meta<typeof Tabs> = {
 	title: "shared/Tabs",

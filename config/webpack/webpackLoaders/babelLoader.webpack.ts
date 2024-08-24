@@ -1,6 +1,6 @@
 import reactRefreshBabel from "react-refresh/babel"
 import { type RuleSetRule } from "webpack"
-import { buildOptions } from "../types/config"
+import type { buildOptions } from "../types/config"
 
 export const babelLoader = ({ isDev }: buildOptions): RuleSetRule => ({
 	test: /\.m?[jt]sx?$/,

@@ -1,4 +1,4 @@
-import { articleDetailsDataType } from "@entities/Article"
+import type { articleDetailsDataType } from "@entities/Article"
 import {
 	getFilterArticlesListOrderSelector,
 	getFilterArticlesListSearchSelector,
@@ -7,10 +7,10 @@ import {
 } from "@features/FilterArticlesList"
 import { addQueryParams } from "@helpers/addQueryParams/addQueryParams.helper"
 import { createAsyncThunk } from "@reduxjs/toolkit"
-import { thunkConfigType } from "@store/storeTypes/thunks.type"
+import type { thunkConfigType } from "@store/storeTypes/thunks.type"
 import { getArticlesListLimitSelector } from "../../selectors/getArticlesListLimit/getArticlesListLimit.selector"
 import { getArticlesListPageNumberSelector } from "../../selectors/getArticlesListPageNumber/getArticlesListPageNumber.selector"
-import { articlesListStateMap } from "../../storeTypes/articlesListState.map"
+import type { articlesListStateMap } from "../../storeTypes/articlesListState.map"
 
 export type fetchArticlesThunkProps = {
 	replace?: boolean

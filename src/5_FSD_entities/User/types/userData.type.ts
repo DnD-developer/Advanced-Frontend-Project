@@ -1,4 +1,4 @@
-import { UserRoles } from "../constants/userRoles.constant"
+import type { UserRoles } from "../constants/userRoles.constant"
 
 export type userDataType = {
 	id: string

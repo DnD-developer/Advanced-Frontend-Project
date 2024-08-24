@@ -1,7 +1,8 @@
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { HStack } from "@ui/Stack"
 import { Text } from "@ui/Text"
-import { FC, memo, SVGProps } from "react"
+import type { FC, SVGProps } from "react"
+import { memo } from "react"
 import styles from "./TextWithIcon.module.scss"
 
 type TextWithIconProps = {

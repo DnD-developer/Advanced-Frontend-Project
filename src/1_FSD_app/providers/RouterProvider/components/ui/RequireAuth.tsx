@@ -2,7 +2,7 @@ import { PagesPaths } from "@config/routes/routePaths"
 import { useAuth } from "@entities/User"
 import { memo, useMemo } from "react"
 import { Navigate, useLocation } from "react-router-dom"
-import { CustomRouteProps } from "../../config/routerProvider.config"
+import type { CustomRouteProps } from "../../config/routerProvider.config"
 import { AllowedRoles } from "./AllowedRoles"
 
 type RequireAuthProps = {

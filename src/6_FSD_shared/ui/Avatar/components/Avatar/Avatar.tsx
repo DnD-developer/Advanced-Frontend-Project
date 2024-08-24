@@ -1,5 +1,6 @@
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
-import { ImgHTMLAttributes, memo } from "react"
+import type { ImgHTMLAttributes } from "react"
+import { memo } from "react"
 import { AvatarSize, AvatarTheme } from "../../constants/Avatar.constant"
 import styles from "./Avatar.module.scss"
 

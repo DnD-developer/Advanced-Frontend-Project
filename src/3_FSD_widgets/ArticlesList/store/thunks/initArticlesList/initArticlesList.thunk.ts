@@ -1,10 +1,7 @@
-import {
-	ArticleSortFieldConstant,
-	filterArticlesListActions,
-	filterArticlesListStateMap
-} from "@features/FilterArticlesList"
+import type { filterArticlesListStateMap } from "@features/FilterArticlesList"
+import { ArticleSortFieldConstant, filterArticlesListActions } from "@features/FilterArticlesList"
 import { createAsyncThunk } from "@reduxjs/toolkit"
-import { thunkConfigType } from "@store/storeTypes/thunks.type"
+import type { thunkConfigType } from "@store/storeTypes/thunks.type"
 import { getArticlesListInitedSelector } from "../../selectors/getArticlesListInited/getArticlesListInited.selector"
 import { articlesListActions } from "../../slices/articlesList.slice"
 import { fetchArticlesThunk } from "../fetchArticles/fetchArticles.thunk"

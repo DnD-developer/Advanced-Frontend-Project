@@ -1,7 +1,7 @@
 import { UserRoles } from "../../../User"
 import { ArticleTypeConstant } from "../../constants/Article.constant"
 import { ArticleBlockTypeConstant } from "../../constants/ArticleBlock.constant"
-import { articleDetailsDataType } from "../../types/articleDetailsData.type"
+import type { articleDetailsDataType } from "../../types/articleDetailsData.type"
 
 export const articlesListDataMock: articleDetailsDataType[] = [
 	{

@@ -1,9 +1,8 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
-import { thunkConfigType } from "@store/storeTypes/thunks.type"
+import type { thunkConfigType } from "@store/storeTypes/thunks.type"
 import { fetchCommentsByArticleIdThunk } from "@widgets/CommentsArticleDetails/store/thunks/fetchCommentsByArticleId.thunk"
-import { commentBdDataType } from "../../../types/commentBdData.type"
-import { addArticleCommentActions } from "../../slices/addArticleComment.slice"
-import { addArticleCommentStateMap } from "../../storeTypes/addArticleCommentState.map"
+import type { commentBdDataType } from "../../../types/commentBdData.type"
+import type { addArticleCommentStateMap } from "../../storeTypes/addArticleCommentState.map"
 
 export const addNewArticleCommentThunk = createAsyncThunk<
 	commentBdDataType,
@@ -20,7 +19,5 @@ export const addNewArticleCommentThunk = createAsyncThunk<
 		return response.data
 	} catch {
 		return rejectWithValue("error with post comment")
-	} finally {
-		dispatch(addArticleCommentActions.setText(""))
 	}
 })

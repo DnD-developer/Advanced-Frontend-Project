@@ -1,7 +1,8 @@
 import { USER_TOKEN } from "@constants/localStorage.constant"
-import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import { userDataType } from "../../types/userData.type"
-import { userStateMap } from "../storeTypes/userState.map"
+import type { PayloadAction } from "@reduxjs/toolkit"
+import { createSlice } from "@reduxjs/toolkit"
+import type { userDataType } from "../../types/userData.type"
+import type { userStateMap } from "../storeTypes/userState.map"
 
 const initialState: userStateMap = {
 	_initAuthData: false

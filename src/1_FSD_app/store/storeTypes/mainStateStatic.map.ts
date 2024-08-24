@@ -1,6 +1,6 @@
-import { rtkBaseApi } from "@api/rtkBase.api"
-import { userStateMap } from "@entities/User"
-import { scrollPositionState } from "@features/ScrollSave"
+import type { rtkBaseApi } from "@api/rtkBase.api"
+import type { userStateMap } from "@entities/User"
+import type { scrollPositionState } from "@features/ScrollSave"
 
 export type mainStateStaticMap = {
 	user: userStateMap

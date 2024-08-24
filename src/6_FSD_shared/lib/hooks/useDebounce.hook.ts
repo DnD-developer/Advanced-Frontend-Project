@@ -1,4 +1,4 @@
-import { TimeoutId } from "@reduxjs/toolkit/dist/query/core/buildMiddleware/types"
+import { type TimeoutId } from "@reduxjs/toolkit/dist/query/core/buildMiddleware/types"
 import { useCallback, useRef } from "react"
 
 export function useDebounce(callback: (...args: any[]) => void, delay = 400) {

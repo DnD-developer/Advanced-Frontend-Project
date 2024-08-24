@@ -1,5 +1,7 @@
-import { classNamesHelp, Mods } from "@helpers/classNamesHelp/classNamesHelp"
-import { DetailedHTMLProps, HTMLAttributes, memo, PropsWithChildren } from "react"
+import type { Mods } from "@helpers/classNamesHelp/classNamesHelp"
+import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
+import type { DetailedHTMLProps, HTMLAttributes, PropsWithChildren } from "react"
+import { memo } from "react"
 import styles from "./Flex.module.scss"
 
 type justifyType = "spaceBetween" | "spaceAround" | "flexEnd" | "flexStart" | "center"

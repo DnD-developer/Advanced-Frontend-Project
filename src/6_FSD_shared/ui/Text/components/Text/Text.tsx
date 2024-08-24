@@ -1,4 +1,5 @@
-import { classNamesHelp, Mods } from "@helpers/classNamesHelp/classNamesHelp"
+import type { Mods } from "@helpers/classNamesHelp/classNamesHelp"
+import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { memo, useMemo } from "react"
 import { TextAlign, TextSize, TextTheme } from "../../constants/Text.constant"
 import styles from "./Text.module.scss"

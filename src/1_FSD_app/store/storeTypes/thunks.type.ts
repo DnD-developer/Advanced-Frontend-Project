@@ -1,5 +1,5 @@
-import { AxiosInstance } from "axios"
-import { mainStateMap } from "./mainState.map"
+import type { AxiosInstance } from "axios"
+import type { mainStateMap } from "./mainState.map"
 
 export type thunkExtraType = {
 	api: AxiosInstance

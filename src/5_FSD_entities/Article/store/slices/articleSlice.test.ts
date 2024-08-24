@@ -1,7 +1,7 @@
-import { DeepPartial } from "@customTypes/global.types"
+import type { DeepPartial } from "@customTypes/global.types"
 import { describe, expect, test } from "@jest/globals"
 import { articleDataMock } from "../../lib/mocks/articleData.mock"
-import { articleDetailsStateMap } from "../storeTypes/articleDetailsState.map"
+import type { articleDetailsStateMap } from "../storeTypes/articleDetailsState.map"
 import { fetchArticleDataByIdThunk } from "../thunks/fetchArticleDataByIdThunk/fetchArticleDataById.thunk"
 import { articleReducer } from "./article.slice"
 

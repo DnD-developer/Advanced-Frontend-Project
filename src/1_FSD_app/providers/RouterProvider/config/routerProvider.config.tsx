@@ -1,5 +1,5 @@
 import { PagesNames, PagesPaths, routesPath } from "@config/routes/routePaths"
-import { UserRoles } from "@entities/User"
+import type { UserRoles } from "@entities/User"
 import { AboutPage } from "@pages/AboutPage"
 import { AdminPanelPage } from "@pages/AdminPanelPage"
 import { ArticleDetailsEditPage } from "@pages/ArticleDetailsEditPage"

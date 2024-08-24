@@ -1,5 +1,6 @@
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
-import { HTMLAttributes, memo, PropsWithChildren } from "react"
+import type { HTMLAttributes, PropsWithChildren } from "react"
+import { memo } from "react"
 import styles from "./Card.module.scss"
 
 type CardProps = {

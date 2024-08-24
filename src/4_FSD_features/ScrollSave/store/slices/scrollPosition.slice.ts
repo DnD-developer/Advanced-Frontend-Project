@@ -1,5 +1,6 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import { scrollPositionState, scrollType } from "../storeTypes/scrollPositionState.map"
+import type { PayloadAction } from "@reduxjs/toolkit"
+import { createSlice } from "@reduxjs/toolkit"
+import type { scrollPositionState, scrollType } from "../storeTypes/scrollPositionState.map"
 
 const initialState: scrollPositionState = {
 	scroll: {}

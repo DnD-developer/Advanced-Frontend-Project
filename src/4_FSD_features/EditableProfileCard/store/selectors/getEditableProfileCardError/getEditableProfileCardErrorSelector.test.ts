@@ -1,6 +1,6 @@
-import { DeepPartial } from "@customTypes/global.types"
+import type { DeepPartial } from "@customTypes/global.types"
 import { ServerErrors } from "@entities/Profile"
-import { mainStateMap } from "@store/storeTypes/mainState.map"
+import type { mainStateMap } from "@store/storeTypes/mainState.map"
 import { getEditableProfileCardErrorSelector } from "./getEditableProfileCardError.selector"
 
 describe("getEditableProfileCardErrorSelector", () => {

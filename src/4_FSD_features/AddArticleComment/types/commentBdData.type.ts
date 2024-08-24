@@ -1,6 +1,6 @@
-import { articleDetailsDataType } from "@entities/Article"
-import { commentDataType } from "@entities/Comment"
-import { userDataType } from "@entities/User"
+import type { articleDetailsDataType } from "@entities/Article"
+import type { commentDataType } from "@entities/Comment"
+import type { userDataType } from "@entities/User"
 
 export type commentBdDataType = {
 	userId: userDataType["id"]

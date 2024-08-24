@@ -35,6 +35,7 @@
 	],
 	"rules": {
 		"@arthurgeron/react-usememo/require-usememo": [2],
+		"@typescript-eslint/consistent-type-imports": "error",
 		"@arthurgeron/react-usememo/require-memo": "error",
 		"react-refresh/only-export-components": "error",
 		"react-hooks/exhaustive-deps": "error",

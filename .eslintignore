@@ -2,3 +2,4 @@ build
 coverage
 storybook-static
 backend
+.dependency-cruiser.js

@@ -1,6 +1,6 @@
 import ArrowLeft from "@assets/icons/arrow-left.svg"
 import ArrowRight from "@assets/icons/arrow-right.svg"
-import { SwitchLangButton } from "@features/SwitchLang/components/SwitchLangButton/SwitchLangButton"
+import { SwitchLangButton } from "@features/SwitchLang"
 import { SwitchThemeButton } from "@features/SwitchTheme"
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { Button, ButtonTheme } from "@ui/Button"

@@ -1,6 +1,6 @@
 import { About, Home, Paper, ProfilePageIcon } from "@assets/index"
 import { UserRoles } from "@entities/User"
-import { FC, SVGProps } from "react"
+import type { FC, SVGProps } from "react"
 
 export enum PagesNames {
 	MAIN = "main",

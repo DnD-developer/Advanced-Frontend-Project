@@ -1,5 +1,5 @@
-import { Country } from "../../Country"
-import { Currency } from "../../Currency"
+import type { Country } from "../../Country"
+import type { Currency } from "../../Currency"
 
 export type profileDataType = {
 	id: string

@@ -1,4 +1,5 @@
-import { memo, ReactNode, ReactPortal } from "react"
+import type { ReactNode, ReactPortal } from "react"
+import { memo } from "react"
 import { createPortal } from "react-dom"
 
 export type PortalProps = {
