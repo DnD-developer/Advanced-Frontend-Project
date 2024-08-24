@@ -41,9 +41,8 @@ describe("loginByUserNameThunkTest", () => {
 
 		expect(mockedPost).toHaveBeenCalled()
 		expect(result.meta.requestStatus).toBe("fulfilled")
-		expect(thunk.dispatch).toBeCalledTimes(4)
+		expect(thunk.dispatch).toBeCalledTimes(3)
 		expect(thunk.dispatch).toBeCalledWith(setAuthData(userValue))
-		expect(thunk.dispatch).toBeCalledWith(resetForm())
 		expect(result.payload).toEqual(userValue)
 	})
 

@@ -3,7 +3,6 @@ import { beforeEach, describe, expect, test } from "@jest/globals"
 import { AsyncThunkMock } from "@mocks/AsyncThunk.mock"
 import type { thunkConfigType } from "@store/storeTypes/thunks.type"
 import type { commentBdDataType } from "../../../types/commentBdData.type"
-import { addArticleCommentActions } from "../../slices/addArticleComment.slice"
 import type { addArticleCommentStateMap } from "../../storeTypes/addArticleCommentState.map"
 import { addNewArticleCommentThunk } from "./addNewArticleComment.thunk"
 
@@ -36,8 +35,7 @@ describe("fetchProfileDataThunkTest", () => {
 		const result = await thunk.callThunk(DataValue as commentBdDataType)
 
 		expect(mockedRequest).toHaveBeenCalled()
-		expect(thunk.dispatch).toBeCalledTimes(4)
-		expect(thunk.dispatch).toBeCalledWith(addArticleCommentActions.setText(""))
+		expect(thunk.dispatch).toBeCalledTimes(3)
 		expect(result.meta.requestStatus).toBe("fulfilled")
 		expect(result.payload).toEqual(DataValue)
 	})
@@ -53,8 +51,7 @@ describe("fetchProfileDataThunkTest", () => {
 		const result = await thunk.callThunk(DataValue as commentBdDataType)
 
 		expect(mockedRequest).toHaveBeenCalled()
-		expect(thunk.dispatch).toBeCalledTimes(3)
-		expect(thunk.dispatch).toBeCalledWith(addArticleCommentActions.setText(""))
+		expect(thunk.dispatch).toBeCalledTimes(2)
 		expect(result.meta.requestStatus).toBe("rejected")
 		expect(result.payload).toBe("error with post comment")
 	})

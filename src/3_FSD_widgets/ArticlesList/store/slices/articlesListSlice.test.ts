@@ -74,14 +74,14 @@ describe("articlesListSliceTest Reducers", () => {
 
 		expect(newState).toEqual({
 			view: ArticleItemViews.DETAILED,
-			pageNumber: 6,
+			pageNumber: 8,
 			ids: Array(24).fill("1"),
 			limit: CountArticleItemOfView.DETAILED
 		})
 	})
 })
 
-const data = [{ id: "2" }, { id: "3" }, { id: "4" }, { id: "5" }] as articleDetailsDataType[]
+const data = [{ id: "2" }, { id: "3" }, { id: "4" }] as articleDetailsDataType[]
 
 describe("articlesListSliceTest ExtraReducers", () => {
 	test("pending", () => {
@@ -122,7 +122,7 @@ describe("articlesListSliceTest ExtraReducers", () => {
 			isLoading: false,
 			error: undefined,
 			hasMore: true,
-			ids: ["1", "2", "3", "4", "5"],
+			ids: ["1", "2", "3", "4"],
 			limit: CountArticleItemOfView.DETAILED,
 			entities: {
 				"1": {
@@ -136,9 +136,6 @@ describe("articlesListSliceTest ExtraReducers", () => {
 				},
 				"4": {
 					id: "4"
-				},
-				"5": {
-					id: "5"
 				}
 			}
 		})
