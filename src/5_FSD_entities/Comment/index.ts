@@ -1,5 +1,5 @@
 export { CommentList } from "./components/CommentList/CommentList"
-export { commentDataType } from "./types/commentData.type"
+export { type commentDataType } from "./types/commentData.type"
 export { AddCommentForm } from "./components/AddCommentForm/AddCommentForm"
-export { commentListStateMap } from "./store/storeTypes/commentListState.map"
-export { addCommentFormStateMap } from "./store/storeTypes/addCommentFormState.map"
+export { type commentListStateMap } from "./store/storeTypes/commentListState.map"
+export { type addCommentFormStateMap } from "./store/storeTypes/addCommentFormState.map"

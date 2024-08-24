@@ -1,25 +1,29 @@
-import { ServerErrors, ValidateErrors } from "../../../store/storeTypes/profileState.map"
+import { ServerErrors } from "../../../constants/ServerErrors.constant"
+import { ValidateErrorsConstant } from "../../../constants/ValidateErrors.constant"
 import { mappingErrors } from "./mappingErrors"
 
 describe("mappingErrorsTest", () => {
 	test("with all errors", () => {
-		const errors = mappingErrors([ServerErrors.SERVER_NOT_FOUND, ValidateErrors.AGE_ERROR])
+		const errors = mappingErrors([
+			ServerErrors.SERVER_NOT_FOUND,
+			ValidateErrorsConstant.AGE_ERROR
+		])
 
 		expect(errors).toEqual({
 			isValidateErrors: true,
 			isServerErrors: true,
-			validateErrors: { [ValidateErrors.AGE_ERROR]: true },
+			validateErrors: { [ValidateErrorsConstant.AGE_ERROR]: true },
 			serverErrors: { [ServerErrors.SERVER_NOT_FOUND]: true }
 		})
 	})
 
 	test("with only validate errors", () => {
-		const errors = mappingErrors([ValidateErrors.AGE_ERROR])
+		const errors = mappingErrors([ValidateErrorsConstant.AGE_ERROR])
 
 		expect(errors).toEqual({
 			isValidateErrors: true,
 			isServerErrors: false,
-			validateErrors: { [ValidateErrors.AGE_ERROR]: true },
+			validateErrors: { [ValidateErrorsConstant.AGE_ERROR]: true },
 			serverErrors: {}
 		})
 	})

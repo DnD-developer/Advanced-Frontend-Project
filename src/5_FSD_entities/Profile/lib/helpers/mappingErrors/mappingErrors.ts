@@ -1,13 +1,14 @@
-import { ServerErrors, ValidateErrors } from "../../../store/storeTypes/profileState.map"
+import { ServerErrors } from "../../../constants/ServerErrors.constant"
+import { ValidateErrorsConstant } from "../../../constants/ValidateErrors.constant"
 
-export const mappingErrors = (errors?: (ValidateErrors | ServerErrors)[]) => {
-	const validateErrors = {} as Record<ValidateErrors, boolean | undefined>
+export const mappingErrors = (errors?: (ValidateErrorsConstant | ServerErrors)[]) => {
+	const validateErrors = {} as Record<ValidateErrorsConstant, boolean | undefined>
 	const serverErrors = {} as Record<ServerErrors, boolean | undefined>
 
 	if (errors) {
 		errors.forEach(error => {
-			if (Object.keys(ValidateErrors).includes(error)) {
-				validateErrors[error as ValidateErrors] = true
+			if (Object.keys(ValidateErrorsConstant).includes(error)) {
+				validateErrors[error as ValidateErrorsConstant] = true
 			}
 
 			if (Object.keys(ServerErrors).includes(error)) {

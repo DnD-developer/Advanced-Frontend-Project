@@ -1,4 +1,5 @@
 import { CenterDecorator } from "@decorators/storybook/Center.decorator"
+import { PageDecorator } from "@decorators/storybook/Page.decorator"
 import { StoreDecorator } from "@decorators/storybook/Store.decorator"
 import { articlesListDataMock } from "@entities/Article/lib/mocks/articlesListData.mock"
 import { type Meta, type StoryObj } from "@storybook/react"
@@ -16,10 +17,9 @@ const meta: Meta<typeof ArticlesRecommendation> = {
 				delay: 2000,
 				response: articlesListDataMock.slice(0, 3)
 			}
-		],
-		refreshStoryOnUpdate: true
+		]
 	},
-	decorators: [StoreDecorator({}), CenterDecorator]
+	decorators: [StoreDecorator({}), CenterDecorator, PageDecorator]
 }
 
 export default meta

@@ -11,6 +11,7 @@
 		"allowJs": true,
 		"moduleResolution": "node",
 		"allowSyntheticDefaultImports": true,
+		"isolatedModules": true,
 		"esModuleInterop": true,
 		"types": ["node", "@jest/globals", "@types/jest", "@testing-library/jest-dom"],
 		"resolveJsonModule": true,

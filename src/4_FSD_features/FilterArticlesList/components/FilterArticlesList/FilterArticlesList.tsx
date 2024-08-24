@@ -7,7 +7,7 @@ import { useDebounce } from "@hooks/useDebounce.hook"
 import { Input } from "@ui/Input"
 import { InputTheme } from "@ui/Input/constants/Input.constant"
 import { OptionType, Select } from "@ui/Select"
-import { Tabs, TabsItem } from "@ui/Tabs"
+import { Tabs, TabsItemType } from "@ui/Tabs"
 import { memo, useCallback, useMemo } from "react"
 import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
@@ -93,7 +93,7 @@ export const FilterArticlesList = memo<FilterArticlesListProps>(props => {
 		[dispatch, setSearch, debounceCallback]
 	)
 
-	const tabs = useMemo<TabsItem<ArticleTypeConstant | "ALL">[]>(
+	const tabs = useMemo<TabsItemType<ArticleTypeConstant | "ALL">[]>(
 		() => [
 			{
 				content: t("article:ALL"),
@@ -116,7 +116,7 @@ export const FilterArticlesList = memo<FilterArticlesListProps>(props => {
 	)
 
 	const onChangeTypeTopic = useCallback(
-		(tab: TabsItem<ArticleTypeConstant | "ALL">) => {
+		(tab: TabsItemType<ArticleTypeConstant | "ALL">) => {
 			dispatch(setType(tab.value))
 			debounceCallback()
 		},

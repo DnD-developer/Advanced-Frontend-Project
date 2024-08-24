@@ -5,7 +5,7 @@ import {
 	profileDataType,
 	profileStateMap,
 	ServerErrors,
-	ValidateErrors
+	ValidateErrorsConstant
 } from "@entities/Profile"
 import { describe, expect, test } from "@jest/globals"
 import { AsyncThunkMock } from "@mocks/AsyncThunk.mock"
@@ -91,6 +91,6 @@ describe("postProfileDataThunkTest", () => {
 
 		expect(mockedPut).not.toBeCalled()
 		expect(result.meta.requestStatus).toBe("rejected")
-		expect(result.payload).toEqual([ValidateErrors.FIRST_NAME])
+		expect(result.payload).toEqual([ValidateErrorsConstant.FIRST_NAME])
 	})
 })

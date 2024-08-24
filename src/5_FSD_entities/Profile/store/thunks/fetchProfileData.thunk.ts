@@ -1,7 +1,8 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
 import { thunkConfigType } from "@store/storeTypes/thunks.type"
+import { ServerErrors } from "../../constants/ServerErrors.constant"
 import { profileDataType } from "../../types/profileData.type"
-import { profileStateMap, ServerErrors } from "../storeTypes/profileState.map"
+import { profileStateMap } from "../storeTypes/profileState.map"
 
 export const fetchProfileDataThunk = createAsyncThunk<
 	profileDataType,

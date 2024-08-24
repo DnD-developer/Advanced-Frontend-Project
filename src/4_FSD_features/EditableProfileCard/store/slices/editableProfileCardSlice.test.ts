@@ -1,5 +1,5 @@
 import { DeepPartial } from "@customTypes/global.types"
-import { fetchProfileDataThunk, ServerErrors, ValidateErrors } from "@entities/Profile"
+import { fetchProfileDataThunk, ServerErrors, ValidateErrorsConstant } from "@entities/Profile"
 import { describe, expect, test } from "@jest/globals"
 import { editableProfileStateMap } from "../storeTypes/editableProfileState.map"
 import { postProfileDataThunk } from "../thunks/postProfileData/postProfileData.thunk"
@@ -24,7 +24,7 @@ describe("editableProfileCard staticReducer", () => {
 	test("action resetForm", () => {
 		const state: DeepPartial<editableProfileStateMap> = {
 			readOnly: false,
-			errors: [ValidateErrors.USERNAME_ERROR],
+			errors: [ValidateErrorsConstant.USERNAME_ERROR],
 			formData: {
 				userName: "123"
 			},
@@ -211,7 +211,7 @@ describe("editableProfileCard extraReducer postProfileDataThunk", () => {
 		})
 	})
 
-	test("action postProfileDataThunk rejected ValidateErrors", () => {
+	test("action postProfileDataThunk rejected ValidateErrorsConstant", () => {
 		const state: DeepPartial<editableProfileStateMap> = {
 			isLoading: true,
 			errors: undefined,
@@ -220,12 +220,12 @@ describe("editableProfileCard extraReducer postProfileDataThunk", () => {
 
 		const resultState = editableProfileCardReducer(
 			state as editableProfileStateMap,
-			postProfileDataThunk.rejected(null, "", "1", [ValidateErrors.FIRST_NAME])
+			postProfileDataThunk.rejected(null, "", "1", [ValidateErrorsConstant.FIRST_NAME])
 		)
 
 		expect(resultState).toEqual({
 			isLoading: false,
-			errors: [ValidateErrors.FIRST_NAME],
+			errors: [ValidateErrorsConstant.FIRST_NAME],
 			readOnly: false
 		})
 	})

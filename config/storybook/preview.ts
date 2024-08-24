@@ -19,6 +19,7 @@ const preview: Preview = {
 		mockAddonConfigs: {
 			globalMockData: [],
 			disableUsingOriginal: false,
+			refreshStoryOnUpdate: true,
 			disable: true
 		},
 		controls: {
