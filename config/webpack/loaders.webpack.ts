@@ -1,15 +1,17 @@
 import { type RuleSetRule } from "webpack"
-import { type buildOptions } from "./types/config"
+import { type buildOptionsType } from "./types/config"
 import { babelLoader } from "./webpackLoaders/babelLoader.webpack"
 import { fileLoader } from "./webpackLoaders/fileLoader.webpack"
 import { sassLoader } from "./webpackLoaders/sassLoader.webpack"
 import { svgrLoaders } from "./webpackLoaders/svgrLoaders.webpack"
-import { tsLoader } from "./webpackLoaders/tsLoader.webpack"
 
-export function loadersWebpack(options: buildOptions): RuleSetRule[] {
+export function loadersWebpack(options: buildOptionsType): RuleSetRule[] {
+	const babelLoaderRuntime = () => babelLoader({ ...options, isTsx: false })
+	const babelLoaderTsx = () => babelLoader({ ...options, isTsx: true })
+
 	return [
-		babelLoader(options),
-		tsLoader(options),
+		babelLoaderRuntime(),
+		babelLoaderTsx(),
 		sassLoader(options),
 		fileLoader(options),
 		...svgrLoaders()
