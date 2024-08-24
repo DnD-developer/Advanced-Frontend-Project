@@ -1,31 +1,31 @@
-import { ValidateErrors } from "../../../store/storeTypes/profileState.map"
+import { ValidateErrorsConstant } from "../../../constants/ValidateErrors.constant"
 import { profileCardDataType } from "../../../types/profileData.type"
 
 export const validateErrors = (profile?: profileCardDataType) => {
-	const errors: ValidateErrors[] = []
+	const errors: ValidateErrorsConstant[] = []
 
 	if (!profile?.avatar) {
-		errors.push(ValidateErrors.AVATAR_ERROR)
+		errors.push(ValidateErrorsConstant.AVATAR_ERROR)
 	}
 
 	if (!profile?.userName) {
-		errors.push(ValidateErrors.USERNAME_ERROR)
+		errors.push(ValidateErrorsConstant.USERNAME_ERROR)
 	}
 
 	if (!profile?.firstName) {
-		errors.push(ValidateErrors.FIRST_NAME)
+		errors.push(ValidateErrorsConstant.FIRST_NAME)
 	}
 
 	if (!profile?.lastName) {
-		errors.push(ValidateErrors.LAST_NAME)
+		errors.push(ValidateErrorsConstant.LAST_NAME)
 	}
 
 	if (!profile?.age || !Number.isInteger(profile.age)) {
-		errors.push(ValidateErrors.AGE_ERROR)
+		errors.push(ValidateErrorsConstant.AGE_ERROR)
 	}
 
 	if (!profile?.city) {
-		errors.push(ValidateErrors.CITY_ERROR)
+		errors.push(ValidateErrorsConstant.CITY_ERROR)
 	}
 
 	return errors

@@ -1,6 +1,6 @@
 import { Country } from "../../../../Country"
 import { Currency } from "../../../../Currency"
-import { ValidateErrors } from "../../../store/storeTypes/profileState.map"
+import { ValidateErrorsConstant } from "../../../constants/ValidateErrors.constant"
 import { validateErrors } from "./validateErrors"
 
 describe("validateErrorsTest", () => {
@@ -19,12 +19,12 @@ describe("validateErrorsTest", () => {
 		const errors = validateErrors(dataTest)
 
 		expect(errors).toEqual([
-			ValidateErrors.AVATAR_ERROR,
-			ValidateErrors.USERNAME_ERROR,
-			ValidateErrors.FIRST_NAME,
-			ValidateErrors.LAST_NAME,
-			ValidateErrors.AGE_ERROR,
-			ValidateErrors.CITY_ERROR
+			ValidateErrorsConstant.AVATAR_ERROR,
+			ValidateErrorsConstant.USERNAME_ERROR,
+			ValidateErrorsConstant.FIRST_NAME,
+			ValidateErrorsConstant.LAST_NAME,
+			ValidateErrorsConstant.AGE_ERROR,
+			ValidateErrorsConstant.CITY_ERROR
 		])
 	})
 
