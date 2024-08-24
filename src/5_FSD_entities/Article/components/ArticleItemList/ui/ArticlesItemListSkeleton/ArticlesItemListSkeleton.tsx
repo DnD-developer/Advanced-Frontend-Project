@@ -12,11 +12,7 @@ type ArticlesItemListSkeletonProps = {
 export const ArticlesItemListSkeleton = memo<ArticlesItemListSkeletonProps>(props => {
 	const { className, view } = props
 
-	return Array(
-		view === ArticleItemViews.PlATES ?
-			CountArticleItemOfView.PlATES
-		:	CountArticleItemOfView.DETAILED
-	)
+	return Array(CountArticleItemOfView.DETAILED)
 		.fill(1)
 		.map((_, i) => {
 			return (

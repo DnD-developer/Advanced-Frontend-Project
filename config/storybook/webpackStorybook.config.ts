@@ -16,7 +16,7 @@ export const webpackStorybookConfig = (config: Configuration): Configuration => 
 		aliases: aliasesFromTsConfig(compilerOptions, baseUrl),
 		isDev: true,
 		project: "storybook",
-		baseUrl: ""
+		baseUrl: "http://storybook.mock"
 	}
 
 	if (config.resolve) {

@@ -21,10 +21,6 @@ export const postProfileDataThunk = createAsyncThunk<
 
 		const data: profileDataType = { ...formData, id }
 
-		if (__PROJECT__ === "storybook") {
-			return data || {}
-		}
-
 		const response = await extra.api.put<profileDataType>(`/profile/${id}`, data)
 
 		return response.data

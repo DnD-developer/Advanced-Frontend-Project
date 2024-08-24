@@ -13,4 +13,4 @@ export type profileDataType = {
 	userName?: string
 }
 
-export type profileCardDatatype = Omit<profileDataType, "id">
+export type profileCardDataType = Omit<profileDataType, "id">

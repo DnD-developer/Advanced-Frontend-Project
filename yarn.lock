@@ -2919,6 +2919,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@storybook/channels@npm:^8.0.8":
+  version: 8.2.9
+  resolution: "@storybook/channels@npm:8.2.9"
+  peerDependencies:
+    storybook: ^8.2.9
+  checksum: 10c0/7d6f8d3ada8cf2b2115658e51c730e56a6e9fe5ea702b6e35027730deb4b76b4bd2cf5bfaedc682017d93b9231754a3f389d03832031335743c98d30f981be0d
+  languageName: node
+  linkType: hard
+
 "@storybook/cli@npm:8.0.9":
   version: 8.0.9
   resolution: "@storybook/cli@npm:8.0.9"
@@ -3018,6 +3027,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@storybook/components@npm:^8.0.8":
+  version: 8.2.9
+  resolution: "@storybook/components@npm:8.2.9"
+  peerDependencies:
+    storybook: ^8.2.9
+  checksum: 10c0/2f7be8d238aefc833a3ae355ff19569701a8b13c14b4a73ce25a8a23f3b283ac814fe0ed857b9724897177fd66cbb4fb2294149e7b041c7f11ed273ebe161a31
+  languageName: node
+  linkType: hard
+
 "@storybook/core-common@npm:8.0.9":
   version: 8.0.9
   resolution: "@storybook/core-common@npm:8.0.9"
@@ -3060,6 +3078,15 @@ __metadata:
   dependencies:
     ts-dedent: "npm:^2.0.0"
   checksum: 10c0/505ad47f2c130495b49b3b550636d18c33e07003c75d89fc83228f9895bbfb5693aeeeaa074f7d2b9326d0f6f50b557badd083be9b2bada0fcbdbfa1b755e51e
+  languageName: node
+  linkType: hard
+
+"@storybook/core-events@npm:^8.0.8":
+  version: 8.2.9
+  resolution: "@storybook/core-events@npm:8.2.9"
+  peerDependencies:
+    storybook: ^8.2.9
+  checksum: 10c0/a6e25d7964d39eb77435b0af09cef8f8a1aab6aa0de111e0ff9bd349026cc23c4259dce9f17790b9a2e8eaf324b658c5767f2cf70c706d47718111b823f66ffd
   languageName: node
   linkType: hard
 
@@ -3250,6 +3277,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@storybook/manager-api@npm:^8.0.8":
+  version: 8.2.9
+  resolution: "@storybook/manager-api@npm:8.2.9"
+  peerDependencies:
+    storybook: ^8.2.9
+  checksum: 10c0/7787df142723a3607a57ae653d4884a8a911dd0b7d6244d11db29653994d16922729299b1e9f595352ea2a3e23dc7a77268e2ad6f4aacf1c6bf2a5a53f4fc442
+  languageName: node
+  linkType: hard
+
 "@storybook/manager@npm:8.0.9":
   version: 8.0.9
   resolution: "@storybook/manager@npm:8.0.9"
@@ -3312,6 +3348,15 @@ __metadata:
     ts-dedent: "npm:^2.0.0"
     util-deprecate: "npm:^1.0.2"
   checksum: 10c0/eee1efab64895afa3fd58ca447051ea302413b9e599becc15fce426d9400b9e47825e51e74bc264ee44c9ae35ba1925d4580e6092058a0c4a50d854a41ce023c
+  languageName: node
+  linkType: hard
+
+"@storybook/preview-api@npm:^8.0.8":
+  version: 8.2.9
+  resolution: "@storybook/preview-api@npm:8.2.9"
+  peerDependencies:
+    storybook: ^8.2.9
+  checksum: 10c0/159cd0b70076a76de217c3820d4c826cfe1a89cc42c47c23394a8d38c0470397b768d24c67c8f982d097dfb0bfda85631d57969e0978483f64f81bb8488039d9
   languageName: node
   linkType: hard
 
@@ -3476,6 +3521,15 @@ __metadata:
     react-dom:
       optional: true
   checksum: 10c0/3780a4c0d5d4a0d6a374a0324f75fd75d9e8d4fb2752223ec156b48aefdd9c69550a698b2d03535fdb1979242fcf459fc64a18b3f11526462e82a5feb822f5d4
+  languageName: node
+  linkType: hard
+
+"@storybook/theming@npm:^8.0.8":
+  version: 8.2.9
+  resolution: "@storybook/theming@npm:8.2.9"
+  peerDependencies:
+    storybook: ^8.2.9
+  checksum: 10c0/13b08829699ef95398133c7b5dd260842cca72485b905d2616202e97a6215cc24e3fb2c86499d357672437b2d7b60177ba53fd8741b00f8a0c280a32464c3295
   languageName: node
   linkType: hard
 
@@ -5240,6 +5294,7 @@ __metadata:
     sass: "npm:^1.72.0"
     sass-loader: "npm:^14.1.1"
     storybook: "npm:^8.0.8"
+    storybook-addon-mock: "npm:^5.0.0"
     storybook-react-i18next: "npm:^3.0.1"
     style-loader: "npm:^3.3.4"
     stylelint: "npm:^16.3.1"
@@ -12302,6 +12357,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"mock-xmlhttprequest@npm:^8.1.0":
+  version: 8.3.0
+  resolution: "mock-xmlhttprequest@npm:8.3.0"
+  checksum: 10c0/e25970d27a8e1d107009eabf4682ad962cf6e9c70ab3238aab760463c9ef32dcbdb86f184963d334f01fa959387b779daa1257ed18e54ae2c79f9ef8b4546741
+  languageName: node
+  linkType: hard
+
 "morgan@npm:^1.10.0":
   version: 1.10.0
   resolution: "morgan@npm:1.10.0"
@@ -13072,6 +13134,13 @@ __metadata:
   dependencies:
     isarray: "npm:0.0.1"
   checksum: 10c0/7b25d6f27a8de03f49406d16195450f5ced694398adea1510b0f949d9660600d1769c5c6c83668583b7e6b503f3caf1ede8ffc08135dbe3e982f034f356fbb5c
+  languageName: node
+  linkType: hard
+
+"path-to-regexp@npm:^6.2.1":
+  version: 6.2.2
+  resolution: "path-to-regexp@npm:6.2.2"
+  checksum: 10c0/4b60852d3501fd05ca9dd08c70033d73844e5eca14e41f499f069afa8364f780f15c5098002f93bd42af8b3514de62ac6e82a53b5662de881d2b08c9ef21ea6b
   languageName: node
   linkType: hard
 
@@ -15270,6 +15339,35 @@ __metadata:
   languageName: node
   linkType: hard
 
+"storybook-addon-mock@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "storybook-addon-mock@npm:5.0.0"
+  dependencies:
+    "@storybook/blocks": "npm:^8.0.8"
+    "@storybook/channels": "npm:^8.0.8"
+    "@storybook/components": "npm:^8.0.8"
+    "@storybook/core-events": "npm:^8.0.8"
+    "@storybook/manager-api": "npm:^8.0.8"
+    "@storybook/preview-api": "npm:^8.0.8"
+    "@storybook/theming": "npm:^8.0.8"
+    mock-xmlhttprequest: "npm:^8.1.0"
+    path-to-regexp: "npm:^6.2.1"
+    polished: "npm:^4.2.2"
+    prop-types: "npm:^15.8.1"
+    storybook: "npm:^8.0.8"
+    whatwg-fetch: "npm:^3.6.19"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+  checksum: 10c0/98333c2f4364cf2f29da83f2f7f34bf41d8b9a0357784f6da41f8bd8ed57c83bf0efa764643458f265d40800fc6d00676c9d2037daa9e3ad6960dabf3abbf2a4
+  languageName: node
+  linkType: hard
+
 "storybook-i18n@npm:^3.0.1":
   version: 3.0.1
   resolution: "storybook-i18n@npm:3.0.1"
@@ -17060,7 +17158,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"whatwg-fetch@npm:^3.6.20":
+"whatwg-fetch@npm:^3.6.19, whatwg-fetch@npm:^3.6.20":
   version: 3.6.20
   resolution: "whatwg-fetch@npm:3.6.20"
   checksum: 10c0/fa972dd14091321d38f36a4d062298df58c2248393ef9e8b154493c347c62e2756e25be29c16277396046d6eaa4b11bd174f34e6403fff6aaca9fb30fa1ff46d
