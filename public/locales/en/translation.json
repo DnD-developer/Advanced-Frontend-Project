@@ -8,6 +8,7 @@
 	"errorTextNoUser": "Unknown login or password",
 	"errorTextOtherError": "Error with login",
 	"errorWithRequestComments": "Error With Request Comments",
+	"getNotificationError": "Get Notification Error",
 	"increment": "increment",
 	"inputTextOfComment": "Input text of comment",
 	"lang": "EN",

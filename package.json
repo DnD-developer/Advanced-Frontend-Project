@@ -23,9 +23,7 @@
 		"test:unit": "jest --config ./config/jest/jest.config.ts",
 		"test:ui": "chromatic --t chpt_4330b52d5d14286",
 		"storybook:start": "storybook dev -c config/storybook --no-open -p 6006 ",
-		"storybook:build": "storybook build -ci -c config/storybook",
-		"depcruiser:validate": "depcruise --validate .dependency-cruiser.js src",
-		"depcruiser:report": "depcruise --exclude \"^node_modules\" --output-type dot src | dot -T svg > reports/tests/dependencygraph.svg"
+		"storybook:build": "storybook build -ci -c config/storybook"
 	},
 	"author": {
 		"name": "Salim Cat"

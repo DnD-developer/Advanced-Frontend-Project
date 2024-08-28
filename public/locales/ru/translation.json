@@ -8,6 +8,7 @@
 	"errorTextNoUser": "Неизвестный логин или пароль",
 	"errorTextOtherError": "Ошибка при авторизации",
 	"errorWithRequestComments": "Ошибка при загрузке комментариев",
+	"getNotificationError": "Ошибка загрузки уведомлений",
 	"increment": "Увеличить",
 	"inputTextOfComment": "Введите текст комментария",
 	"lang": "RU",
