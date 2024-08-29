@@ -1,5 +1,5 @@
 import { StoreDecorator } from "@decorators/storybook/Store.decorator"
-import { notificationListDataMock } from "@entities/Notofication"
+import { notificationListDataMock } from "@entities/Notification"
 import { userDataMock } from "@entities/User"
 import { type Meta, type StoryObj } from "@storybook/react"
 import { Header } from "./Header"
@@ -26,7 +26,9 @@ export const Login: TypeStory = {
 			}
 		]
 	},
-	args: {},
+	args: {
+		isMobileTest: false
+	},
 	decorators: [
 		StoreDecorator({
 			user: {

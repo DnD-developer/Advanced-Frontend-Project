@@ -20,7 +20,7 @@ export const NotificationList = memo<NotificationListProps>(props => {
 		undefined,
 		useMemo(
 			() => ({
-				pollingInterval: 5000
+				pollingInterval: 20000
 			}),
 			[]
 		)
