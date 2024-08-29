@@ -1,6 +1,10 @@
+import type { Mods } from "@helpers/classNamesHelp/classNamesHelp"
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
-import type { MouseEvent, PropsWithChildren } from "react"
-import { memo, useCallback, useEffect, useState } from "react"
+import { useModal } from "@hooks/useModal.hook"
+import type { PropsWithChildren } from "react"
+import { memo, useMemo } from "react"
+import { Overlay } from "../../../Overlay"
+import { Portal } from "../../../Portal"
 import styles from "./Modal.module.scss"
 
 export type ModalProps = {
@@ -11,53 +15,25 @@ export type ModalProps = {
 } & PropsWithChildren
 
 export const Modal = memo<ModalProps>(props => {
-	const { classNames, children, isOpen, onClose, lazy = false } = props
+	const { classNames, children, isOpen = false, onClose, lazy = false } = props
 
-	const onCloseHandler = useCallback(() => {
-		onClose?.()
-	}, [onClose])
+	const modalProps = useMemo(() => ({ isOpen, onClose }), [isOpen, onClose])
 
-	const onKeyDown = useCallback(
-		(e: KeyboardEvent) => {
-			if (e.key === "Escape") {
-				onCloseHandler()
-			}
-		},
-		[onCloseHandler]
-	)
-
-	const blockCloseHandler = (event: MouseEvent) => {
-		event.stopPropagation()
-	}
-
-	const [isMounted, setIsMounted] = useState(false)
-
-	useEffect(() => {
-		if (isOpen) {
-			window.addEventListener("keydown", onKeyDown)
-			setIsMounted(true)
-		}
-
-		return () => window.removeEventListener("keydown", onKeyDown)
-	}, [isOpen, onKeyDown])
+	const { isMounted, onCloseHandler } = useModal(modalProps)
 
 	if (lazy && !isMounted) {
 		return null
 	}
 
+	const mods: Mods = { [styles.isOpen]: isOpen }
+
 	return (
-		<div className={classNamesHelp(styles.Modal, { [styles.isOpen]: isOpen }, [classNames])}>
-			<div
-				className={styles.overlay}
-				onClick={onCloseHandler}
-			>
-				<div
-					className={styles.content}
-					onClick={blockCloseHandler}
-				>
-					{children}
-				</div>
+		<Portal>
+			<div className={classNamesHelp(styles.Modal, mods, [classNames])}>
+				<Overlay onClose={onCloseHandler} />
+
+				<div className={styles.content}>{children}</div>
 			</div>
-		</div>
+		</Portal>
 	)
 })

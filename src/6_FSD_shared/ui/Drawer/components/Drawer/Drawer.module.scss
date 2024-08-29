@@ -1,10 +1,9 @@
-.Modal {
+.Drawer {
 	display: flex;
 	position: fixed;
-
 	z-index: -1;
-	align-items: center;
-	justify-content: center;
+
+	align-items: flex-end;
 
 	transition: all 0.4s;
 
@@ -16,21 +15,23 @@
 
 .content {
 	position: relative;
-
+	bottom: 0;
+	width: 100%;
+	height: 70%;
+	min-height: 100px;
 	padding: 20px;
 
-	transform: scale(0.3);
+	transform: translateY(100%);
 
 	transition: transform 0.3s;
 
-	border-radius: 20px;
+	border-top-left-radius: var(--large-br);
+	border-top-right-radius: var(--large-br);
 
-	background-color: var(--bg-color);
-
-	color: var(--primary-color);
+	background: var(--bg-color);
 }
 
-.isOpen {
+.opened {
 	z-index: var(--z-index-modal);
 
 	opacity: 1;
@@ -38,6 +39,6 @@
 	pointer-events: auto;
 
 	.content {
-		transform: scale(1);
+		transform: translateY(0%);
 	}
 }

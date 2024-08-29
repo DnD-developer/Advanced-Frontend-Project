@@ -15,10 +15,11 @@ import styles from "./Header.module.scss"
 
 type HeaderProps = {
 	classNames?: string
+	isMobileTest?: false
 } & PropsWithChildren
 
 export const Header = memo<HeaderProps>(props => {
-	const { classNames, children } = props
+	const { classNames, children, isMobileTest } = props
 
 	const { t } = useTranslation()
 
@@ -49,7 +50,10 @@ export const Header = memo<HeaderProps>(props => {
 			gap={"gap16"}
 			widthMax={false}
 		>
-			<NotificationButton className={styles.btnNotification} />
+			<NotificationButton
+				className={styles.btnNotification}
+				isMobileTest={isMobileTest}
+			/>
 			<AvatarDropdown />
 		</HStack>
 	)

@@ -1,32 +1,18 @@
-import { Ring } from "@assets/index"
-import { NotificationList } from "@entities/Notofication"
-import { Button, ButtonTheme } from "@ui/Button"
-import { Popover } from "@ui/Popover"
-import { memo, useMemo } from "react"
-import styles from "./NotificationButton.module.scss"
+import { memo } from "react"
+import { isMobile } from "react-device-detect"
+import { NotificationButtonDesktopRender } from "./render/NotificationButtonDesktop/NotificationButtonDesktop.render"
+import { NotificationButtonMobileRender } from "./render/NotificationButtonMobile/NotificationButtonMobile.render"
 
 type NotificationButtonProps = {
 	className?: string
+	isMobileTest?: boolean
 }
 export const NotificationButton = memo<NotificationButtonProps>(props => {
-	const { className } = props
+	const { className, isMobileTest = false } = props
 
-	const trigger = useMemo(
-		() => (
-			<Button theme={ButtonTheme.CLEAR}>
-				<Ring className={styles.icon} />
-			</Button>
-		),
-		[]
-	)
+	if (isMobile || isMobileTest) {
+		return <NotificationButtonMobileRender className={className} />
+	}
 
-	const content = useMemo(() => <NotificationList />, [])
-
-	return (
-		<Popover
-			trigger={trigger}
-			content={content}
-			className={className}
-		/>
-	)
+	return <NotificationButtonDesktopRender />
 })

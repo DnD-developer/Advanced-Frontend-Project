@@ -1,7 +1,7 @@
 import { CenterDecorator } from "@decorators/storybook/Center.decorator"
 import { InvertedBgDecorator } from "@decorators/storybook/InvertedBg.decorator"
 import { StoreDecorator } from "@decorators/storybook/Store.decorator"
-import { notificationListDataMock } from "@entities/Notofication"
+import { notificationListDataMock } from "@entities/Notification"
 import { type Meta, type StoryObj } from "@storybook/react"
 import { NotificationButton } from "./NotificationButton"
 
@@ -27,5 +27,8 @@ export default meta
 type TypeStory = StoryObj<typeof NotificationButton>
 
 export const Default: TypeStory = {
-	args: {}
+	args: {
+		isMobileTest: false
+	},
+	tags: ["background"]
 }
