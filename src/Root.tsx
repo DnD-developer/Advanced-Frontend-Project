@@ -4,7 +4,8 @@ import { ThemesProvider } from "@providers/ThemeProvider"
 import { Suspense } from "react"
 import { BrowserRouter } from "react-router-dom"
 
-export const RootComponent = (
+//eslint-disable-next-line
+export const RootComponent = () => (
 	<BrowserRouter>
 		<StoreProvider>
 			<Suspense>

@@ -25,6 +25,7 @@
 			"@assets/*": ["./src/6_FSD_shared/assets/*"],
 			"@config/*": ["./src/6_FSD_shared/config/*"],
 			"@customTypes/*": ["./src/6_FSD_shared/types/*"],
+			"@sharedProviders/*": ["./src/6_FSD_shared/providers/*"],
 
 			"@decorators/*": ["./src/6_FSD_shared/lib/decorators/*"],
 			"@helpers/*": ["./src/6_FSD_shared/lib/helpers/*"],

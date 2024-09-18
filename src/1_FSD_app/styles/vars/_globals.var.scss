@@ -1,3 +1,5 @@
+$header-height: 100px;
+
 :root {
 	// fonts
 	--font-family-main: consolas, "Times New Roman", serif;
@@ -23,7 +25,8 @@
 	--font-xl: var(--font-size-xl) / var(--font-line-xl) var(--font-family-main);
 
 	// width height
-	--header-height: 100px;
+
+	--header-height: #{$header-height};
 	--side-bar-width: 400px;
 	--side-bar-width-collapsed: 150px;
 
