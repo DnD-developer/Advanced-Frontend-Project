@@ -1,6 +1,6 @@
 import { LOCAL_STORAGE_THEME_KEY } from "@constants/localStorage.constant"
-import { ThemeProviderContext } from "@providers/ThemeProvider/model/context/ThemeProvider.context"
-import { THEMES } from "@providers/ThemeProvider/model/context/ThemeProviderContext.type"
+import { THEMES } from "@providers/ThemeProvider"
+import { ThemeProviderContext } from "@providers/ThemeProvider/context/ThemeProvider.context"
 import { useCallback, useContext, useEffect } from "react"
 
 type useThemeType = { theme: THEMES; switchTheme: () => void }

@@ -10,7 +10,7 @@ const meta: Meta<typeof Drawer> = {
 	component: Drawer,
 	parameters: {
 		controls: {
-			exclude: ["content"]
+			exclude: ["content", "className", "onClose"]
 		}
 	},
 	decorators: [CenterDecorator]
