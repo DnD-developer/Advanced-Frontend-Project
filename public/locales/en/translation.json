@@ -1,7 +1,8 @@
 {
 	"about": "About",
 	"admin": "Admin",
-	"articles": "Artciles",
+	"cancel": "Cancel",
+	"articles": "Articles",
 	"avatar": "Avatar",
 	"createArticle": "Create Article",
 	"decrement": "decrement",

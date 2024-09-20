@@ -2758,15 +2758,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-buddy/ide-toolbox@npm:^2.4.0":
-  version: 2.4.0
-  resolution: "@react-buddy/ide-toolbox@npm:2.4.0"
-  peerDependencies:
-    react: ^17.0.0 || ^18.0.0
-  checksum: 10c0/39df73bef375f9e5b87bf122132034408dc6382c3d8e2f7fb6899ac554b333b6f47553a98e90072ebacc9098816f71e82e06f78af5890d0af2f723ec3b18c5d0
-  languageName: node
-  linkType: hard
-
 "@react-spring/animated@npm:~9.7.4":
   version: 9.7.4
   resolution: "@react-spring/animated@npm:9.7.4"
@@ -5567,7 +5558,6 @@ __metadata:
     "@headlessui/react": "npm:^2.1.2"
     "@jest/globals": "npm:^29.7.0"
     "@pmmmwh/react-refresh-webpack-plugin": "npm:^0.5.13"
-    "@react-buddy/ide-toolbox": "npm:^2.4.0"
     "@react-spring/web": "npm:^9.7.4"
     "@reduxjs/toolkit": "npm:^2.2.3"
     "@storybook/addon-essentials": "npm:^8.0.8"
@@ -5647,6 +5637,7 @@ __metadata:
     react: "npm:^18.2.0"
     react-device-detect: "npm:^2.2.3"
     react-dom: "npm:^18.2.0"
+    react-headless-rating: "npm:^1.0.3"
     react-i18next: "npm:^14.1.0"
     react-redux: "npm:^9.1.1"
     react-refresh: "npm:^0.14.2"
@@ -14559,6 +14550,15 @@ __metadata:
     react: ^0.14.8 || ^15.0.1 || ^16.0.0 || ^17.0.1 || ^18.0.0
     react-dom: ^0.14.8 || ^15.0.1 || ^16.0.0 || ^17.0.1 || ^18.0.0
   checksum: 10c0/0d60a0ea758529c32a706d0c69d70b69fb94de3c46442fffdee34f08f51ffceddbb5395b41dfd1565895653e9f60f98ca525835be9d5db1f16d6b22be12f4cd4
+  languageName: node
+  linkType: hard
+
+"react-headless-rating@npm:^1.0.3":
+  version: 1.0.3
+  resolution: "react-headless-rating@npm:1.0.3"
+  peerDependencies:
+    react: ^18
+  checksum: 10c0/662645838ef5fb3825576692f44adcfea83ba22d30d7a0557c9bd1e2431adad949007d478135493a975d41a61f3fb21399e017f82117e273324c0deccf2fb902
   languageName: node
   linkType: hard
 

@@ -50,7 +50,7 @@ const ArticleDetailsPage = memo<ArticleDetailsPageProps>(props => {
 						to={toArticleEdit}
 						theme={AppLinkTheme.OUTLINE}
 					>
-						{t("article:Edit")}
+						{t("article:edit")}
 					</AppLink>
 				:	null}
 				<ArticleDetails id={id || testId} />
