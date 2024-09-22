@@ -14,6 +14,6 @@ type TypeStory = StoryObj<typeof RatingStars>
 
 export const Default: TypeStory = {
 	args: {
-		initialRating: 1
+		rating: 1
 	}
 }

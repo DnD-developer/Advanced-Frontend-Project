@@ -16,7 +16,6 @@ type FeedbackModalProps = {
 	onCancel?: () => void
 	isOpen?: boolean
 	isLoading?: boolean
-	error?: string
 }
 export const FeedbackModal = memo<FeedbackModalProps>(props => {
 	const {
@@ -26,8 +25,7 @@ export const FeedbackModal = memo<FeedbackModalProps>(props => {
 		onAccept,
 		isOpen = false,
 		rating,
-		isLoading,
-		error
+		isLoading
 	} = props
 
 	const { t } = useTranslation()
@@ -57,7 +55,7 @@ export const FeedbackModal = memo<FeedbackModalProps>(props => {
 
 	return (
 		<Modal
-			isOpen={isOpen}
+			isOpen={isOpen || isLoading}
 			classNames={classNamesHelp("", {}, [className])}
 			lazy={true}
 			onClose={onCancelHandler}
@@ -76,8 +74,7 @@ export const FeedbackModal = memo<FeedbackModalProps>(props => {
 					className={styles.input}
 					onChange={onChangeFeedbackHandler}
 					value={feedbackValue}
-					error={errorFeedback || Boolean(error)}
-					label={error}
+					error={errorFeedback}
 				/>
 				<HStack
 					align={"center"}

@@ -1,68 +1,56 @@
 import { Star } from "@assets/index"
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
-import { memo, useCallback, useEffect, useState } from "react"
+import { memo, useCallback, useState } from "react"
 import { HStack } from "../../../Stack"
 import styles from "./RatingStars.module.scss"
 
 type RatingStarsProps = {
 	className?: string
-	initialRating?: number
+	rating?: number
 	isReset?: boolean
 	isLocked?: boolean
 	onChangeRating?: (value: number) => void
 }
 
 export const RatingStars = memo<RatingStarsProps>(props => {
-	const { className, isLocked = false, initialRating = 0, onChangeRating, isReset } = props
+	const { className, isLocked = false, rating = 0, onChangeRating } = props
 
-	const [currentRating, setCurrentRating] = useState<number>(initialRating)
 	const [hoverRating, setHoverRating] = useState(0)
-	const [isLockedState, setIsLockedState] = useState(isLocked)
 
-	const rating = [1, 2, 3, 4, 5]
-
-	useEffect(() => {
-		if (isReset) {
-			setIsLockedState(isLocked)
-			setCurrentRating(initialRating)
-			setHoverRating(0)
-		}
-	}, [initialRating, isLocked, isReset])
+	const ratingCount = [1, 2, 3, 4, 5]
 
 	const onChangeRatingHandler = useCallback(
 		(newRating: number) => () => {
-			if (!isLockedState) {
-				setIsLockedState(true)
-				setCurrentRating(newRating)
+			if (!isLocked) {
 				setHoverRating(0)
 				onChangeRating?.(newRating)
 			}
 		},
-		[isLockedState, onChangeRating]
+		[isLocked, onChangeRating]
 	)
 
 	const onHoverRatingHandler = useCallback(
 		(newHoverRating: number) => () => {
-			if (!isLockedState) {
+			if (!isLocked) {
 				setHoverRating(newHoverRating)
 			}
 		},
-		[isLockedState]
+		[isLocked]
 	)
 
 	const onClearHoverRatingHandler = useCallback(() => {
-		if (!isLockedState) {
+		if (!isLocked) {
 			setHoverRating(0)
 		}
-	}, [isLockedState])
+	}, [isLocked])
 
 	return (
 		<div
-			className={classNamesHelp("", { [styles.cursorPointer]: !isLockedState }, [className])}
+			className={classNamesHelp("", { [styles.cursorPointer]: !isLocked }, [className])}
 			onMouseLeave={onClearHoverRatingHandler}
 		>
 			<HStack gap={"gap16"}>
-				{rating.map(rat => (
+				{ratingCount.map(rat => (
 					<Star
 						key={rat}
 						onClick={onChangeRatingHandler(rat)}
@@ -70,8 +58,8 @@ export const RatingStars = memo<RatingStarsProps>(props => {
 						className={classNamesHelp(
 							styles.RatingStar,
 							{
-								[styles.cursorPointer]: !isLockedState,
-								[styles.RatingStarFill]: currentRating >= rat || hoverRating >= rat
+								[styles.cursorPointer]: !isLocked,
+								[styles.RatingStarFill]: rating >= rat || hoverRating >= rat
 							},
 							[]
 						)}

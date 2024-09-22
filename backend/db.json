@@ -602,5 +602,77 @@
 			"articleId": "1",
 			"userId": "2"
 		}
+	],
+	"article-ratings": [
+		{
+			"id": "1",
+			"rate": 4,
+			"feedback": "Хорошая статья",
+			"userId": "1",
+			"articleId": "1"
+		},
+		{
+			"id": "2",
+			"rate": 4,
+			"feedback": "Хорошая статья",
+			"userId": "1",
+			"articleId": "2"
+		},
+		{
+			"id": "fa56715ab60",
+			"articleId": "6",
+			"userId": "1",
+			"rate": 1,
+			"feedback": "asdfasdf"
+		},
+		{
+			"id": "291a2bf424f",
+			"articleId": "5",
+			"userId": "1",
+			"rate": 3,
+			"feedback": "asdfadsfs"
+		},
+		{
+			"id": "91a2bf424f9",
+			"articleId": "12",
+			"userId": "1",
+			"rate": 3,
+			"feedback": "adfasdf"
+		},
+		{
+			"id": "1a2bf424f9e",
+			"articleId": "10",
+			"userId": "1",
+			"rate": 2,
+			"feedback": "asdfadsf"
+		},
+		{
+			"id": "d6cd52558b9",
+			"articleId": "9",
+			"userId": "1",
+			"rate": 2,
+			"feedback": "adsfas"
+		},
+		{
+			"id": "19344982e54",
+			"articleId": "17",
+			"userId": "1",
+			"rate": 2,
+			"feedback": "asdfadsf"
+		},
+		{
+			"id": "034b4cb3ac5",
+			"articleId": "3",
+			"userId": "1",
+			"rate": 3,
+			"feedback": "adsfasdfs"
+		},
+		{
+			"id": "bddd3539a4b",
+			"articleId": "7",
+			"userId": "1",
+			"rate": 1,
+			"feedback": "adsfasdfsadf"
+		}
 	]
 }

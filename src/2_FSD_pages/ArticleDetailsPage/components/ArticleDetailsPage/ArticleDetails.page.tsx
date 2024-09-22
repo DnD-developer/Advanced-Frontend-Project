@@ -2,6 +2,7 @@ import { PagesPaths } from "@config/routes/routePaths"
 import type { articleDetailsDataType } from "@entities/Article"
 import { ArticleDetails, getArticleDataSelector } from "@entities/Article"
 import { useAuth } from "@entities/User"
+import { ArticleRating } from "@features/ArticleRating"
 import { ArticlesRecommendation } from "@features/ArticlesRecommendation"
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { AppLink, AppLinkTheme } from "@ui/AppLink"
@@ -54,6 +55,7 @@ const ArticleDetailsPage = memo<ArticleDetailsPageProps>(props => {
 					</AppLink>
 				:	null}
 				<ArticleDetails id={id || testId} />
+				<ArticleRating articleId={id || testId} />
 				<ArticlesRecommendation />
 				<CommentsArticleDetails articleId={id || testId} />
 			</VStack>
