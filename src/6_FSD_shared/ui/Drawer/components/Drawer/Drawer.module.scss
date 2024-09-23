@@ -1,0 +1,25 @@
+@import "@app/styles/vars/globals.var";
+
+.Drawer {
+	display: flex;
+	position: fixed;
+	z-index: var(--z-index-modal);
+
+	align-items: flex-end;
+
+	inset: 0;
+}
+
+.sheet {
+	position: fixed;
+	z-index: var(--z-index-modal);
+	left: 2vw;
+	width: 96vw;
+	height: calc(100vh + $header-height);
+	padding: 15px;
+
+	border-radius: 12px 12px 0;
+
+	background: var(--bg-color);
+	touch-action: none;
+}

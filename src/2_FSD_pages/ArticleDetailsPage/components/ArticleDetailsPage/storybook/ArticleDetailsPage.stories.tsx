@@ -2,6 +2,7 @@ import type { ComponentPropsWithAuth, DeepPartial } from "@customTypes/global.ty
 import { PageDecorator } from "@decorators/storybook/Page.decorator"
 import { StoreDecorator } from "@decorators/storybook/Store.decorator"
 import { articleDataMock, articlesListDataMock } from "@entities/Article"
+import { ratingDataMock } from "@entities/Rating/lib/mocks/ratingData.mock"
 import type { mainStateMap } from "@store/storeTypes/mainState.map"
 import { type Meta, type StoryObj } from "@storybook/react"
 import { ArticleDetailsPage } from "../ArticleDetailsAsync.page"
@@ -21,6 +22,13 @@ const meta: Meta<ArticleDetailsPageCustomProps> = {
 				status: 200,
 				delay: 2000,
 				response: articlesListDataMock.slice(0, 3)
+			},
+			{
+				url: `${__BASE_URL__}/article-ratings?articleId=1&userId=1`,
+				method: "GET",
+				status: 200,
+				delay: 2000,
+				response: ratingDataMock
 			}
 		]
 	}

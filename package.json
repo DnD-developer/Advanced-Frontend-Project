@@ -23,9 +23,7 @@
 		"test:unit": "jest --config ./config/jest/jest.config.ts",
 		"test:ui": "chromatic --t chpt_4330b52d5d14286",
 		"storybook:start": "storybook dev -c config/storybook --no-open -p 6006 ",
-		"storybook:build": "storybook build -ci -c config/storybook",
-		"depcruiser:validate": "depcruise --validate .dependency-cruiser.js src",
-		"depcruiser:report": "depcruise --exclude \"^node_modules\" --output-type dot src | dot -T svg > reports/tests/dependencygraph.svg"
+		"storybook:build": "storybook build -ci -c config/storybook"
 	},
 	"author": {
 		"name": "Salim Cat"
@@ -141,7 +139,9 @@
 	"dependencies": {
 		"@babel/runtime": "^7.25.4",
 		"@headlessui/react": "^2.1.2",
+		"@react-spring/web": "^9.7.4",
 		"@reduxjs/toolkit": "^2.2.3",
+		"@use-gesture/react": "^10.3.1",
 		"axios": "^1.6.8",
 		"i18next": "^23.10.1",
 		"i18next-browser-languagedetector": "^7.2.0",
@@ -149,7 +149,9 @@
 		"i18next-localstorage-backend": "^4.2.0",
 		"normalize.css": "^8.0.1",
 		"react": "^18.2.0",
+		"react-device-detect": "^2.2.3",
 		"react-dom": "^18.2.0",
+		"react-headless-rating": "^1.0.3",
 		"react-i18next": "^14.1.0",
 		"react-redux": "^9.1.1",
 		"react-router": "^6.22.3",

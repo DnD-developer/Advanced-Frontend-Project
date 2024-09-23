@@ -1,3 +1,5 @@
+$header-height: 100px;
+
 :root {
 	// fonts
 	--font-family-main: consolas, "Times New Roman", serif;
@@ -23,7 +25,8 @@
 	--font-xl: var(--font-size-xl) / var(--font-line-xl) var(--font-family-main);
 
 	// width height
-	--header-height: 100px;
+
+	--header-height: #{$header-height};
 	--side-bar-width: 400px;
 	--side-bar-width-collapsed: 150px;
 
@@ -31,7 +34,8 @@
 	--overlay: rgb(0 0 0 / 50%);
 
 	// z-index
-	--z-index-modal: 100;
+	--z-index-modal: 1000;
+	--z-index-overlay: 900;
 	--z-index-profile-card-container: 50;
 	--z-index-sidebar-button: 70;
 
@@ -46,4 +50,6 @@
 
 	// border-radius
 	--small-br: 10px;
+	--medium-br: 15px;
+	--large-br: 20px;
 }

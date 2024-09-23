@@ -1,4 +1,6 @@
 import { StoreDecorator } from "@decorators/storybook/Store.decorator"
+import { notificationListDataMock } from "@entities/Notification"
+import { userDataMock } from "@entities/User"
 import { type Meta, type StoryObj } from "@storybook/react"
 import { Header } from "./Header"
 
@@ -13,15 +15,24 @@ export default meta
 type TypeStory = StoryObj<typeof Header>
 
 export const Login: TypeStory = {
-	args: {},
+	parameters: {
+		mockData: [
+			{
+				url: `${__BASE_URL__}/notifications?_expand=user`,
+				method: "GET",
+				status: 200,
+				delay: 2000,
+				response: notificationListDataMock
+			}
+		]
+	},
+	args: {
+		isMobileTest: false
+	},
 	decorators: [
 		StoreDecorator({
 			user: {
-				authData: {
-					userName: "admin",
-					id: "1",
-					avatar: "https://i.pinimg.com/originals/f0/f8/fe/f0f8fe0e76824fd544a9154b995fb01d.jpg"
-				}
+				authData: userDataMock
 			}
 		})
 	]

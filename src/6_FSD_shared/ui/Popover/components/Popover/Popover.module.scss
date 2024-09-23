@@ -1,0 +1,13 @@
+.Popover {
+	position: relative;
+}
+
+.content {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+
+	overflow: hidden;
+
+	background-color: var(--bg-color);
+}

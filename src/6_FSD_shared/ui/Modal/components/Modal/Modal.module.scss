@@ -1,8 +1,12 @@
 .Modal {
+	display: flex;
 	position: fixed;
-	z-index: var(--z-index-modal);
 
-	transition: opacity 0.4s;
+	z-index: -1;
+	align-items: center;
+	justify-content: center;
+
+	transition: all 0.4s;
 
 	opacity: 0;
 
@@ -11,6 +15,8 @@
 }
 
 .content {
+	position: relative;
+
 	padding: 20px;
 
 	transform: scale(0.3);
@@ -24,20 +30,12 @@
 	color: var(--primary-color);
 }
 
-.overlay {
-	display: flex;
-	position: absolute;
-	align-items: center;
-	justify-content: center;
-	inset: 0;
+.isOpen {
+	z-index: var(--z-index-modal);
 
-	background-color: var(--overlay);
-}
-
-.Modal.isOpen {
 	opacity: 1;
 
-	pointer-events: all;
+	pointer-events: auto;
 
 	.content {
 		transform: scale(1);
