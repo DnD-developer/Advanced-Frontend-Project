@@ -26,7 +26,6 @@ export const Default: TypeStory = {
 
 export const Error: TypeStory = {
 	args: {
-		isOpen: true,
-		error: "Ошибка загрузки"
+		isOpen: true
 	}
 }
