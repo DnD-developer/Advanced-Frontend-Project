@@ -42,6 +42,7 @@ export const RatingCard = memo<RatingCardProps>(props => {
 				setIsOpenFeedback(true)
 				setSelectedRating(rating)
 			} else {
+				setSelectedRating(rating)
 				onAccept?.(rating)
 			}
 		},

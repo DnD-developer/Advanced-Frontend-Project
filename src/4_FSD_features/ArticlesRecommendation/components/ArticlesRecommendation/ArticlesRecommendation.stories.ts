@@ -8,17 +8,6 @@ import { ArticlesRecommendation } from "./ArticlesRecommendation"
 const meta: Meta<typeof ArticlesRecommendation> = {
 	title: "features/ArticlesRecommendation",
 	component: ArticlesRecommendation,
-	parameters: {
-		mockData: [
-			{
-				url: `${__BASE_URL__}/articles?_limit=4&_expand=user`,
-				method: "GET",
-				status: 200,
-				delay: 2000,
-				response: articlesListDataMock.slice(0, 3)
-			}
-		]
-	},
 	decorators: [StoreDecorator({}), CenterDecorator, PageDecorator]
 }
 
@@ -27,5 +16,44 @@ export default meta
 type TypeStory = StoryObj<typeof ArticlesRecommendation>
 
 export const Default: TypeStory = {
+	parameters: {
+		mockData: [
+			{
+				url: `${__BASE_URL__}/articles?_limit=4&_expand=user`,
+				method: "GET",
+				status: 200,
+				delay: 0,
+				response: articlesListDataMock.slice(0, 3)
+			}
+		]
+	},
+	args: {}
+}
+export const Loading: TypeStory = {
+	parameters: {
+		mockData: [
+			{
+				url: `${__BASE_URL__}/articles?_limit=4&_expand=user`,
+				method: "GET",
+				status: 200,
+				delay: 60000,
+				response: articlesListDataMock.slice(0, 3)
+			}
+		]
+	},
+	args: {}
+}
+export const Error: TypeStory = {
+	parameters: {
+		mockData: [
+			{
+				url: `${__BASE_URL__}/articles?_limit=4&_expand=user`,
+				method: "GET",
+				status: 503,
+				delay: 0,
+				response: articlesListDataMock.slice(0, 3)
+			}
+		]
+	},
 	args: {}
 }

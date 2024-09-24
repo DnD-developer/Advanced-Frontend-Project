@@ -23,21 +23,37 @@ export const Default: TypeStory = {
 				url: `${__BASE_URL__}/notifications?_expand=user`,
 				method: "GET",
 				status: 200,
-				delay: 2000,
+				delay: 0,
 				response: notificationListDataMock
 			}
 		]
 	},
 	args: {}
 }
+
+export const Loading: TypeStory = {
+	parameters: {
+		mockData: [
+			{
+				url: `${__BASE_URL__}/notifications?_expand=user`,
+				method: "GET",
+				status: 200,
+				delay: 60000,
+				response: notificationListDataMock
+			}
+		]
+	},
+	args: {}
+}
+
 export const Error: TypeStory = {
 	parameters: {
 		mockData: [
 			{
 				url: `${__BASE_URL__}/notifications?_expand=user`,
 				method: "GET",
-				status: 403,
-				delay: 2000,
+				status: 503,
+				delay: 0,
 				response: notificationListDataMock
 			}
 		]
