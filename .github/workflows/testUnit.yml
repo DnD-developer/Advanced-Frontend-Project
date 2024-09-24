@@ -6,9 +6,6 @@ on:
         branches:
             - master
             - dev
-    push:
-        branches:
-            - dev
         paths-ignore:
             - .github/**/*
             - ./**/*.json

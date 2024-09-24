@@ -23,9 +23,3 @@ export const Default: TypeStory = {
 		isLoading: false
 	}
 }
-
-export const Error: TypeStory = {
-	args: {
-		isOpen: true
-	}
-}
