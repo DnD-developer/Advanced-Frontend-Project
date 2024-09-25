@@ -1,7 +1,7 @@
 import { RouterDecorator } from "@decorators/storybook/Router.decorator"
 import { StyleDecorator } from "@decorators/storybook/Style.decorator"
 import { ThemeDecorator } from "@decorators/storybook/Theme.decorator"
-import { THEMES } from "@providers/ThemeProvider"
+import { THEMES } from "@sharedProviders/ThemeProvider"
 
 import type { Preview } from "@storybook/react"
 import i18n from "./i18nextStorybook"

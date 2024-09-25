@@ -1,6 +1,6 @@
 import App from "@app/App"
 import { StoreProvider } from "@providers/StoreProvider"
-import { ThemesProvider } from "@providers/ThemeProvider"
+import { ThemesProvider } from "@sharedProviders/ThemeProvider"
 import { Suspense } from "react"
 import { BrowserRouter } from "react-router-dom"
 

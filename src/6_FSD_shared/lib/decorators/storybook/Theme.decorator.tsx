@@ -1,4 +1,4 @@
-import { ThemesProvider } from "@providers/ThemeProvider"
+import { ThemesProvider } from "@sharedProviders/ThemeProvider"
 import { type ClassNameStrategyConfiguration, DecoratorHelpers } from "@storybook/addon-themes"
 import { type Decorator } from "@storybook/react"
 
