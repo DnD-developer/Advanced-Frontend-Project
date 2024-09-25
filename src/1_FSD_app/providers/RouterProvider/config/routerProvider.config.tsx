@@ -1,4 +1,5 @@
-import { PagesNames, PagesPaths, routesPath } from "@config/routes/routePaths"
+import { routesPath } from "@config/routes/routePaths"
+import { PagesNames, PagesPaths } from "@constants/common.constant"
 import type { UserRoles } from "@entities/User"
 import { AboutPage } from "@pages/AboutPage"
 import { AdminPanelPage } from "@pages/AdminPanelPage"
@@ -32,7 +33,7 @@ export const routerProviderConfig: Record<PagesNames, CustomRouteProps> = {
 		roles: allowedRoles(PagesNames.ABOUT)
 	},
 	[PagesNames.PROFILE]: {
-		path: `${PagesPaths.PROFILE}/:id`,
+		path: PagesPaths.PROFILE,
 		element: <ProfilePage />,
 		isRequiredAuth: isRequiredAuth(PagesNames.PROFILE),
 		roles: allowedRoles(PagesNames.PROFILE)

@@ -1,5 +1,5 @@
-import { PagesPaths } from "@config/routes/routePaths"
-import { FAKE_AVATAR } from "@constants/common.constant"
+import { FAKE_AVATAR, PagesPaths } from "@constants/common.constant"
+import { addIdInPagePath } from "@helpers/addIdInPagePath/addIdInPagePath.helper"
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { AppLink } from "@ui/AppLink"
 import { Avatar, AvatarSize } from "@ui/Avatar"
@@ -31,7 +31,7 @@ export const CommentCard = memo<CommentCardProps>(props => {
 			<div className={classNamesHelp(styles.CommentCard, {}, [className])}>
 				<AppLink
 					className={styles.header}
-					to={`${PagesPaths.PROFILE}/${comment.user.id}`}
+					to={addIdInPagePath(PagesPaths.PROFILE, comment.user.id)}
 				>
 					<Avatar
 						src={comment.user?.avatar || faikAvatar}

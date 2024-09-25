@@ -1,5 +1,7 @@
 import { routesPath } from "@config/routes/routePaths"
+import { PagesPaths } from "@constants/common.constant"
 import { useAuth } from "@entities/User"
+import { addIdInPagePath } from "@helpers/addIdInPagePath/addIdInPagePath.helper"
 import { VStack } from "@ui/Stack"
 import type { HTMLAttributes } from "react"
 import { memo } from "react"
@@ -32,7 +34,11 @@ export const NavLinks = memo<NavLinksProps>(props => {
 						return (
 							<AppLinkWithIcon
 								key={path}
-								to={isRequiredUserId ? `${path}/${authData?.id}` : path}
+								to={
+									isRequiredUserId ?
+										addIdInPagePath(PagesPaths.PROFILE, authData?.id)
+									:	path
+								}
 								inverted={true}
 								collapsed={collapsed}
 								Icon={Icon}

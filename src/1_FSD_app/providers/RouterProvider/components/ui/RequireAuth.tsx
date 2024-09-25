@@ -1,4 +1,4 @@
-import { PagesPaths } from "@config/routes/routePaths"
+import { PagesPaths } from "@constants/common.constant"
 import { useAuth } from "@entities/User"
 import { memo, useMemo } from "react"
 import { Navigate, useLocation } from "react-router-dom"
