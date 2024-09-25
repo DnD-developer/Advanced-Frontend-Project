@@ -1,5 +1,6 @@
-import { PagesPaths } from "@config/routes/routePaths"
+import { PagesPaths } from "@constants/common.constant"
 import { useAuth } from "@entities/User"
+import { addIdInPagePath } from "@helpers/addIdInPagePath/addIdInPagePath.helper"
 import { Avatar, AvatarSize, AvatarTheme } from "@ui/Avatar"
 import { Dropdown } from "@ui/Dropdown"
 import { memo, useCallback, useMemo } from "react"
@@ -47,7 +48,7 @@ export const AvatarDropdown = memo<AvatarDropdownProps>(props => {
 			:	[]),
 			{
 				content: t("translation:profile"),
-				href: `${PagesPaths.PROFILE}/${authData?.id}`
+				href: addIdInPagePath(PagesPaths.PROFILE, authData?.id)
 			},
 			{
 				content: t("translation:logout"),

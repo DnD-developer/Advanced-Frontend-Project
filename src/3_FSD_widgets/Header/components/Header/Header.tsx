@@ -1,4 +1,4 @@
-import { PagesPaths } from "@config/routes/routePaths"
+import { PagesPaths } from "@constants/common.constant"
 import { useAuth } from "@entities/User"
 import { LoginModal } from "@features/AuthByUserName"
 import { AvatarDropdown } from "@features/AvatarDropdown"

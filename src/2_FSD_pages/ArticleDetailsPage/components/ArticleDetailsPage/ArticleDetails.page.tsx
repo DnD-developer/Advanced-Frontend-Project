@@ -1,9 +1,10 @@
-import { PagesPaths } from "@config/routes/routePaths"
+import { PagesPaths } from "@constants/common.constant"
 import type { articleDetailsDataType } from "@entities/Article"
 import { ArticleDetails, getArticleDataSelector } from "@entities/Article"
 import { useAuth } from "@entities/User"
 import { ArticleRating } from "@features/ArticleRating"
 import { ArticlesRecommendation } from "@features/ArticlesRecommendation"
+import { addIdInPagePath } from "@helpers/addIdInPagePath/addIdInPagePath.helper"
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { AppLink, AppLinkTheme } from "@ui/AppLink"
 import { VStack } from "@ui/Stack"
@@ -31,7 +32,7 @@ const ArticleDetailsPage = memo<ArticleDetailsPageProps>(props => {
 
 	let element: ReactNode
 
-	const toArticleEdit = `${PagesPaths.ARTICLES}/${id}/edit`
+	const toArticleEdit = addIdInPagePath(PagesPaths.ARTICLE_DETAILS_EDIT, id)
 
 	if (!id && __PROJECT__ !== "storybook") {
 		element = (

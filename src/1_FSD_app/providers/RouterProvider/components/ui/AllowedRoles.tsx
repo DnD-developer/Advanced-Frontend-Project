@@ -1,4 +1,4 @@
-import { PagesPaths } from "@config/routes/routePaths"
+import { PagesPaths } from "@constants/common.constant"
 import type { UserRoles } from "@entities/User"
 import { useAuth } from "@entities/User"
 import type { PropsWithChildren } from "react"

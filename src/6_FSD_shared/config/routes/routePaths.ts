@@ -1,32 +1,7 @@
 import { About, Home, Paper, ProfilePageIcon } from "@assets/index"
+import { PagesNames, PagesPaths } from "@constants/common.constant"
 import { UserRoles } from "@entities/User"
 import type { FC, SVGProps } from "react"
-
-export enum PagesNames {
-	MAIN = "main",
-	ABOUT = "about",
-	PROFILE = "profile",
-	ARTICLES = "articles",
-	ARTICLE_DETAILS = "ArticleDetails",
-	ARTICLE_DETAILS_EDIT = "ArticleDetailEdit",
-	ARTICLE_DETAILS_CREATE = "ArticleDetailsCreate",
-	ADMIN_PANEL = "AdminPanel",
-	FORBIDDEN = "FORBIDDEN",
-	NOT_FOUND = "NotFound"
-}
-
-export enum PagesPaths {
-	MAIN = "/",
-	ABOUT = "/about",
-	PROFILE = "/profile",
-	ARTICLES = "/articles",
-	ARTICLE_DETAILS = "/articles/:id",
-	ARTICLE_DETAILS_EDIT = "/articles/:id/edit",
-	ARTICLE_DETAILS_CREATE = "/articles/new",
-	ADMIN_PANEL = "/admin",
-	FORBIDDEN = "/notAllowed",
-	NOT_FOUND = "*"
-}
 
 type pagesInfo = {
 	name: PagesNames

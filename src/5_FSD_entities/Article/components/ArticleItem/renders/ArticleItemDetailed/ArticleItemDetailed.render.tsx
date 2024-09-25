@@ -1,6 +1,6 @@
 import { EyeIcon } from "@assets/index"
-import { PagesPaths } from "@config/routes/routePaths"
-import { FAKE_AVATAR } from "@constants/common.constant"
+import { FAKE_AVATAR, PagesPaths } from "@constants/common.constant"
+import { addIdInPagePath } from "@helpers/addIdInPagePath/addIdInPagePath.helper"
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { AppLink } from "@ui/AppLink"
 import { Avatar, AvatarSize, AvatarTheme } from "@ui/Avatar"
@@ -82,7 +82,7 @@ export const ArticleItemDetailedRender = memo<ArticleItemDetailedRenderProps>(pr
 					justify={"spaceBetween"}
 				>
 					<AppLink
-						to={`${PagesPaths.ARTICLES}/${article.id}`}
+						to={addIdInPagePath(PagesPaths.ARTICLE_DETAILS, article.id)}
 						target={target}
 					>
 						<Button theme={ButtonTheme.OUTLINE}>{t("article:readMore")}</Button>

@@ -1,5 +1,7 @@
 import { EyeIcon } from "@assets/index"
-import { PagesPaths } from "@config/routes/routePaths"
+import { PagesPaths } from "@constants/common.constant"
+import { addIdInPagePath } from "@helpers/addIdInPagePath/addIdInPagePath.helper"
+
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { AppLink } from "@ui/AppLink"
 import { Avatar, AvatarTheme } from "@ui/Avatar"
@@ -25,7 +27,7 @@ export const ArticleItemPlateRender = memo<ArticleItemPlateRenderProps>(props =>
 	return (
 		<Card className={classNamesHelp(styles.ArticleItemPlate, {}, [className])}>
 			<AppLink
-				to={`${PagesPaths.ARTICLES}/${article.id}`}
+				to={addIdInPagePath(PagesPaths.ARTICLE_DETAILS, article.id)}
 				target={target}
 			>
 				<Text

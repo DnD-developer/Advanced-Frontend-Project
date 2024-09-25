@@ -1,7 +1,8 @@
-import { PagesPaths } from "@config/routes/routePaths"
+import { PagesPaths } from "@constants/common.constant"
 import type { articleDetailsDataType } from "@entities/Article"
 import { getArticleDataSelector } from "@entities/Article"
 import { useAuth } from "@entities/User"
+import { addIdInPagePath } from "@helpers/addIdInPagePath/addIdInPagePath.helper"
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { AppLink } from "@ui/AppLink"
 import { Page } from "@widgets/Page"
@@ -32,7 +33,7 @@ const ArticleDetailsEditPage = memo<ArticleDetailsEditPageProps>(props => {
 			{id || testId ?
 				<>
 					<h1 className="page-header">{t("article:articleEdit")}</h1>
-					<AppLink to={`${PagesPaths.ARTICLES}/${id}`}>
+					<AppLink to={addIdInPagePath(PagesPaths.ARTICLE_DETAILS_EDIT, id)}>
 						{t("article:backToArticle")}
 					</AppLink>
 				</>
