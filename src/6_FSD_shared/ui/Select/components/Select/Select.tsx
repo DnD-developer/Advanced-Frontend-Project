@@ -7,11 +7,17 @@ import {
 import type { AnchorPropsWithSelection } from "@headlessui/react/dist/internal/floating"
 import type { Mods } from "@helpers/classNamesHelp/classNamesHelp"
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
-import { Fragment, memo, useCallback, useMemo } from "react"
+import { Fragment, useCallback, useMemo } from "react"
 import { SelectTheme } from "../../constants/Select.constant"
 import styles from "./Select.module.scss"
+import { TypedMemo } from "@sharedProviders/TypedMemo"
 
-type SelectCustomProps<T extends string> = {
+export type OptionType<T extends string> = {
+	value: T
+	content: string
+}
+
+export type SelectProps<T extends string> = {
 	className?: string
 	classNamesLabel?: string
 	theme?: SelectTheme
@@ -23,14 +29,7 @@ type SelectCustomProps<T extends string> = {
 	onChange?: (value: T) => void
 }
 
-export type OptionType<T extends string> = {
-	value: T
-	content: string
-}
-
-export type SelectProps<T extends string> = SelectCustomProps<T>
-
-const SelectComponent = <T extends string>(props: SelectProps<T>) => {
+export const Select = TypedMemo(<T extends string>(props: SelectProps<T>) => {
 	const {
 		className,
 		classNamesLabel,
@@ -120,6 +119,4 @@ const SelectComponent = <T extends string>(props: SelectProps<T>) => {
 	}
 
 	return hSelectComponent
-}
-
-export const Select = memo(SelectComponent) as typeof SelectComponent
+})
