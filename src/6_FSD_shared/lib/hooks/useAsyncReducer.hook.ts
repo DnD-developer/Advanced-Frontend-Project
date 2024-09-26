@@ -7,7 +7,7 @@ import { useAppStore } from "./useAppStore.hook"
 export type asyncReducersList = {
 	[name in mainStateAsyncKeys]?: Reducer<NonNullable<mainStateAsyncMap[name]>>
 }
-type asyncReducersEntries = [mainStateAsyncKeys, Reducer][]
+type asyncReducersEntries = [mainStateAsyncKeys, Reducer<mainStateAsyncMap[mainStateAsyncKeys]>][]
 
 export const useAsyncReducer = (asyncReducers: asyncReducersList, removeAfterUnmount = true) => {
 	const storeApp = useAppStore()
