@@ -6,7 +6,12 @@ const config: StorybookConfig = {
 	addons: [
 		"@storybook/addon-webpack5-compiler-swc",
 		"@storybook/addon-links",
-		"@storybook/addon-essentials",
+		{
+			name: "@storybook/addon-essentials",
+			options: {
+				backgrounds: false
+			}
+		},
 		"@chromatic-com/storybook",
 		"@storybook/addon-themes",
 		"storybook-react-i18next",
