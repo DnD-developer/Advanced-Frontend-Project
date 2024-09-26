@@ -10,8 +10,9 @@ import type { mainStateAsyncMap } from "@store/storeTypes/mainStateAsync.map"
 import type { Decorator } from "@storybook/react"
 import { articlesListReducer } from "@widgets/ArticlesList/store/slices/articlesList.slice"
 import { commentsArticleDetailsReducer } from "@widgets/CommentsArticleDetails/store/slices/commentsArticleDetails.slice"
+import type { asyncReducersList } from "@hooks/useAsyncReducer.hook"
 
-const asyncReducersDefault: DeepPartial<ReducersMapObject<mainStateAsyncMap>> = {
+const asyncReducersDefault: asyncReducersList = {
 	articleDetails: articleReducer,
 	editableProfileCard: editableProfileCardReducer,
 	commentsArticleDetails: commentsArticleDetailsReducer,
