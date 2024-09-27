@@ -1,7 +1,7 @@
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
-import { memo } from "react"
 import { TabThemes } from "../../constant/TabThemes.constant"
 import styles from "./Tabs.module.scss"
+import { TypedMemo } from "@sharedProviders/TypedMemo"
 
 export type TabsItemType<T extends string> = {
 	value: T
@@ -16,7 +16,7 @@ type TabsProps<T extends string> = {
 	onTabClick?: (value: TabsItemType<T>) => void
 }
 
-const TabsElement = <T extends string>(props: TabsProps<T>) => {
+export const Tabs = TypedMemo(<T extends string>(props: TabsProps<T>) => {
 	const { className, theme = TabThemes.OUTLINE, tabs, onTabClick, value } = props
 
 	const onTabClickHandler = (tab: TabsItemType<T>) => () => {
@@ -45,6 +45,4 @@ const TabsElement = <T extends string>(props: TabsProps<T>) => {
 			))}
 		</div>
 	)
-}
-
-export const Tabs = memo(TabsElement) as typeof TabsElement
+})

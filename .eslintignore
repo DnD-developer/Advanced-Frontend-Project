@@ -4,3 +4,4 @@ storybook-static
 backend
 .dependency-cruiser.js
 /src/dev/*
+/scripts/*
