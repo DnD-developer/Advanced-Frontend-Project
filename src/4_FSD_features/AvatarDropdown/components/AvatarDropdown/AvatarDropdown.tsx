@@ -1,11 +1,11 @@
-import { PagesPaths } from "@constants/common.constant"
 import { useAuth } from "@entities/User"
-import { addIdInPagePath } from "@helpers/addIdInPagePath/addIdInPagePath.helper"
 import { Avatar, AvatarSize, AvatarTheme } from "@ui/Avatar"
 import { Dropdown } from "@ui/Dropdown"
 import { memo, useCallback, useMemo } from "react"
 import { useTranslation } from "react-i18next"
 import { useDispatch } from "react-redux"
+import { RoutePaths } from "@config/router/constants/routePath.constant"
+import { getRouteProfile } from "@config/router"
 
 type AvatarDropdownProps = {
 	className?: string
@@ -42,13 +42,13 @@ export const AvatarDropdown = memo<AvatarDropdownProps>(props => {
 				[
 					{
 						content: t("translation:admin"),
-						href: `${PagesPaths.ADMIN_PANEL}`
+						href: `${RoutePaths.ADMIN_PANEL}`
 					}
 				]
 			:	[]),
 			{
 				content: t("translation:profile"),
-				href: addIdInPagePath(PagesPaths.PROFILE, authData?.id)
+				href: getRouteProfile(authData?.id)
 			},
 			{
 				content: t("translation:logout"),

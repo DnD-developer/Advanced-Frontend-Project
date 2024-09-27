@@ -1,7 +1,7 @@
-import { rtkBaseApi } from "@api/rtkBase.api"
-import { RequestPaths } from "@constants/common.constant"
+import { rtkBaseApi } from "@api/instances/rtkBase.api"
 
 import type { articleDetailsDataType } from "@entities/Article"
+import { RequestPaths } from "@api/constants/requestPath.constant"
 
 const fetchArticleRecommendationRtkq = rtkBaseApi.injectEndpoints({
 	endpoints: build => ({

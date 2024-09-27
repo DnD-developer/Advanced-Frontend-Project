@@ -1,5 +1,4 @@
-import { FAKE_AVATAR, PagesPaths } from "@constants/common.constant"
-import { addIdInPagePath } from "@helpers/addIdInPagePath/addIdInPagePath.helper"
+import { FAKE_AVATAR } from "@constants/common.constant"
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { AppLink } from "@ui/AppLink"
 import { Avatar, AvatarSize } from "@ui/Avatar"
@@ -9,6 +8,7 @@ import { useTranslation } from "react-i18next"
 import type { commentDataType } from "../../types/commentData.type"
 import styles from "./CommentCard.module.scss"
 import { CommentCardSkeleton } from "./ui/CommentCardSkeleton/CommentCardSkeleton"
+import { getRouteProfile } from "@config/router"
 
 type CommentCardProps = {
 	className?: string
@@ -31,7 +31,7 @@ export const CommentCard = memo<CommentCardProps>(props => {
 			<div className={classNamesHelp(styles.CommentCard, {}, [className])}>
 				<AppLink
 					className={styles.header}
-					to={addIdInPagePath(PagesPaths.PROFILE, comment.user.id)}
+					to={getRouteProfile(comment.user.id)}
 				>
 					<Avatar
 						src={comment.user?.avatar || faikAvatar}

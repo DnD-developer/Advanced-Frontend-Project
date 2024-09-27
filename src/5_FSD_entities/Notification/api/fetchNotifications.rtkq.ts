@@ -1,4 +1,4 @@
-import { rtkBaseApi } from "@api/rtkBase.api"
+import { rtkBaseApi } from "@api/instances/rtkBase.api"
 import type { notificationData } from "../types/notificationData.type"
 
 const fetchNotificationsRtkq = rtkBaseApi.injectEndpoints({

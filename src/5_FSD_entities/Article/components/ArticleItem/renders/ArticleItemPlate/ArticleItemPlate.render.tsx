@@ -1,6 +1,4 @@
 import { EyeIcon } from "@assets/index"
-import { PagesPaths } from "@constants/common.constant"
-import { addIdInPagePath } from "@helpers/addIdInPagePath/addIdInPagePath.helper"
 
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { AppLink } from "@ui/AppLink"
@@ -13,6 +11,7 @@ import { memo } from "react"
 import { useTranslation } from "react-i18next"
 import type { articleItemStateMap } from "../../../../store/storeTypes/articleItemState.map"
 import styles from "./ArticleItemPlateRender.module.scss"
+import { getRouteArticleDetails } from "@config/router"
 
 type ArticleItemPlateRenderProps = {
 	className?: string
@@ -27,7 +26,7 @@ export const ArticleItemPlateRender = memo<ArticleItemPlateRenderProps>(props =>
 	return (
 		<Card className={classNamesHelp(styles.ArticleItemPlate, {}, [className])}>
 			<AppLink
-				to={addIdInPagePath(PagesPaths.ARTICLE_DETAILS, article.id)}
+				to={getRouteArticleDetails(article.id)}
 				target={target}
 			>
 				<Text
