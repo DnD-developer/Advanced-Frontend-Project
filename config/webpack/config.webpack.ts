@@ -11,7 +11,7 @@ export function configWebpack(options: buildOptionsType): Configuration {
 	return {
 		mode,
 		entry: paths.entry,
-		devtool: isDev ? "inline-source-map" : undefined,
+		devtool: isDev ? "eval-source-map" : undefined,
 		optimization: optimizationWebpack(options),
 		devServer: isDev ? devServerWebpack(options) : undefined,
 		resolve: resolversWebpack(options),

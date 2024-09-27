@@ -11,12 +11,13 @@ export const babelLoader = ({ isDev, isTsx }: buildOptionBabelType): RuleSetRule
 	use: {
 		loader: "babel-loader",
 		options: {
+			cacheDirectory: true,
 			presets: ["@babel/preset-env"],
 			plugins: [
 				isDev && reactRefreshBabel,
 				"@babel/plugin-transform-runtime",
 				["@babel/plugin-transform-typescript", { isTsx }],
-				isTsx && [removeAttributePluginBabel, { props: ["data-testid"] }]
+				isTsx && isDev && [removeAttributePluginBabel, { props: ["data-testid"] }]
 			].filter(Boolean)
 		}
 	}
