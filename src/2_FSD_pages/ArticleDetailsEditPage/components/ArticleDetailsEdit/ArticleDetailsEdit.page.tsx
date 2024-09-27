@@ -1,8 +1,6 @@
-import { PagesPaths } from "@constants/common.constant"
 import type { articleDetailsDataType } from "@entities/Article"
 import { getArticleDataSelector } from "@entities/Article"
 import { useAuth } from "@entities/User"
-import { addIdInPagePath } from "@helpers/addIdInPagePath/addIdInPagePath.helper"
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { AppLink } from "@ui/AppLink"
 import { Page } from "@widgets/Page"
@@ -11,6 +9,8 @@ import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
 import { useParams } from "react-router"
 import { Navigate } from "react-router-dom"
+import { RoutePaths } from "@config/router/constants/routePath.constant"
+import { getRouteArticleDetailsEdit } from "@config/router"
 
 type ArticleDetailsEditPageProps = {
 	className?: string
@@ -25,7 +25,7 @@ const ArticleDetailsEditPage = memo<ArticleDetailsEditPageProps>(props => {
 	const { authData } = useAuth()
 
 	if (id && authData?.id !== data?.user.id) {
-		return <Navigate to={PagesPaths.MAIN} />
+		return <Navigate to={RoutePaths.MAIN} />
 	}
 
 	return (
@@ -33,7 +33,7 @@ const ArticleDetailsEditPage = memo<ArticleDetailsEditPageProps>(props => {
 			{id || testId ?
 				<>
 					<h1 className="page-header">{t("article:articleEdit")}</h1>
-					<AppLink to={addIdInPagePath(PagesPaths.ARTICLE_DETAILS_EDIT, id)}>
+					<AppLink to={getRouteArticleDetailsEdit(id)}>
 						{t("article:backToArticle")}
 					</AppLink>
 				</>

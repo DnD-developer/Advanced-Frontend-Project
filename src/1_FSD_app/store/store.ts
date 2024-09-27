@@ -1,5 +1,5 @@
-import { $api } from "@api/instanceAxios.api"
-import { rtkBaseApi } from "@api/rtkBase.api"
+import { $api } from "@api/instances/instanceAxios.api"
+import { rtkBaseApi } from "@api/instances/rtkBase.api"
 import { userReducer } from "@entities/User"
 import { scrollPositionReducer } from "@features/ScrollSave"
 import type { Reducer, ReducersMapObject } from "@reduxjs/toolkit"

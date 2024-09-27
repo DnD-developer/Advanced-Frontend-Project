@@ -1,4 +1,4 @@
-import { $api } from "@api/instanceAxios.api"
+import { $api } from "@api/instances/instanceAxios.api"
 import type { DeepPartial } from "@customTypes/global.types"
 import { renderDecorator } from "@decorators/tests/render.decorator"
 import { userEventDecorator } from "@decorators/tests/userEvent.decorator"

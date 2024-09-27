@@ -1,4 +1,4 @@
-import type { rtkBaseApi } from "@api/rtkBase.api"
+import type { rtkBaseApi } from "@api/instances/rtkBase.api"
 import type { userStateMap } from "@entities/User"
 import type { scrollPositionState } from "@features/ScrollSave"
 

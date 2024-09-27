@@ -1,10 +1,8 @@
-import { PagesPaths } from "@constants/common.constant"
 import type { articleDetailsDataType } from "@entities/Article"
 import { ArticleDetails, getArticleDataSelector } from "@entities/Article"
 import { useAuth } from "@entities/User"
 import { ArticleRating } from "@features/ArticleRating"
 import { ArticlesRecommendation } from "@features/ArticlesRecommendation"
-import { addIdInPagePath } from "@helpers/addIdInPagePath/addIdInPagePath.helper"
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { AppLink, AppLinkTheme } from "@ui/AppLink"
 import { VStack } from "@ui/Stack"
@@ -17,6 +15,7 @@ import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
 import { useParams } from "react-router"
 import styles from "./ArticleDetailsPage.module.scss"
+import { getRouteArticleDetailsEdit } from "@config/router"
 
 type ArticleDetailsPageProps = {
 	className?: string
@@ -32,7 +31,7 @@ const ArticleDetailsPage = memo<ArticleDetailsPageProps>(props => {
 
 	let element: ReactNode
 
-	const toArticleEdit = addIdInPagePath(PagesPaths.ARTICLE_DETAILS_EDIT, id)
+	const toArticleEdit = getRouteArticleDetailsEdit(id)
 
 	if (!id && __PROJECT__ !== "storybook") {
 		element = (
