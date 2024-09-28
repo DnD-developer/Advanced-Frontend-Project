@@ -17,7 +17,7 @@ export const RouterProvider = memo(() => {
 	return (
 		<Suspense fallback={_fallback}>
 			<Routes>
-				{Object.values(routerProviderConfig).map(pageInfo => {
+				{routerProviderConfig.map(pageInfo => {
 					return (
 						<Route
 							key={pageInfo.path}

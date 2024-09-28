@@ -26,7 +26,7 @@ export const Default: TypeStory = {
 				url: `${__BASE_URL__}/article-ratings?articleId=1&userId=1`,
 				method: "GET",
 				status: 200,
-				delay: 2000,
+				delay: 0,
 				response: ratingDataMock
 			}
 		]
@@ -36,46 +36,15 @@ export const Default: TypeStory = {
 	}
 }
 
-export const PostRating: TypeStory = {
+export const Loading: TypeStory = {
 	parameters: {
 		mockData: [
 			{
 				url: `${__BASE_URL__}/article-ratings?articleId=1&userId=1`,
 				method: "GET",
 				status: 200,
-				delay: 2000,
-				response: []
-			},
-			{
-				url: `${__BASE_URL__}/article-ratings`,
-				method: "POST",
-				status: 200,
-				delay: 1000,
-				response: []
-			}
-		]
-	},
-	args: {
-		articleId: "1"
-	}
-}
-
-export const PostRatingError: TypeStory = {
-	parameters: {
-		mockData: [
-			{
-				url: `${__BASE_URL__}/article-ratings?articleId=1&userId=1`,
-				method: "GET",
-				status: 200,
-				delay: 2000,
-				response: []
-			},
-			{
-				url: `${__BASE_URL__}/article-ratings`,
-				method: "POST",
-				status: 503,
-				delay: 1000,
-				response: []
+				delay: 60000,
+				response: ratingDataMock
 			}
 		]
 	},
@@ -91,8 +60,56 @@ export const Error: TypeStory = {
 				url: `${__BASE_URL__}/article-ratings?articleId=1&userId=1`,
 				method: "GET",
 				status: 503,
-				delay: 2000,
+				delay: 0,
 				response: ratingDataMock
+			}
+		]
+	},
+	args: {
+		articleId: "1"
+	}
+}
+
+export const WithOutRating: TypeStory = {
+	parameters: {
+		mockData: [
+			{
+				url: `${__BASE_URL__}/article-ratings?articleId=1&userId=1`,
+				method: "GET",
+				status: 200,
+				delay: 0,
+				response: []
+			},
+			{
+				url: `${__BASE_URL__}/article-ratings`,
+				method: "POST",
+				status: 200,
+				delay: 1000,
+				response: []
+			}
+		]
+	},
+	args: {
+		articleId: "1"
+	}
+}
+
+export const WithOutRatingError: TypeStory = {
+	parameters: {
+		mockData: [
+			{
+				url: `${__BASE_URL__}/article-ratings?articleId=1&userId=1`,
+				method: "GET",
+				status: 200,
+				delay: 0,
+				response: []
+			},
+			{
+				url: `${__BASE_URL__}/article-ratings`,
+				method: "POST",
+				status: 503,
+				delay: 1000,
+				response: []
 			}
 		]
 	},

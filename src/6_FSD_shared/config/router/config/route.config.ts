@@ -1,120 +1,96 @@
 import { About, Home, Paper, ProfilePageIcon } from "@assets/index"
 import { UserRoles } from "@entities/User"
 import type { FC, SVGProps } from "react"
+import { PagesNames } from "../constants/pagesNames.constant"
+import { RoutePaths } from "../constants/routePath.constant"
 
-export enum PagesNames {
-	MAIN = "main",
-	ABOUT = "about",
-	PROFILE = "profile",
-	ARTICLES = "articles",
-	ARTICLE_DETAILS = "ArticleDetails",
-	ARTICLE_DETAILS_EDIT = "ArticleDetailEdit",
-	ARTICLE_DETAILS_CREATE = "ArticleDetailsCreate",
-	ADMIN_PANEL = "AdminPanel",
-	FORBIDDEN = "FORBIDDEN",
-	NOT_FOUND = "NotFound"
-}
-
-export enum PagesPaths {
-	MAIN = "/",
-	ABOUT = "/about",
-	PROFILE = "/profile",
-	ARTICLES = "/articles",
-	ARTICLE_DETAILS = "/articles/:id",
-	ARTICLE_DETAILS_EDIT = "/articles/:id/edit",
-	ARTICLE_DETAILS_CREATE = "/articles/new",
-	ADMIN_PANEL = "/admin",
-	FORBIDDEN = "/notAllowed",
-	NOT_FOUND = "*"
-}
-
-type pagesInfo = {
+export type routeInfoType = {
 	name: PagesNames
-	path: PagesPaths
+	path: RoutePaths
 	inHeader: boolean
 	isRequireAuth: boolean
 	isRequiredUserId: boolean
-	allowedRoles?: UserRoles[]
+	requiredRoles?: UserRoles[]
 	Icon?: FC<SVGProps<SVGSVGElement>>
 }
 
-export const routesPath: pagesInfo[] = [
-	{
+export const routeConfig: Record<PagesNames, routeInfoType> = {
+	[PagesNames.MAIN]: {
 		name: PagesNames.MAIN,
-		path: PagesPaths.MAIN,
+		path: RoutePaths.MAIN,
 		inHeader: true,
 		isRequiredUserId: false,
 		Icon: Home,
 		isRequireAuth: false
 	},
-	{
+	[PagesNames.ABOUT]: {
 		name: PagesNames.ABOUT,
-		path: PagesPaths.ABOUT,
+		path: RoutePaths.ABOUT,
 		inHeader: true,
 		isRequiredUserId: false,
 		Icon: About,
 		isRequireAuth: false
 	},
-	{
+	[PagesNames.PROFILE]: {
 		name: PagesNames.PROFILE,
-		path: PagesPaths.PROFILE,
+		path: RoutePaths.PROFILE,
 		inHeader: true,
 		isRequiredUserId: true,
 		Icon: ProfilePageIcon,
-		allowedRoles: [UserRoles.USER],
+		requiredRoles: [UserRoles.USER],
 		isRequireAuth: true
 	},
-	{
+	[PagesNames.ARTICLES]: {
 		name: PagesNames.ARTICLES,
-		path: PagesPaths.ARTICLES,
+		path: RoutePaths.ARTICLES,
 		inHeader: true,
 		Icon: Paper,
 		isRequiredUserId: false,
 		isRequireAuth: false
 	},
-	{
+	[PagesNames.ARTICLE_DETAILS]: {
 		name: PagesNames.ARTICLE_DETAILS,
-		path: PagesPaths.ARTICLE_DETAILS,
+		path: RoutePaths.ARTICLE_DETAILS,
 		isRequiredUserId: false,
 		inHeader: false,
 		isRequireAuth: false
 	},
-	{
+	[PagesNames.ARTICLE_DETAILS_EDIT]: {
 		name: PagesNames.ARTICLE_DETAILS_EDIT,
-		path: PagesPaths.ARTICLE_DETAILS_EDIT,
+		path: RoutePaths.ARTICLE_DETAILS_EDIT,
 		isRequiredUserId: false,
 		inHeader: false,
-		allowedRoles: [UserRoles.USER],
+		requiredRoles: [UserRoles.USER],
 		isRequireAuth: true
 	},
-	{
+	[PagesNames.ARTICLE_DETAILS_CREATE]: {
 		name: PagesNames.ARTICLE_DETAILS_CREATE,
-		path: PagesPaths.ARTICLE_DETAILS_CREATE,
+		path: RoutePaths.ARTICLE_DETAILS_CREATE,
 		isRequiredUserId: false,
 		inHeader: false,
-		allowedRoles: [UserRoles.USER],
+		requiredRoles: [UserRoles.USER],
 		isRequireAuth: true
 	},
-	{
+	[PagesNames.NOT_FOUND]: {
 		name: PagesNames.NOT_FOUND,
-		path: PagesPaths.NOT_FOUND,
+		path: RoutePaths.NOT_FOUND,
 		isRequiredUserId: false,
 		inHeader: false,
 		isRequireAuth: false
 	},
-	{
+	[PagesNames.ADMIN_PANEL]: {
 		name: PagesNames.ADMIN_PANEL,
-		path: PagesPaths.ADMIN_PANEL,
+		path: RoutePaths.ADMIN_PANEL,
 		isRequiredUserId: false,
 		inHeader: false,
-		allowedRoles: [UserRoles.ADMIN, UserRoles.MANAGER],
+		requiredRoles: [UserRoles.ADMIN, UserRoles.MANAGER],
 		isRequireAuth: true
 	},
-	{
+	[PagesNames.FORBIDDEN]: {
 		name: PagesNames.FORBIDDEN,
-		path: PagesPaths.FORBIDDEN,
+		path: RoutePaths.FORBIDDEN,
 		isRequiredUserId: false,
 		inHeader: false,
 		isRequireAuth: false
 	}
-]
+}

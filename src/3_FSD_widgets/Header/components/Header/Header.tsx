@@ -1,4 +1,3 @@
-import { PagesPaths } from "@config/routes/routePaths"
 import { useAuth } from "@entities/User"
 import { LoginModal } from "@features/AuthByUserName"
 import { AvatarDropdown } from "@features/AvatarDropdown"
@@ -12,6 +11,7 @@ import { Text, TextSize } from "@ui/Text"
 import { memo, type PropsWithChildren, useCallback, useState } from "react"
 import { useTranslation } from "react-i18next"
 import styles from "./Header.module.scss"
+import { RoutePaths } from "@config/router/constants/routePath.constant"
 
 type HeaderProps = {
 	classNames?: string
@@ -83,7 +83,7 @@ export const Header = memo<HeaderProps>(props => {
 						<AppLink
 							theme={AppLinkTheme.OUTLINE}
 							className={styles.createLink}
-							to={PagesPaths.ARTICLE_DETAILS_CREATE}
+							to={RoutePaths.ARTICLE_DETAILS_CREATE}
 							inverted={true}
 						>
 							{t("translation:createArticle")}

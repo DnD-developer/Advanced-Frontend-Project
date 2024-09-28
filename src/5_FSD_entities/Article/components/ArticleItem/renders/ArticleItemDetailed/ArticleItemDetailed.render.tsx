@@ -1,5 +1,4 @@
 import { EyeIcon } from "@assets/index"
-import { PagesPaths } from "@config/routes/routePaths"
 import { FAKE_AVATAR } from "@constants/common.constant"
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { AppLink } from "@ui/AppLink"
@@ -16,6 +15,7 @@ import type { articleItemStateMap } from "../../../../store/storeTypes/articleIt
 import type { articleBlockDataTextType } from "../../../../types/articleBlockData.type"
 import { ArticleBlockText } from "../../../ArticleDetails/ui/ArticleBlockText/ArticleBlockText"
 import styles from "./ArticleItemDetailedRender.module.scss"
+import { getRouteArticleDetails } from "@config/router"
 
 type ArticleItemDetailedRenderProps = {
 	className?: string
@@ -82,7 +82,7 @@ export const ArticleItemDetailedRender = memo<ArticleItemDetailedRenderProps>(pr
 					justify={"spaceBetween"}
 				>
 					<AppLink
-						to={`${PagesPaths.ARTICLES}/${article.id}`}
+						to={getRouteArticleDetails(article.id)}
 						target={target}
 					>
 						<Button theme={ButtonTheme.OUTLINE}>{t("article:readMore")}</Button>

@@ -1,10 +1,11 @@
 import type { Mods } from "@helpers/classNamesHelp/classNamesHelp"
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import type { ChangeEvent, InputHTMLAttributes } from "react"
-import { memo, useCallback, useEffect, useMemo, useRef } from "react"
+import { useCallback, useEffect, useMemo, useRef } from "react"
 import { VStack } from "../../../Stack"
 import { InputTheme } from "../../constants/Input.constant"
 import styles from "./Input.module.scss"
+import { TypedMemo } from "@sharedProviders/TypedMemo"
 
 type InputCustomProps<T extends number | string> = {
 	className?: string
@@ -24,7 +25,7 @@ type InputCustomProps<T extends number | string> = {
 type InputProps<T extends number | string> = InputCustomProps<T> &
 	Omit<InputHTMLAttributes<HTMLInputElement>, keyof InputCustomProps<T>>
 
-const InputElement = <T extends string | number>(props: InputProps<T>) => {
+export const Input = TypedMemo(<T extends string | number>(props: InputProps<T>) => {
 	const {
 		className,
 		theme = InputTheme.OUTLINE,
@@ -90,6 +91,4 @@ const InputElement = <T extends string | number>(props: InputProps<T>) => {
 	}
 
 	return inputElement()
-}
-
-export const Input = memo(InputElement) as typeof InputElement
+})

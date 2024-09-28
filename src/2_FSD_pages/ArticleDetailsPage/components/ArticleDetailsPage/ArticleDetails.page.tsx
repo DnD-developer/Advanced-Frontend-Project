@@ -1,4 +1,3 @@
-import { PagesPaths } from "@config/routes/routePaths"
 import type { articleDetailsDataType } from "@entities/Article"
 import { ArticleDetails, getArticleDataSelector } from "@entities/Article"
 import { useAuth } from "@entities/User"
@@ -16,6 +15,7 @@ import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
 import { useParams } from "react-router"
 import styles from "./ArticleDetailsPage.module.scss"
+import { getRouteArticleDetailsEdit } from "@config/router"
 
 type ArticleDetailsPageProps = {
 	className?: string
@@ -31,7 +31,7 @@ const ArticleDetailsPage = memo<ArticleDetailsPageProps>(props => {
 
 	let element: ReactNode
 
-	const toArticleEdit = `${PagesPaths.ARTICLES}/${id}/edit`
+	const toArticleEdit = getRouteArticleDetailsEdit(id)
 
 	if (!id && __PROJECT__ !== "storybook") {
 		element = (

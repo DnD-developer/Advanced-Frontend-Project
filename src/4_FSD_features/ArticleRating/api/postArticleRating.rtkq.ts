@@ -1,4 +1,4 @@
-import { rtkBaseApi } from "@api/rtkBase.api"
+import { rtkBaseApi } from "@api/instances/rtkBase.api"
 import type { ratingData } from "@entities/Rating"
 
 export type postArticleRatingParamsType = {
