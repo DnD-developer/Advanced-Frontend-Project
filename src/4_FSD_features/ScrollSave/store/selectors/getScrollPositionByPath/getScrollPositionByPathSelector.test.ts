@@ -10,6 +10,7 @@ describe(getScrollPositionByPathSelector, () => {
 				scroll: { ["/articles"]: 20 }
 			}
 		}
+
 		expect(getScrollPositionByPathSelector("/articles")(state as mainStateMap)).toBe(20)
 	})
 
@@ -19,6 +20,7 @@ describe(getScrollPositionByPathSelector, () => {
 				scroll: {}
 			}
 		}
-		expect(getScrollPositionByPathSelector("/articles")(state as mainStateMap)).toEqual(0)
+
+		expect(getScrollPositionByPathSelector("/articles")(state as mainStateMap)).toBe(0)
 	})
 })

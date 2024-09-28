@@ -1,14 +1,13 @@
-import { getScrollPositionByPathSelector, scrollPositionActions } from "@features/ScrollSave"
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
-import { useAppDispatch } from "@hooks/useAppDispatch.hook"
 import { useInfinityScroll } from "@hooks/useInfinityScroll.hook"
 import { useInitialEffect } from "@hooks/useInitialEffect.hook"
 import { useThrottle } from "@hooks/useThrottle.hook"
 import type { PropsWithChildren, UIEvent } from "react"
 import { memo, useCallback } from "react"
-import { useSelector } from "react-redux"
 import { useLocation } from "react-router-dom"
 import styles from "./Page.module.scss"
+import { useGetScrollPositionByPathSelector } from "@features/ScrollSave/store/selectors/getScrollPositionByPath/getScrollPositionByPath.selector"
+import { useScrollPositionActions } from "@features/ScrollSave/store/slices/scrollPosition.slice"
 
 type PageProps = {
 	className?: string
@@ -22,9 +21,9 @@ export const Page = memo<PageProps>(props => {
 
 	const pathName = useLocation().pathname
 
-	const dispatch = useAppDispatch()
-	const { setScrollPosition } = scrollPositionActions
-	const scrollPosition = useSelector(getScrollPositionByPathSelector(pathName))
+	const { setScrollPosition } = useScrollPositionActions()
+
+	const scrollPosition = useGetScrollPositionByPathSelector(pathName)()
 
 	useInitialEffect(
 		useCallback(() => {
@@ -39,9 +38,9 @@ export const Page = memo<PageProps>(props => {
 					[pathName]: event?.currentTarget.scrollTop
 				}
 
-				dispatch(setScrollPosition(scrollPosition))
+				setScrollPosition(scrollPosition)
 			},
-			[dispatch, pathName, setScrollPosition]
+			[pathName, setScrollPosition]
 		),
 		400
 	)
