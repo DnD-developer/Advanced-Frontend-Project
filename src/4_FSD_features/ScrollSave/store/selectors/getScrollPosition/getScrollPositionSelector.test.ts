@@ -3,7 +3,7 @@ import { describe, expect, test } from "@jest/globals"
 import type { mainStateMap } from "@store/storeTypes/mainState.map"
 import { getScrollPositionSelector } from "./getScrollPosition.selector"
 
-describe(getScrollPositionSelector, () => {
+describe("getScrollPositionSelector", () => {
 	test("get state", () => {
 		const state: DeepPartial<mainStateMap> = {
 			scrollPosition: {
