@@ -14,9 +14,9 @@ import { mappingErrors } from "../../lib/helpers/mappingErrors/mappingErrors"
 import type { profileStateMap } from "../../store/storeTypes/profileState.map"
 import type { profileCardDataType, profileDataType } from "../../types/profileData.type"
 import styles from "./ProfileCard.module.scss"
+import type { testingProps } from "@customTypes/testing.types"
 
 type ProfileCardCustomProps = {
-	"data-testid": string
 	classNames?: string
 	isLoading?: boolean
 	editAllow?: boolean
@@ -37,7 +37,9 @@ type ProfileCardCustomProps = {
 	onChangeCity?: (value: profileDataType["city"]) => void
 }
 
-type ProfileCardProps = ProfileCardCustomProps & Omit<profileStateMap, keyof ProfileCardCustomProps>
+type ProfileCardProps = ProfileCardCustomProps &
+	Omit<profileStateMap, keyof ProfileCardCustomProps> &
+	testingProps
 
 export const ProfileCard = memo<ProfileCardProps>(props => {
 	const {
