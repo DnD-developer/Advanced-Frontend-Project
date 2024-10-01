@@ -58,7 +58,7 @@
 			"userName": "Alice",
 			"password": "123",
 			"roles": ["USER"],
-			"avatar": "https://i.pinimg.com/originals/05/86/f5/0586f507c54a52dc0542a43fefe01cd2.jpg"
+			"avatar": "https://i.pinimg.com/originals/05/86/f5/0586f507c54a52dc0542a"
 		}
 	],
 	"profile": [
@@ -81,7 +81,7 @@
 			"country": "Belarus",
 			"city": "Alekseevka",
 			"userName": "Alice",
-			"avatar": "https://i.pinimg.com/originals/05/86/f5/0586f507c54a52dc0542a43fefe01cd2.jpg",
+			"avatar": "https://i.pinimg.com/originals/05/86/f5/0586f507c54a52dc0542a",
 			"id": "2"
 		}
 	],
@@ -90,7 +90,7 @@
 			"id": "1",
 			"title": "Javascript news СВЕЖАЯ",
 			"subtitle": "Что нового в JS за 2022 год?",
-			"img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
+			"img": "https://teknotower.com/wp-content/upl",
 			"views": 1022,
 			"createdAt": "26.04.2022",
 			"userId": "1",

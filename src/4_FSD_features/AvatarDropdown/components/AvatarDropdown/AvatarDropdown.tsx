@@ -30,6 +30,7 @@ export const AvatarDropdown = memo<AvatarDropdownProps>(props => {
 				theme={AvatarTheme.CIRCLE}
 				size={AvatarSize.SMALL}
 				src={authData?.avatar || ""}
+				inverted={true}
 				alt={t("translation:avatar")}
 			/>
 		),

@@ -3,7 +3,6 @@ import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { useAppDispatch } from "@hooks/useAppDispatch.hook"
 import type { asyncReducersList } from "@hooks/useAsyncReducer.hook"
 import { useAsyncReducer } from "@hooks/useAsyncReducer.hook"
-import { Avatar, AvatarSize, AvatarTheme } from "@ui/Avatar"
 import { VStack } from "@ui/Stack"
 import { Text, TextSize } from "@ui/Text"
 import type { ReactNode } from "react"
@@ -23,6 +22,8 @@ import { ArticleBlockText } from "./ui/ArticleBlockText/ArticleBlockText"
 import { ArticleDetailsError } from "./ui/ArticleDetailsError/ArticleDetailsError"
 import { ArticlesDetailsSkeleton } from "./ui/ArticleDetailsSkeleton/ArticlesDetailsSkeleton"
 import { TextWithIcon } from "./ui/TextWithIcon/TextWithIcon"
+import { AppImage } from "@ui/AppImage"
+import styles from "./ArticleDetails.module.scss"
 
 type ArticleDetailsProps = {
 	id: string | number
@@ -86,9 +87,8 @@ export const ArticleDetails = memo<ArticleDetailsProps>(props => {
 
 	content = (
 		<>
-			<Avatar
-				theme={AvatarTheme.CIRCLE}
-				size={AvatarSize.LARGE}
+			<AppImage
+				className={styles.avatar}
 				src={data?.img || ""}
 				alt={data?.title || ""}
 			/>
