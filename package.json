@@ -105,6 +105,7 @@
 		"jest-environment-jsdom": "^29.7.0",
 		"jest-html-reporters": "^3.1.7",
 		"json-server": "0.17.0",
+		"lint-staged": "^15.2.10",
 		"mini-css-extract-plugin": "^2.8.1",
 		"postcss": "^8.4.38",
 		"postcss-scss": "^4.0.9",
