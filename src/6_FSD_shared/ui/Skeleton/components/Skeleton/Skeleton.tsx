@@ -13,7 +13,14 @@ type SkeletonProps = {
 }
 
 export const Skeleton = memo<SkeletonProps>(props => {
-	const { className, theme = SkeletonTheme.RECTANGLE, width, height, borderRadius } = props
+	const {
+		className,
+		theme = SkeletonTheme.RECTANGLE,
+		width,
+		height,
+		borderRadius,
+		...otherProps
+	} = props
 
 	const stylesCSS = useMemo<CSSProperties>(() => {
 		return {
@@ -27,6 +34,7 @@ export const Skeleton = memo<SkeletonProps>(props => {
 		<div
 			className={classNamesHelp(styles.Skeleton, {}, [className, styles[theme]])}
 			style={stylesCSS}
+			{...otherProps}
 		></div>
 	)
 })

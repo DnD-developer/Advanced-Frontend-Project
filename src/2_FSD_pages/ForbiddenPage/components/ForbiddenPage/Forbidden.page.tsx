@@ -12,7 +12,10 @@ const ForbiddenPage = memo<ForbiddenPageProps>(props => {
 	const { t } = useTranslation("forbiddenPage")
 
 	return (
-		<Page className={classNamesHelp("", {}, [className])}>
+		<Page
+			className={classNamesHelp("", {}, [className])}
+			data-testid={"forbiddenPage"}
+		>
 			<h1
 				className={"page-header"}
 				style={{ color: "#ff0000", textAlign: "center" }}

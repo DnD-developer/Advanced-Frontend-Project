@@ -7,6 +7,7 @@ import styles from "./Avatar.module.scss"
 import { AppImage } from "../../../AppImage"
 import { AvatarIcon } from "@assets/index"
 import { Skeleton, SkeletonTheme } from "../../../Skeleton"
+import type { testingProps } from "@customTypes/testing.types"
 
 type AvatarCustomProps = {
 	className?: string
@@ -18,7 +19,8 @@ type AvatarCustomProps = {
 }
 
 type AvatarProps = AvatarCustomProps &
-	Omit<ImgHTMLAttributes<HTMLImageElement>, keyof AvatarCustomProps>
+	Omit<ImgHTMLAttributes<HTMLImageElement>, keyof AvatarCustomProps> &
+	testingProps
 
 export const Avatar = memo<AvatarProps>(props => {
 	const {
@@ -44,9 +46,10 @@ export const Avatar = memo<AvatarProps>(props => {
 					className,
 					styles[size]
 				])}
+				data-testid={props["data-testid"]}
 			/>
 		),
-		[className, modsErrorFallback, size]
+		[className, modsErrorFallback, props, size]
 	)
 
 	const fallback = useMemo(
@@ -57,10 +60,11 @@ export const Avatar = memo<AvatarProps>(props => {
 					styles[theme],
 					styles[size]
 				])}
+				data-testid={props["data-testid"]}
 				theme={SkeletonTheme.CIRCLE}
 			/>
 		),
-		[className, size, theme]
+		[className, props, size, theme]
 	)
 
 	return (

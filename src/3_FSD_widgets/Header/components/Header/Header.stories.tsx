@@ -32,7 +32,7 @@ export const Login: TypeStory = {
 	decorators: [
 		StoreDecorator({
 			user: {
-				authData: userDataMock
+				authData: userDataMock({})
 			}
 		})
 	]
