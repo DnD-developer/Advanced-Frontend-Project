@@ -25,6 +25,10 @@ button {
 
 	background: none;
 
+	font-size: inherit;
+
+	line-height: inherit;
+
 	&:disabled {
 		opacity: 1;
 
