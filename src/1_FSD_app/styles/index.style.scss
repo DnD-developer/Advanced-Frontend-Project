@@ -43,7 +43,8 @@
 }
 
 .full-height {
-	height: 100vh !important;
+	height: auto !important;
+	min-height: 100vh !important;
 }
 
 .page-wrapper {
