@@ -1,0 +1,5 @@
+{
+  "**/*.{ts,tsx}": "lint:ts:fix",
+  "**/*{.css,.scss}": "lint:style:fix",
+  "**/*{.ts,.tsx,.json,.html,.css,.scss}": "prettier --write"
+}
