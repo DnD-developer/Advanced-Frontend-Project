@@ -1,6 +1,6 @@
 {
 	"name": "advanced-frontend-project",
-	"packageManager": "yarn@4.1.1",
+	"packageManager": "yarn@4.5.0",
 	"version": "1.0.0",
 	"description": "Education Project of Advanced Frontend tech",
 	"main": "index.ts",
