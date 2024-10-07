@@ -68,49 +68,146 @@ export const ProfileCard = memo<ProfileCardProps>(props => {
 
 	const { validateErrors, isServerErrors } = useMemo(() => mappingErrors(errors), [errors])
 
-	const modsOpacityZero = useMemo<Mods>(() => {
-		return { [styles.opacityZero]: isServerErrors || isLoading ? true : false }
-	}, [isServerErrors, isLoading])
-
 	const modsReadOnly = useMemo<Mods>(() => {
 		return { [styles.writable]: !readOnly }
 	}, [readOnly])
+
+	let content: ReactNode = (
+		<>
+			<HStack
+				align={"center"}
+				justify={"center"}
+			>
+				{readOnly ?
+					<Avatar
+						src={data?.avatar || ""}
+						alt={t("profile:avatarProfileCard")}
+						data-testid={`${dataTestId}.AvatarCard`}
+					/>
+				:	<Input
+						data-testid={`${dataTestId}.AvatarInput`}
+						value={data?.avatar || ""}
+						label={
+							validateErrors.AVATAR_ERROR ?
+								t(ValidateErrorsConstant.AVATAR_ERROR)
+							:	t("profile:yourAvatar")
+						}
+						onChange={onChangeAvatar}
+						readOnly={readOnly}
+						error={validateErrors.AVATAR_ERROR}
+					/>
+				}
+			</HStack>
+			<VStack gap={"gap16"}>
+				<VStack gap={"gap16"}>
+					<Input
+						data-testid={`${dataTestId}.UserNameInput`}
+						value={data?.userName || ""}
+						label={
+							validateErrors.USERNAME_ERROR ?
+								t(ValidateErrorsConstant.USERNAME_ERROR)
+							:	t("profile:yourUserName")
+						}
+						onChange={onChangeUserName}
+						readOnly={readOnly}
+						error={validateErrors.USERNAME_ERROR}
+					/>
+					<Input
+						value={data?.firstName || ""}
+						data-testid={`${dataTestId}.FirstNameInput`}
+						label={
+							validateErrors.FIRST_NAME ?
+								t(ValidateErrorsConstant.FIRST_NAME)
+							:	t("profile:yourName")
+						}
+						onChange={onChangeFirstName}
+						readOnly={readOnly}
+						error={validateErrors.FIRST_NAME}
+					/>
+					<Input
+						value={data?.lastName || ""}
+						data-testid={`${dataTestId}.LastNameInput`}
+						label={
+							validateErrors.LAST_NAME ?
+								t(ValidateErrorsConstant.LAST_NAME)
+							:	t("profile:yourLastName")
+						}
+						onChange={onChangeLastName}
+						readOnly={readOnly}
+						error={validateErrors.LAST_NAME}
+					/>
+					<Input
+						data-testid={`${dataTestId}.AgeInput`}
+						value={data?.age || ""}
+						label={
+							validateErrors.AGE_ERROR ?
+								t(ValidateErrorsConstant.AGE_ERROR)
+							:	t("profile:yourAge")
+						}
+						onChange={onChangeAge}
+						readOnly={readOnly}
+						error={validateErrors.AGE_ERROR}
+					/>
+					<Input
+						data-testid={`${dataTestId}.CityInput`}
+						value={data?.city || ""}
+						label={
+							validateErrors.CITY_ERROR ?
+								t(ValidateErrorsConstant.CITY_ERROR)
+							:	t("profile:yourCity")
+						}
+						onChange={onChangeCity}
+						readOnly={readOnly}
+						error={validateErrors.CITY_ERROR}
+					/>
+				</VStack>
+
+				<HStack gap={"gap12"}>
+					{selectCurrency}
+					{selectCountry}
+				</HStack>
+			</VStack>
+		</>
+	)
+
+	if (isLoading) {
+		content = (
+			<VStack
+				align={"center"}
+				justify={"center"}
+				data-testid={`${dataTestId}.Loader`}
+			>
+				<Loader />
+			</VStack>
+		)
+	}
+
+	if (isServerErrors) {
+		content = (
+			<VStack
+				justify={"center"}
+				align={"center"}
+				gap={"gap16"}
+				data-testid={`${dataTestId}.ServerError`}
+			>
+				<Text
+					size={TextSize.BIG}
+					align={TextAlign.CENTER}
+					title={t(ServerErrors.SERVER_NOT_FOUND)}
+					text={t("profile:errorServerText")}
+					theme={TextTheme.ERROR}
+				/>
+
+				{reloadButton}
+			</VStack>
+		)
+	}
 
 	return (
 		<div
 			className={classNamesHelp(styles.ProfileCard, modsReadOnly, [classNames])}
 			data-testid={`${dataTestId}.ProfileCard`}
 		>
-			{isLoading ?
-				<VStack
-					align={"center"}
-					justify={"center"}
-					className={styles.container}
-					data-testid={`${dataTestId}.Loader`}
-				>
-					<Loader />
-				</VStack>
-			:	null}
-
-			{isServerErrors ?
-				<VStack
-					justify={"center"}
-					align={"center"}
-					gap={"gap16"}
-					className={styles.container}
-					data-testid={`${dataTestId}.ServerError`}
-				>
-					<Text
-						size={TextSize.BIG}
-						align={TextAlign.CENTER}
-						title={t(ServerErrors.SERVER_NOT_FOUND)}
-						text={t("profile:errorServerText")}
-						theme={TextTheme.ERROR}
-					/>
-
-					{reloadButton}
-				</VStack>
-			:	null}
 			<VStack gap={"gap16"}>
 				<HStack
 					align={"center"}
@@ -131,109 +228,7 @@ export const ProfileCard = memo<ProfileCardProps>(props => {
 					:	null}
 				</HStack>
 
-				<HStack
-					align={"center"}
-					justify={"center"}
-					className={classNamesHelp("", modsOpacityZero)}
-				>
-					{readOnly ?
-						<Avatar
-							src={data?.avatar || ""}
-							alt={t("translation:avatar")}
-							data-testid={`${dataTestId}.AvatarCard`}
-						/>
-					:	<Input
-							data-testid={`${dataTestId}.AvatarInput`}
-							value={data?.avatar || ""}
-							label={
-								validateErrors.AVATAR_ERROR ?
-									t(ValidateErrorsConstant.AVATAR_ERROR)
-								:	t("profile:yourAvatar")
-							}
-							classNamesLabel={classNamesHelp("", modsOpacityZero)}
-							onChange={onChangeAvatar}
-							readOnly={readOnly}
-							error={validateErrors.AVATAR_ERROR}
-						/>
-					}
-				</HStack>
-				<VStack gap={"gap16"}>
-					<VStack gap={"gap16"}>
-						<Input
-							data-testid={`${dataTestId}.UserNameInput`}
-							value={data?.userName || ""}
-							label={
-								validateErrors.USERNAME_ERROR ?
-									t(ValidateErrorsConstant.USERNAME_ERROR)
-								:	t("profile:yourUserName")
-							}
-							classNamesLabel={classNamesHelp("", modsOpacityZero)}
-							onChange={onChangeUserName}
-							readOnly={readOnly}
-							error={validateErrors.USERNAME_ERROR}
-						/>
-						<Input
-							value={data?.firstName || ""}
-							data-testid={`${dataTestId}.FirstNameInput`}
-							label={
-								validateErrors.FIRST_NAME ?
-									t(ValidateErrorsConstant.FIRST_NAME)
-								:	t("profile:yourName")
-							}
-							classNamesLabel={classNamesHelp("", modsOpacityZero)}
-							onChange={onChangeFirstName}
-							readOnly={readOnly}
-							error={validateErrors.FIRST_NAME}
-						/>
-						<Input
-							value={data?.lastName || ""}
-							data-testid={`${dataTestId}.LastNameInput`}
-							classNamesLabel={classNamesHelp("", modsOpacityZero)}
-							label={
-								validateErrors.LAST_NAME ?
-									t(ValidateErrorsConstant.LAST_NAME)
-								:	t("profile:yourLastName")
-							}
-							onChange={onChangeLastName}
-							readOnly={readOnly}
-							error={validateErrors.LAST_NAME}
-						/>
-						<Input
-							data-testid={`${dataTestId}.AgeInput`}
-							value={data?.age || ""}
-							classNamesLabel={classNamesHelp("", modsOpacityZero)}
-							label={
-								validateErrors.AGE_ERROR ?
-									t(ValidateErrorsConstant.AGE_ERROR)
-								:	t("profile:yourAge")
-							}
-							onChange={onChangeAge}
-							readOnly={readOnly}
-							error={validateErrors.AGE_ERROR}
-						/>
-						<Input
-							data-testid={`${dataTestId}.CityInput`}
-							value={data?.city || ""}
-							classNamesLabel={classNamesHelp("", modsOpacityZero)}
-							label={
-								validateErrors.CITY_ERROR ?
-									t(ValidateErrorsConstant.CITY_ERROR)
-								:	t("profile:yourCity")
-							}
-							onChange={onChangeCity}
-							readOnly={readOnly}
-							error={validateErrors.CITY_ERROR}
-						/>
-					</VStack>
-
-					<HStack
-						gap={"gap12"}
-						className={classNamesHelp("", modsOpacityZero)}
-					>
-						{selectCurrency}
-						{selectCountry}
-					</HStack>
-				</VStack>
+				{content}
 			</VStack>
 		</div>
 	)

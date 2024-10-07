@@ -1,5 +1,5 @@
 {
-  "**/*.{ts,tsx}": "lint:ts:fix",
-  "**/*{.css,.scss}": "lint:style:fix",
-  "**/*{.ts,.tsx,.json,.html,.css,.scss}": "prettier --write"
+  "**/*.{ts,tsx}": "yarn lint:ts:fix",
+  "**/*{.css,.scss}": "yarn lint:style:fix",
+  "**/*{.ts,.tsx,.json,.html,.css,.scss}": "yarn prettier --write"
 }
