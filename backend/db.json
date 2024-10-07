@@ -59,6 +59,20 @@
 			"password": "123",
 			"roles": ["USER"],
 			"avatar": "https://i.pinimg.com/originals/05/86/f5/0586f507c54a52dc0542a"
+		},
+		{
+			"id": "12",
+			"userName": "Admin Test User",
+			"password": "123",
+			"roles": ["USER", "ADMIN"],
+			"avatar": "https://i.pinimg.com/originals/f0/f8/fe/f0f8fe0e76824fd544a9154b995fb01d.jpg"
+		},
+		{
+			"id": "1212",
+			"userName": "Test User",
+			"password": "123",
+			"roles": ["USER"],
+			"avatar": "https://i.pinimg.com/originals/f0/f8/fe/f0f8fe0e76824fd544a9154b995fb01d.jpg"
 		}
 	],
 	"profile": [

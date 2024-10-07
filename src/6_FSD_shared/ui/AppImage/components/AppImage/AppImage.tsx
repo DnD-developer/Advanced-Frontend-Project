@@ -34,7 +34,6 @@ export const AppImage = memo<AppImageProps>(props => {
 	if (isError && errorFallback) {
 		return errorFallback
 	}
-	src
 
 	return (
 		<img

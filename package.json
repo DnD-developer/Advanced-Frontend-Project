@@ -22,6 +22,7 @@
 		"lint:prettier": "prettier --write **/*{.ts,.tsx,.json,.html,.css,.scss}",
 		"test:unit": "jest --config ./config/jest/jest.config.ts",
 		"test:ui": "chromatic --t chpt_4330b52d5d14286",
+		"test:e2e": "cypress open",
 		"storybook:start": "storybook dev -c config/storybook --no-open -p 6006 ",
 		"storybook:build": "storybook build -ci -c config/storybook",
 		"postinstall": "rimraf ./node_modules/.cache"
@@ -131,7 +132,7 @@
 		"ts-node": "^10.9.2",
 		"tsconfig-paths": "^4.2.0",
 		"type-fest": "^4.18.3",
-		"typescript": "*",
+		"typescript": "^5.6.2",
 		"typescript-plugin-css-modules": "^5.1.0",
 		"webpack": "^5.90.3",
 		"webpack-bundle-analyzer": "^4.10.1",
