@@ -27,8 +27,8 @@
 		"i18next",
 		"react",
 		"jest-dom",
-		"@typescript-eslint",
 		"react-hooks",
+		"@typescript-eslint",
 		"react-redux",
 		"react-refresh",
 		"@arthurgeron/react-usememo"
