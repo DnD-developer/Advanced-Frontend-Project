@@ -32,6 +32,7 @@ export const EditButton = memo<EditButtonProps>(props => {
 
 	return (
 		<Button
+			data-testid={"EditableProfileCard.EditButton"}
 			className={classNamesHelp(styles.EditButton, {}, [classNames])}
 			theme={ButtonTheme.OUTLINE}
 			onClick={setReadonlyHandler}

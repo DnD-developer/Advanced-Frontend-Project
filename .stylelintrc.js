@@ -4,7 +4,7 @@ module.exports = {
 	extends: [
 		"stylelint-config-standard-scss",
 		"stylelint-config-property-sort-order-smacss",
-		"prettier"
+		"stylelint-prettier/recommended"
 	],
 	plugins: ["stylelint-order"],
 	rules: {
@@ -14,7 +14,7 @@ module.exports = {
 		"selector-pseudo-class-no-unknown": [
 			true,
 			{
-				ignorePseudoClasses: ["global"]
+				ignorePseudoClasses: ["global", "export"]
 			}
 		]
 	}

@@ -1,5 +1,5 @@
-import { Country } from "../../Country"
-import { Currency } from "../../Currency"
+import type { Country } from "../../Country"
+import type { Currency } from "../../Currency"
 
 export type profileDataType = {
 	id: string
@@ -13,4 +13,4 @@ export type profileDataType = {
 	userName?: string
 }
 
-export type profileCardDatatype = Omit<profileDataType, "id">
+export type profileCardDataType = Omit<profileDataType, "id">

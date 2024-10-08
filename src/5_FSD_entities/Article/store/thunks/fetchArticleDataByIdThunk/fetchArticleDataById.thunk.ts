@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
-import { thunkConfigType } from "@store/storeTypes/thunks.type"
-import { articleDetailsDataType } from "../../../types/articleDetailsData.type"
-import { articleDetailsStateMap } from "../../storeTypes/articleDetailsState.map"
+import type { thunkConfigType } from "@store/storeTypes/thunks.type"
+import type { articleDetailsDataType } from "../../../types/articleDetailsData.type"
+import type { articleDetailsStateMap } from "../../storeTypes/articleDetailsState.map"
 
 export const fetchArticleDataByIdThunk = createAsyncThunk<
 	articleDetailsDataType,

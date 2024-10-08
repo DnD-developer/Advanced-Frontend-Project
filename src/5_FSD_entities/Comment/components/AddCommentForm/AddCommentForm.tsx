@@ -2,9 +2,10 @@ import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { Button, ButtonTheme } from "@ui/Button"
 import { Input } from "@ui/Input"
 import { InputTheme } from "@ui/Input/constants/Input.constant"
+import { HStack } from "@ui/Stack"
 import { memo } from "react"
 import { useTranslation } from "react-i18next"
-import { addCommentFormStateMap } from "../../store/storeTypes/addCommentFormState.map"
+import type { addCommentFormStateMap } from "../../store/storeTypes/addCommentFormState.map"
 import styles from "./AddCommentForm.module.scss"
 
 type AddCommentFormProps = {
@@ -26,7 +27,12 @@ export const AddCommentForm = memo<AddCommentFormProps>(props => {
 	const { t } = useTranslation()
 
 	return (
-		<div className={classNamesHelp(styles.AddCommentForm, {}, [className])}>
+		<HStack
+			align={"center"}
+			justify={"spaceBetween"}
+			gap={"gap24"}
+			className={classNamesHelp(styles.AddCommentForm, {}, [className])}
+		>
 			<Input
 				onChange={onSetTextHandler}
 				label={error ? error : ""}
@@ -44,6 +50,6 @@ export const AddCommentForm = memo<AddCommentFormProps>(props => {
 			>
 				{t("translation:send")}
 			</Button>
-		</div>
+		</HStack>
 	)
 })

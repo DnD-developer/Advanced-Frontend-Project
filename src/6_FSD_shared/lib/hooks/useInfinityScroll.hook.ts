@@ -1,4 +1,5 @@
-import { MutableRefObject, useEffect, useMemo, useRef } from "react"
+import type { MutableRefObject } from "react"
+import { useEffect, useMemo, useRef } from "react"
 
 export function useInfinityScroll(callback?: () => void) {
 	const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>

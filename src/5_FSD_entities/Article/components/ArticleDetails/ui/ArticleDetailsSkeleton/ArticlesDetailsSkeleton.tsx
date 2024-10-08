@@ -1,5 +1,6 @@
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { Skeleton, SkeletonTheme } from "@ui/Skeleton"
+import { VStack } from "@ui/Stack"
 import { memo } from "react"
 import styles from "./ArticleDetailsSkeleton.module.scss"
 
@@ -10,7 +11,10 @@ export const ArticlesDetailsSkeleton = memo<SkeletonProps>(props => {
 	const { className } = props
 
 	return (
-		<div className={classNamesHelp(styles.Skeleton, {}, [className])}>
+		<VStack
+			gap={"gap24"}
+			className={classNamesHelp("", {}, [className])}
+		>
 			<Skeleton
 				theme={SkeletonTheme.CIRCLE}
 				className={styles.center}
@@ -19,26 +23,24 @@ export const ArticlesDetailsSkeleton = memo<SkeletonProps>(props => {
 			/>
 			<Skeleton
 				theme={SkeletonTheme.RECTANGLE}
-				height="20"
+				height="20px"
 				width="669px"
-				className={styles.skeletonItem}
 			/>
 			<Skeleton
-				height="20"
+				height="20px"
 				width="399px"
 				theme={SkeletonTheme.RECTANGLE}
-				className={styles.skeletonItem}
 			/>
 			<Skeleton
 				height="200px"
+				width="100%"
 				theme={SkeletonTheme.RECTANGLE}
-				className={styles.skeletonItem}
 			/>
 			<Skeleton
 				height="200px"
+				width="100%"
 				theme={SkeletonTheme.RECTANGLE}
-				className={styles.skeletonItem}
 			/>
-		</div>
+		</VStack>
 	)
 })

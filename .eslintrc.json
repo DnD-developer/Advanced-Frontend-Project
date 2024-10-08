@@ -27,14 +27,15 @@
 		"i18next",
 		"react",
 		"jest-dom",
-		"@typescript-eslint",
 		"react-hooks",
+		"@typescript-eslint",
 		"react-redux",
 		"react-refresh",
 		"@arthurgeron/react-usememo"
 	],
 	"rules": {
 		"@arthurgeron/react-usememo/require-usememo": [2],
+		"@typescript-eslint/consistent-type-imports": "error",
 		"@arthurgeron/react-usememo/require-memo": "error",
 		"react-refresh/only-export-components": "error",
 		"react-hooks/exhaustive-deps": "error",
@@ -47,6 +48,7 @@
 		"@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
 		"no-console": ["warn"],
 		"react/prop-types": "off",
+		"@typescript-eslint/no-invalid-void-type": "off",
 		"i18next/no-literal-string": [
 			"error",
 			{
@@ -61,7 +63,14 @@
 						"style",
 						"type",
 						"height",
-						"width"
+						"width",
+						"direction",
+						"gap",
+						"justify",
+						"align",
+						"role",
+						"anchor",
+						"as"
 					]
 				}
 			}

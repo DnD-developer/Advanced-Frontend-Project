@@ -1,6 +1,6 @@
-import { commentDataType } from "@entities/Comment"
+import type { commentDataType } from "@entities/Comment"
 import { createEntityAdapter, createSlice } from "@reduxjs/toolkit"
-import { commentsArticleDetailsMap } from "../storeTypes/commentsArticleDetails.map"
+import type { commentsArticleDetailsMap } from "../storeTypes/commentsArticleDetails.map"
 import { fetchCommentsByArticleIdThunk } from "../thunks/fetchCommentsByArticleId.thunk"
 
 export const commentsArticleDetailsAdapter = createEntityAdapter<commentDataType>()

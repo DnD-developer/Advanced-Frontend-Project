@@ -1,9 +1,10 @@
-import { routesPath } from "@config/routes/routePaths"
+import { routeConfig } from "@config/router/config/route.config"
 import { useAuth } from "@entities/User"
-import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
-import { HTMLAttributes, memo } from "react"
-import styles from "./NavLinks.module.scss"
+import { VStack } from "@ui/Stack"
+import type { HTMLAttributes } from "react"
+import { memo } from "react"
 import { AppLinkWithIcon } from "./ui/AppLinkWithIcon/AppLinkWithIcon"
+import { getRouteProfile } from "@config/router"
 
 type NavLinksProps = {
 	classNames?: string
@@ -16,28 +17,31 @@ export const NavLinks = memo<NavLinksProps>(props => {
 	const { isAuth, authData } = useAuth()
 
 	return (
-		<ul className={classNamesHelp(styles.linkList, {}, [classNames])}>
-			{routesPath
+		<VStack
+			role={"navigation"}
+			gap={"gap32"}
+			align={"center"}
+			className={classNames}
+		>
+			{Object.values(routeConfig)
 				.filter(
 					({ inHeader, isRequireAuth }) =>
 						inHeader && ((isRequireAuth && isAuth) || !isRequireAuth)
 				)
-				.map(({ name, path, Icon, isRequiredUserId }) => (
-					<li
-						key={path}
-						className={styles.linkItem}
-					>
-						{Icon ?
+				.map(({ name, path, Icon, isRequiredUserId }) => {
+					if (Icon) {
+						return (
 							<AppLinkWithIcon
-								to={isRequiredUserId ? `${path}/${authData?.id}` : path}
+								key={path}
+								to={isRequiredUserId ? getRouteProfile(authData?.id) : path}
 								inverted={true}
 								collapsed={collapsed}
 								Icon={Icon}
 								name={name}
 							/>
-						:	<></>}
-					</li>
-				))}
-		</ul>
+						)
+					}
+				})}
+		</VStack>
 	)
 })

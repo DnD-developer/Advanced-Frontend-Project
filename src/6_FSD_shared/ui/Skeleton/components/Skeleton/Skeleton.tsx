@@ -1,5 +1,6 @@
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
-import { CSSProperties, memo, useMemo } from "react"
+import type { CSSProperties } from "react"
+import { memo, useMemo } from "react"
 import { SkeletonTheme } from "../../constants/Skeleton.constant"
 import styles from "./Skeleton.module.scss"
 
@@ -12,7 +13,14 @@ type SkeletonProps = {
 }
 
 export const Skeleton = memo<SkeletonProps>(props => {
-	const { className, theme = SkeletonTheme.RECTANGLE, width, height, borderRadius } = props
+	const {
+		className,
+		theme = SkeletonTheme.RECTANGLE,
+		width,
+		height,
+		borderRadius,
+		...otherProps
+	} = props
 
 	const stylesCSS = useMemo<CSSProperties>(() => {
 		return {
@@ -26,6 +34,7 @@ export const Skeleton = memo<SkeletonProps>(props => {
 		<div
 			className={classNamesHelp(styles.Skeleton, {}, [className, styles[theme]])}
 			style={stylesCSS}
+			{...otherProps}
 		></div>
 	)
 })

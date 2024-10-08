@@ -20,6 +20,20 @@ a {
 button {
 	margin: 0;
 	padding: 0;
+
+	border: none;
+
+	background: none;
+
+	font-size: inherit;
+
+	line-height: inherit;
+
+	&:disabled {
+		opacity: 1;
+
+		color: inherit;
+	}
 }
 
 code,

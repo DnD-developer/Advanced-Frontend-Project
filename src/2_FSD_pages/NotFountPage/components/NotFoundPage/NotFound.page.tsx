@@ -12,7 +12,10 @@ export const NotFoundPage = memo<NotFountPageProps>(props => {
 	const { t } = useTranslation("notFoundPage")
 
 	return (
-		<Page className={styles.pageWrapper}>
+		<Page
+			className={styles.pageWrapper}
+			data-testid={"notFoundPage"}
+		>
 			<h1 className={classNamesHelp("page-header", {}, [classNames, styles.pageHeader])}>
 				{t("notFoundPage:pageTile")}
 			</h1>

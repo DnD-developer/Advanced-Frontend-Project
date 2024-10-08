@@ -1,7 +1,8 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
-import { thunkConfigType } from "@store/storeTypes/thunks.type"
-import { profileDataType } from "../../types/profileData.type"
-import { profileStateMap, ServerErrors } from "../storeTypes/profileState.map"
+import type { thunkConfigType } from "@store/storeTypes/thunks.type"
+import { ServerErrors } from "../../constants/ServerErrors.constant"
+import type { profileDataType } from "../../types/profileData.type"
+import type { profileStateMap } from "../storeTypes/profileState.map"
 
 export const fetchProfileDataThunk = createAsyncThunk<
 	profileDataType,
@@ -15,6 +16,7 @@ export const fetchProfileDataThunk = createAsyncThunk<
 		}
 
 		const response = await extra.api.get<profileDataType>(`profile/${id}`)
+
 		return response.data
 	} catch {
 		return rejectWithValue([ServerErrors.SERVER_NOT_FOUND])

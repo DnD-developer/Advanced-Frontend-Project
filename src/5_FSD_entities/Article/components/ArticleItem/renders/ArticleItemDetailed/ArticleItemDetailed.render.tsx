@@ -1,19 +1,23 @@
 import { EyeIcon } from "@assets/index"
-import { PagesPaths } from "@config/routes/routePaths"
 import { FAKE_AVATAR } from "@constants/common.constant"
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { AppLink } from "@ui/AppLink"
-import { Avatar, AvatarSize, AvatarTheme } from "@ui/Avatar"
+import { Avatar, AvatarSize } from "@ui/Avatar"
 import { Button, ButtonTheme } from "@ui/Button"
-import { Card } from "@ui/Card/Card"
+import { Card } from "@ui/Card"
+import { HStack, VStack } from "@ui/Stack"
 import { Text, TextSize } from "@ui/Text"
-import { HTMLAttributeAnchorTarget, memo } from "react"
+import type { HTMLAttributeAnchorTarget } from "react"
+import { memo, useMemo } from "react"
 import { useTranslation } from "react-i18next"
 import { ArticleBlockTypeConstant } from "../../../../constants/ArticleBlock.constant"
-import { articleItemStateMap } from "../../../../store/storeTypes/articleItemState.map"
-import { articleBlockDataTextType } from "../../../../types/articleBlockData.type"
+import type { articleItemStateMap } from "../../../../store/storeTypes/articleItemState.map"
+import type { articleBlockDataTextType } from "../../../../types/articleBlockData.type"
 import { ArticleBlockText } from "../../../ArticleDetails/ui/ArticleBlockText/ArticleBlockText"
 import styles from "./ArticleItemDetailedRender.module.scss"
+import { getRouteArticleDetails } from "@config/router"
+import { AppImage } from "@ui/AppImage"
+import { SkeletonTheme, Skeleton } from "@ui/Skeleton"
 
 type ArticleItemDetailedRenderProps = {
 	className?: string
@@ -29,64 +33,85 @@ export const ArticleItemDetailedRender = memo<ArticleItemDetailedRenderProps>(pr
 		block => block.type === ArticleBlockTypeConstant.TEXT
 	) as articleBlockDataTextType
 
+	const fallback = useMemo(
+		() => (
+			<Skeleton
+				theme={SkeletonTheme.RECTANGLE}
+				className={styles.img}
+			/>
+		),
+		[]
+	)
 	return (
 		<Card className={classNamesHelp(styles.ArticleItemDetailed, {}, [className])}>
-			<div className={styles.header}>
-				<div className={styles.author}>
-					<Avatar
-						size={AvatarSize.SMALL}
-						src={article.user?.avatar || FAKE_AVATAR}
-						alt={t("article:authorAvatar")}
-					/>
-
-					<Text
-						className={styles.authorName}
-						title={article.user.userName}
-					/>
-				</div>
-				<Text text={article.createdAt} />
-			</div>
-			<Text
-				title={article.title}
-				size={TextSize.BIG}
-				className={styles.title}
-			/>
-			<Text
-				text={article.type.join(", ")}
-				className={styles.types}
-				classNamesText={styles.typesText}
-			/>
-			<div className={styles.preview}>
-				<Avatar
-					className={styles.img}
-					src={article.img}
-					alt={t("article:articlePreview")}
-					theme={AvatarTheme.SQUARE}
-				/>
-			</div>
-
-			{textBlock && (
-				<ArticleBlockText
-					paragraphs={textBlock.paragraphs}
-					className={styles.description}
-				/>
-			)}
-			<div className={styles.footer}>
-				<AppLink
-					to={`${PagesPaths.ARTICLES}/${article.id}`}
-					target={target}
+			<VStack gap={"gap32"}>
+				<HStack
+					align={"center"}
+					justify={"spaceBetween"}
 				>
-					<Button theme={ButtonTheme.OUTLINE}>{t("article:readMore")}</Button>
-				</AppLink>
+					<HStack
+						align={"center"}
+						gap={"gap8"}
+						widthMax={false}
+					>
+						<Avatar
+							size={AvatarSize.SMALL}
+							src={article.user?.avatar || FAKE_AVATAR}
+							alt={t("article:authorAvatar")}
+						/>
 
-				<div className={styles.view}>
-					<Text
-						text={article.views.toString()}
-						className={styles.viewText}
+						<Text title={article.user.userName} />
+					</HStack>
+					<Text text={article.createdAt} />
+				</HStack>
+				<Text
+					title={article.title}
+					size={TextSize.BIG}
+				/>
+				<Text
+					text={article.type.join(", ")}
+					className={styles.types}
+					classNamesText={styles.typesText}
+				/>
+				<HStack className={styles.preview}>
+					<AppImage
+						className={styles.img}
+						fallback={fallback}
+						src={article.img}
+						alt={t("article:articlePreview")}
 					/>
-					<EyeIcon className={styles.viewIcon} />
-				</div>
-			</div>
+				</HStack>
+
+				{textBlock && (
+					<ArticleBlockText
+						paragraphs={textBlock.paragraphs}
+						className={styles.description}
+					/>
+				)}
+				<HStack
+					align={"center"}
+					justify={"spaceBetween"}
+				>
+					<AppLink
+						to={getRouteArticleDetails(article.id)}
+						target={target}
+					>
+						<Button theme={ButtonTheme.OUTLINE}>{t("article:readMore")}</Button>
+					</AppLink>
+
+					<HStack
+						align={"center"}
+						gap={"gap8"}
+						widthMax={false}
+					>
+						<Text
+							text={article.views.toString()}
+							className={styles.viewText}
+						/>
+						<EyeIcon className={styles.viewIcon} />
+					</HStack>
+				</HStack>
+			</VStack>
 		</Card>
 	)
 })

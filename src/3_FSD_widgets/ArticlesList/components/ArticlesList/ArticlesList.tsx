@@ -1,4 +1,5 @@
-import { ArticleItemList, ArticleItemViews } from "@entities/Article"
+import type { ArticleItemViews } from "@entities/Article"
+import { ArticleItemList } from "@entities/Article"
 import {
 	ChangeViewArticlesList,
 	getArticlesListViewSelector
@@ -6,7 +7,8 @@ import {
 import { FilterArticlesList } from "@features/FilterArticlesList"
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { useAppDispatch } from "@hooks/useAppDispatch.hook"
-import { asyncReducersList, useAsyncReducer } from "@hooks/useAsyncReducer.hook"
+import type { asyncReducersList } from "@hooks/useAsyncReducer.hook"
+import { useAsyncReducer } from "@hooks/useAsyncReducer.hook"
 
 import { useInitialEffect } from "@hooks/useInitialEffect.hook"
 import { memo, useCallback } from "react"

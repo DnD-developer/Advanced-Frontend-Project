@@ -1,25 +1,24 @@
-import { DeepPartial } from "@customTypes/global.types"
+import { type DeepPartial } from "@customTypes/global.types"
 import { articleReducer } from "@entities/Article/store/slices/article.slice"
 import { addArticleCommentReducer } from "@features/AddArticleComment/store/slices/addArticleComment.slice"
-import { articlesRecommendationReducer } from "@features/ArticlesRecommendation/store/slice/articlesRecommendation.slice"
 import { editableProfileCardReducer } from "@features/EditableProfileCard/store/slices/editableProfileCard.slice"
 import { filterArticlesListReducer } from "@features/FilterArticlesList/store/slices/filterArticlesList.slice"
 import { StoreProvider } from "@providers/StoreProvider"
-import { ReducersMapObject } from "@reduxjs/toolkit"
-import { mainStateMap } from "@store/storeTypes/mainState.map"
-import { mainStateAsyncMap } from "@store/storeTypes/mainStateAsync.map"
-import { Decorator } from "@storybook/react"
+import type { ReducersMapObject } from "@reduxjs/toolkit"
+import type { mainStateMap } from "@store/storeTypes/mainState.map"
+import type { mainStateAsyncMap } from "@store/storeTypes/mainStateAsync.map"
+import type { Decorator } from "@storybook/react"
 import { articlesListReducer } from "@widgets/ArticlesList/store/slices/articlesList.slice"
 import { commentsArticleDetailsReducer } from "@widgets/CommentsArticleDetails/store/slices/commentsArticleDetails.slice"
+import type { asyncReducersList } from "@hooks/useAsyncReducer.hook"
 
-const asyncReducersDefault: DeepPartial<ReducersMapObject<mainStateAsyncMap>> = {
+const asyncReducersDefault: asyncReducersList = {
 	articleDetails: articleReducer,
 	editableProfileCard: editableProfileCardReducer,
 	commentsArticleDetails: commentsArticleDetailsReducer,
 	addArticleComment: addArticleCommentReducer,
 	articlesListStateMap: articlesListReducer,
-	filterArticlesList: filterArticlesListReducer,
-	articlesRecommendation: articlesRecommendationReducer
+	filterArticlesList: filterArticlesListReducer
 }
 
 export const StoreDecorator = (
@@ -34,7 +33,16 @@ export const StoreDecorator = (
 	return Story => {
 		const state: DeepPartial<mainStateMap> =
 			Story().props?.auth ?
-				{ ...initialState, user: { authData: { id: "1" } } }
+				{
+					...initialState,
+					user: {
+						authData: {
+							id: "1",
+							userName: "Lucifer",
+							avatar: "https://i.pinimg.com/originals/f0/f8/fe/f0f8fe0e76824fd544a9154b995fb01d.jpg"
+						}
+					}
+				}
 			:	initialState
 
 		return (

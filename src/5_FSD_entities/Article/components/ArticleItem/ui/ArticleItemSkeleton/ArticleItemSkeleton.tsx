@@ -1,6 +1,7 @@
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
-import { Card } from "@ui/Card/Card"
+import { Card } from "@ui/Card"
 import { Skeleton, SkeletonTheme } from "@ui/Skeleton"
+import { HStack, VStack } from "@ui/Stack"
 import { memo } from "react"
 import { ArticleItemViews } from "../../../../constants/ArticleItemViews.constant"
 import styles from "./ArticleItemSkeleton.module.scss"
@@ -15,62 +16,73 @@ export const ArticleItemSkeleton = memo<ArticleItemSkeletonProps>(props => {
 	if (view === ArticleItemViews.DETAILED) {
 		return (
 			<Card className={classNamesHelp(styles.ArticleItemSkeletonDetailed, {}, [className])}>
-				<div className={styles.headerWrapper}>
+				<VStack gap={"gap24"}>
+					<HStack
+						align={"center"}
+						gap={"gap16"}
+					>
+						<Skeleton
+							theme={SkeletonTheme.CIRCLE}
+							className={styles.avatar}
+						/>
+
+						<Skeleton
+							theme={SkeletonTheme.RECTANGLE}
+							className={styles.header}
+						/>
+					</HStack>
 					<Skeleton
-						theme={SkeletonTheme.CIRCLE}
-						className={styles.avatar}
+						theme={SkeletonTheme.RECTANGLE}
+						className={styles.title}
 					/>
+					<Skeleton
+						theme={SkeletonTheme.RECTANGLE}
+						className={styles.img}
+					/>
+
+					<VStack
+						gap={"gap8"}
+						className={styles.content}
+					>
+						<Skeleton
+							theme={SkeletonTheme.RECTANGLE}
+							className={styles.contentItem}
+						/>
+						<Skeleton
+							theme={SkeletonTheme.RECTANGLE}
+							className={styles.contentItem}
+						/>
+						<Skeleton
+							theme={SkeletonTheme.RECTANGLE}
+							className={styles.contentItem}
+						/>
+					</VStack>
 
 					<Skeleton
 						theme={SkeletonTheme.RECTANGLE}
-						className={styles.header}
+						className={styles.footer}
 					/>
-				</div>
-				<Skeleton
-					theme={SkeletonTheme.RECTANGLE}
-					className={styles.title}
-				/>
-				<Skeleton
-					theme={SkeletonTheme.RECTANGLE}
-					className={styles.img}
-				/>
-				<div className={styles.content}>
-					<Skeleton
-						theme={SkeletonTheme.RECTANGLE}
-						className={styles.contentItem}
-					/>
-					<Skeleton
-						theme={SkeletonTheme.RECTANGLE}
-						className={styles.contentItem}
-					/>
-					<Skeleton
-						theme={SkeletonTheme.RECTANGLE}
-						className={styles.contentItem}
-					/>
-				</div>
-
-				<Skeleton
-					theme={SkeletonTheme.RECTANGLE}
-					className={styles.footer}
-				/>
+				</VStack>
 			</Card>
 		)
 	}
 
 	return (
 		<Card className={classNamesHelp(styles.ArticleItemSkeletonPlate, {}, [className])}>
-			<Skeleton
-				theme={SkeletonTheme.RECTANGLE}
-				className={styles.img}
-			/>
-			<Skeleton
-				theme={SkeletonTheme.RECTANGLE}
-				className={styles.header}
-			/>
-			<Skeleton
-				theme={SkeletonTheme.RECTANGLE}
-				className={styles.content}
-			/>
+			<VStack gap={"gap16"}>
+				<Skeleton
+					theme={SkeletonTheme.RECTANGLE}
+					className={styles.img}
+				/>
+				<Skeleton
+					theme={SkeletonTheme.RECTANGLE}
+					className={styles.header}
+				/>
+				<Skeleton
+					theme={SkeletonTheme.RECTANGLE}
+					className={styles.content}
+				/>
+			</VStack>
 		</Card>
 	)
 })

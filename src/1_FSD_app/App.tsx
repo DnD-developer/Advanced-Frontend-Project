@@ -1,15 +1,14 @@
 import { useAuth } from "@entities/User"
-import { useTheme } from "@features/SwitchTheme"
-import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { useAppDispatch } from "@hooks/useAppDispatch.hook"
 import { ErrorBoundaryProvider } from "@providers/ErrorBoundaryProvider"
 import { RouterProvider } from "@providers/RouterProvider"
+import { useTheme } from "@sharedProviders/ThemeProvider"
 import { Header } from "@widgets/Header"
 import { SideBar } from "@widgets/SideBar"
 import { memo, useEffect } from "react"
 
 const App = memo(() => {
-	const { theme } = useTheme()
+	useTheme()
 
 	const dispatch = useAppDispatch()
 	const { initAuthData, _isInitAuthData } = useAuth()
@@ -19,7 +18,7 @@ const App = memo(() => {
 	}, [dispatch, initAuthData])
 
 	return (
-		<div className={classNamesHelp("app", {}, [theme])}>
+		<div className={"app"}>
 			<ErrorBoundaryProvider>
 				<Header />
 				<div className="page-container">

@@ -1,1 +1,1 @@
-export { Portal, PortalProps } from "./components/Portal/Portal"
+export { Portal, type PortalProps } from "./components/Portal/Portal"

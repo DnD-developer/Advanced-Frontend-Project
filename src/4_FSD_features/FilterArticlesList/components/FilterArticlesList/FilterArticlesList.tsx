@@ -1,13 +1,16 @@
-import { sortOrder } from "@customTypes/productGlobal.types"
+import type { sortOrder } from "@customTypes/productGlobal.types"
 import { ArticleTypeConstant } from "@entities/Article/constants/Article.constant"
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { useAppDispatch } from "@hooks/useAppDispatch.hook"
-import { asyncReducersList, useAsyncReducer } from "@hooks/useAsyncReducer.hook"
+import type { asyncReducersList } from "@hooks/useAsyncReducer.hook"
+import { useAsyncReducer } from "@hooks/useAsyncReducer.hook"
 import { useDebounce } from "@hooks/useDebounce.hook"
 import { Input } from "@ui/Input"
 import { InputTheme } from "@ui/Input/constants/Input.constant"
-import { OptionType, Select } from "@ui/Select"
-import { Tabs, TabsItem } from "@ui/Tabs"
+import type { OptionType } from "@ui/Select"
+import { Select } from "@ui/Select"
+import type { TabsItemType } from "@ui/Tabs"
+import { Tabs } from "@ui/Tabs"
 import { memo, useCallback, useMemo } from "react"
 import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
@@ -93,7 +96,7 @@ export const FilterArticlesList = memo<FilterArticlesListProps>(props => {
 		[dispatch, setSearch, debounceCallback]
 	)
 
-	const tabs = useMemo<TabsItem<ArticleTypeConstant | "ALL">[]>(
+	const tabs = useMemo<TabsItemType<ArticleTypeConstant | "ALL">[]>(
 		() => [
 			{
 				content: t("article:ALL"),
@@ -116,7 +119,7 @@ export const FilterArticlesList = memo<FilterArticlesListProps>(props => {
 	)
 
 	const onChangeTypeTopic = useCallback(
-		(tab: TabsItem<ArticleTypeConstant | "ALL">) => {
+		(tab: TabsItemType<ArticleTypeConstant | "ALL">) => {
 			dispatch(setType(tab.value))
 			debounceCallback()
 		},

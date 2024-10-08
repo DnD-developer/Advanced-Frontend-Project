@@ -6,6 +6,7 @@
 	"LAST_NAME": "Last Name required",
 	"SERVER_NOT_FOUND": "Server Not Found",
 	"USERNAME_ERROR": "User Name required",
+	"avatarProfileCard": "Avatar Profile Card",
 	"cancel": "Cancel",
 	"edit": "Edit",
 	"errorServerText": "error with load data",

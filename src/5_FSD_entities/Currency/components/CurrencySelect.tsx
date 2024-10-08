@@ -1,4 +1,5 @@
-import { OptionType, Select, SelectProps } from "@ui/Select"
+import type { OptionType, SelectProps } from "@ui/Select"
+import { Select } from "@ui/Select"
 import { memo, useCallback } from "react"
 import { useTranslation } from "react-i18next"
 import { Currency } from "../constants/Currency.constant"
@@ -20,7 +21,7 @@ const currencyOptions: OptionType<Currency>[] = Object.entries(Currency).map(([c
 })
 
 const CurrencySelectElement = <T extends string>(props: CurrencySelectProps<T>) => {
-	const { className, onChange, value, ...otherProps } = props
+	const { className, onChange, value = Currency.EUR, ...otherProps } = props
 
 	const { t } = useTranslation("profile")
 
@@ -33,6 +34,7 @@ const CurrencySelectElement = <T extends string>(props: CurrencySelectProps<T>) 
 
 	return (
 		<Select
+			data-testid={"currencySelect-entity"}
 			options={currencyOptions}
 			classNamesLabel={className}
 			onChange={onChangeHandler}

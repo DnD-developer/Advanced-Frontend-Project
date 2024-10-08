@@ -1,4 +1,4 @@
-import { mainStateMap } from "@store/storeTypes/mainState.map"
+import type { mainStateMap } from "@store/storeTypes/mainState.map"
 import { commentsArticleDetailsAdapter } from "../../slices/commentsArticleDetails.slice"
 
 const initialState = commentsArticleDetailsAdapter.getInitialState()

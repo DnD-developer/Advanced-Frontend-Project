@@ -1,13 +1,16 @@
-import { $api } from "@api/instanceAxios.api"
+import { $api } from "@api/instances/instanceAxios.api"
+import { rtkBaseApi } from "@api/instances/rtkBase.api"
 import { userReducer } from "@entities/User"
 import { scrollPositionReducer } from "@features/ScrollSave"
-import { configureStore, Reducer, ReducersMapObject } from "@reduxjs/toolkit"
-import { createReducerManager, reducerManagerType } from "./reducerManager"
-import { appStoreType } from "./storeTypes/appStoreType"
-import { mainStateMap } from "./storeTypes/mainState.map"
-import { mainStateAsyncMap } from "./storeTypes/mainStateAsync.map"
-import { mainStateStaticMap } from "./storeTypes/mainStateStatic.map"
-import { thunkExtraType } from "./storeTypes/thunks.type"
+import type { Reducer, ReducersMapObject } from "@reduxjs/toolkit"
+import { configureStore } from "@reduxjs/toolkit"
+import type { reducerManagerType } from "./reducerManager"
+import { createReducerManager } from "./reducerManager"
+import { type appStoreType } from "./storeTypes/appStoreType"
+import { type mainStateMap } from "./storeTypes/mainState.map"
+import { type mainStateAsyncMap } from "./storeTypes/mainStateAsync.map"
+import { type mainStateStaticMap } from "./storeTypes/mainStateStatic.map"
+import { type thunkExtraType } from "./storeTypes/thunks.type"
 
 export const storeCreator = ({ reduce }: reducerManagerType, initialState?: mainStateMap) => {
 	const apiService: thunkExtraType = {
@@ -23,7 +26,7 @@ export const storeCreator = ({ reduce }: reducerManagerType, initialState?: main
 				thunk: {
 					extraArgument: apiService
 				}
-			})
+			}).concat(rtkBaseApi.middleware)
 	})
 }
 
@@ -33,7 +36,8 @@ export function createReduxStore(
 ) {
 	const staticReducer: ReducersMapObject<mainStateStaticMap> = {
 		user: userReducer,
-		scrollPosition: scrollPositionReducer
+		scrollPosition: scrollPositionReducer,
+		[rtkBaseApi.reducerPath]: rtkBaseApi.reducer
 	}
 
 	const rootReducer: ReducersMapObject<mainStateMap> = {

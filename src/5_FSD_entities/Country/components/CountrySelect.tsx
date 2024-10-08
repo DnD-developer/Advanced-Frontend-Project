@@ -1,4 +1,5 @@
-import { OptionType, Select, SelectProps } from "@ui/Select"
+import type { OptionType, SelectProps } from "@ui/Select"
+import { Select } from "@ui/Select"
 import { memo, useCallback } from "react"
 import { useTranslation } from "react-i18next"
 import { Country } from "../constants/Country.constant"
@@ -20,7 +21,7 @@ const currencyOptions: OptionType<Country>[] = Object.entries(Country).map(([con
 })
 
 const CountrySelectElement = <T extends string>(props: CountrySelectProps<T>) => {
-	const { className, onChange, value, ...otherProps } = props
+	const { className, onChange, value = Country.Belarus, ...otherProps } = props
 
 	const { t } = useTranslation("profile")
 

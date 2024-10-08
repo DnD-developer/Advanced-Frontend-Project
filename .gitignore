@@ -1,8 +1,11 @@
 # dependencies
 /node_modules
+/src/dev/
 
 # testing
 /coverage
+/reports
+
 
 # production
 /build
@@ -24,7 +27,7 @@ chromatic.log
 
 storybook-static
 
-#yarn
+# yarn
 yarn-debug.log*
 yarn-error.log*
 .pnp.*
@@ -34,3 +37,4 @@ yarn-error.log*
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+

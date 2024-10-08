@@ -1,13 +1,11 @@
-import { ComponentPropsWithAuth, DeepPartial } from "@customTypes/global.types"
+import type { ComponentPropsWithAuth, DeepPartial } from "@customTypes/global.types"
 import { PageDecorator } from "@decorators/storybook/Page.decorator"
 import { StoreDecorator } from "@decorators/storybook/Store.decorator"
-import { articleDetailsDataType } from "@entities/Article/types/articleDetailsData.type"
-import { articlesRecommendationState } from "@features/ArticlesRecommendation"
-import { mainStateMap } from "@store/storeTypes/mainState.map"
+import { articleDataMock, articlesListDataMock } from "@entities/Article"
+import { ratingDataMock } from "@entities/Rating/lib/mocks/ratingData.mock"
+import type { mainStateMap } from "@store/storeTypes/mainState.map"
 import { type Meta, type StoryObj } from "@storybook/react"
 import { ArticleDetailsPage } from "../ArticleDetailsAsync.page"
-import dataArticle from "./ArticleDetails.data.json"
-import articlesRecommendation from "./articlesRecommendation.data.json"
 import commentsEntities from "./comments.data.json"
 
 type ArticleDetailsPageCustomProps = ComponentPropsWithAuth<typeof ArticleDetailsPage>
@@ -15,12 +13,28 @@ type ArticleDetailsPageCustomProps = ComponentPropsWithAuth<typeof ArticleDetail
 const meta: Meta<ArticleDetailsPageCustomProps> = {
 	title: "pages/ArticleDetailsPage",
 	component: ArticleDetailsPage,
-	decorators: [PageDecorator]
+	decorators: [PageDecorator],
+	parameters: {
+		mockData: [
+			{
+				url: `${__BASE_URL__}/articles?_limit=4&_expand=user`,
+				method: "GET",
+				status: 200,
+				delay: 2000,
+				response: articlesListDataMock.slice(0, 3)
+			},
+			{
+				url: `${__BASE_URL__}/article-ratings?articleId=1&userId=1`,
+				method: "GET",
+				status: 200,
+				delay: 2000,
+				response: ratingDataMock
+			}
+		]
+	}
 }
 
 export default meta
-
-const data: articleDetailsDataType = dataArticle as articleDetailsDataType
 
 const commentsArticleDetailsState = {
 	entities: commentsEntities,
@@ -36,14 +50,9 @@ const store: DeepPartial<mainStateMap> = {
 		text: ""
 	},
 	articleDetails: {
-		data: data
+		data: articleDataMock
 	},
-	commentsArticleDetails: commentsArticleDetailsState,
-	articlesRecommendation: {
-		entities: articlesRecommendation as articlesRecommendationState["entities"],
-		ids: ["1", "2", "3"],
-		isLoading: false
-	}
+	commentsArticleDetails: commentsArticleDetailsState
 }
 
 type TypeStory = StoryObj<ArticleDetailsPageCustomProps>

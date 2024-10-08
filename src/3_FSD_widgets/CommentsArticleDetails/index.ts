@@ -1,2 +1,2 @@
 export { CommentsArticleDetails } from "./components/CommentsArticleDetails/CommentsArticleDetails"
-export { commentsArticleDetailsMap } from "./store/storeTypes/commentsArticleDetails.map"
+export { type commentsArticleDetailsMap } from "./store/storeTypes/commentsArticleDetails.map"

@@ -5,8 +5,8 @@
 @import "themes/green";
 
 .page-header {
-	margin-top: 50px;
-	margin-bottom: 50px;
+	margin-top: 30px;
+	margin-bottom: 30px;
 	margin-left: 50px;
 
 	font-size: 50px;
@@ -43,7 +43,8 @@
 }
 
 .full-height {
-	height: 100vh !important;
+	height: auto !important;
+	min-height: 100vh !important;
 }
 
 .page-wrapper {
@@ -51,5 +52,4 @@
 	width: 100%;
 	height: calc(100vh - var(--header-height));
 	padding: 20px 20px 20px 50px;
-	overflow: auto;
 }

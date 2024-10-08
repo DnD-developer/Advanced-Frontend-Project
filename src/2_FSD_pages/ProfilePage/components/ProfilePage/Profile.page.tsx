@@ -1,4 +1,4 @@
-import { profileDataType } from "@entities/Profile"
+import type { profileDataType } from "@entities/Profile"
 import { EditableProfileCard } from "@features/EditableProfileCard"
 import { Page } from "@widgets/Page"
 import { memo } from "react"
@@ -19,7 +19,7 @@ const ProfilePage = memo((props: profilePageProps) => {
 
 	if (id) {
 		return (
-			<Page>
+			<Page data-testid={"profilePage"}>
 				<h1 className="page-header">{t("pageTitle")}</h1>
 				<EditableProfileCard
 					className={styles.profileCard}
@@ -31,7 +31,7 @@ const ProfilePage = memo((props: profilePageProps) => {
 
 	if (idTest) {
 		return (
-			<Page>
+			<Page data-testid={"profilePage"}>
 				<h1 className="page-header">{t("pageTitle")}</h1>
 				<EditableProfileCard
 					className={styles.profileCard}
@@ -40,7 +40,6 @@ const ProfilePage = memo((props: profilePageProps) => {
 			</Page>
 		)
 	}
-
 	return null
 })
 

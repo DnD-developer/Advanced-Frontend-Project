@@ -1,6 +1,7 @@
 import { fetchProfileDataThunk, mappingErrors } from "@entities/Profile"
-import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import { editableProfileStateMap } from "../storeTypes/editableProfileState.map"
+import type { PayloadAction } from "@reduxjs/toolkit"
+import { createSlice } from "@reduxjs/toolkit"
+import type { editableProfileStateMap } from "../storeTypes/editableProfileState.map"
 import { postProfileDataThunk } from "../thunks/postProfileData/postProfileData.thunk"
 
 const initialState: editableProfileStateMap = {
@@ -63,6 +64,7 @@ const editableProfileCardSlice = createSlice({
 
 				const { id, ...formData } = action.payload
 
+				state.formData = formData
 				state.data = { id, ...formData }
 
 				state.readOnly = true

@@ -1,6 +1,6 @@
-import { DeepPartial } from "@customTypes/global.types"
+import type { DeepPartial } from "@customTypes/global.types"
 import { StoreDecorator } from "@decorators/storybook/Store.decorator"
-import { mainStateMap } from "@store/storeTypes/mainState.map"
+import type { mainStateMap } from "@store/storeTypes/mainState.map"
 import { type Meta, type StoryObj } from "@storybook/react"
 import { SideBar } from "./SideBar"
 

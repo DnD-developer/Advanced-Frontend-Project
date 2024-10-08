@@ -1,18 +1,20 @@
-import { getScrollPositionByPathSelector, scrollPositionActions } from "@features/ScrollSave"
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
-import { useAppDispatch } from "@hooks/useAppDispatch.hook"
 import { useInfinityScroll } from "@hooks/useInfinityScroll.hook"
 import { useInitialEffect } from "@hooks/useInitialEffect.hook"
 import { useThrottle } from "@hooks/useThrottle.hook"
-import { memo, PropsWithChildren, UIEvent, useCallback } from "react"
-import { useSelector } from "react-redux"
+import type { PropsWithChildren, UIEvent } from "react"
+import { memo, useCallback } from "react"
 import { useLocation } from "react-router-dom"
 import styles from "./Page.module.scss"
+import { useGetScrollPositionByPathSelector } from "@features/ScrollSave/store/selectors/getScrollPositionByPath/getScrollPositionByPath.selector"
+import { useScrollPositionActions } from "@features/ScrollSave/store/slices/scrollPosition.slice"
+import type { testingProps } from "@customTypes/testing.types"
 
 type PageProps = {
 	className?: string
 	onScrollEnd?: () => void
-} & PropsWithChildren
+} & PropsWithChildren &
+	testingProps
 
 export const Page = memo<PageProps>(props => {
 	const { className, children, onScrollEnd } = props
@@ -21,9 +23,9 @@ export const Page = memo<PageProps>(props => {
 
 	const pathName = useLocation().pathname
 
-	const dispatch = useAppDispatch()
-	const { setScrollPosition } = scrollPositionActions
-	const scrollPosition = useSelector(getScrollPositionByPathSelector(pathName))
+	const { setScrollPosition } = useScrollPositionActions()
+
+	const scrollPosition = useGetScrollPositionByPathSelector(pathName)()
 
 	useInitialEffect(
 		useCallback(() => {
@@ -38,15 +40,16 @@ export const Page = memo<PageProps>(props => {
 					[pathName]: event?.currentTarget.scrollTop
 				}
 
-				dispatch(setScrollPosition(scrollPosition))
+				setScrollPosition(scrollPosition)
 			},
-			[dispatch, pathName, setScrollPosition]
+			[pathName, setScrollPosition]
 		),
 		400
 	)
 
 	return (
 		<section
+			data-testid={props["data-testid"]}
 			onScroll={onScrollHandler}
 			ref={wrapperRef}
 			className={classNamesHelp(styles.Page, {}, [className])}

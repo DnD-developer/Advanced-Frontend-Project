@@ -1,28 +1,31 @@
-import { PagesPaths } from "@config/routes/routePaths"
 import { useAuth } from "@entities/User"
 import { LoginModal } from "@features/AuthByUserName"
+import { AvatarDropdown } from "@features/AvatarDropdown"
+import { NotificationButton } from "@features/NotifiacationButton"
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { AppLink, AppLinkTheme } from "@ui/AppLink"
 import { Button, ButtonTheme } from "@ui/Button"
 import { Portal } from "@ui/Portal"
+import { HStack } from "@ui/Stack"
 import { Text, TextSize } from "@ui/Text"
 import { memo, type PropsWithChildren, useCallback, useState } from "react"
 import { useTranslation } from "react-i18next"
-import { useDispatch } from "react-redux"
 import styles from "./Header.module.scss"
+import { RoutePaths } from "@config/router/constants/routePath.constant"
 
 type HeaderProps = {
 	classNames?: string
+	isMobileTest?: false
 } & PropsWithChildren
+
 export const Header = memo<HeaderProps>(props => {
-	const { classNames, children } = props
+	const { classNames, children, isMobileTest } = props
 
 	const { t } = useTranslation()
 
 	const [isAuthModal, setIsAuthModal] = useState(false)
 
-	const dispatch = useDispatch()
-	const { logOut, authData } = useAuth()
+	const { authData } = useAuth()
 
 	const loginModalShow = useCallback(() => {
 		setIsAuthModal(true)
@@ -31,13 +34,7 @@ export const Header = memo<HeaderProps>(props => {
 		setIsAuthModal(false)
 	}, [])
 
-	const logOutHandler = useCallback(() => {
-		if (__PROJECT__ !== "storybook") {
-			dispatch(logOut())
-		}
-	}, [dispatch, logOut])
-
-	const btnLogin = (
+	const loginWidget = (
 		<Button
 			theme={ButtonTheme.CLEAR}
 			inverted
@@ -48,38 +45,53 @@ export const Header = memo<HeaderProps>(props => {
 	)
 
 	const btnLogOut = (
-		<Button
-			theme={ButtonTheme.CLEAR}
-			inverted
-			onClick={logOutHandler}
+		<HStack
+			align={"center"}
+			gap={"gap16"}
+			widthMax={false}
 		>
-			{t("translation:logout")}
-		</Button>
+			<NotificationButton
+				className={styles.btnNotification}
+				isMobileTest={isMobileTest}
+			/>
+			<AvatarDropdown />
+		</HStack>
 	)
 
 	return (
-		<div className={classNamesHelp(styles.Header, {}, [classNames])}>
+		<HStack
+			role={"heading"}
+			align={"center"}
+			className={classNamesHelp(styles.Header, {}, [classNames])}
+		>
 			{children}
-			<div className={styles.links}>
-				<div className={styles.headerLeft}>
+			<HStack
+				align={"center"}
+				justify={"spaceBetween"}
+			>
+				<HStack
+					align={"center"}
+					gap={"gap16"}
+				>
 					<Text
 						title={t("translation:welcomeToHell")}
 						size={TextSize.BIG}
 						inverted={true}
 					/>
+
 					{authData ?
 						<AppLink
 							theme={AppLinkTheme.OUTLINE}
 							className={styles.createLink}
-							to={PagesPaths.ARTICLE_DETAILS_CREATE}
+							to={RoutePaths.ARTICLE_DETAILS_CREATE}
 							inverted={true}
 						>
 							{t("translation:createArticle")}
 						</AppLink>
 					:	null}
-				</div>
-				{authData ? btnLogOut : btnLogin}
-			</div>
+				</HStack>
+				{authData ? btnLogOut : loginWidget}
+			</HStack>
 			<Portal>
 				<LoginModal
 					onClose={loginModalClose}
@@ -87,6 +99,6 @@ export const Header = memo<HeaderProps>(props => {
 					lazy
 				/>
 			</Portal>
-		</div>
+		</HStack>
 	)
 })

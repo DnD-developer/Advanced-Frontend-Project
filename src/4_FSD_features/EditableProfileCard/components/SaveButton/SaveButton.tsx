@@ -1,4 +1,4 @@
-import { profileDataType } from "@entities/Profile"
+import type { profileDataType } from "@entities/Profile"
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { useAppDispatch } from "@hooks/useAppDispatch.hook"
 import { Button, ButtonTheme } from "@ui/Button"
@@ -23,6 +23,7 @@ export const SaveButton = memo<SaveButtonProps>(props => {
 
 	return (
 		<Button
+			data-testid={"EditableProfileCard.SaveButton"}
 			theme={ButtonTheme.OUTLINE}
 			className={classNamesHelp(styles.SaveButton, {}, [classNames])}
 			onClick={onSaveHandler}

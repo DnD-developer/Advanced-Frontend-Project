@@ -27,7 +27,12 @@ server.post("/login", (req, res) => {
 		)
 
 		if (userFromBd) {
-			return res.json({ userName: userFromBd.userName, id: userFromBd.id })
+			return res.json({
+				userName: userFromBd.userName,
+				id: userFromBd.id,
+				avatar: userFromBd.avatar,
+				roles: userFromBd.roles
+			})
 		}
 
 		return res.status(403).json({ message: "User not found" })

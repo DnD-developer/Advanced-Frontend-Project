@@ -1,57 +1,35 @@
-import { PagesNames, PagesPaths, routesPath } from "@config/routes/routePaths"
-import { AboutPage } from "@pages/AboutPage"
-import { ArticleDetailsEditPage } from "@pages/ArticleDetailsEditPage"
-import { ArticleDetailsPage } from "@pages/ArticleDetailsPage"
-import { ArticlesPage } from "@pages/ArticlesPage"
-import { MainPage } from "@pages/MainPage"
-import { NotFoundPage } from "@pages/NotFountPage"
-import { ProfilePage } from "@pages/ProfilePage"
+import type { routeInfoType } from "@config/router/config/route.config"
+import { routeConfig } from "@config/router/config/route.config"
 import { type RouteProps } from "react-router"
+import type { ReactNode } from "react"
+import { MainPage } from "@pages/MainPage"
+import { AboutPage } from "@pages/AboutPage"
+import { ProfilePage } from "@pages/ProfilePage"
+import { ArticlesPage } from "@pages/ArticlesPage"
+import { ArticleDetailsPage } from "@pages/ArticleDetailsPage"
+import { ArticleDetailsEditPage } from "@pages/ArticleDetailsEditPage"
+import { NotFoundPage } from "@pages/NotFountPage"
+import { AdminPanelPage } from "@pages/AdminPanelPage"
+import { ForbiddenPage } from "@pages/ForbiddenPage"
+import { PagesNames } from "@config/router"
 
-const isRequiredAuth = (name: PagesNames) =>
-	routesPath.find(route => route.name === name)?.isRequireAuth
+export type CustomRouteProps = routeInfoType & RouteProps
 
-type CustomRouteProps = { isRequiredAuth?: boolean } & RouteProps
-
-export const routerProviderConfig: Record<PagesNames, CustomRouteProps> = {
-	[PagesNames.MAIN]: {
-		path: PagesPaths.MAIN,
-		element: <MainPage />,
-		isRequiredAuth: isRequiredAuth(PagesNames.MAIN)
-	},
-	[PagesNames.ABOUT]: {
-		path: PagesPaths.ABOUT,
-		element: <AboutPage />,
-		isRequiredAuth: isRequiredAuth(PagesNames.ABOUT)
-	},
-	[PagesNames.PROFILE]: {
-		path: `${PagesPaths.PROFILE}/:id`,
-		element: <ProfilePage />,
-		isRequiredAuth: isRequiredAuth(PagesNames.PROFILE)
-	},
-	[PagesNames.ARTICLES]: {
-		path: PagesPaths.ARTICLES,
-		element: <ArticlesPage />,
-		isRequiredAuth: isRequiredAuth(PagesNames.ARTICLES)
-	},
-	[PagesNames.ARTICLE_DETAILS]: {
-		path: `${PagesPaths.ARTICLE_DETAILS}`,
-		element: <ArticleDetailsPage />,
-		isRequiredAuth: isRequiredAuth(PagesNames.ARTICLE_DETAILS)
-	},
-	[PagesNames.ARTICLE_DETAILS_EDIT]: {
-		path: `${PagesPaths.ARTICLE_DETAILS_EDIT}`,
-		element: <ArticleDetailsEditPage />,
-		isRequiredAuth: isRequiredAuth(PagesNames.ARTICLE_DETAILS_EDIT)
-	},
-	[PagesNames.ARTICLE_DETAILS_CREATE]: {
-		path: `${PagesPaths.ARTICLE_DETAILS_CREATE}`,
-		element: <ArticleDetailsEditPage />,
-		isRequiredAuth: isRequiredAuth(PagesNames.ARTICLE_DETAILS_CREATE)
-	},
-	[PagesNames.NOT_FOUND]: {
-		path: PagesPaths.NOT_FOUND,
-		element: <NotFoundPage />,
-		isRequiredAuth: isRequiredAuth(PagesNames.NOT_FOUND)
-	}
+export const mapperPageNameComponent: Record<PagesNames, ReactNode> = {
+	[PagesNames.MAIN]: <MainPage />,
+	[PagesNames.ABOUT]: <AboutPage />,
+	[PagesNames.PROFILE]: <ProfilePage />,
+	[PagesNames.ARTICLES]: <ArticlesPage />,
+	[PagesNames.ARTICLE_DETAILS]: <ArticleDetailsPage />,
+	[PagesNames.ARTICLE_DETAILS_EDIT]: <ArticleDetailsEditPage />,
+	[PagesNames.ARTICLE_DETAILS_CREATE]: <ArticleDetailsEditPage />,
+	[PagesNames.NOT_FOUND]: <NotFoundPage />,
+	[PagesNames.ADMIN_PANEL]: <AdminPanelPage />,
+	[PagesNames.FORBIDDEN]: <ForbiddenPage />
 }
+
+export const routerProviderConfig: CustomRouteProps[] = Object.entries(routeConfig).map(
+	([routeName, routeInfo]) => {
+		return { ...routeInfo, element: mapperPageNameComponent[routeName as PagesNames] }
+	}
+)

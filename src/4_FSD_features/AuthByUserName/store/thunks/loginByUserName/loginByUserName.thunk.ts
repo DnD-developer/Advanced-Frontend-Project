@@ -1,9 +1,9 @@
-import { userActions, userDataType } from "@entities/User"
+import type { userDataType } from "@entities/User"
+import { userActions } from "@entities/User"
 import { createAsyncThunk } from "@reduxjs/toolkit"
-import { errorResponseType, thunkConfigType } from "@store/storeTypes/thunks.type"
-import { loginByUserNameDataType } from "../../../types/loginByUserNameData.type"
-import { loginByUserNameError } from "../../../types/loginByUserNameError.type"
-import { loginFormActions } from "../../slices/loginForm.slice"
+import type { errorResponseType, thunkConfigType } from "@store/storeTypes/thunks.type"
+import type { loginByUserNameDataType } from "../../../types/loginByUserNameData.type"
+import type { loginByUserNameError } from "../../../types/loginByUserNameError.type"
 
 export const loginByUserNameThunk = createAsyncThunk<
 	userDataType,
@@ -15,9 +15,6 @@ export const loginByUserNameThunk = createAsyncThunk<
 		const response = await extra.api.post<userDataType>("/login", loginByUserNameData)
 
 		const { setAuthData } = userActions
-		const { resetForm } = loginFormActions
-
-		dispatch(resetForm())
 		dispatch(setAuthData(response.data))
 
 		return response.data

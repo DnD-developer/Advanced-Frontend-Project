@@ -1,5 +1,5 @@
-import { ArticleItemViews } from "../../constants/ArticleItemViews.constant"
-import { articleDetailsDataType } from "../../types/articleDetailsData.type"
+import type { ArticleItemViews } from "../../constants/ArticleItemViews.constant"
+import type { articleDetailsDataType } from "../../types/articleDetailsData.type"
 
 export type articleItemStateMap = {
 	isLoading: boolean

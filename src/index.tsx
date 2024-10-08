@@ -3,8 +3,7 @@ import "@styles/index.style.scss"
 import "@config/i18n/i18n"
 import { RootComponent } from "./Root"
 
-const domRoot = document.getElementById("root")
+const rootElement = document.querySelector("#root") || document.body
+const root = createRoot(rootElement)
 
-const root = createRoot(domRoot || document.body)
-
-root.render(RootComponent)
+root.render(<RootComponent />)

@@ -1,7 +1,7 @@
 // icons
 import ArrowLeft from "./icons/arrow-left.svg"
 import ArrowRight from "./icons/arrow-right.svg"
-import Avatar from "./icons/avatar.svg"
+import AvatarIcon from "./icons/avatar.svg"
 import CalendarIcon from "./icons/calendar.svg"
 import DetailedView from "./icons/detailed_view.svg"
 import Done from "./icons/done.svg"
@@ -26,7 +26,7 @@ export {
 	Star,
 	Home,
 	Paper,
-	Avatar,
+	AvatarIcon,
 	Copy,
 	SwitchThemeIcon,
 	EyeIcon,

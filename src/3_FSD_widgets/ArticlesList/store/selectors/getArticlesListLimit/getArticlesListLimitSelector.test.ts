@@ -1,6 +1,6 @@
-import { DeepPartial } from "@customTypes/global.types"
+import type { DeepPartial } from "@customTypes/global.types"
 import { describe, expect, test } from "@jest/globals"
-import { mainStateMap } from "@store/storeTypes/mainState.map"
+import type { mainStateMap } from "@store/storeTypes/mainState.map"
 import { getArticlesListLimitSelector } from "./getArticlesListLimit.selector"
 
 describe(getArticlesListLimitSelector, () => {

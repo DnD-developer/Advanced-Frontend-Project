@@ -1,4 +1,38 @@
 {
+	"notifications": [
+		{
+			"id": "1",
+			"title": "Уведомление 1",
+			"description": "Произошло какое-то событие",
+			"userId": "1"
+		},
+		{
+			"id": "2",
+			"title": "Уведомление 2",
+			"description": "Произошло какое-то событие",
+			"userId": "1",
+			"href": "http://localhost:3000/admin"
+		},
+		{
+			"id": "3",
+			"title": "Уведомление 3",
+			"description": "Произошло какое-то событие",
+			"userId": "1",
+			"href": "http://localhost:3000/admin"
+		},
+		{
+			"id": "4",
+			"title": "Уведомление 4",
+			"description": "Произошло какое-то событие",
+			"userId": "1"
+		},
+		{
+			"id": "5",
+			"title": "Уведомление 1",
+			"description": "Произошло какое-то событие",
+			"userId": "2"
+		}
+	],
 	"posts": [
 		{
 			"id": "1",
@@ -16,13 +50,29 @@
 			"id": "1",
 			"userName": "Lucifer",
 			"password": "123",
+			"roles": ["USER", "ADMIN"],
 			"avatar": "https://i.pinimg.com/originals/f0/f8/fe/f0f8fe0e76824fd544a9154b995fb01d.jpg"
 		},
 		{
 			"id": "2",
 			"userName": "Alice",
 			"password": "123",
-			"avatar": "https://i.pinimg.com/originals/05/86/f5/0586f507c54a52dc0542a43fefe01cd2.jpg"
+			"roles": ["USER"],
+			"avatar": "https://i.pinimg.com/originals/05/86/f5/0586f507c54a52dc0542a"
+		},
+		{
+			"id": "12",
+			"userName": "Admin Test User",
+			"password": "123",
+			"roles": ["USER", "ADMIN"],
+			"avatar": "https://i.pinimg.com/originals/f0/f8/fe/f0f8fe0e76824fd544a9154b995fb01d.jpg"
+		},
+		{
+			"id": "1212",
+			"userName": "Test User",
+			"password": "123",
+			"roles": ["USER"],
+			"avatar": "https://i.pinimg.com/originals/f0/f8/fe/f0f8fe0e76824fd544a9154b995fb01d.jpg"
 		}
 	],
 	"profile": [
@@ -31,7 +81,7 @@
 			"lastName": "Morningstar",
 			"age": 10000,
 			"currency": "EUR",
-			"country": "Belarus",
+			"country": "Ukraine",
 			"city": "Fryazino",
 			"userName": "Lucifer",
 			"avatar": "https://i.pinimg.com/originals/f0/f8/fe/f0f8fe0e76824fd544a9154b995fb01d.jpg",
@@ -45,7 +95,7 @@
 			"country": "Belarus",
 			"city": "Alekseevka",
 			"userName": "Alice",
-			"avatar": "https://i.pinimg.com/originals/05/86/f5/0586f507c54a52dc0542a43fefe01cd2.jpg",
+			"avatar": "https://i.pinimg.com/originals/05/86/f5/0586f507c54a52dc0542a",
 			"id": "2"
 		}
 	],
@@ -54,7 +104,7 @@
 			"id": "1",
 			"title": "Javascript news СВЕЖАЯ",
 			"subtitle": "Что нового в JS за 2022 год?",
-			"img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
+			"img": "https://teknotower.com/wp-content/upl",
 			"views": 1022,
 			"createdAt": "26.04.2022",
 			"userId": "1",
@@ -547,6 +597,96 @@
 			"id": "Top ArticleLucifer5",
 			"articleId": "5",
 			"userId": "1"
+		},
+		{
+			"text": "Asdf",
+			"id": "AsdfAlice1",
+			"articleId": "1",
+			"userId": "2"
+		},
+		{
+			"text": "asd",
+			"id": "asdAlice1",
+			"articleId": "1",
+			"userId": "2"
+		},
+		{
+			"text": "adf",
+			"id": "adfAlice1",
+			"articleId": "1",
+			"userId": "2"
+		}
+	],
+	"article-ratings": [
+		{
+			"id": "1",
+			"rate": 4,
+			"feedback": "Хорошая статья",
+			"userId": "1",
+			"articleId": "1"
+		},
+		{
+			"id": "2",
+			"rate": 4,
+			"feedback": "Хорошая статья",
+			"userId": "1",
+			"articleId": "2"
+		},
+		{
+			"id": "fa56715ab60",
+			"articleId": "6",
+			"userId": "1",
+			"rate": 1,
+			"feedback": "asdfasdf"
+		},
+		{
+			"id": "291a2bf424f",
+			"articleId": "5",
+			"userId": "1",
+			"rate": 3,
+			"feedback": "asdfadsfs"
+		},
+		{
+			"id": "91a2bf424f9",
+			"articleId": "12",
+			"userId": "1",
+			"rate": 3,
+			"feedback": "adfasdf"
+		},
+		{
+			"id": "1a2bf424f9e",
+			"articleId": "10",
+			"userId": "1",
+			"rate": 2,
+			"feedback": "asdfadsf"
+		},
+		{
+			"id": "d6cd52558b9",
+			"articleId": "9",
+			"userId": "1",
+			"rate": 2,
+			"feedback": "adsfas"
+		},
+		{
+			"id": "19344982e54",
+			"articleId": "17",
+			"userId": "1",
+			"rate": 2,
+			"feedback": "asdfadsf"
+		},
+		{
+			"id": "034b4cb3ac5",
+			"articleId": "3",
+			"userId": "1",
+			"rate": 3,
+			"feedback": "adsfasdfs"
+		},
+		{
+			"id": "bddd3539a4b",
+			"articleId": "7",
+			"userId": "1",
+			"rate": 1,
+			"feedback": "adsfasdfsadf"
 		}
 	]
 }

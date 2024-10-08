@@ -2,13 +2,13 @@
 
 import { type Configuration } from "webpack"
 import { configWebpack } from "./config/webpack/config.webpack"
-import { type buildEnv, type buildOptions } from "./config/webpack/types/config"
+import { type buildEnvType, type buildOptionsType } from "./config/webpack/types/config"
 import { aliasesFromTsConfig } from "./config/webpack/webpackHelpers/aliasesFromTsConfig.webpack"
 import { mainPathsWebpack } from "./config/webpack/webpackHelpers/mainPaths.webpack"
 import { compilerOptions } from "./tsconfig.paths.json"
 
-export default (env: buildEnv): Configuration => {
-	const options: buildOptions = {
+export default (env: buildEnvType): Configuration => {
+	const options: buildOptionsType = {
 		paths: mainPathsWebpack(__dirname),
 		aliases: aliasesFromTsConfig(compilerOptions, __dirname),
 		mode: env.mode,

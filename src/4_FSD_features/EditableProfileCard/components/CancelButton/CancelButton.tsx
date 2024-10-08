@@ -22,6 +22,7 @@ export const CancelButton = memo<CancelButtonProps>(props => {
 
 	return (
 		<Button
+			data-testid={"EditableProfileCard.CancelButton"}
 			theme={ButtonTheme.OUTLINE}
 			className={classNamesHelp(styles.CancelButton, {}, [classNames])}
 			onClick={onResetFormHandler}

@@ -1,4 +1,4 @@
-import { userDataType } from "../../types/userData.type"
+import type { userDataType } from "../../types/userData.type"
 
 export type userStateMap = {
 	authData?: userDataType

@@ -1,6 +1,6 @@
-import { DeepPartial } from "@customTypes/global.types"
+import type { DeepPartial } from "@customTypes/global.types"
 import { describe, expect, test } from "@jest/globals"
-import { mainStateMap } from "@store/storeTypes/mainState.map"
+import type { mainStateMap } from "@store/storeTypes/mainState.map"
 import { getScrollPositionByPathSelector } from "./getScrollPositionByPath.selector"
 
 describe(getScrollPositionByPathSelector, () => {
@@ -10,6 +10,7 @@ describe(getScrollPositionByPathSelector, () => {
 				scroll: { ["/articles"]: 20 }
 			}
 		}
+
 		expect(getScrollPositionByPathSelector("/articles")(state as mainStateMap)).toBe(20)
 	})
 
@@ -19,6 +20,7 @@ describe(getScrollPositionByPathSelector, () => {
 				scroll: {}
 			}
 		}
-		expect(getScrollPositionByPathSelector("/articles")(state as mainStateMap)).toEqual(0)
+
+		expect(getScrollPositionByPathSelector("/articles")(state as mainStateMap)).toBe(0)
 	})
 })

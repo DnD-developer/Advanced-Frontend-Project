@@ -1,11 +1,12 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import { scrollPositionState, scrollType } from "../storeTypes/scrollPositionState.map"
+import type { PayloadAction } from "@reduxjs/toolkit"
+import type { scrollPositionState, scrollType } from "../storeTypes/scrollPositionState.map"
+import { buildSlice } from "@helpers/buildSlice/buildSlice.helper"
 
 const initialState: scrollPositionState = {
 	scroll: {}
 }
 
-const scrollPositionSlice = createSlice({
+const scrollPositionSlice = buildSlice({
 	name: "scrollPosition",
 	initialState,
 	reducers: {
@@ -15,5 +16,8 @@ const scrollPositionSlice = createSlice({
 	}
 })
 
-export const { actions: scrollPositionActions } = scrollPositionSlice
-export const { reducer: scrollPositionReducer } = scrollPositionSlice
+export const {
+	actions: scrollPositionActions,
+	reducer: scrollPositionReducer,
+	useActions: useScrollPositionActions
+} = scrollPositionSlice

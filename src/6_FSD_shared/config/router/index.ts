@@ -1,0 +1,12 @@
+export { RoutePaths } from "./constants/routePath.constant"
+export { PagesNames } from "./constants/pagesNames.constant"
+
+export { routeConfig, type routeInfoType } from "./config/route.config"
+export { getRouteAdminPanel } from "./helpers/gettersRoutesPaths.helpers"
+export { getRouteArticleDetailsCreate } from "./helpers/gettersRoutesPaths.helpers"
+export { getRouteArticleDetailsEdit } from "./helpers/gettersRoutesPaths.helpers"
+export { getRouteArticleDetails } from "./helpers/gettersRoutesPaths.helpers"
+export { getRouteArticles } from "./helpers/gettersRoutesPaths.helpers"
+export { getRouteProfile } from "./helpers/gettersRoutesPaths.helpers"
+export { getRouteAbout } from "./helpers/gettersRoutesPaths.helpers"
+export { getRouteMain } from "./helpers/gettersRoutesPaths.helpers"

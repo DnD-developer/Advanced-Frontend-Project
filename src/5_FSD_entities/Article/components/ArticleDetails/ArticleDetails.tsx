@@ -1,10 +1,12 @@
 import { CalendarIcon, EyeIcon } from "@assets/index"
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { useAppDispatch } from "@hooks/useAppDispatch.hook"
-import { asyncReducersList, useAsyncReducer } from "@hooks/useAsyncReducer.hook"
-import { Avatar, AvatarSize, AvatarTheme } from "@ui/Avatar"
+import type { asyncReducersList } from "@hooks/useAsyncReducer.hook"
+import { useAsyncReducer } from "@hooks/useAsyncReducer.hook"
+import { VStack } from "@ui/Stack"
 import { Text, TextSize } from "@ui/Text"
-import { memo, ReactNode, useCallback, useEffect } from "react"
+import type { ReactNode } from "react"
+import { memo, useCallback, useEffect } from "react"
 import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
 import { ArticleBlockTypeConstant } from "../../constants/ArticleBlock.constant"
@@ -13,14 +15,15 @@ import { getArticleErrorSelector } from "../../store/selectors/getArticleError/g
 import { getArticleIsLoadingSelector } from "../../store/selectors/getArticleIsLoading/getArticleIsLoading.selector"
 import { articleReducer } from "../../store/slices/article.slice"
 import { fetchArticleDataByIdThunk } from "../../store/thunks/fetchArticleDataByIdThunk/fetchArticleDataById.thunk"
-import { articleBlockDataType } from "../../types/articleBlockData.type"
-import styles from "./ArticleDetails.module.scss"
+import type { articleBlockDataType } from "../../types/articleBlockData.type"
 import { ArticleBlockCode } from "./ui/ArticleBlockCode/ArticleBlockCode"
 import { ArticleBlockImage } from "./ui/ArticleBlockImage/ArticleBlockImage"
 import { ArticleBlockText } from "./ui/ArticleBlockText/ArticleBlockText"
 import { ArticleDetailsError } from "./ui/ArticleDetailsError/ArticleDetailsError"
 import { ArticlesDetailsSkeleton } from "./ui/ArticleDetailsSkeleton/ArticlesDetailsSkeleton"
 import { TextWithIcon } from "./ui/TextWithIcon/TextWithIcon"
+import { AppImage } from "@ui/AppImage"
+import styles from "./ArticleDetails.module.scss"
 
 type ArticleDetailsProps = {
 	id: string | number
@@ -57,7 +60,6 @@ export const ArticleDetails = memo<ArticleDetailsProps>(props => {
 						key={block.id}
 						paragraphs={block.paragraphs}
 						title={block.title}
-						className={styles.block}
 					/>
 				)
 			case ArticleBlockTypeConstant.CODE:
@@ -66,7 +68,6 @@ export const ArticleDetails = memo<ArticleDetailsProps>(props => {
 						key={block.id}
 						text={block.code}
 						title={block.title}
-						className={styles.block}
 					/>
 				)
 			case ArticleBlockTypeConstant.IMAGE:
@@ -75,7 +76,6 @@ export const ArticleDetails = memo<ArticleDetailsProps>(props => {
 						key={block.id}
 						src={block.src}
 						title={block.title}
-						className={styles.block}
 					/>
 				)
 			default:
@@ -87,34 +87,39 @@ export const ArticleDetails = memo<ArticleDetailsProps>(props => {
 
 	content = (
 		<>
-			<Avatar
-				theme={AvatarTheme.CIRCLE}
-				size={AvatarSize.LARGE}
+			<AppImage
 				className={styles.avatar}
 				src={data?.img || ""}
 				alt={data?.title || ""}
 			/>
 
-			<div className={styles.header}>
-				<Text
-					title={data?.title || t("article:title")}
-					size={TextSize.BIG}
-				/>
-				<Text
-					text={data?.subtitle || t("article:subtitle")}
-					className={styles.headerMargin}
-					size={TextSize.BIG}
-				/>
-				<TextWithIcon
-					Icon={EyeIcon}
-					text={data?.views.toString() || "0"}
-				/>
-				<TextWithIcon
-					Icon={CalendarIcon}
-					text={data?.createdAt || "01.01.2000"}
-				/>
-			</div>
-			<div className={styles.blockList}>{data?.blocks.map(block => renderBlock(block))}</div>
+			<VStack gap={"gap24"}>
+				<div>
+					<VStack gap={"gap16"}>
+						<Text
+							title={data?.title || t("article:title")}
+							size={TextSize.BIG}
+						/>
+
+						<VStack gap={"gap8"}>
+							<Text
+								text={data?.subtitle || t("article:subtitle")}
+								size={TextSize.BIG}
+							/>
+
+							<TextWithIcon
+								Icon={EyeIcon}
+								text={data?.views.toString() || "0"}
+							/>
+							<TextWithIcon
+								Icon={CalendarIcon}
+								text={data?.createdAt || "01.01.2000"}
+							/>
+						</VStack>
+					</VStack>
+				</div>
+				<VStack gap={"gap24"}>{data?.blocks.map(block => renderBlock(block))}</VStack>
+			</VStack>
 		</>
 	)
 
@@ -126,5 +131,13 @@ export const ArticleDetails = memo<ArticleDetailsProps>(props => {
 		content = <ArticleDetailsError />
 	}
 
-	return <div className={classNamesHelp(styles.ArticleDetails, {}, [className])}>{content}</div>
+	return (
+		<VStack
+			gap={"gap16"}
+			align={"center"}
+			className={classNamesHelp("", {}, [className])}
+		>
+			{content}
+		</VStack>
+	)
 })

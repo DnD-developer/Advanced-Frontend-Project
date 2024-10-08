@@ -1,10 +1,10 @@
-import { DeepPartial } from "@customTypes/global.types"
-import { articleDetailsDataType } from "@entities/Article"
-import { commentDataType } from "@entities/Comment"
+import type { DeepPartial } from "@customTypes/global.types"
+import type { articleDetailsDataType } from "@entities/Article"
+import type { commentDataType } from "@entities/Comment"
 import { beforeEach, describe, expect, test } from "@jest/globals"
 import { AsyncThunkMock } from "@mocks/AsyncThunk.mock"
-import { thunkConfigType } from "@store/storeTypes/thunks.type"
-import { commentsArticleDetailsMap } from "../storeTypes/commentsArticleDetails.map"
+import type { thunkConfigType } from "@store/storeTypes/thunks.type"
+import type { commentsArticleDetailsMap } from "../storeTypes/commentsArticleDetails.map"
 import { fetchCommentsByArticleIdThunk } from "./fetchCommentsByArticleId.thunk"
 
 let thunk: AsyncThunkMock<

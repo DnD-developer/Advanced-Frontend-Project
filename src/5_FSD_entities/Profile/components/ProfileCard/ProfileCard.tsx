@@ -1,24 +1,26 @@
-import { classNamesHelp, Mods } from "@helpers/classNamesHelp/classNamesHelp"
+import type { Mods } from "@helpers/classNamesHelp/classNamesHelp"
+import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
 import { Avatar } from "@ui/Avatar"
 import { Input } from "@ui/Input"
 import { Loader } from "@ui/Loader"
+import { HStack, VStack } from "@ui/Stack"
 import { Text, TextAlign, TextSize, TextTheme } from "@ui/Text"
-import { memo, ReactNode, useMemo } from "react"
+import type { ReactNode } from "react"
+import { memo, useMemo } from "react"
 import { useTranslation } from "react-i18next"
+import { ServerErrors } from "../../constants/ServerErrors.constant"
+import { ValidateErrorsConstant } from "../../constants/ValidateErrors.constant"
 import { mappingErrors } from "../../lib/helpers/mappingErrors/mappingErrors"
-import {
-	profileStateMap,
-	ServerErrors,
-	ValidateErrors
-} from "../../store/storeTypes/profileState.map"
-import { profileCardDatatype, profileDataType } from "../../types/profileData.type"
+import type { profileStateMap } from "../../store/storeTypes/profileState.map"
+import type { profileCardDataType, profileDataType } from "../../types/profileData.type"
 import styles from "./ProfileCard.module.scss"
+import type { testingProps } from "@customTypes/testing.types"
 
 type ProfileCardCustomProps = {
 	classNames?: string
 	isLoading?: boolean
 	editAllow?: boolean
-	data?: profileCardDatatype
+	data?: profileCardDataType
 	readOnly?: boolean
 	labelError?: string
 	editButton?: ReactNode
@@ -35,7 +37,9 @@ type ProfileCardCustomProps = {
 	onChangeCity?: (value: profileDataType["city"]) => void
 }
 
-type ProfileCardProps = ProfileCardCustomProps & Omit<profileStateMap, keyof ProfileCardCustomProps>
+type ProfileCardProps = ProfileCardCustomProps &
+	Omit<profileStateMap, keyof ProfileCardCustomProps> &
+	testingProps
 
 export const ProfileCard = memo<ProfileCardProps>(props => {
 	const {
@@ -51,6 +55,7 @@ export const ProfileCard = memo<ProfileCardProps>(props => {
 		errors,
 		isLoading,
 		readOnly,
+		"data-testid": dataTestId,
 		onChangeUserName,
 		onChangeAvatar,
 		onChangeFirstName,
@@ -63,128 +68,168 @@ export const ProfileCard = memo<ProfileCardProps>(props => {
 
 	const { validateErrors, isServerErrors } = useMemo(() => mappingErrors(errors), [errors])
 
-	const modsOpacityZero = useMemo<Mods>(() => {
-		return { [styles.opacityZero]: isServerErrors || isLoading ? true : false }
-	}, [isServerErrors, isLoading])
-
 	const modsReadOnly = useMemo<Mods>(() => {
-		return { [styles.readOny]: !readOnly }
+		return { [styles.writable]: !readOnly }
 	}, [readOnly])
 
-	return (
-		<div className={classNamesHelp(styles.ProfileCard, modsReadOnly, [classNames])}>
-			<div className={styles.header}>
-				<Text title={t("profile:privateData")} />
-				{editAllow ?
-					readOnly ?
-						editButton
-					:	<div className={styles.btnContainer}>
-							{cancelButton}
-							<div className={styles.save}>{saveButton}</div>
-						</div>
-
-				:	null}
-			</div>
-
-			{isLoading ?
-				<div className={styles.container}>
-					<Loader />
-				</div>
-			:	null}
-
-			{isServerErrors ?
-				<div className={styles.container}>
-					<Text
-						size={TextSize.BIG}
-						align={TextAlign.CENTER}
-						title={t(ServerErrors.SERVER_NOT_FOUND)}
-						text={t("profile:errorServerText")}
-						theme={TextTheme.ERROR}
-					/>
-
-					<div className={styles.reload}>{reloadButton}</div>
-				</div>
-			:	null}
-
-			<div className={classNamesHelp(styles.avatar, modsOpacityZero)}>
+	let content: ReactNode = (
+		<>
+			<HStack
+				align={"center"}
+				justify={"center"}
+			>
 				{readOnly ?
 					<Avatar
 						src={data?.avatar || ""}
-						alt={t("translation:avatar")}
+						alt={t("profile:avatarProfileCard")}
+						data-testid={`${dataTestId}.AvatarCard`}
 					/>
 				:	<Input
+						data-testid={`${dataTestId}.AvatarInput`}
 						value={data?.avatar || ""}
 						label={
 							validateErrors.AVATAR_ERROR ?
-								t(ValidateErrors.AVATAR_ERROR)
+								t(ValidateErrorsConstant.AVATAR_ERROR)
 							:	t("profile:yourAvatar")
 						}
-						classNamesLabel={classNamesHelp(styles.input, modsOpacityZero)}
 						onChange={onChangeAvatar}
 						readOnly={readOnly}
 						error={validateErrors.AVATAR_ERROR}
 					/>
 				}
-			</div>
+			</HStack>
+			<VStack gap={"gap16"}>
+				<VStack gap={"gap16"}>
+					<Input
+						data-testid={`${dataTestId}.UserNameInput`}
+						value={data?.userName || ""}
+						label={
+							validateErrors.USERNAME_ERROR ?
+								t(ValidateErrorsConstant.USERNAME_ERROR)
+							:	t("profile:yourUserName")
+						}
+						onChange={onChangeUserName}
+						readOnly={readOnly}
+						error={validateErrors.USERNAME_ERROR}
+					/>
+					<Input
+						value={data?.firstName || ""}
+						data-testid={`${dataTestId}.FirstNameInput`}
+						label={
+							validateErrors.FIRST_NAME ?
+								t(ValidateErrorsConstant.FIRST_NAME)
+							:	t("profile:yourName")
+						}
+						onChange={onChangeFirstName}
+						readOnly={readOnly}
+						error={validateErrors.FIRST_NAME}
+					/>
+					<Input
+						value={data?.lastName || ""}
+						data-testid={`${dataTestId}.LastNameInput`}
+						label={
+							validateErrors.LAST_NAME ?
+								t(ValidateErrorsConstant.LAST_NAME)
+							:	t("profile:yourLastName")
+						}
+						onChange={onChangeLastName}
+						readOnly={readOnly}
+						error={validateErrors.LAST_NAME}
+					/>
+					<Input
+						data-testid={`${dataTestId}.AgeInput`}
+						value={data?.age || ""}
+						label={
+							validateErrors.AGE_ERROR ?
+								t(ValidateErrorsConstant.AGE_ERROR)
+							:	t("profile:yourAge")
+						}
+						onChange={onChangeAge}
+						readOnly={readOnly}
+						error={validateErrors.AGE_ERROR}
+					/>
+					<Input
+						data-testid={`${dataTestId}.CityInput`}
+						value={data?.city || ""}
+						label={
+							validateErrors.CITY_ERROR ?
+								t(ValidateErrorsConstant.CITY_ERROR)
+							:	t("profile:yourCity")
+						}
+						onChange={onChangeCity}
+						readOnly={readOnly}
+						error={validateErrors.CITY_ERROR}
+					/>
+				</VStack>
 
-			<Input
-				value={data?.userName || ""}
-				label={
-					validateErrors.USERNAME_ERROR ?
-						t(ValidateErrors.USERNAME_ERROR)
-					:	t("profile:yourUserName")
-				}
-				classNamesLabel={classNamesHelp(styles.input, modsOpacityZero)}
-				onChange={onChangeUserName}
-				readOnly={readOnly}
-				error={validateErrors.USERNAME_ERROR}
-			/>
-			<Input
-				value={data?.firstName || ""}
-				label={
-					validateErrors.FIRST_NAME ? t(ValidateErrors.FIRST_NAME) : t("profile:yourName")
-				}
-				classNamesLabel={classNamesHelp(styles.input, modsOpacityZero)}
-				onChange={onChangeFirstName}
-				readOnly={readOnly}
-				error={validateErrors.FIRST_NAME}
-			/>
-			<Input
-				value={data?.lastName || ""}
-				classNamesLabel={classNamesHelp(styles.input, modsOpacityZero)}
-				label={
-					validateErrors.LAST_NAME ?
-						t(ValidateErrors.LAST_NAME)
-					:	t("profile:yourLastName")
-				}
-				onChange={onChangeLastName}
-				readOnly={readOnly}
-				error={validateErrors.LAST_NAME}
-			/>
-			<Input
-				value={data?.age || ""}
-				classNamesLabel={classNamesHelp(styles.input, modsOpacityZero)}
-				label={
-					validateErrors.AGE_ERROR ? t(ValidateErrors.AGE_ERROR) : t("profile:yourAge")
-				}
-				onChange={onChangeAge}
-				readOnly={readOnly}
-				error={validateErrors.AGE_ERROR}
-			/>
-			<Input
-				value={data?.city || ""}
-				classNamesLabel={classNamesHelp(styles.input, modsOpacityZero)}
-				label={
-					validateErrors.CITY_ERROR ? t(ValidateErrors.CITY_ERROR) : t("profile:yourCity")
-				}
-				onChange={onChangeCity}
-				readOnly={readOnly}
-				error={validateErrors.CITY_ERROR}
-			/>
-			<div className={classNamesHelp(styles.selects, modsOpacityZero)}>
-				{selectCurrency}
-				<div className={styles.selectCountry}>{selectCountry}</div>
-			</div>
+				<HStack gap={"gap12"}>
+					{selectCurrency}
+					{selectCountry}
+				</HStack>
+			</VStack>
+		</>
+	)
+
+	if (isLoading) {
+		content = (
+			<VStack
+				align={"center"}
+				justify={"center"}
+				data-testid={`${dataTestId}.Loader`}
+			>
+				<Loader />
+			</VStack>
+		)
+	}
+
+	if (isServerErrors) {
+		content = (
+			<VStack
+				justify={"center"}
+				align={"center"}
+				gap={"gap16"}
+				data-testid={`${dataTestId}.ServerError`}
+			>
+				<Text
+					size={TextSize.BIG}
+					align={TextAlign.CENTER}
+					title={t(ServerErrors.SERVER_NOT_FOUND)}
+					text={t("profile:errorServerText")}
+					theme={TextTheme.ERROR}
+				/>
+
+				{reloadButton}
+			</VStack>
+		)
+	}
+
+	return (
+		<div
+			className={classNamesHelp(styles.ProfileCard, modsReadOnly, [classNames])}
+			data-testid={`${dataTestId}.ProfileCard`}
+		>
+			<VStack gap={"gap16"}>
+				<HStack
+					align={"center"}
+					justify={"spaceBetween"}
+				>
+					<Text title={t("profile:privateData")} />
+					{editAllow ?
+						readOnly ?
+							editButton
+						:	<HStack
+								gap={"gap12"}
+								widthMax={false}
+							>
+								{cancelButton}
+								{saveButton}
+							</HStack>
+
+					:	null}
+				</HStack>
+
+				{content}
+			</VStack>
 		</div>
 	)
 })

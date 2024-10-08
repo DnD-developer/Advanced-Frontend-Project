@@ -1,6 +1,8 @@
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
+import { HStack } from "@ui/Stack"
 import { Text } from "@ui/Text"
-import { FC, memo, SVGProps } from "react"
+import type { FC, SVGProps } from "react"
+import { memo } from "react"
 import styles from "./TextWithIcon.module.scss"
 
 type TextWithIconProps = {
@@ -12,12 +14,16 @@ export const TextWithIcon = memo<TextWithIconProps>(props => {
 	const { className, Icon, text } = props
 
 	return (
-		<div className={classNamesHelp(styles.TextWithIcon, {}, [className])}>
+		<HStack
+			align={"center"}
+			gap={"gap8"}
+			className={classNamesHelp("", {}, [className])}
+		>
 			<Icon className={styles.icon} />
 			<Text
 				text={text}
 				className={styles.text}
 			/>
-		</div>
+		</HStack>
 	)
 })

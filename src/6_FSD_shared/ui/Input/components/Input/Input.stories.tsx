@@ -14,6 +14,21 @@ const meta: Meta<typeof Input> = {
 			control: "radio"
 		}
 	},
+	parameters: {
+		controls: {
+			exclude: [
+				"onChange",
+				"autoFocus",
+				"label",
+				"classNamesLabel",
+				"readOnly",
+				"type",
+				"data-testid",
+				"className",
+				"value"
+			]
+		}
+	},
 	decorators: [ContainerDecorator, InvertedBgDecorator, CenterDecorator]
 }
 

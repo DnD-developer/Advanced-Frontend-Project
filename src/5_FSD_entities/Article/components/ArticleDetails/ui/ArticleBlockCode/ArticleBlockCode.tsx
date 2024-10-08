@@ -1,7 +1,8 @@
 import { classNamesHelp } from "@helpers/classNamesHelp/classNamesHelp"
+import { VStack } from "@ui/Stack"
 import { Text, TextAlign } from "@ui/Text"
 import { memo } from "react"
-import { articleBlockDataCodeType } from "../../../../types/articleBlockData.type"
+import type { articleBlockDataCodeType } from "../../../../types/articleBlockData.type"
 import { CopyButton } from "../CopyButton/CopyButton"
 import styles from "./ArticleBlockCode.module.scss"
 
@@ -14,7 +15,11 @@ export const ArticleBlockCode = memo<ArticleBlockCodeProps>(props => {
 	const { className, text, title } = props
 
 	return (
-		<div className={classNamesHelp(styles.ArticleBlockCode, {}, [className])}>
+		<VStack
+			className={classNamesHelp("", {}, [className])}
+			gap={"gap16"}
+			align={"center"}
+		>
 			<pre className={styles.code}>
 				<CopyButton text={text} />
 				<code>{text}</code>
@@ -23,9 +28,8 @@ export const ArticleBlockCode = memo<ArticleBlockCodeProps>(props => {
 				<Text
 					align={TextAlign.CENTER}
 					title={title}
-					className={styles.title}
 				/>
 			)}
-		</div>
+		</VStack>
 	)
 })

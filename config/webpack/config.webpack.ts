@@ -4,14 +4,14 @@ import { loadersWebpack } from "./loaders.webpack"
 import { optimizationWebpack } from "./optimization.webpack"
 import { pluginsWebpack } from "./plugins.webpack"
 import { resolversWebpack } from "./resolvers.webpack"
-import { type buildOptions } from "./types/config"
+import { type buildOptionsType } from "./types/config"
 
-export function configWebpack(options: buildOptions): Configuration {
+export function configWebpack(options: buildOptionsType): Configuration {
 	const { mode, paths, isDev } = options
 	return {
 		mode,
 		entry: paths.entry,
-		devtool: isDev ? "inline-source-map" : undefined,
+		devtool: isDev ? "eval-source-map" : undefined,
 		optimization: optimizationWebpack(options),
 		devServer: isDev ? devServerWebpack(options) : undefined,
 		resolve: resolversWebpack(options),

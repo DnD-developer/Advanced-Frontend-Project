@@ -1,5 +1,5 @@
 export { ArticleSortFieldConstant } from "./constants/ArticleSortField.constant"
-export { filterArticlesListStateMap } from "./store/storeTypes/filterArticlesListState.map"
+export { type filterArticlesListStateMap } from "./store/storeTypes/filterArticlesListState.map"
 export { filterArticlesListActions } from "./store/slices/filterArticlesList.slice"
 export { getFilterArticlesListSearchSelector } from "./store/selectors/getFilterArticlesListSearch/getFilterArticlesListSearch.selector"
 export { getFilterArticlesListOrderSelector } from "./store/selectors/getFilterArticlesListOrder/getFilterArticlesListOrder.selector"
