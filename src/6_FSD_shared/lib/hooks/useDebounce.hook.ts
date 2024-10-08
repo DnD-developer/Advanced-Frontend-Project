@@ -1,8 +1,7 @@
-import { type TimeoutId } from "@reduxjs/toolkit/dist/query/core/buildMiddleware/types"
 import { useCallback, useRef } from "react"
 
 export function useDebounce(callback: (...args: any[]) => void, delay = 400) {
-	const timer = useRef<TimeoutId>()
+	const timer = useRef<NodeJS.Timeout>()
 
 	return useCallback(
 		(...args: any[]) => {

@@ -11,7 +11,7 @@ const meta: Meta<typeof AvatarDropdown> = {
 		CenterDecorator,
 		StoreDecorator({
 			user: {
-				authData: userDataMock
+				authData: userDataMock({})
 			}
 		})
 	]

@@ -1,11 +1,8 @@
 name: Ui Test
-run-name: Workflow ${{ github.workflow }}; Branch ${{ github.ref_name }}; Runner ${{ github.actor }}
+run-name: ${{ github.workflow }}; Trigger ${{ github.ref_name }}; Runner ${{ github.actor }}
 on:
     workflow_dispatch:
     pull_request:
-        branches:
-            - master
-            - dev
         paths-ignore:
             - .github/**/*
             - ./**/*.json

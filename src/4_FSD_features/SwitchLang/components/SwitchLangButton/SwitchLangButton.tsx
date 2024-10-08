@@ -16,7 +16,7 @@ export const SwitchLangButton = memo<SwitchLangButtonProps>(props => {
 	} = useTranslation()
 
 	const switchLanguageHandler = useCallback(async () => {
-		await changeLanguage(language === "ru" ? "en" : "ru")
+		await changeLanguage(language.includes("ru") ? "en" : "ru")
 	}, [changeLanguage, language])
 
 	return (

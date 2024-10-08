@@ -23,20 +23,22 @@ export const ArticlesDetailsSkeleton = memo<SkeletonProps>(props => {
 			/>
 			<Skeleton
 				theme={SkeletonTheme.RECTANGLE}
-				height="20"
+				height="20px"
 				width="669px"
 			/>
 			<Skeleton
-				height="20"
+				height="20px"
 				width="399px"
 				theme={SkeletonTheme.RECTANGLE}
 			/>
 			<Skeleton
 				height="200px"
+				width="100%"
 				theme={SkeletonTheme.RECTANGLE}
 			/>
 			<Skeleton
 				height="200px"
+				width="100%"
 				theme={SkeletonTheme.RECTANGLE}
 			/>
 		</VStack>

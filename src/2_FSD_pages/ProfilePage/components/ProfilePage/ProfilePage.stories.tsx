@@ -46,7 +46,7 @@ export const Default: TypeStory = {
 	args: { login: true },
 	decorators: [
 		StoreDecorator({
-			user: { authData: userDataMock }
+			user: { authData: userDataMock({}) }
 		})
 	]
 }

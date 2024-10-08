@@ -8,11 +8,13 @@ import { useLocation } from "react-router-dom"
 import styles from "./Page.module.scss"
 import { useGetScrollPositionByPathSelector } from "@features/ScrollSave/store/selectors/getScrollPositionByPath/getScrollPositionByPath.selector"
 import { useScrollPositionActions } from "@features/ScrollSave/store/slices/scrollPosition.slice"
+import type { testingProps } from "@customTypes/testing.types"
 
 type PageProps = {
 	className?: string
 	onScrollEnd?: () => void
-} & PropsWithChildren
+} & PropsWithChildren &
+	testingProps
 
 export const Page = memo<PageProps>(props => {
 	const { className, children, onScrollEnd } = props
@@ -47,6 +49,7 @@ export const Page = memo<PageProps>(props => {
 
 	return (
 		<section
+			data-testid={props["data-testid"]}
 			onScroll={onScrollHandler}
 			ref={wrapperRef}
 			className={classNamesHelp(styles.Page, {}, [className])}

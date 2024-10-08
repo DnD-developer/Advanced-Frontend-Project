@@ -9,6 +9,7 @@ export const sassLoader = ({ isDev }: buildOptionsType): RuleSetRule => ({
 		isDev ? "style-loader" : MiniCssExtractPlugin.loader,
 		{
 			loader: "css-loader",
+
 			options: {
 				modules: {
 					auto: /\.module\./,
@@ -17,6 +18,11 @@ export const sassLoader = ({ isDev }: buildOptionsType): RuleSetRule => ({
 				}
 			}
 		},
-		"sass-loader"
+		{
+			loader: "sass-loader",
+			options: {
+				api: "modern-compiler"
+			}
+		}
 	]
 })

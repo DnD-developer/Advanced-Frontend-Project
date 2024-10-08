@@ -20,7 +20,7 @@ const editableProfileCardState: editableProfileStateMap = {
 }
 
 const state = {
-	user: { authData: userDataMock },
+	user: { authData: userDataMock({}) },
 	editableProfileCard: editableProfileCardState
 }
 

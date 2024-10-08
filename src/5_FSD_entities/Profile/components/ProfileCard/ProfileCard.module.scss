@@ -12,18 +12,6 @@
 	border-style: dotted;
 }
 
-.container {
-	position: absolute;
-
-	z-index: var(--z-index-profile-card-container);
-
-	inset: 0;
-}
-
 .title {
 	text-transform: capitalize;
-}
-
-.opacityZero {
-	opacity: 0;
 }
