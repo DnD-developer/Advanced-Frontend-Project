@@ -23,7 +23,7 @@ export const Default: TypeStory = {
 	parameters: {
 		mockData: [
 			{
-				url: `${__BASE_URL__}/article-ratings?articleId=1&userId=1`,
+				url: `${__API_URL__}/article-ratings?articleId=1&userId=1`,
 				method: "GET",
 				status: 200,
 				delay: 0,
@@ -40,7 +40,7 @@ export const Loading: TypeStory = {
 	parameters: {
 		mockData: [
 			{
-				url: `${__BASE_URL__}/article-ratings?articleId=1&userId=1`,
+				url: `${__API_URL__}/article-ratings?articleId=1&userId=1`,
 				method: "GET",
 				status: 200,
 				delay: 60000,
@@ -57,7 +57,7 @@ export const Error: TypeStory = {
 	parameters: {
 		mockData: [
 			{
-				url: `${__BASE_URL__}/article-ratings?articleId=1&userId=1`,
+				url: `${__API_URL__}/article-ratings?articleId=1&userId=1`,
 				method: "GET",
 				status: 503,
 				delay: 0,
@@ -74,14 +74,14 @@ export const WithOutRating: TypeStory = {
 	parameters: {
 		mockData: [
 			{
-				url: `${__BASE_URL__}/article-ratings?articleId=1&userId=1`,
+				url: `${__API_URL__}/article-ratings?articleId=1&userId=1`,
 				method: "GET",
 				status: 200,
 				delay: 0,
 				response: []
 			},
 			{
-				url: `${__BASE_URL__}/article-ratings`,
+				url: `${__API_URL__}/article-ratings`,
 				method: "POST",
 				status: 200,
 				delay: 1000,
@@ -98,14 +98,14 @@ export const WithOutRatingError: TypeStory = {
 	parameters: {
 		mockData: [
 			{
-				url: `${__BASE_URL__}/article-ratings?articleId=1&userId=1`,
+				url: `${__API_URL__}/article-ratings?articleId=1&userId=1`,
 				method: "GET",
 				status: 200,
 				delay: 0,
 				response: []
 			},
 			{
-				url: `${__BASE_URL__}/article-ratings`,
+				url: `${__API_URL__}/article-ratings`,
 				method: "POST",
 				status: 503,
 				delay: 1000,

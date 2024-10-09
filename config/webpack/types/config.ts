@@ -13,7 +13,7 @@ export type buildEnvType = {
 	mode: buildMode
 	port: buildOptionsType["port"]
 	isAnalyze: "true" | "false"
-	baseUrl: buildOptionsType["baseUrl"]
+	apiUrl: buildOptionsType["apiUrl"]
 }
 
 export type buildOptionsType = {
@@ -24,5 +24,5 @@ export type buildOptionsType = {
 	isDev: boolean
 	isAnalyze?: boolean
 	project?: "frontend" | "storybook" | "jest"
-	baseUrl: string
+	apiUrl: string
 }
