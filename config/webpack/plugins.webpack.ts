@@ -14,7 +14,7 @@ export function pluginsWebpack({
 	paths,
 	isDev,
 	isAnalyze,
-	baseUrl,
+	apiUrl,
 	project
 }: buildOptionsType): WebpackPluginInstance[] {
 	const circularPlugin = new CircularPlugin({
@@ -29,7 +29,7 @@ export function pluginsWebpack({
 		new DefinePlugin({
 			__IS_DEV__: JSON.stringify(isDev),
 			__IS_ANALYZE__: JSON.stringify(isAnalyze),
-			__BASE_URL__: JSON.stringify(baseUrl),
+			__API_URL__: JSON.stringify(apiUrl),
 			__PROJECT__: JSON.stringify(project)
 		}),
 		new ForkTsCheckerWebpackPlugin({

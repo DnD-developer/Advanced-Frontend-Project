@@ -19,7 +19,7 @@ export const Default: TypeStory = {
 	parameters: {
 		mockData: [
 			{
-				url: `${__BASE_URL__}/articles?_limit=4&_expand=user`,
+				url: `${__API_URL__}/articles?_limit=4&_expand=user`,
 				method: "GET",
 				status: 200,
 				delay: 0,
@@ -33,7 +33,7 @@ export const Loading: TypeStory = {
 	parameters: {
 		mockData: [
 			{
-				url: `${__BASE_URL__}/articles?_limit=4&_expand=user`,
+				url: `${__API_URL__}/articles?_limit=4&_expand=user`,
 				method: "GET",
 				status: 200,
 				delay: 60000,
@@ -47,7 +47,7 @@ export const Error: TypeStory = {
 	parameters: {
 		mockData: [
 			{
-				url: `${__BASE_URL__}/articles?_limit=4&_expand=user`,
+				url: `${__API_URL__}/articles?_limit=4&_expand=user`,
 				method: "GET",
 				status: 503,
 				delay: 0,

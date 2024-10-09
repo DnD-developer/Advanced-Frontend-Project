@@ -33,14 +33,14 @@ const meta: Meta<EditableProfileCardCustomProps> = {
 		},
 		mockData: [
 			{
-				url: `${__BASE_URL__}/profile/:id`,
+				url: `${__API_URL__}/profile/:id`,
 				method: "PUT",
 				status: 200,
 				delay: 2000,
 				response: profileDataMock
 			},
 			{
-				url: `${__BASE_URL__}/profile/:id`,
+				url: `${__API_URL__}/profile/:id`,
 				method: "GET",
 				status: 200,
 				delay: 2000,
@@ -72,7 +72,7 @@ export const ErrorServer: TypeStory = {
 	parameters: {
 		mockData: [
 			{
-				url: `${__BASE_URL__}/profile/:id`,
+				url: `${__API_URL__}/profile/:id`,
 				method: "GET",
 				status: 403,
 				delay: 2000,

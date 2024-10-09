@@ -6,6 +6,7 @@ import { type buildEnvType, type buildOptionsType } from "./config/webpack/types
 import { aliasesFromTsConfig } from "./config/webpack/webpackHelpers/aliasesFromTsConfig.webpack"
 import { mainPathsWebpack } from "./config/webpack/webpackHelpers/mainPaths.webpack"
 import { compilerOptions } from "./tsconfig.paths.json"
+import { getApi } from "./config/webpack/webpackHelpers/getApi.webpack"
 
 export default (env: buildEnvType): Configuration => {
 	const options: buildOptionsType = {
@@ -16,7 +17,7 @@ export default (env: buildEnvType): Configuration => {
 		isAnalyze: env.isAnalyze === "true",
 		port: env.port,
 		project: "frontend",
-		baseUrl: env.baseUrl || "http://localhost:8000"
+		apiUrl: getApi(env.mode, env.apiUrl)
 	}
 
 	return configWebpack(options)

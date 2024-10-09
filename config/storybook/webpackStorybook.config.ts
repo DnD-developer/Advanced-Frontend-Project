@@ -16,7 +16,7 @@ export const webpackStorybookConfig = (config: Configuration): Configuration => 
 		aliases: aliasesFromTsConfig(compilerOptions, baseUrl),
 		isDev: true,
 		project: "storybook",
-		baseUrl: "http://storybook.mock"
+		apiUrl: "http://storybook.mock"
 	}
 
 	if (config.resolve) {
@@ -30,7 +30,7 @@ export const webpackStorybookConfig = (config: Configuration): Configuration => 
 		config.plugins.push(
 			new DefinePlugin({
 				__IS_DEV__: JSON.stringify(options.isDev),
-				__BASE_URL__: JSON.stringify(options.baseUrl),
+				__API_URL__: JSON.stringify(options.apiUrl),
 				__PROJECT__: JSON.stringify(options.project)
 			})
 		)

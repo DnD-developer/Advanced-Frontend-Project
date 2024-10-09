@@ -11,7 +11,7 @@ const meta: Meta<typeof NotificationButton> = {
 	parameters: {
 		mockData: [
 			{
-				url: `${__BASE_URL__}/notifications?_expand=user`,
+				url: `${__API_URL__}/notifications?_expand=user`,
 				method: "GET",
 				status: 200,
 				delay: 2000,
