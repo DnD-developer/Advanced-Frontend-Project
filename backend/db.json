@@ -615,6 +615,24 @@
 			"id": "adfAlice1",
 			"articleId": "1",
 			"userId": "2"
+		},
+		{
+			"text": "Thus jklasdf",
+			"id": "Thus jklasdfLucifer5",
+			"articleId": "5",
+			"userId": "1"
+		},
+		{
+			"text": "adsfsadf",
+			"id": "adsfsadfLucifer5",
+			"articleId": "5",
+			"userId": "1"
+		},
+		{
+			"text": "aadsfadf",
+			"id": "aadsfadfLucifer5",
+			"articleId": "5",
+			"userId": "1"
 		}
 	],
 	"article-ratings": [

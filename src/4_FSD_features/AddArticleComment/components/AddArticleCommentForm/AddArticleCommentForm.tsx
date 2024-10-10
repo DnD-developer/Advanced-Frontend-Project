@@ -6,15 +6,14 @@ import { useAppDispatch } from "@hooks/useAppDispatch.hook"
 import type { asyncReducersList } from "@hooks/useAsyncReducer.hook"
 import { useAsyncReducer } from "@hooks/useAsyncReducer.hook"
 import { memo, useCallback, useMemo } from "react"
-import { useSelector } from "react-redux"
-import { getAddArticleCommentErrorSelector } from "../../store/selectors/getAddArticleCommentError/getAddArticleCommentError.selector"
-import { getAddArticleCommentIsLoadingSelector } from "../../store/selectors/getAddArticleCommentIsLoading/getAddArticleCommentIsLoading.selector"
-import { getAddArticleCommentTextSelector } from "../../store/selectors/getAddArticleCommentText/getAddArticleCommentTextSelector"
 import {
 	addArticleCommentActions,
 	addArticleCommentReducer
 } from "../../store/slices/addArticleComment.slice"
 import { addNewArticleCommentThunk } from "../../store/thunks/addNewArticleCommentThunk/addNewArticleComment.thunk"
+import { useGetAddArticleCommentIsLoadingSelector } from "../../store/selectors/getAddArticleCommentIsLoading/getAddArticleCommentIsLoading.selector"
+import { useGetAddArticleCommentTextSelector } from "../../store/selectors/getAddArticleCommentText/getAddArticleCommentTextSelector"
+import { useGetAddArticleCommentErrorSelector } from "../../store/selectors/getAddArticleCommentError/getAddArticleCommentError.selector"
 
 type AddArticleCommentFormProps = {
 	className?: string
@@ -39,9 +38,10 @@ export const AddArticleCommentForm = memo<AddArticleCommentFormProps>(props => {
 		[dispatch]
 	)
 
-	const isLoading = useSelector(getAddArticleCommentIsLoadingSelector)
-	const error = useSelector(getAddArticleCommentErrorSelector)
-	const text = useSelector(getAddArticleCommentTextSelector)
+	const isLoading = useGetAddArticleCommentIsLoadingSelector()
+	const error = useGetAddArticleCommentErrorSelector()
+	const text = useGetAddArticleCommentTextSelector()
+
 	const { isAuth, authData } = useAuth()
 
 	const body: commentBdDataType = useMemo(() => {
