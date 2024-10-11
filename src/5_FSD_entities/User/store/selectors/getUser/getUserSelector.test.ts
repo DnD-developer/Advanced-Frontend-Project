@@ -1,17 +1,18 @@
 import type { mainStateMap } from "@store/storeTypes/mainState.map"
 import { UserRoles } from "../../../constants/userRoles.constant"
 import { getUserSelector } from "./getUser.selector"
+import { userDataMock } from "../../../lib/mocks/userData.mock"
 
 describe("getUserSelectorTest", () => {
 	test("with state", () => {
 		const state: Partial<mainStateMap> = {
 			user: {
-				authData: { userName: "123", id: "1", roles: [UserRoles.ADMIN] },
+				authData: userDataMock({ userName: "123", id: "1", roles: [UserRoles.ADMIN] }),
 				_initAuthData: false
 			}
 		}
 		expect(getUserSelector(state as mainStateMap)).toEqual({
-			authData: { userName: "123", id: "1", roles: [UserRoles.ADMIN] },
+			authData: userDataMock({ userName: "123", id: "1", roles: [UserRoles.ADMIN] }),
 			_initAuthData: false
 		})
 	})

@@ -8,6 +8,7 @@ export const userDataMock: (params: DeepPartial<userDataType>) => userDataType =
 	const userData = {
 		id: params?.id ?? "1",
 		roles: (params?.roles ?? [UserRoles.USER, UserRoles.ADMIN]) as UserRoles[],
+		features: params.features ?? { isFeatureRating: true, isFeatureComments: true },
 		avatar:
 			params?.avatar ??
 			"https://i.pinimg.com/originals/f0/f8/fe/f0f8fe0e76824fd544a9154b995fb01d.jpg",

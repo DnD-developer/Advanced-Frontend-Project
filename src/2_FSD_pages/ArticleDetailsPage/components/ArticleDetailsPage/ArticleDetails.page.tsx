@@ -16,6 +16,7 @@ import { useSelector } from "react-redux"
 import { useParams } from "react-router"
 import styles from "./ArticleDetailsPage.module.scss"
 import { getRouteArticleDetailsEdit } from "@config/router"
+import { getFeatureFlag } from "@config/featureFlags"
 
 type ArticleDetailsPageProps = {
 	className?: string
@@ -55,9 +56,11 @@ const ArticleDetailsPage = memo<ArticleDetailsPageProps>(props => {
 					</AppLink>
 				:	null}
 				<ArticleDetails id={id || testId} />
-				<ArticleRating articleId={id || testId} />
+				{getFeatureFlag("isFeatureRating") && <ArticleRating articleId={id || testId} />}
 				<ArticlesRecommendation />
-				<CommentsArticleDetails articleId={id || testId} />
+				{getFeatureFlag("isFeatureComments") && (
+					<CommentsArticleDetails articleId={id || testId} />
+				)}
 			</VStack>
 		)
 	} else {

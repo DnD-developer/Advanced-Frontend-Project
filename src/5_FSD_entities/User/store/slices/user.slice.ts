@@ -3,6 +3,7 @@ import type { PayloadAction } from "@reduxjs/toolkit"
 import { createSlice } from "@reduxjs/toolkit"
 import type { userDataType } from "../../types/userData.type"
 import type { userStateMap } from "../storeTypes/userState.map"
+import { setFeatureFlags } from "@config/featureFlags"
 
 const initialState: userStateMap = {
 	_initAuthData: false
@@ -14,13 +15,19 @@ const userSlice = createSlice({
 	reducers: {
 		setAuthData: (state: userStateMap, action: PayloadAction<userDataType>) => {
 			localStorage.setItem(USER_TOKEN, JSON.stringify(action.payload))
+
 			state.authData = action.payload
+			setFeatureFlags(state.authData.features)
 		},
 		initAuthData: (state: userStateMap) => {
 			const userToken = localStorage.getItem(USER_TOKEN)
 
 			if (userToken) {
 				state.authData = JSON.parse(userToken)
+
+				if (state.authData) {
+					setFeatureFlags(state.authData.features)
+				}
 			}
 
 			state._initAuthData = true
