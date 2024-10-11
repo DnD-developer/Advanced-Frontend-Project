@@ -43,7 +43,7 @@ const meta: Meta<EditableProfileCardCustomProps> = {
 				url: `${__API_URL__}/profile/:id`,
 				method: "GET",
 				status: 200,
-				delay: 2000,
+				delay: 0,
 				response: profileDataMock
 			}
 		]
@@ -64,6 +64,24 @@ export const Default: TypeStory = {
 	}
 }
 
+export const Loading: TypeStory = {
+	render: ({ login }) => {
+		return <EditableProfileCard id={login ? "1" : "2"} />
+	},
+	args: { login: true },
+	parameters: {
+		mockData: [
+			{
+				url: `${__API_URL__}/profile/:id`,
+				method: "GET",
+				status: 200,
+				delay: 60000,
+				response: profileDataMock
+			}
+		]
+	}
+}
+
 export const ErrorServer: TypeStory = {
 	render: ({ login }) => {
 		return <EditableProfileCard id={login ? "1" : "2"} />
@@ -75,7 +93,7 @@ export const ErrorServer: TypeStory = {
 				url: `${__API_URL__}/profile/:id`,
 				method: "GET",
 				status: 403,
-				delay: 2000,
+				delay: 0,
 				response: profileDataMock
 			}
 		]

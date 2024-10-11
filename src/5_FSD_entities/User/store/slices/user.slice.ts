@@ -35,6 +35,7 @@ const userSlice = createSlice({
 		logOut: (state: userStateMap) => {
 			localStorage.removeItem(USER_TOKEN)
 			state.authData = undefined
+			setFeatureFlags({})
 		}
 	}
 })
