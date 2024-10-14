@@ -24,7 +24,10 @@ export const AppLink = memo<AppLinkProps>(props => {
 	} = props
 
 	const mods = useMemo<Mods>(() => {
-		return { [styles.inverted]: inverted, [styles.hoverLink]: hover }
+		return {
+			[styles.inverted]: inverted,
+			[styles.hoverLink]: hover
+		}
 	}, [hover, inverted])
 
 	return (

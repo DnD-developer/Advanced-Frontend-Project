@@ -1,13 +1,15 @@
 .AppLink {
 	display: block;
-
-	color: var(--primary-color);
-	font-size: 30px;
 }
 
-.hover-link {
-	&:hover {
-		opacity: 0.8;
+.primary,
+.outline {
+	font-size: var(--font-size-l);
+
+	.hover-link {
+		&:hover {
+			opacity: 0.8;
+		}
 	}
 }
 
@@ -33,4 +35,8 @@
 	border-color: var(--inverted-color);
 
 	color: var(--inverted-color);
+}
+
+.clear {
+	font: inherit;
 }

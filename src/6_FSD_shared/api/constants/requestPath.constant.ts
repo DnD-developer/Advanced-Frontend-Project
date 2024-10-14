@@ -1,3 +1,4 @@
 export enum RequestPaths {
-	ARTICLES = "/articles"
+	ARTICLES = "/articles",
+	USER = "/users"
 }
