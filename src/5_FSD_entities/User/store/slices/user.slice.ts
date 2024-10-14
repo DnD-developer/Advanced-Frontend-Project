@@ -5,6 +5,7 @@ import type { userDataType } from "../../types/userData.type"
 import type { userStateMap } from "../storeTypes/userState.map"
 import { setFeatureFlags } from "@config/featureFlags"
 import { fetchUserDataThunk } from "../thunks/fetchUserData/fetchUserData.thunk"
+import { saveUserSettingsThunk } from "../thunks/saveUserSettings/saveUserSettings.thunk"
 
 const initialState: userStateMap = {
 	error: undefined,
@@ -31,6 +32,11 @@ const userSlice = createSlice({
 		}
 	},
 	extraReducers: builder => {
+		builder.addCase(saveUserSettingsThunk.fulfilled, (state, action) => {
+			if (state?.authData?.settings) {
+				state.authData.settings = action.payload
+			}
+		})
 		builder
 			.addCase(fetchUserDataThunk.pending, state => {
 				state.error = undefined

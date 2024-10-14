@@ -55,6 +55,9 @@
 				"isFeatureRating": true,
 				"isFeatureComments": true
 			},
+			"settings": {
+				"theme": "app-green-theme"
+			},
 			"avatar": "https://i.pinimg.com/originals/f0/f8/fe/f0f8fe0e76824fd544a9154b995fb01d.jpg"
 		},
 		{
@@ -65,6 +68,9 @@
 			"features": {
 				"isFeatureRating": false,
 				"isFeatureComments": true
+			},
+			"settings": {
+				"theme": "app-dark-theme"
 			},
 			"avatar": "https://i.pinimg.com/originals/05/86/f5/0586f507c54a52dc0542a"
 		},
@@ -77,6 +83,9 @@
 				"isFeatureRating": false,
 				"isFeatureComments": false
 			},
+			"settings": {
+				"theme": "app-dark-theme"
+			},
 			"avatar": "https://i.pinimg.com/originals/f0/f8/fe/f0f8fe0e76824fd544a9154b995fb01d.jpg"
 		},
 		{
@@ -87,6 +96,9 @@
 			"features": {
 				"isFeatureRating": true,
 				"isFeatureComments": false
+			},
+			"settings": {
+				"theme": "app-dark-theme"
 			},
 			"avatar": "https://i.pinimg.com/originals/f0/f8/fe/f0f8fe0e76824fd544a9154b995fb01d.jpg"
 		}

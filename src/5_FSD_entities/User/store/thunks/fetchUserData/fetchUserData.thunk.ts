@@ -9,7 +9,7 @@ export const fetchUserDataThunk = createAsyncThunk<
 	userDataType,
 	undefined,
 	thunkConfigType<userStateMap["error"]>
->("user/fetchUserDataThunk", async (_, thunkAPI) => {
+>("user/fetchUserData", async (_, thunkAPI) => {
 	const { dispatch, rejectWithValue } = thunkAPI
 	try {
 		const userToken = localStorage.getItem(USER_TOKEN)

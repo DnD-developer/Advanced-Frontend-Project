@@ -1,6 +1,5 @@
 import App from "@app/App"
 import { StoreProvider } from "@providers/StoreProvider"
-import { ThemesProvider } from "@sharedProviders/ThemeProvider"
 import { Suspense } from "react"
 import { BrowserRouter } from "react-router-dom"
 
@@ -10,9 +9,7 @@ export const RootComponent = () => {
 		<BrowserRouter>
 			<StoreProvider>
 				<Suspense fallback={""}>
-					<ThemesProvider>
-						<App />
-					</ThemesProvider>
+					<App />
 				</Suspense>
 			</StoreProvider>
 		</BrowserRouter>

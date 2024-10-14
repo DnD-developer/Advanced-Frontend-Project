@@ -39,7 +39,8 @@ server.post("/login", (req, res) => {
 				id: userFromBd.id,
 				avatar: userFromBd.avatar,
 				roles: userFromBd.roles,
-				features: userFromBd.features
+				features: userFromBd.features,
+				settings: userFromBd.settings
 			})
 		}
 
