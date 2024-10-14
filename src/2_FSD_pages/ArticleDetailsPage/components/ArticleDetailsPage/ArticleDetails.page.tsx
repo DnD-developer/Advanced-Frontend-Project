@@ -16,6 +16,7 @@ import { useSelector } from "react-redux"
 import { useParams } from "react-router"
 import styles from "./ArticleDetailsPage.module.scss"
 import { getRouteArticleDetailsEdit } from "@config/router"
+import { toggleFeatureFlags } from "@config/featureFlags"
 
 type ArticleDetailsPageProps = {
 	className?: string
@@ -32,6 +33,18 @@ const ArticleDetailsPage = memo<ArticleDetailsPageProps>(props => {
 	let element: ReactNode
 
 	const toArticleEdit = getRouteArticleDetailsEdit(id)
+
+	const rating = toggleFeatureFlags({
+		name: "isFeatureRating",
+		on: () => <ArticleRating articleId={id || testId} />,
+		off: () => <></>
+	})
+
+	const comments = toggleFeatureFlags({
+		name: "isFeatureComments",
+		on: () => <CommentsArticleDetails articleId={id || testId} />,
+		off: () => <></>
+	})
 
 	if (!id && __PROJECT__ !== "storybook") {
 		element = (
@@ -55,9 +68,9 @@ const ArticleDetailsPage = memo<ArticleDetailsPageProps>(props => {
 					</AppLink>
 				:	null}
 				<ArticleDetails id={id || testId} />
-				<ArticleRating articleId={id || testId} />
+				{rating}
 				<ArticlesRecommendation />
-				<CommentsArticleDetails articleId={id || testId} />
+				{comments}
 			</VStack>
 		)
 	} else {

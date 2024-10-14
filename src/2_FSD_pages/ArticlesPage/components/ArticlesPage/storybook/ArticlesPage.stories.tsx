@@ -16,7 +16,7 @@ const meta: Meta<typeof ArticlesPage> = {
 export default meta
 
 const stateArticlesList: DeepPartial<articlesListStateMap> = {
-	entities: articles as articlesListStateMap["entities"],
+	entities: articles as unknown as articlesListStateMap["entities"],
 	ids: ["1", "2", "3"]
 }
 

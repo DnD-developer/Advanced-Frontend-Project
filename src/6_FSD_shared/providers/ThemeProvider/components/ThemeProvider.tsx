@@ -1,18 +1,34 @@
 import { LOCAL_STORAGE_THEME_KEY } from "@constants/localStorage.constant"
-import { memo, type PropsWithChildren, useMemo, useState } from "react"
+import { memo, type PropsWithChildren, useMemo, useState, useEffect } from "react"
 import { THEMES } from "../constants/Themes.constant"
-import { ThemeProviderContext } from "../context/ThemeProvider.context"
+import type { ThemesProviderContextType } from "../context/ThemesProviderContext"
+import { ThemesProviderContext } from "../context/ThemesProviderContext"
 
 const defaultTheme: THEMES = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as THEMES
 
-export const ThemesProvider = memo<PropsWithChildren>(({ children }) => {
-	const [theme, setTheme] = useState<THEMES>(defaultTheme || THEMES.DARK)
+type ThemesProviderProps = {
+	saveTheme?: ThemesProviderContextType["saveTheme"]
+	userTheme?: ThemesProviderContextType["theme"]
+} & PropsWithChildren
 
-	const themeOption = useMemo(() => ({ theme, setTheme }), [theme])
+export const ThemesProvider = memo<ThemesProviderProps>(({ children, saveTheme, userTheme }) => {
+	const [theme, setTheme] = useState<THEMES>(userTheme || defaultTheme || THEMES.DARK)
+
+	useEffect(() => {
+		if (userTheme) {
+			localStorage.setItem(LOCAL_STORAGE_THEME_KEY, userTheme)
+			setTheme(userTheme)
+		}
+	}, [userTheme])
+
+	const themeOption: ThemesProviderContextType = useMemo(
+		() => ({ theme, setTheme, saveTheme }),
+		[saveTheme, theme]
+	)
 
 	return (
-		<ThemeProviderContext.Provider value={themeOption}>
+		<ThemesProviderContext.Provider value={themeOption}>
 			{children}
-		</ThemeProviderContext.Provider>
+		</ThemesProviderContext.Provider>
 	)
 })

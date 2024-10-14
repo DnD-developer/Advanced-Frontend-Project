@@ -72,6 +72,24 @@
 						"anchor",
 						"as"
 					]
+				},
+				"callees": {
+					"exclude": [
+						"getFeatureFlag",
+						"i18n(ext)?",
+						"t",
+						"require",
+						"addEventListener",
+						"removeEventListener",
+						"postMessage",
+						"getElementById",
+						"dispatch",
+						"commit",
+						"includes",
+						"indexOf",
+						"endsWith",
+						"startsWith"
+					]
 				}
 			}
 		]

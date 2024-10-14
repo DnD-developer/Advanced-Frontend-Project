@@ -3,16 +3,16 @@ import { describe, expect, test } from "@jest/globals"
 import type { mainStateMap } from "@store/storeTypes/mainState.map"
 import { getAddArticleCommentErrorSelector } from "./getAddArticleCommentError.selector"
 
-describe(getAddArticleCommentErrorSelector, () => {
+describe("getAddArticleCommentErrorSelector", () => {
 	test("get state", () => {
 		const state: DeepPartial<mainStateMap> = {
 			addArticleComment: { error: "test" }
 		}
-		expect(getAddArticleCommentErrorSelector(state as mainStateMap)).toBe("test")
+		expect(getAddArticleCommentErrorSelector()(state as mainStateMap)).toBe("test")
 	})
 
 	test("get withOut state", () => {
 		const state: DeepPartial<mainStateMap> = {}
-		expect(getAddArticleCommentErrorSelector(state as mainStateMap)).toEqual(undefined)
+		expect(getAddArticleCommentErrorSelector()(state as mainStateMap)).toEqual(undefined)
 	})
 })

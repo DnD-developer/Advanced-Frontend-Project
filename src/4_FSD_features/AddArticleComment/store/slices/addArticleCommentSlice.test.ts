@@ -57,7 +57,7 @@ describe("addArticleCommentSliceTest ExtraReducers addNewArticleCommentThunk", (
 			addNewArticleCommentThunk.fulfilled(commentData, "", commentData)
 		)
 
-		expect(newState).toEqual({ ...state, isLoading: false, error: undefined })
+		expect(newState).toEqual({ ...state, isLoading: false, error: undefined, text: "" })
 	})
 
 	test("addNewArticleCommentThunk rejected", () => {
@@ -68,6 +68,6 @@ describe("addArticleCommentSliceTest ExtraReducers addNewArticleCommentThunk", (
 			addNewArticleCommentThunk.rejected(null, "", commentData, "error request")
 		)
 
-		expect(newState).toEqual({ ...state, isLoading: false, error: "error request" })
+		expect(newState).toEqual({ ...state, isLoading: false, error: "error request", text: "" })
 	})
 })

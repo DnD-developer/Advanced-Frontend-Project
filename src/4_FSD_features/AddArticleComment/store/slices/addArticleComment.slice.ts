@@ -26,10 +26,12 @@ const addArticleCommentSlice = createSlice({
 			.addCase(addNewArticleCommentThunk.fulfilled, state => {
 				state.isLoading = false
 				state.error = undefined
+				state.text = ""
 			})
 			.addCase(addNewArticleCommentThunk.rejected, (state, action) => {
 				state.isLoading = false
 				state.error = action.payload
+				state.text = ""
 			})
 	}
 })
