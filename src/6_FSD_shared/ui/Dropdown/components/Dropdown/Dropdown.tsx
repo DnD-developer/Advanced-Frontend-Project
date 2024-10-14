@@ -5,6 +5,7 @@ import type { ReactNode } from "react"
 import { Fragment, memo, useMemo } from "react"
 import { uid } from "uid"
 import styles from "./Dropdown.module.scss"
+import { AppLink, AppLinkTheme } from "../../../AppLink"
 
 type dropDownItemType = {
 	content: ReactNode
@@ -31,8 +32,9 @@ export const Dropdown = memo<DropdownProps>(props => {
 
 					if (itm.href) {
 						Element = (
-							<a
-								href={itm.href}
+							<AppLink
+								to={itm.href}
+								theme={AppLinkTheme.CLEAR}
 								className={classNamesHelp(
 									styles.item,
 									{ [styles.active]: focus },
@@ -40,7 +42,7 @@ export const Dropdown = memo<DropdownProps>(props => {
 								)}
 							>
 								{itm.content}
-							</a>
+							</AppLink>
 						)
 					} else {
 						Element = (

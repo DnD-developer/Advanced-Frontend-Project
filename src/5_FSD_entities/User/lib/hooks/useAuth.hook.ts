@@ -4,12 +4,14 @@ import { getUserAuthDataSelector } from "../../store/selectors/getUserAuthData/g
 import { getUserInitAuthDataSelector } from "../../store/selectors/getUserInitAuthData/getUserInitAuthData.selector"
 import { getUserRolesSelector } from "../../store/selectors/getUserRoles/getUserRoles.selector"
 import { userActions } from "../../store/slices/user.slice"
+import { fetchUserDataThunk } from "../../store/thunks/fetchUserData/fetchUserData.thunk"
 
 export const useAuth = () => {
 	const authData = useSelector(getUserAuthDataSelector)
 	const _isInitAuthData = useSelector(getUserInitAuthDataSelector)
 	const userRoles = useSelector(getUserRolesSelector)
-	const { initAuthData, logOut, setAuthData } = userActions
+	const { logOut, setAuthData } = userActions
+	const fetchUserData = fetchUserDataThunk
 
 	const isAdmin = userRoles?.includes(UserRoles.ADMIN)
 	const isManager = userRoles?.includes(UserRoles.MANAGER)
@@ -20,9 +22,9 @@ export const useAuth = () => {
 		isAuth,
 		_isInitAuthData,
 		authData,
-		initAuthData,
 		logOut,
 		setAuthData,
+		fetchUserData,
 		isAdmin,
 		isManager,
 		userRoles
