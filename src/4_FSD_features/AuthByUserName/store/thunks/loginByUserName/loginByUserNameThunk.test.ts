@@ -1,5 +1,5 @@
 import type { userDataType } from "@entities/User"
-import { userActions } from "@entities/User"
+import { userDataMock, userActions } from "@entities/User"
 import { UserRoles } from "@entities/User/constants/userRoles.constant"
 import { beforeEach, describe, expect, test } from "@jest/globals"
 import { AsyncThunkMock } from "@mocks/AsyncThunk.mock"
@@ -33,7 +33,7 @@ describe("loginByUserNameThunkTest", () => {
 	})
 
 	test("getting authData fullFilled", async () => {
-		userValue = { id: "1", userName: "adminTest", roles: [UserRoles.ADMIN] }
+		userValue = userDataMock({ id: "1", userName: "adminTest", roles: [UserRoles.ADMIN] })
 
 		mockedPost.mockReturnValue(Promise.resolve({ data: userValue }))
 

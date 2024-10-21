@@ -11,6 +11,7 @@ import type { Decorator } from "@storybook/react"
 import { articlesListReducer } from "@widgets/ArticlesList/store/slices/articlesList.slice"
 import { commentsArticleDetailsReducer } from "@widgets/CommentsArticleDetails/store/slices/commentsArticleDetails.slice"
 import type { asyncReducersList } from "@hooks/useAsyncReducer.hook"
+import { userDataMock } from "@entities/User"
 
 const asyncReducersDefault: asyncReducersList = {
 	articleDetails: articleReducer,
@@ -36,11 +37,11 @@ export const StoreDecorator = (
 				{
 					...initialState,
 					user: {
-						authData: {
+						authData: userDataMock({
 							id: "1",
 							userName: "Lucifer",
 							avatar: "https://i.pinimg.com/originals/f0/f8/fe/f0f8fe0e76824fd544a9154b995fb01d.jpg"
-						}
+						})
 					}
 				}
 			:	initialState

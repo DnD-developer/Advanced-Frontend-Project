@@ -1,8 +1,9 @@
-import { createSelector } from "@reduxjs/toolkit"
 import type { addArticleCommentStateMap } from "../../storeTypes/addArticleCommentState.map"
 import { getAddArticleCommentSelector } from "../getAddArticleComment/getAddArticleComment.selector"
+import { buildCreateSelector } from "@helpers/buildCreateSelector/buildCreateSelector.helper"
 
-export const getAddArticleCommentErrorSelector = createSelector(
-	getAddArticleCommentSelector,
-	(state?: addArticleCommentStateMap) => state?.error
-)
+export const [useGetAddArticleCommentErrorSelector, getAddArticleCommentErrorSelector] =
+	buildCreateSelector(
+		[getAddArticleCommentSelector],
+		(state?: addArticleCommentStateMap) => state?.error
+	)

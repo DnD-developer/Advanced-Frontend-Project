@@ -1,4 +1,4 @@
-import { UserRoles } from "../../../User"
+import { UserRoles, userDataMock } from "../../../User"
 import { ArticleTypeConstant } from "../../constants/Article.constant"
 import { ArticleBlockTypeConstant } from "../../constants/ArticleBlock.constant"
 import type { articleDetailsDataType } from "../../types/articleDetailsData.type"
@@ -12,12 +12,12 @@ export const articlesListDataMock: articleDetailsDataType[] = [
 		views: 1022,
 		createdAt: "26.02.2022",
 		type: [ArticleTypeConstant.IT, ArticleTypeConstant.DESIGN, ArticleTypeConstant.POLITICS],
-		user: {
+		user: userDataMock({
 			id: "1",
 			userName: "Lucifer",
 			roles: [UserRoles.ADMIN, UserRoles.USER],
 			avatar: "https://i.pinimg.com/originals/f0/f8/fe/f0f8fe0e76824fd544a9154b995fb01d.jpg"
-		},
+		}),
 		blocks: [
 			{
 				id: "1",
@@ -89,12 +89,12 @@ export const articlesListDataMock: articleDetailsDataType[] = [
 		views: 1022,
 		createdAt: "26.02.2022",
 		type: [ArticleTypeConstant.IT, ArticleTypeConstant.DESIGN, ArticleTypeConstant.POLITICS],
-		user: {
+		user: userDataMock({
 			id: "1",
 			userName: "Lucifer",
 			roles: [UserRoles.ADMIN, UserRoles.USER],
 			avatar: "https://i.pinimg.com/originals/f0/f8/fe/f0f8fe0e76824fd544a9154b995fb01d.jpg"
-		},
+		}),
 		blocks: [
 			{
 				id: "1",
@@ -166,12 +166,12 @@ export const articlesListDataMock: articleDetailsDataType[] = [
 		views: 1022,
 		createdAt: "26.02.2022",
 		type: [ArticleTypeConstant.IT, ArticleTypeConstant.DESIGN, ArticleTypeConstant.POLITICS],
-		user: {
+		user: userDataMock({
 			id: "1",
 			userName: "Lucifer",
 			roles: [UserRoles.ADMIN, UserRoles.USER],
 			avatar: "https://i.pinimg.com/originals/f0/f8/fe/f0f8fe0e76824fd544a9154b995fb01d.jpg"
-		},
+		}),
 		blocks: [
 			{
 				id: "1",
@@ -243,12 +243,12 @@ export const articlesListDataMock: articleDetailsDataType[] = [
 		views: 1022,
 		createdAt: "26.02.2022",
 		type: [ArticleTypeConstant.IT, ArticleTypeConstant.DESIGN, ArticleTypeConstant.POLITICS],
-		user: {
+		user: userDataMock({
 			id: "1",
 			userName: "Lucifer",
 			roles: [UserRoles.ADMIN, UserRoles.USER],
 			avatar: "https://i.pinimg.com/originals/f0/f8/fe/f0f8fe0e76824fd544a9154b995fb01d.jpg"
-		},
+		}),
 		blocks: [
 			{
 				id: "1",
@@ -320,12 +320,12 @@ export const articlesListDataMock: articleDetailsDataType[] = [
 		views: 1022,
 		createdAt: "26.02.2022",
 		type: [ArticleTypeConstant.IT, ArticleTypeConstant.DESIGN, ArticleTypeConstant.POLITICS],
-		user: {
+		user: userDataMock({
 			id: "1",
 			userName: "Lucifer",
 			roles: [UserRoles.ADMIN, UserRoles.USER],
 			avatar: "https://i.pinimg.com/originals/f0/f8/fe/f0f8fe0e76824fd544a9154b995fb01d.jpg"
-		},
+		}),
 		blocks: [
 			{
 				id: "1",

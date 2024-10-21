@@ -27,7 +27,7 @@ const meta: Meta<ProfilePageCustomProps> = {
 				url: `${__API_URL__}/profile/:id`,
 				method: "GET",
 				status: 200,
-				delay: 2000,
+				delay: 0,
 				response: profileDataMock
 			}
 		]

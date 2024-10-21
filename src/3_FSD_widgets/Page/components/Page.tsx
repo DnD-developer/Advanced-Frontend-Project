@@ -25,7 +25,7 @@ export const Page = memo<PageProps>(props => {
 
 	const { setScrollPosition } = useScrollPositionActions()
 
-	const scrollPosition = useGetScrollPositionByPathSelector(pathName)()
+	const scrollPosition = useGetScrollPositionByPathSelector(pathName)
 
 	useInitialEffect(
 		useCallback(() => {

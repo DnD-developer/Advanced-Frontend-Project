@@ -18,7 +18,7 @@ export default meta
 type TypeStory = StoryObj<typeof ArticlesList>
 
 const stateArticlesList: DeepPartial<articlesListStateMap> = {
-	entities: articles as articlesListStateMap["entities"],
+	entities: articles as unknown as articlesListStateMap["entities"],
 	ids: ["1", "2", "3"]
 }
 

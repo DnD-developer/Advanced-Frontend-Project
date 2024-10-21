@@ -51,6 +51,13 @@
 			"userName": "Lucifer",
 			"password": "123",
 			"roles": ["USER", "ADMIN"],
+			"features": {
+				"isFeatureRating": true,
+				"isFeatureComments": true
+			},
+			"settings": {
+				"theme": "app-green-theme"
+			},
 			"avatar": "https://i.pinimg.com/originals/f0/f8/fe/f0f8fe0e76824fd544a9154b995fb01d.jpg"
 		},
 		{
@@ -58,6 +65,13 @@
 			"userName": "Alice",
 			"password": "123",
 			"roles": ["USER"],
+			"features": {
+				"isFeatureRating": false,
+				"isFeatureComments": true
+			},
+			"settings": {
+				"theme": "app-dark-theme"
+			},
 			"avatar": "https://i.pinimg.com/originals/05/86/f5/0586f507c54a52dc0542a"
 		},
 		{
@@ -65,6 +79,13 @@
 			"userName": "Admin Test User",
 			"password": "123",
 			"roles": ["USER", "ADMIN"],
+			"features": {
+				"isFeatureRating": false,
+				"isFeatureComments": false
+			},
+			"settings": {
+				"theme": "app-dark-theme"
+			},
 			"avatar": "https://i.pinimg.com/originals/f0/f8/fe/f0f8fe0e76824fd544a9154b995fb01d.jpg"
 		},
 		{
@@ -72,6 +93,13 @@
 			"userName": "Test User",
 			"password": "123",
 			"roles": ["USER"],
+			"features": {
+				"isFeatureRating": true,
+				"isFeatureComments": false
+			},
+			"settings": {
+				"theme": "app-dark-theme"
+			},
 			"avatar": "https://i.pinimg.com/originals/f0/f8/fe/f0f8fe0e76824fd544a9154b995fb01d.jpg"
 		}
 	],
@@ -81,8 +109,8 @@
 			"lastName": "Morningstar",
 			"age": 10000,
 			"currency": "EUR",
-			"country": "Ukraine",
-			"city": "Fryazino",
+			"country": "Belarus",
+			"city": "Minsk",
 			"userName": "Lucifer",
 			"avatar": "https://i.pinimg.com/originals/f0/f8/fe/f0f8fe0e76824fd544a9154b995fb01d.jpg",
 			"id": "1"
@@ -615,6 +643,24 @@
 			"id": "adfAlice1",
 			"articleId": "1",
 			"userId": "2"
+		},
+		{
+			"text": "Thus jklasdf",
+			"id": "Thus jklasdfLucifer5",
+			"articleId": "5",
+			"userId": "1"
+		},
+		{
+			"text": "adsfsadf",
+			"id": "adsfsadfLucifer5",
+			"articleId": "5",
+			"userId": "1"
+		},
+		{
+			"text": "aadsfadf",
+			"id": "aadsfadfLucifer5",
+			"articleId": "5",
+			"userId": "1"
 		}
 	],
 	"article-ratings": [
