@@ -2,6 +2,7 @@ import { UserRoles } from "../../constants/userRoles.constant"
 import type { userDataType } from "../../types/userData.type"
 import type { DeepPartial } from "@customTypes/global.types"
 import { THEMES } from "@sharedProviders/ThemeProvider"
+import { setFeatureFlags } from "@config/featureFlags"
 
 export const userDataMock: (params: DeepPartial<userDataType>) => userDataType = (
 	params: DeepPartial<userDataType>
@@ -16,6 +17,8 @@ export const userDataMock: (params: DeepPartial<userDataType>) => userDataType =
 		userName: params?.userName ?? "Lucifer",
 		settings: { theme: THEMES.DARK }
 	}
+
+	setFeatureFlags(userData.features)
 
 	return userData
 }

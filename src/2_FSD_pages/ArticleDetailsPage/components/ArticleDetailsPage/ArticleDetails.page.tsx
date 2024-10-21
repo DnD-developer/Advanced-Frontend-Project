@@ -17,6 +17,7 @@ import { useParams } from "react-router"
 import styles from "./ArticleDetailsPage.module.scss"
 import { getRouteArticleDetailsEdit } from "@config/router"
 import { toggleFeatureFlags } from "@config/featureFlags"
+import { ToggleComponentFeatureFlags } from "@config/featureFlags/helpers/ToggleComponentFeatureFlags/ToggleComponentFeatureComponents"
 
 type ArticleDetailsPageProps = {
 	className?: string
@@ -37,12 +38,6 @@ const ArticleDetailsPage = memo<ArticleDetailsPageProps>(props => {
 	const rating = toggleFeatureFlags({
 		name: "isFeatureRating",
 		on: () => <ArticleRating articleId={id || testId} />,
-		off: () => <></>
-	})
-
-	const comments = toggleFeatureFlags({
-		name: "isFeatureComments",
-		on: () => <CommentsArticleDetails articleId={id || testId} />,
 		off: () => <></>
 	})
 
@@ -70,7 +65,10 @@ const ArticleDetailsPage = memo<ArticleDetailsPageProps>(props => {
 				<ArticleDetails id={id || testId} />
 				{rating}
 				<ArticlesRecommendation />
-				{comments}
+				<ToggleComponentFeatureFlags
+					name={"isFeatureComments"}
+					on={<CommentsArticleDetails articleId={id || testId} />}
+				/>
 			</VStack>
 		)
 	} else {

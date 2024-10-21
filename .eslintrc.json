@@ -34,9 +34,14 @@
 		"@arthurgeron/react-usememo"
 	],
 	"rules": {
-		"@arthurgeron/react-usememo/require-usememo": [2],
+		"@arthurgeron/react-usememo/require-usememo": [
+			2,
+			{
+				"ignoredPropNames": ["on", "off"]
+			}
+		],
+		"@arthurgeron/react-usememo/require-memo": [2],
 		"@typescript-eslint/consistent-type-imports": "error",
-		"@arthurgeron/react-usememo/require-memo": "error",
 		"react-refresh/only-export-components": "error",
 		"react-hooks/exhaustive-deps": "error",
 		"@typescript-eslint/prefer-nullish-coalescing": "off",
@@ -70,7 +75,8 @@
 						"align",
 						"role",
 						"anchor",
-						"as"
+						"as",
+						"name"
 					]
 				},
 				"callees": {

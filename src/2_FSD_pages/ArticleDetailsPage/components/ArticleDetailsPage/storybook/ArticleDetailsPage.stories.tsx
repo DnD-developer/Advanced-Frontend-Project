@@ -20,14 +20,14 @@ const meta: Meta<ArticleDetailsPageCustomProps> = {
 				url: `${__API_URL__}/articles?_limit=4&_expand=user`,
 				method: "GET",
 				status: 200,
-				delay: 2000,
+				delay: 0,
 				response: articlesListDataMock.slice(0, 3)
 			},
 			{
 				url: `${__API_URL__}/article-ratings?articleId=1&userId=1`,
 				method: "GET",
 				status: 200,
-				delay: 2000,
+				delay: 0,
 				response: ratingDataMock
 			}
 		]

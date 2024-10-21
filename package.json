@@ -33,7 +33,7 @@
 	"license": "MIT",
 	"private": true,
 	"devDependencies": {
-		"@arthurgeron/eslint-plugin-react-usememo": "^2.4.0",
+		"@arthurgeron/eslint-plugin-react-usememo": "^2.4.3",
 		"@babel/core": "^7.24.3",
 		"@babel/plugin-transform-runtime": "^7.25.4",
 		"@babel/plugin-transform-typescript": "^7.25.2",
@@ -146,6 +146,7 @@
 		"@headlessui/react": "^2.1.2",
 		"@react-spring/web": "^9.7.4",
 		"@reduxjs/toolkit": "^2.2.3",
+		"@typescript-eslint/typescript-estree": "^8.11.0",
 		"@use-gesture/react": "^10.3.1",
 		"axios": "^1.6.8",
 		"i18next": "^23.10.1",
